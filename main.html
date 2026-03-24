@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>...</title>
+        <link rel="stylesheet" href="common.css">
+        <script defer>
+            const steps = [
+                {
+                    title: "...",
+                    video: {
+                        src: "really.mp4",
+                        type: "video/mp4",
+                        poster: ""
+                    }
+                },
+                { redirect: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
+            ];
+
+            let stepIndex = 0;
+
+            const app = () => document.getElementById("app");
+
+            const renderStep = () => {
+                const step = steps[stepIndex];
+                if (step.redirect) {
+                    window.location.href = step.redirect;
+                    return;
+                }
+
+                const videoMarkup = step.video
+                    ? `
+                    <div class="media">
+                        <video controls autoplay>
+                            <source src="${step.video.src}" type="${step.video.type}">
+                        </video>
+                    </div>
+                    `
+                    : "";
+
+                app().innerHTML = `
+                    <h1>${step.title}</h1>
+                    ${videoMarkup}
+                    <button id="next-btn">Continue to website</button>
+                `;
+
+                document.getElementById("next-btn").addEventListener("click", nextStep);
+            };
+
+            const nextStep = () => {
+                stepIndex = Math.min(stepIndex + 1, steps.length - 1);
+                renderStep();
+            };
+
+            document.addEventListener("DOMContentLoaded", renderStep);
+        </script>
+    </head>
+    <body>
+        <div class="container" id="app"></div>
+    </body>
+</html>
