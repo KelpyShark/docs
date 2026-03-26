@@ -1,5 +1,4 @@
 .markdown-body {
-  margin: 20px;
   --base-size-16: 1rem;
   --base-size-24: 1.5rem;
   --base-size-4: 0.25rem;
@@ -133,7 +132,7 @@
   /** Constant motion with no acceleration. Use for continuous animations like progress bars or loaders. */
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  margin: 0;
+  margin: 40px;
   font-weight: var(--base-text-weight-normal, 400);
   color: var(--fgColor-default);
   background-color: var(--bgColor-default);
