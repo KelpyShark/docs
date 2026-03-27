@@ -9,4 +9,5 @@ Here are some project ideas to try in KelpyShark:
 5. **Text Adventure Game**: Create an interactive story.
 
 ## Summary
+
 - Start with simple projects and increase complexity as you learn.

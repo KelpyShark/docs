@@ -3,26 +3,33 @@
 Create a simple to-do list application that lets users add, view, and remove tasks from the command line.
 
 ## Learning Goals
+
 - Practice lists and dictionaries
 - Use loops and conditionals
 - Organize code into functions
 - Handle user input and errors
 
 ## Step 1: Define the Data Structure
+
 Use a list to store tasks:
+
 ```kelpyshark
 tasks = []
 ```
 
 ## Step 2: Add Tasks
+
 Prompt the user to add a task:
+
 ```kelpyshark
 task = std.input("Enter a new task: ")
 tasks.append(task)
 ```
 
 ## Step 3: View Tasks
+
 Display all tasks:
+
 ```kelpyshark
 for i in range(len(tasks)) {
     print((i+1) + ". " + tasks[i])
@@ -30,7 +37,9 @@ for i in range(len(tasks)) {
 ```
 
 ## Step 4: Remove Tasks
+
 Remove a task by its number:
+
 ```kelpyshark
 num = int(std.input("Task number to remove: "))
 if num > 0 and num <= len(tasks) {
@@ -41,7 +50,9 @@ if num > 0 and num <= len(tasks) {
 ```
 
 ## Step 5: Main Loop
+
 Let the user choose actions:
+
 ```kelpyshark
 while true {
     print("1. Add task\n2. View tasks\n3. Remove task\n4. Quit")
@@ -61,6 +72,7 @@ while true {
 ```
 
 ## Full Example
+
 ```kelpyshark
 def todo_list() {
     tasks = []
@@ -92,10 +104,12 @@ todo_list()
 ```
 
 ## Extensions
+
 - Save/load tasks to a file
 - Add task priorities or due dates
 - Mark tasks as completed
 
 ## Summary
+
 - This project reinforces lists, loops, and user interaction.
 - Try adding new features for more practice!
