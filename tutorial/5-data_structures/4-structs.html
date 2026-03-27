@@ -1,0 +1,43 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="structs-in-kelpyshark">Structs in KelpyShark</h1>
+<p>Structs are user-defined data structures that group related values together under named fields. They are similar to lightweight classes or records in other languages.</p>
+<h2 id="why-use-structs-">Why Use Structs?</h2>
+<ul>
+<li>To represent complex data with named fields.</li>
+<li>To improve code readability and maintainability.</li>
+<li>To avoid using generic dictionaries for structured data.</li>
+</ul>
+<h2 id="defining-a-struct">Defining a Struct</h2>
+<p>You can define a struct using a dictionary-like syntax, but with a clear intent to represent a structured record:</p>
+<pre><code class="lang-kelpyshark">person = {
+<span class="hljs-symbol">    name:</span> <span class="hljs-string">"Alice"</span>,
+<span class="hljs-symbol">    age:</span> <span class="hljs-number">30</span>,
+<span class="hljs-symbol">    email:</span> <span class="hljs-string">"alice@example.com"</span>
+}
+</code></pre>
+<h2 id="accessing-struct-fields">Accessing Struct Fields</h2>
+<p>Access fields using dot or bracket notation:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">print</span>(person.name)      <span class="hljs-comment"># Alice</span>
+<span class="hljs-built_in">print</span>(person[<span class="hljs-string">"email"</span>]) <span class="hljs-comment"># alice@example.com</span>
+</code></pre>
+<h2 id="example-struct-in-a-list">Example: Struct in a List</h2>
+<pre><code class="lang-kelpyshark">people = [
+    {<span class="hljs-built_in">name</span>: <span class="hljs-string">"Alice"</span>, age: <span class="hljs-number">30</span>},
+    {<span class="hljs-built_in">name</span>: <span class="hljs-string">"Bob"</span>, age: <span class="hljs-number">22</span>}
+]
+print(people[<span class="hljs-number">1</span>].<span class="hljs-built_in">name</span>)  <span class="hljs-comment"># Bob</span>
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Use structs for data with a fixed set of fields.</li>
+<li>Prefer dot notation for clarity when possible.</li>
+<li>Document the fields and purpose of each struct.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Structs group related fields under one variable.</li>
+<li>Use them for clear, maintainable code when working with structured data.</li>
+</ul>

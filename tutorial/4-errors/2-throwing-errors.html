@@ -1,0 +1,57 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="throwing-errors">Throwing Errors</h1>
+<p>Throwing errors is a fundamental part of error handling in KelpyShark. You can use the <code>throw</code> statement to signal that something unexpected has happened, or to enforce constraints in your code.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>The simplest way to throw an error is to use the <code>throw</code> statement with a string message:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">throw</span> <span class="hljs-string">"Something went wrong!"</span>
+</code></pre>
+<p>This will immediately stop execution and propagate the error up the call stack until it is caught by a <code>try-catch</code> block (see previous section).</p>
+<h2 id="throwing-custom-error-objects">Throwing Custom Error Objects</h2>
+<p>You can also throw custom error objects for more structured error handling. For example:</p>
+<pre><code class="lang-kelpyshark">let err = {
+<span class="hljs-symbol"> type:</span> <span class="hljs-string">"FileNotFoundError"</span>,
+<span class="hljs-symbol"> message:</span> <span class="hljs-string">"The file 'data.txt' was not found."</span>,
+<span class="hljs-symbol"> code:</span> <span class="hljs-number">404</span>
+}
+throw err
+</code></pre>
+<p>This allows you to include additional information about the error, such as a type or error code, which can be checked in a <code>catch</code> block.</p>
+<h2 id="throwing-errors-in-functions">Throwing Errors in Functions</h2>
+<p>Throwing errors is especially useful in functions to indicate invalid input or failed operations:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">divide</span><span class="hljs-params">(a, b)</span></span> {
+ <span class="hljs-keyword">if</span> b == <span class="hljs-number">0</span> {
+  <span class="hljs-keyword">throw</span> <span class="hljs-string">"Division by zero is not allowed."</span>
+ }
+ <span class="hljs-keyword">return</span> a / b
+}
+
+<span class="hljs-keyword">try</span> {
+ <span class="hljs-keyword">let</span> result = divide(<span class="hljs-number">10</span>, <span class="hljs-number">0</span>)
+} <span class="hljs-keyword">catch</span> (err) {
+ <span class="hljs-built_in">print</span>(<span class="hljs-string">"Error: "</span> + err)
+}
+</code></pre>
+<h2 id="advanced-throwing-with-stack-trace">Advanced: Throwing with Stack Trace</h2>
+<p>Some advanced error objects may include a stack trace for debugging:</p>
+<pre><code class="lang-kelpyshark">let <span class="hljs-keyword">err</span> = {
+ <span class="hljs-keyword">type</span>: <span class="hljs-string">"CustomError"</span>,
+ message: <span class="hljs-string">"Something advanced went wrong."</span>,
+ <span class="hljs-keyword">stack</span>: getStackTrace() <span class="hljs-comment">// hypothetical stdlib function</span>
+}
+throw <span class="hljs-keyword">err</span>
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Use descriptive error messages.</li>
+<li>Prefer throwing structured error objects for complex applications.</li>
+<li>Only throw errors for truly exceptional conditions, not for normal control flow.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>throw</code> to raise an error manually.</li>
+<li>You can throw strings or custom error objects.</li>
+<li>Thrown errors can be caught with <code>try-catch</code> blocks.</li>
+</ul>

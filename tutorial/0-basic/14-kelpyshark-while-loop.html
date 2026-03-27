@@ -1,0 +1,57 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="while-loops-in-kelpyshark">While Loops in KelpyShark</h1>
+<p>Use <code>while</code> to repeat code as long as a condition is true.</p>
+<h2 id="basic-while-loop">Basic While Loop</h2>
+<pre><code class="lang-kelpyshark">x = 0
+<span class="hljs-keyword">while</span> x &lt; 5 {
+    <span class="hljs-built_in">print</span> x
+    x = x + 1
+}
+<span class="hljs-comment"># Output: 0 1 2 3 4</span>
+</code></pre>
+<h2 id="infinite-loops">Infinite Loops</h2>
+<p>Use <code>while true</code> for a loop that never ends (until <code>break</code>):</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">while</span> <span class="hljs-literal">true</span> {
+    print <span class="hljs-string">"Looping forever!"</span>
+    <span class="hljs-keyword">break</span>   # Remove <span class="hljs-keyword">this</span> to loop forever
+}
+</code></pre>
+<h2 id="loop-control-break-and-continue">Loop Control: break and continue</h2>
+<p>Use <code>break</code> to exit early, <code>continue</code> to skip to the next iteration:</p>
+<pre><code class="lang-kelpyshark">x = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> x &lt; <span class="hljs-number">10</span> {
+    x = x + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">continue</span>   <span class="hljs-meta"># Skip even numbers</span>
+    }
+    <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">7</span> {
+        <span class="hljs-keyword">break</span>      <span class="hljs-meta"># Stop loop <span class="hljs-meta-keyword">if</span> x &gt; <span class="hljs-number">7</span></span>
+    }
+    <span class="hljs-keyword">print</span> x
+}
+<span class="hljs-meta"># Output: <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">7</span></span>
+</code></pre>
+<h2 id="nested-while-loops">Nested While Loops</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-selector-tag">i</span> = <span class="hljs-number">1</span>
+while <span class="hljs-selector-tag">i</span> &lt;= <span class="hljs-number">3</span> {
+    j = <span class="hljs-number">1</span>
+    while j &lt;= <span class="hljs-number">2</span> {
+        print <span class="hljs-string">"i={$i}, j={$j}"</span>
+        j = j + <span class="hljs-number">1</span>
+    }
+    <span class="hljs-selector-tag">i</span> = <span class="hljs-selector-tag">i</span> + <span class="hljs-number">1</span>
+}
+</code></pre>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+<ul>
+<li>Make sure the loop condition eventually becomes false, or you&#39;ll get an infinite loop.</li>
+<li>Use <code>break</code> to exit if needed.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>while</code> for repeated actions with unknown count.</li>
+<li>Control the loop with <code>break</code> and <code>continue</code>.</li>
+</ul>

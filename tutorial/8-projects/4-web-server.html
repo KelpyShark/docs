@@ -1,0 +1,56 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="project-simple-web-server">Project: Simple Web Server</h1>
+<p>Build a basic web server that responds to HTTP requests. (Requires KelpyShark&#39;s networking/stdlib support.)</p>
+<h2 id="learning-goals">Learning Goals</h2>
+<ul>
+<li>Practice network IO</li>
+<li>Work with sockets and protocols</li>
+<li>Organize code for real-world applications</li>
+</ul>
+<h2 id="step-1-import-networking-module">Step 1: Import Networking Module</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">import</span> <span class="hljs-built_in">std</span>.net
+</code></pre>
+<h2 id="step-2-create-a-server-socket">Step 2: Create a Server Socket</h2>
+<pre><code class="lang-kelpyshark">server = std<span class="hljs-selector-class">.net</span><span class="hljs-selector-class">.listen</span>(<span class="hljs-number">8080</span>)
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Server running on port 8080..."</span>)</span></span>
+</code></pre>
+<h2 id="step-3-accept-and-handle-requests">Step 3: Accept and Handle Requests</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> {
+    <span class="hljs-keyword">client</span> = <span class="hljs-keyword">server</span>.accept()
+    request = <span class="hljs-keyword">client</span>.read()
+    print(<span class="hljs-string">"Received request:\n"</span> + request)
+    response = <span class="hljs-string">"HTTP/1.0 200 OK\r\nContent-Type: text/plain\r\n\r\nHello from KelpyShark!"</span>
+    <span class="hljs-keyword">client</span>.write(response)
+    <span class="hljs-keyword">client</span>.close()
+}
+</code></pre>
+<h2 id="full-example">Full Example</h2>
+<pre><code class="lang-kelpyshark">def web_server() {
+    <span class="hljs-keyword">import</span> std.net
+    server = std.net.<span class="hljs-built_in">listen</span>(<span class="hljs-number">8080</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Server running on port 8080..."</span>)
+    <span class="hljs-built_in">while</span> true {
+        client = server.accept()
+        request = client.<span class="hljs-built_in">read</span>()
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Received request:\n"</span> + request)
+        response = <span class="hljs-string">"HTTP/1.0 200 OK\r\nContent-Type: text/plain\r\n\r\nHello from KelpyShark!"</span>
+        client.<span class="hljs-built_in">write</span>(response)
+        client.<span class="hljs-built_in">close</span>()
+    }
+}
+web_server()
+</code></pre>
+<h2 id="extensions">Extensions</h2>
+<ul>
+<li>Serve HTML files or dynamic content</li>
+<li>Log requests to a file</li>
+<li>Add support for multiple routes (URLs)</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>This project demonstrates networking, sockets, and server logic.</li>
+<li>Try building more complex web apps as you advance!</li>
+</ul>

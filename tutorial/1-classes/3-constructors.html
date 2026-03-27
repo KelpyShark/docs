@@ -1,0 +1,27 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="constructors">Constructors</h1>
+<p>KelpyShark will support constructors in future versions. Currently, you can use functions to initialize dictionaries that represent objects.</p>
+<h2 id="example-simulating-a-constructor">Example: Simulating a Constructor</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_person</span><span class="hljs-params">(name, age)</span></span> {
+    <span class="hljs-keyword">return</span> {<span class="hljs-string">"name"</span>: name, <span class="hljs-string">"age"</span>: age}
+}
+
+alice = make_person(<span class="hljs-string">"Alice"</span>, <span class="hljs-number">30</span>)
+print alice[<span class="hljs-string">"name"</span>]   <span class="hljs-comment"># Alice</span>
+</code></pre>
+<h2 id="planned-syntax-not-yet-implemented-">Planned Syntax (Not Yet Implemented)</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> {</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(name, age)</span></span> {
+        <span class="hljs-keyword">self</span>.name = name
+        <span class="hljs-keyword">self</span>.age = age
+    }
+}
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use functions to create and initialize dictionaries.</li>
+<li>Constructor syntax is planned for future versions.</li>
+</ul>

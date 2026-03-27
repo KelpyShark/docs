@@ -1,0 +1,63 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="custom-errors-in-kelpyshark">Custom Errors in KelpyShark</h1>
+<p>KelpyShark allows you to define and throw custom error objects, making error handling more expressive and robust.</p>
+<h2 id="why-use-custom-errors-">Why Use Custom Errors?</h2>
+<ul>
+<li>To distinguish between different error types.</li>
+<li>To attach additional information (error codes, context, etc.).</li>
+<li>To enable more precise error handling in <code>catch</code> blocks.</li>
+</ul>
+<h2 id="defining-a-custom-error-object">Defining a Custom Error Object</h2>
+<p>A custom error is simply an object with properties describing the error:</p>
+<pre><code class="lang-kelpyshark">let err = {
+<span class="hljs-symbol">    type:</span> <span class="hljs-string">"ValidationError"</span>,
+<span class="hljs-symbol">    message:</span> <span class="hljs-string">"Input must be a positive number."</span>,
+<span class="hljs-symbol">    code:</span> <span class="hljs-number">1001</span>,
+<span class="hljs-symbol">    context:</span> {
+<span class="hljs-symbol">        input:</span> <span class="hljs-number">-5</span>
+    }
+}
+throw err
+</code></pre>
+<h2 id="catching-and-handling-custom-errors">Catching and Handling Custom Errors</h2>
+<p>You can check the properties of the error object in your <code>catch</code> block:</p>
+<pre><code class="lang-kelpyshark">try {
+    throw {
+        <span class="hljs-keyword">type</span>: <span class="hljs-string">"AuthError"</span>,
+        message: <span class="hljs-string">"Invalid credentials."</span>,
+        code: 401
+    }
+} catch (<span class="hljs-keyword">err</span>) {
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">err</span>.<span class="hljs-keyword">type</span> == <span class="hljs-string">"AuthError"</span> {
+        <span class="hljs-keyword">print</span>(<span class="hljs-string">"Authentication failed: "</span> + <span class="hljs-keyword">err</span>.message)
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">print</span>(<span class="hljs-string">"Other error: "</span> + <span class="hljs-keyword">err</span>)
+    }
+}
+</code></pre>
+<h2 id="example-custom-error-class-pattern">Example: Custom Error Class Pattern</h2>
+<p>For advanced usage, you can define a function to create error objects:</p>
+<pre><code class="lang-kelpyshark">func makeError(<span class="hljs-class"><span class="hljs-keyword">type</span>, <span class="hljs-title">message</span>, <span class="hljs-title">code</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-class"><span class="hljs-keyword">type</span></span>: <span class="hljs-class"><span class="hljs-keyword">type</span>,</span>
+        message: message,
+        code: code
+    }
+}
+
+<span class="hljs-keyword">throw</span> makeError(<span class="hljs-string">"NetworkError"</span>, <span class="hljs-string">"Timeout occurred."</span>, <span class="hljs-number">408</span>)
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Always include a <code>type</code> and <code>message</code> in your custom errors.</li>
+<li>Use error codes for programmatic handling.</li>
+<li>Document your custom error types for maintainability.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Custom errors are objects with descriptive properties.</li>
+<li>Use them for precise and maintainable error handling.</li>
+</ul>

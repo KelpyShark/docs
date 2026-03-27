@@ -1,0 +1,39 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="type-casting-in-kelpyshark">Type Casting in KelpyShark</h1>
+<p>Convert between types using built-in functions:</p>
+<ul>
+<li><code>str(x)</code> — Converts any value to a string</li>
+<li><code>num(x)</code> — Converts a value to a number (if possible)</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-kelpyshark">x = <span class="hljs-number">42</span>
+s = <span class="hljs-keyword">str</span>(x)      <span class="hljs-meta"># <span class="hljs-meta-string">"42"</span></span>
+n = num(<span class="hljs-string">"3.14"</span>) <span class="hljs-meta"># <span class="hljs-number">3.14</span></span>
+<span class="hljs-keyword">print</span> <span class="hljs-keyword">str</span>(true) <span class="hljs-meta"># <span class="hljs-meta-string">"true"</span></span>
+<span class="hljs-keyword">print</span> num(<span class="hljs-string">"-7"</span>) <span class="hljs-meta"># <span class="hljs-number">-7</span></span>
+</code></pre>
+<h2 id="converting-lists-and-dicts">Converting Lists and Dicts</h2>
+<pre><code class="lang-kelpyshark">lst = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+<span class="hljs-built_in">print</span> <span class="hljs-built_in">str</span>(lst)   # <span class="hljs-string">"[1,2,3]"</span>
+dict = {<span class="hljs-string">"a"</span>: <span class="hljs-number">1</span>}
+<span class="hljs-built_in">print</span> <span class="hljs-built_in">str</span>(dict)  # <span class="hljs-string">"{\"a\":1}"</span>
+</code></pre>
+<h2 id="error-handling">Error Handling</h2>
+<p>If conversion fails, a runtime error is raised:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">num</span>(<span class="hljs-string">"abc"</span>)   # Error: cannot <span class="hljs-built_in">convert</span> <span class="hljs-built_in">string</span> to number
+</code></pre>
+<h2 id="checking-types-before-casting">Checking Types Before Casting</h2>
+<p>Use <code>type(x)</code> to check the type before converting:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">val</span> = <span class="hljs-string">"123"</span>
+<span class="hljs-keyword">if</span> <span class="hljs-class"><span class="hljs-keyword">type</span></span>(<span class="hljs-keyword">val</span>) == <span class="hljs-string">"string"</span> {
+ print num(<span class="hljs-keyword">val</span>)
+}
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>str()</code> and <code>num()</code> for conversions.</li>
+<li>Handle errors for invalid conversions.</li>
+</ul>
