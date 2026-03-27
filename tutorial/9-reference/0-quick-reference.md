@@ -5,12 +5,14 @@ This quick reference provides a concise summary of KelpyShark's syntax, features
 ---
 
 ## Variables
+
 ```kelpyshark
 x = 10
 y = "hello"
 ```
 
 ## Data Types
+
 - Numbers: `42`, `3.14`
 - Strings: `"text"`
 - Lists: `[1, 2, 3]`
@@ -18,11 +20,13 @@ y = "hello"
 - Booleans: `true`, `false`
 
 ## Comments
+
 ```kelpyshark
 # This is a comment
 ```
 
 ## Functions
+
 ```kelpyshark
 def add(a, b) {
     return a + b
@@ -30,6 +34,7 @@ def add(a, b) {
 ```
 
 ## Conditionals
+
 ```kelpyshark
 if x > 0 {
     print("Positive")
@@ -41,6 +46,7 @@ if x > 0 {
 ```
 
 ## Loops
+
 ```kelpyshark
 for i in range(5) {
     print(i)
@@ -51,6 +57,7 @@ while x > 0 {
 ```
 
 ## Classes
+
 ```kelpyshark
 class Person {
     def __init__(self, name) {
@@ -63,6 +70,7 @@ class Person {
 ```
 
 ## Error Handling
+
 ```kelpyshark
 try {
     risky()
@@ -73,6 +81,7 @@ throw "Something went wrong!"
 ```
 
 ## File IO
+
 ```kelpyshark
 file = open("data.txt", "r")
 content = file.read()
@@ -80,12 +89,14 @@ file.close()
 ```
 
 ## Importing Modules
+
 ```kelpyshark
 import math
 print(math.sqrt(16))
 ```
 
 ## Standard Library Highlights
+
 - `std.input(prompt)`: Read input from user
 - `print(value)`: Output to console
 - `len(obj)`: Get length
@@ -95,6 +106,7 @@ print(math.sqrt(16))
 ---
 
 ## CLI & Package Manager
+
 - Run a script: `kelpyshark myfile.ks`
 - Install package: `kelpyshark pkg install <name>`
 - List packages: `kelpyshark pkg list`
@@ -102,6 +114,7 @@ print(math.sqrt(16))
 ---
 
 ## Grammar Notes
+
 - Indentation is significant
 - Use `{}` for code blocks
 - Statements end at line breaks
@@ -109,4 +122,5 @@ print(math.sqrt(16))
 ---
 
 ## More
+
 See the full tutorial for detailed explanations and examples of every feature.

@@ -3,6 +3,7 @@
 KelpyShark is a readable, beginner-friendly, and powerful programming language designed for everyone—from absolute beginners to advanced users. It supports scripting, compiled applications, cross-language transpilation, reusable libraries, and real software development.
 
 ## Key Features
+
 - **Simple, readable syntax** (inspired by Python, C, and JSON)
 - **Dynamic typing**
 - **Curly braces for scope**
@@ -15,6 +16,7 @@ KelpyShark is a readable, beginner-friendly, and powerful programming language d
 - **Standard library and package manager**
 
 ## Example Program
+
 ```kelpyshark
 # FizzBuzz Example
 for i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] {
@@ -31,6 +33,7 @@ for i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] {
 ```
 
 ## Philosophy
+
 - **Readability first**
 - **Beginner-friendly, but powerful for experts**
 - **Safe, portable, and extensible**
