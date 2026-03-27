@@ -3,7 +3,9 @@
 KelpyShark supports first-class functions, which means you can treat functions like any other value. This enables higher-order functions—functions that take other functions as arguments or return them as results.
 
 ## Passing Functions as Arguments
+
 You can pass a function to another function:
+
 ```kelpyshark
 def apply_twice(f, x) {
     return f(f(x))
@@ -15,7 +17,9 @@ print(apply_twice(increment, 3))   # 5
 ```
 
 ## Returning Functions
+
 Functions can return other functions:
+
 ```kelpyshark
 def make_multiplier(factor) {
     return def(x) { return x * factor }
@@ -25,13 +29,16 @@ print(double(10))  # 20
 ```
 
 ## Using Anonymous (Lambda) Functions
+
 You can define functions inline:
+
 ```kelpyshark
 nums = [1, 2, 3]
 print(nums.map(def(x) { return x * x }))  # [1, 4, 9]
 ```
 
 ## Common Patterns
+
 - **Map**: Apply a function to each item in a list.
 - **Filter**: Select items matching a condition.
 - **Reduce**: Combine items into a single value.
@@ -47,10 +54,12 @@ print(sum)      # 10
 ```
 
 ## Best Practices
+
 - Use higher-order functions for concise, expressive code.
 - Prefer named functions for clarity in complex logic.
 - Use anonymous functions for short, simple operations.
 
 ## Summary
+
 - Functions can be passed and returned like values.
 - Higher-order functions enable powerful programming patterns.

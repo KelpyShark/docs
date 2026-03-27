@@ -7,10 +7,12 @@ Once you are comfortable with the basics, KelpyShark offers powerful advanced fe
 - **Metaprogramming**: Techniques for writing code that manipulates code (planned for future versions).
 
 These topics will help you:
+
 - Write reusable and composable code
 - Structure large projects
 - Explore the boundaries of the language
 
 ## Summary
+
 - Explore advanced language features and best practices.
 - Mastering these topics will make you a KelpyShark power user.
