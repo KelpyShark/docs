@@ -9,6 +9,7 @@ KelpyShark provides simple but powerful mechanisms for handling errors and excep
 - `throw` statements: Raise errors intentionally when something goes wrong.
 
 ## Example: Error Handling
+
 Here is a basic example of catching an error:
 
 ```kelpyshark
@@ -22,11 +23,13 @@ try {
 You can use `try` and `catch` to handle errors from any code that might fail. The `err` variable contains the error message or object.
 
 ## Why Handle Errors?
+
 - Detect and respond to problems.
 - Show helpful messages to users.
 - Clean up resources (like files or network connections) after an error.
 - Prevent your program from crashing unexpectedly.
 
 ## Summary
+
 - Use `try` and `catch` to handle errors.
 - Error handling makes your programs more robust and user-friendly.
