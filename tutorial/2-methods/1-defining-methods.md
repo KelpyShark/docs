@@ -3,6 +3,7 @@
 KelpyShark will support defining methods inside classes in future versions. For now, define functions that take the object as the first argument.
 
 ## Example
+
 ```kelpyshark
 def set_name(person, name) {
     person["name"] = name
@@ -15,6 +16,7 @@ print bob["name"]   # Bob
 ```
 
 ## Planned Syntax (Not Yet Implemented)
+
 ```kelpyshark
 class Person {
     def set_name(name) {
@@ -24,4 +26,5 @@ class Person {
 ```
 
 ## Summary
+
 - Use functions to define methods for now.
