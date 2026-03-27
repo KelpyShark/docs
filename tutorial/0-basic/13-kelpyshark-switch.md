@@ -1,11 +1,9 @@
 # Switch/Match in KelpyShark
 
-
-# Switch/Match in KelpyShark
-
 KelpyShark does not have a built-in `switch` statement, but you can use chained `if`/`else if`/`else` blocks to achieve similar logic.
 
 ## Basic Example
+
 ```kelpyshark
 x = "banana"
 if x == "apple" {
@@ -18,7 +16,9 @@ if x == "apple" {
 ```
 
 ## Multiple Values (Manual Matching)
+
 You can match multiple values using `or`:
+
 ```kelpyshark
 color = "red"
 if color == "red" or color == "blue" {
@@ -31,7 +31,9 @@ if color == "red" or color == "blue" {
 ```
 
 ## Nested Matching
+
 For more complex logic, nest conditionals:
+
 ```kelpyshark
 shape = "circle"
 size = "large"
@@ -49,7 +51,9 @@ if shape == "circle" {
 ```
 
 ## Using Dictionaries for Lookup
+
 For many cases, a dictionary can replace a switch:
+
 ```kelpyshark
 actions = {
     "run": "You run fast!",
@@ -65,5 +69,6 @@ if verb in actions {
 ```
 
 ## Summary
+
 - Use chained `if`/`else if`/`else` for multi-way branching.
 - Use dictionaries for value-to-action lookups.

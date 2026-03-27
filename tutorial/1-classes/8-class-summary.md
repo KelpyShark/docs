@@ -6,6 +6,7 @@
 - Planned features include class definitions, constructors, instance/class/static methods, and inheritance.
 
 ## Example Recap
+
 ```kelpyshark
 def make_person(name, age) {
     return {"name": name, "age": age}

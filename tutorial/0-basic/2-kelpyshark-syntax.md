@@ -1,8 +1,5 @@
 # KelpyShark Syntax Basics
 
-
-# KelpyShark Syntax Basics
-
 KelpyShark uses a clean, readable syntax designed for clarity and ease of use.
 
 - **Statements** end at line breaks or block close (`}`)
@@ -11,6 +8,7 @@ KelpyShark uses a clean, readable syntax designed for clarity and ease of use.
 - **Comments** start with `#` or use `### ... ###` for multi-line
 
 ## Example: Function Definition
+
 ```kelpyshark
 # This is a comment
 def greet(name) {
@@ -21,8 +19,10 @@ greet("KelpyShark")
 ```
 
 ## Whitespace and Indentation
+
 - Extra spaces and blank lines are ignored.
 - Indent code inside blocks for readability:
+
 ```kelpyshark
 if true {
     print "Indented!"
@@ -30,7 +30,9 @@ if true {
 ```
 
 ## Multi-line Statements
+
 You can split long statements across lines inside parentheses, brackets, or braces:
+
 ```kelpyshark
 nums = [
     1,
@@ -40,7 +42,8 @@ nums = [
 ```
 
 ## Multi-line Comments
-```
+
+```kelpyshark
 ###
 This is a
 multi-line comment
@@ -48,4 +51,5 @@ multi-line comment
 ```
 
 ## Summary
+
 - Use curly braces for blocks, indentation for readability, and comments for clarity.

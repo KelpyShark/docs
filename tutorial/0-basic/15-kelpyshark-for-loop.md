@@ -1,11 +1,9 @@
 # For Loops in KelpyShark
 
-
-# For Loops in KelpyShark
-
 Use `for` to iterate over lists or other collections.
 
 ## Basic For Loop
+
 ```kelpyshark
 fruits = ["apple", "banana", "cherry"]
 for fruit in fruits {
@@ -15,7 +13,9 @@ for fruit in fruits {
 ```
 
 ## Looping with Index
+
 To access both index and value:
+
 ```kelpyshark
 fruits = ["apple", "banana", "cherry"]
 for i in [0, 1, 2] {
@@ -25,7 +25,9 @@ for i in [0, 1, 2] {
 ```
 
 ## Range Loop Idiom
+
 KelpyShark does not have a built-in `range`, but you can use a list:
+
 ```kelpyshark
 for i in [1,2,3,4,5] {
     print i
@@ -33,6 +35,7 @@ for i in [1,2,3,4,5] {
 ```
 
 ## Nested For Loops
+
 ```kelpyshark
 matrix = [[1,2],[3,4]]
 for row in matrix {
@@ -44,6 +47,7 @@ for row in matrix {
 ```
 
 ## Iterating Dictionaries
+
 ```kelpyshark
 person = {"name": "Alice", "age": 30}
 for key in ["name", "age"] {
@@ -52,9 +56,11 @@ for key in ["name", "age"] {
 ```
 
 ## Common Pitfalls
+
 - Modifying a list while iterating can cause bugs.
 - Use a copy if you need to change the list during iteration.
 
 ## Summary
+
 - Use `for` for known-length iteration.
 - Can iterate lists, strings, or dictionary keys.

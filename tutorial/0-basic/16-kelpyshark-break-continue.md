@@ -1,11 +1,9 @@
 # Break & Continue in KelpyShark
 
-
-# Break & Continue in KelpyShark
-
 Use `break` to exit a loop early, and `continue` to skip to the next iteration.
 
 ## Basic Example
+
 ```kelpyshark
 for i in [1,2,3,4,5] {
     if i == 3 {
@@ -20,6 +18,7 @@ for i in [1,2,3,4,5] {
 ```
 
 ## Using in While Loops
+
 ```kelpyshark
 x = 0
 while x < 6 {
@@ -36,7 +35,9 @@ while x < 6 {
 ```
 
 ## Nested Loops
+
 `break` and `continue` only affect the innermost loop:
+
 ```kelpyshark
 for i in [1,2,3] {
     for j in [1,2,3] {
@@ -52,9 +53,11 @@ for i in [1,2,3] {
 ```
 
 ## Common Pitfalls
+
 - `break` exits only the current loop, not all nested loops.
 - Use flags or extra logic to break out of multiple loops if needed.
 
 ## Summary
+
 - `break` exits a loop early.
 - `continue` skips to the next iteration.

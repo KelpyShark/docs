@@ -1,11 +1,9 @@
 # If / Else in KelpyShark
 
-
-# If / Else in KelpyShark
-
 Control the flow of your program using `if`, `else if`, and `else` statements.
 
 ## Basic If/Else
+
 ```kelpyshark
 x = 10
 if x > 5 {
@@ -16,7 +14,9 @@ if x > 5 {
 ```
 
 ## Chained Conditions (Else If)
+
 Use `else if` to check multiple conditions in order:
+
 ```kelpyshark
 score = 72
 if score >= 90 {
@@ -31,7 +31,9 @@ if score >= 90 {
 ```
 
 ## Nested Conditionals
+
 You can nest `if` statements inside each other:
+
 ```kelpyshark
 age = 20
 citizen = true
@@ -47,7 +49,9 @@ if age >= 18 {
 ```
 
 ## Truthiness in Conditions
+
 Any truthy/falsey value can be used in an `if`:
+
 ```kelpyshark
 if "" {
     print "This will NOT print."
@@ -58,9 +62,11 @@ if "hello" {
 ```
 
 ## Common Mistakes
+
 - Use `==` for comparison, not `=` (assignment).
 - Curly braces are required for code blocks.
 
 ## Summary
+
 - Use `if`, `else if`, and `else` for decision making.
 - Conditions use booleans or truthy/falsey values.

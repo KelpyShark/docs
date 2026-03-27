@@ -3,6 +3,7 @@
 KelpyShark will support instance methods in future versions. For now, use functions that take a dictionary (object) as the first argument.
 
 ## Example: Simulating Instance Methods
+
 ```kelpyshark
 def birthday(person) {
     person["age"] = person["age"] + 1
@@ -15,6 +16,7 @@ print bob["age"]   # 26
 ```
 
 ## Planned Syntax (Not Yet Implemented)
+
 ```kelpyshark
 class Person {
     def birthday() {
@@ -24,5 +26,6 @@ class Person {
 ```
 
 ## Summary
+
 - Use functions with the object as the first argument.
 - Instance method syntax is planned for future versions.

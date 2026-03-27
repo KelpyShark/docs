@@ -3,6 +3,7 @@
 KelpyShark will support class methods in future versions. For now, use standalone functions that operate on dictionaries representing classes or objects.
 
 ## Example: Simulating Class Methods
+
 ```kelpyshark
 def describe_person(person) {
     print person["name"] + " is " + person["age"] + " years old."
@@ -13,6 +14,7 @@ describe_person(alice)   # Alice is 30 years old.
 ```
 
 ## Planned Syntax (Not Yet Implemented)
+
 ```kelpyshark
 class Person {
     @classmethod
@@ -23,5 +25,6 @@ class Person {
 ```
 
 ## Summary
+
 - Use standalone functions for class-level operations.
 - Class method syntax is planned for future versions.

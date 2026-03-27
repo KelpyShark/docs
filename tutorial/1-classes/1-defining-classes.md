@@ -3,6 +3,7 @@
 KelpyShark will support class definitions in future versions. For now, you can mimic classes using dictionaries and functions.
 
 ## Planned Syntax (Not Yet Implemented)
+
 ```kelpyshark
 class Person {
     name
@@ -15,6 +16,7 @@ class Person {
 ```
 
 ## Current Workaround
+
 Use a dictionary to store attributes and functions to operate on them.
 
 ```kelpyshark
@@ -27,5 +29,6 @@ def birthday(p) {
 ```
 
 ## Summary
+
 - Classes are not yet available.
 - Use dictionaries and functions to simulate class-like behavior.
