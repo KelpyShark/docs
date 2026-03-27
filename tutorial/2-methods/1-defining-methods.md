@@ -1,30 +1,27 @@
-# Defining Methods
-
-KelpyShark will support defining methods inside classes in future versions. For now, define functions that take the object as the first argument.
-
-## Example
-
-```kelpyshark
-def set_name(person, name) {
-    person["name"] = name
-    return person
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="defining-methods">Defining Methods</h1>
+<p>KelpyShark will support defining methods inside classes in future versions. For now, define functions that take the object as the first argument.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_name</span><span class="hljs-params">(person, name)</span></span> {
+    person[<span class="hljs-string">"name"</span>] = name
+    <span class="hljs-keyword">return</span> person
 }
 
-bob = {"name": "", "age": 22}
-bob = set_name(bob, "Bob")
-print bob["name"]   # Bob
-```
-
-## Planned Syntax (Not Yet Implemented)
-
-```kelpyshark
-class Person {
-    def set_name(name) {
-        self.name = name
+bob = {<span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">22</span>}
+bob = set_name(bob, <span class="hljs-string">"Bob"</span>)
+print bob[<span class="hljs-string">"name"</span>]   <span class="hljs-comment"># Bob</span>
+</code></pre>
+<h2 id="planned-syntax-not-yet-implemented-">Planned Syntax (Not Yet Implemented)</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> {</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_name</span><span class="hljs-params">(name)</span></span> {
+        <span class="hljs-keyword">self</span>.name = name
     }
 }
-```
-
-## Summary
-
-- Use functions to define methods for now.
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use functions to define methods for now.</li>
+</ul>

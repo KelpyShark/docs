@@ -1,70 +1,52 @@
-# Dictionaries
-
-Dictionaries are collections of key-value pairs. They are sometimes called maps or associative arrays in other languages. Keys are usually strings, and values can be any type.
-
-## Creating Dictionaries
-
-Use curly braces and colons to create a dictionary:
-
-```kelpyshark
-person = {"name": "Bob", "age": 22}
-```
-
-## Accessing Values
-
-Access values by their key:
-
-```kelpyshark
-print(person["name"])   # Bob
-```
-
-## Adding and Modifying Entries
-
-```kelpyshark
-person["city"] = "London"   # Add new key-value pair
-person["age"] = 23          # Update value
-```
-
-## Removing Entries
-
-```kelpyshark
-del person["city"]
-```
-
-## Iterating Over Dictionaries
-
-```kelpyshark
-for key in person.keys() {
- print(key + ": " + person[key])
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="dictionaries">Dictionaries</h1>
+<p>Dictionaries are collections of key-value pairs. They are sometimes called maps or associative arrays in other languages. Keys are usually strings, and values can be any type.</p>
+<h2 id="creating-dictionaries">Creating Dictionaries</h2>
+<p>Use curly braces and colons to create a dictionary:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-attr">person</span> = {<span class="hljs-string">"name"</span>: <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">22</span>}
+</code></pre>
+<h2 id="accessing-values">Accessing Values</h2>
+<p>Access values by their key:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">print</span>(person[<span class="hljs-string">"name"</span>])   <span class="hljs-comment"># Bob</span>
+</code></pre>
+<h2 id="adding-and-modifying-entries">Adding and Modifying Entries</h2>
+<pre><code class="lang-kelpyshark">person[<span class="hljs-string">"city"</span>] = <span class="hljs-string">"London"</span>   # <span class="hljs-type">Add</span> <span class="hljs-keyword">new</span> key-<span class="hljs-keyword">value</span> pair
+person[<span class="hljs-string">"age"</span>] = <span class="hljs-number">23</span>          # <span class="hljs-type">Update</span> <span class="hljs-keyword">value</span>
+</code></pre>
+<h2 id="removing-entries">Removing Entries</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-selector-tag">del</span> person[<span class="hljs-string">"city"</span>]
+</code></pre>
+<h2 id="iterating-over-dictionaries">Iterating Over Dictionaries</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">for</span> <span class="hljs-built_in">key</span> <span class="hljs-keyword">in</span> person.keys() {
+ <span class="hljs-built_in">print</span>(<span class="hljs-built_in">key</span> + <span class="hljs-string">": "</span> + person[<span class="hljs-built_in">key</span>])
 }
-```
-
-## Dictionary Methods
-
-- `keys()`: Returns a list of keys.
-- `values()`: Returns a list of values.
-- `items()`: Returns a list of key-value pairs.
-
-## Nested Dictionaries
-
-Dictionaries can contain other dictionaries or lists:
-
-```kelpyshark
-student = {
+</code></pre>
+<h2 id="dictionary-methods">Dictionary Methods</h2>
+<ul>
+<li><code>keys()</code>: Returns a list of keys.</li>
+<li><code>values()</code>: Returns a list of values.</li>
+<li><code>items()</code>: Returns a list of key-value pairs.</li>
+</ul>
+<h2 id="nested-dictionaries">Nested Dictionaries</h2>
+<p>Dictionaries can contain other dictionaries or lists:</p>
+<pre><code class="lang-kelpyshark">student = {
  "name": "Alice",
  "grades": {"math": 90, "science": 85}
 }
-print(student["grades"]["math"])  # 90
-```
-
-## Best Practices
-
-- Use dictionaries for data with named fields.
-- Keys should be unique and usually strings.
-- Use dictionary methods for common operations.
-
-## Summary
-
-- Use curly braces for dictionaries.
-- Access values by key.
-- Dictionaries are ideal for structured, named data.
+print(student[<span class="hljs-string">"grades"</span>][<span class="hljs-symbol">"math"</span>])  # 90
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Use dictionaries for data with named fields.</li>
+<li>Keys should be unique and usually strings.</li>
+<li>Use dictionary methods for common operations.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use curly braces for dictionaries.</li>
+<li>Access values by key.</li>
+<li>Dictionaries are ideal for structured, named data.</li>
+</ul>

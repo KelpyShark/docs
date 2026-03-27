@@ -1,68 +1,51 @@
-# File IO in KelpyShark
-
-File IO lets your program read from and write to files on disk. This is essential for saving data, loading configurations, and processing external information.
-
-## Opening Files
-
-Use `open(filename, mode)` to open a file. Modes include:
-
-- `"r"`: Read (default)
-- `"w"`: Write (overwrites file)
-- `"a"`: Append (adds to end)
-
-```kelpyshark
-file = open("data.txt", "r")
-```
-
-## Reading Files
-
-Read the entire file:
-
-```kelpyshark
-content = file.read()
-print(content)
-```
-
-Read line by line:
-
-```kelpyshark
-for line in file {
-    print(line)
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="file-io-in-kelpyshark">File IO in KelpyShark</h1>
+<p>File IO lets your program read from and write to files on disk. This is essential for saving data, loading configurations, and processing external information.</p>
+<h2 id="opening-files">Opening Files</h2>
+<p>Use <code>open(filename, mode)</code> to open a file. Modes include:</p>
+<ul>
+<li><code>&quot;r&quot;</code>: Read (default)</li>
+<li><code>&quot;w&quot;</code>: Write (overwrites file)</li>
+<li><code>&quot;a&quot;</code>: Append (adds to end)</li>
+</ul>
+<pre><code class="lang-kelpyshark"><span class="hljs-attr">file</span> = open(<span class="hljs-string">"data.txt"</span>, <span class="hljs-string">"r"</span>)
+</code></pre>
+<h2 id="reading-files">Reading Files</h2>
+<p>Read the entire file:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">content</span> = file.<span class="hljs-built_in">read</span>()
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">content</span>)
+</code></pre>
+<p>Read line by line:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">for</span> <span class="hljs-keyword">line</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">file</span> {
+    <span class="hljs-keyword">print</span>(<span class="hljs-keyword">line</span>)
 }
-```
-
-## Writing Files
-
-```kelpyshark
-file = open("output.txt", "w")
-file.write("Hello, file!\n")
-file.close()
-```
-
-## Appending to Files
-
-```kelpyshark
-file = open("log.txt", "a")
-file.write("New log entry\n")
-file.close()
-```
-
-## Closing Files
-
-Always close files when done:
-
-```kelpyshark
-file.close()
-```
-
-## Best Practices
-
-- Use `try-catch` to handle file errors.
-- Always close files (or use context managers if available).
-- Check if files exist before reading.
-
-## Summary
-
-- Use `open` to access files.
-- Read, write, and append with file methods.
-- Always close files after use.
+</code></pre>
+<h2 id="writing-files">Writing Files</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">file</span> = <span class="hljs-built_in">open</span>(<span class="hljs-string">"output.txt"</span>, <span class="hljs-string">"w"</span>)
+<span class="hljs-built_in">file</span>.<span class="hljs-built_in">write</span>(<span class="hljs-string">"Hello, file!\n"</span>)
+<span class="hljs-built_in">file</span>.<span class="hljs-built_in">close</span>()
+</code></pre>
+<h2 id="appending-to-files">Appending to Files</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">file</span> = <span class="hljs-built_in">open</span>(<span class="hljs-string">"log.txt"</span>, <span class="hljs-string">"a"</span>)
+<span class="hljs-built_in">file</span>.<span class="hljs-built_in">write</span>(<span class="hljs-string">"New log entry\n"</span>)
+<span class="hljs-built_in">file</span>.<span class="hljs-built_in">close</span>()
+</code></pre>
+<h2 id="closing-files">Closing Files</h2>
+<p>Always close files when done:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">file</span>.<span class="hljs-built_in">close</span>()
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Use <code>try-catch</code> to handle file errors.</li>
+<li>Always close files (or use context managers if available).</li>
+<li>Check if files exist before reading.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>open</code> to access files.</li>
+<li>Read, write, and append with file methods.</li>
+<li>Always close files after use.</li>
+</ul>

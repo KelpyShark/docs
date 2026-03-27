@@ -1,81 +1,55 @@
-# Arrays (Lists) in KelpyShark
-
-KelpyShark uses lists for ordered collections of values. Lists are a fundamental data structure.
-
-## Creating Lists
-
-```kelpyshark
-fruits = ["apple", "banana", "cherry"]
-numbers = [1, 2, 3, 4, 5]
-empty = []
-```
-
-## Accessing Elements
-
-Use zero-based indexing:
-
-```kelpyshark
-print fruits[0]      # "apple"
-print numbers[2]     # 3
-```
-
-## Modifying Lists
-
-Lists are immutable, but you can create new lists with `push`:
-
-```kelpyshark
-fruits2 = push(fruits, "date")
-print fruits2    # ["apple", "banana", "cherry", "date"]
-```
-
-## Removing Elements
-
-Use `pop` to remove the last element:
-
-```kelpyshark
-nums = [1,2,3]
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="arrays-lists-in-kelpyshark">Arrays (Lists) in KelpyShark</h1>
+<p>KelpyShark uses lists for ordered collections of values. Lists are a fundamental data structure.</p>
+<h2 id="creating-lists">Creating Lists</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-attr">fruits</span> = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>]
+<span class="hljs-attr">numbers</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+<span class="hljs-attr">empty</span> = []
+</code></pre>
+<h2 id="accessing-elements">Accessing Elements</h2>
+<p>Use zero-based indexing:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">print</span> fruits[<span class="hljs-number">0</span>]      <span class="hljs-meta"># <span class="hljs-meta-string">"apple"</span></span>
+<span class="hljs-keyword">print</span> numbers[<span class="hljs-number">2</span>]     <span class="hljs-meta"># <span class="hljs-number">3</span></span>
+</code></pre>
+<h2 id="modifying-lists">Modifying Lists</h2>
+<p>Lists are immutable, but you can create new lists with <code>push</code>:</p>
+<pre><code class="lang-kelpyshark">fruits2 = <span class="hljs-keyword">push</span>(fruits, <span class="hljs-string">"date"</span>)
+<span class="hljs-keyword">print</span> fruits2    # [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>, <span class="hljs-string">"date"</span>]
+</code></pre>
+<h2 id="removing-elements">Removing Elements</h2>
+<p>Use <code>pop</code> to remove the last element:</p>
+<pre><code class="lang-kelpyshark">nums = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
 nums2 = pop(nums)
-print nums2    # [1,2]
-```
-
-## Slicing Lists
-
-You can get a sublist (slice):
-
-```kelpyshark
-letters = ["a","b","c","d"]
-slice = letters[1:3]   # ["b","c"]
-```
-
-## Length
-
-```kelpyshark
-print len(fruits)    # 3
-```
-
-## Iterating Lists
-
-```kelpyshark
-for fruit in fruits {
- print fruit
+print nums2    # [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]
+</code></pre>
+<h2 id="slicing-lists">Slicing Lists</h2>
+<p>You can get a sublist (slice):</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-attr">letters</span> = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>,<span class="hljs-string">"d"</span>]
+<span class="hljs-attr">slice</span> = letters[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]   # [<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>]
+</code></pre>
+<h2 id="length">Length</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">print</span> len(fruits)    <span class="hljs-comment"># 3</span>
+</code></pre>
+<h2 id="iterating-lists">Iterating Lists</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> fruits {
+ <span class="hljs-built_in">print</span> fruit
 }
-```
-
-## Nested Lists
-
-Lists can contain other lists:
-
-```kelpyshark
-matrix = [[1,2],[3,4]]
-print matrix[1][0]   # 3
-```
-
-## Common Pitfalls
-
-- Index out of bounds: `fruits[10]` will cause an error if the index is too large.
-- Lists are immutable: use `push`/`pop` to create new lists.
-
-## Summary
-
-- Lists are ordered, zero-indexed, and immutable.
-- Use `push`, `pop`, and slicing for list operations.
+</code></pre>
+<h2 id="nested-lists">Nested Lists</h2>
+<p>Lists can contain other lists:</p>
+<pre><code class="lang-kelpyshark">matrix = [[1,2],[3,4]]
+print matrix[<span class="hljs-string">1</span>][<span class="hljs-symbol">0</span>]   # 3
+</code></pre>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+<ul>
+<li>Index out of bounds: <code>fruits[10]</code> will cause an error if the index is too large.</li>
+<li>Lists are immutable: use <code>push</code>/<code>pop</code> to create new lists.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Lists are ordered, zero-indexed, and immutable.</li>
+<li>Use <code>push</code>, <code>pop</code>, and slicing for list operations.</li>
+</ul>

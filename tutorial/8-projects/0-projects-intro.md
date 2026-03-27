@@ -1,26 +1,30 @@
-# Introduction to Projects
-
-Building projects is the best way to solidify your KelpyShark skills and gain real-world experience. In this section, you'll find:
-
-- Step-by-step guides for beginner, intermediate, and advanced projects
-- Example code and explanations for each project
-- Tips for structuring, testing, and improving your applications
-
-Projects covered include:
-
-- Command-line calculator
-- To-do list manager
-- File analyzer
-- Simple web server
-
-By working through these projects, you'll learn how to:
-
-- Combine language features to solve real problems
-- Organize code for maintainability
-- Handle user input, files, and errors
-- Build confidence to tackle your own ideas
-
-## Summary
-
-- Practice by building full applications.
-- Projects help you grow from beginner to expert.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="introduction-to-projects">Introduction to Projects</h1>
+<p>Building projects is the best way to solidify your KelpyShark skills and gain real-world experience. In this section, you&#39;ll find:</p>
+<ul>
+<li>Step-by-step guides for beginner, intermediate, and advanced projects</li>
+<li>Example code and explanations for each project</li>
+<li>Tips for structuring, testing, and improving your applications</li>
+</ul>
+<p>Projects covered include:</p>
+<ul>
+<li>Command-line calculator</li>
+<li>To-do list manager</li>
+<li>File analyzer</li>
+<li>Simple web server</li>
+</ul>
+<p>By working through these projects, you&#39;ll learn how to:</p>
+<ul>
+<li>Combine language features to solve real problems</li>
+<li>Organize code for maintainability</li>
+<li>Handle user input, files, and errors</li>
+<li>Build confidence to tackle your own ideas</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Practice by building full applications.</li>
+<li>Projects help you grow from beginner to expert.</li>
+</ul>

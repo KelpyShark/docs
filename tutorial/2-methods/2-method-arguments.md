@@ -1,21 +1,21 @@
-# Method Arguments
-
-In KelpyShark, methods (simulated with functions) can take any number of arguments. The first argument is usually the object (dictionary), followed by other parameters.
-
-## Example
-
-```kelpyshark
-def set_age(person, age) {
-    person["age"] = age
-    return person
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="method-arguments">Method Arguments</h1>
+<p>In KelpyShark, methods (simulated with functions) can take any number of arguments. The first argument is usually the object (dictionary), followed by other parameters.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_age</span><span class="hljs-params">(person, age)</span></span> {
+    person[<span class="hljs-string">"age"</span>] = age
+    <span class="hljs-keyword">return</span> person
 }
 
-alice = {"name": "Alice", "age": 30}
-alice = set_age(alice, 35)
-print alice["age"]   # 35
-```
-
-## Summary
-
-- Pass the object as the first argument.
-- Add more arguments as needed.
+alice = {<span class="hljs-string">"name"</span>: <span class="hljs-string">"Alice"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">30</span>}
+alice = set_age(alice, <span class="hljs-number">35</span>)
+print alice[<span class="hljs-string">"age"</span>]   <span class="hljs-comment"># 35</span>
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Pass the object as the first argument.</li>
+<li>Add more arguments as needed.</li>
+</ul>

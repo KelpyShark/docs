@@ -1,72 +1,53 @@
-# Error Handling Best Practices in KelpyShark
-
-Effective error handling makes your programs more robust, maintainable, and user-friendly. Here are some best practices for handling errors in KelpyShark:
-
-## 1. Use Specific Error Types
-
-Throw and catch specific error types or objects, not just strings. This allows for more precise error handling.
-
-```kelpyshark
-throw {
-    type: "FileNotFoundError",
-    message: "File 'config.ks' not found."
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="error-handling-best-practices-in-kelpyshark">Error Handling Best Practices in KelpyShark</h1>
+<p>Effective error handling makes your programs more robust, maintainable, and user-friendly. Here are some best practices for handling errors in KelpyShark:</p>
+<h2 id="1-use-specific-error-types">1. Use Specific Error Types</h2>
+<p>Throw and catch specific error types or objects, not just strings. This allows for more precise error handling.</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-selector-tag">throw</span> {
+    <span class="hljs-attribute">type</span>: <span class="hljs-string">"FileNotFoundError"</span>,
+    message: <span class="hljs-string">"File 'config.ks' not found."</span>
 }
-```
-
-## 2. Always Provide Meaningful Messages
-
-Error messages should clearly describe what went wrong and, if possible, how to fix it.
-
-```kelpyshark
-throw {
-    type: "ValidationError",
-    message: "Username must be at least 3 characters."
+</code></pre>
+<h2 id="2-always-provide-meaningful-messages">2. Always Provide Meaningful Messages</h2>
+<p>Error messages should clearly describe what went wrong and, if possible, how to fix it.</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-selector-tag">throw</span> {
+    <span class="hljs-attribute">type</span>: <span class="hljs-string">"ValidationError"</span>,
+    message: <span class="hljs-string">"Username must be at least 3 characters."</span>
 }
-```
-
-## 3. Avoid Silent Failures
-
-Never catch errors without handling them or at least logging them. Silent failures make debugging difficult.
-
-```kelpyshark
-try {
-    // risky code
-} catch (err) {
-    print("Error: " + err)
+</code></pre>
+<h2 id="3-avoid-silent-failures">3. Avoid Silent Failures</h2>
+<p>Never catch errors without handling them or at least logging them. Silent failures make debugging difficult.</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">try</span> {
+    <span class="hljs-comment">// risky code</span>
+} <span class="hljs-built_in">catch</span> (err) {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Error: "</span> + err)
 }
-```
-
-## 4. Don't Use Errors for Normal Control Flow
-
-Errors should signal exceptional conditions, not regular events.
-
-## 5. Clean Up Resources
-
-Use `try-catch` to ensure files or resources are closed properly, even if an error occurs.
-
-```kelpyshark
-let file = open("data.txt")
-try {
-    // read file
-} catch (err) {
-    print("Failed to read file: " + err)
-} finally {
-    file.close()
+</code></pre>
+<h2 id="4-don-t-use-errors-for-normal-control-flow">4. Don&#39;t Use Errors for Normal Control Flow</h2>
+<p>Errors should signal exceptional conditions, not regular events.</p>
+<h2 id="5-clean-up-resources">5. Clean Up Resources</h2>
+<p>Use <code>try-catch</code> to ensure files or resources are closed properly, even if an error occurs.</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">let</span> <span class="hljs-keyword">file</span> = <span class="hljs-keyword">open</span>(<span class="hljs-string">"data.txt"</span>)
+<span class="hljs-keyword">try</span> {
+    // <span class="hljs-keyword">read</span> <span class="hljs-keyword">file</span>
+} <span class="hljs-keyword">catch</span> (err) {
+    <span class="hljs-keyword">print</span>(<span class="hljs-string">"Failed to read file: "</span> + err)
+} <span class="hljs-keyword">finally</span> {
+    <span class="hljs-keyword">file</span>.<span class="hljs-keyword">close</span>()
 }
-```
-
-## 6. Document Your Errors
-
-Document what errors your functions can throw, especially in libraries or APIs.
-
-## 7. Use Error Codes for Automation
-
-If your program is used by other programs, include error codes for easier automation and scripting.
-
-## Summary
-
-- Be specific and descriptive with errors.
-- Never ignore errors.
-- Use errors for exceptional cases only.
-- Clean up resources in error situations.
-- Document and structure your error handling for maintainability.
+</code></pre>
+<h2 id="6-document-your-errors">6. Document Your Errors</h2>
+<p>Document what errors your functions can throw, especially in libraries or APIs.</p>
+<h2 id="7-use-error-codes-for-automation">7. Use Error Codes for Automation</h2>
+<p>If your program is used by other programs, include error codes for easier automation and scripting.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Be specific and descriptive with errors.</li>
+<li>Never ignore errors.</li>
+<li>Use errors for exceptional cases only.</li>
+<li>Clean up resources in error situations.</li>
+<li>Document and structure your error handling for maintainability.</li>
+</ul>

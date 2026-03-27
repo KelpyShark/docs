@@ -1,42 +1,45 @@
-# Data Structure Best Practices
-
-Choosing and using the right data structure is key to writing efficient and maintainable KelpyShark programs. Here are some best practices:
-
-## 1. Choose the Right Structure
-
-- Use lists for ordered data.
-- Use dictionaries for key-value mappings.
-- Use structs for fixed-field records.
-- Use sets, queues, or stacks from the standard library for specialized needs.
-
-## 2. Keep Structures Simple
-
-- Avoid deeply nested structures unless necessary.
-- Break up complex data into smaller, manageable pieces.
-
-## 3. Document Your Structures
-
-- Comment on the purpose and fields of complex data structures.
-- Use clear, descriptive names for variables and fields.
-
-## 4. Prefer Built-in Methods
-
-- Use built-in methods (like `append`, `remove`, `keys`, `sort`) for clarity and performance.
-
-## 5. Avoid Magic Numbers and Keys
-
-- Use named constants or variables for important keys or indices.
-
-## 6. Validate Data
-
-- Check data types and values before adding to structures, especially from user input.
-
-## 7. Immutability When Needed
-
-- For critical data, avoid modifying structures in place—make copies if necessary.
-
-## Summary
-
-- Pick the simplest structure that fits your needs.
-- Keep data organized, documented, and easy to work with.
-- Use standard library collections for advanced requirements.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="data-structure-best-practices">Data Structure Best Practices</h1>
+<p>Choosing and using the right data structure is key to writing efficient and maintainable KelpyShark programs. Here are some best practices:</p>
+<h2 id="1-choose-the-right-structure">1. Choose the Right Structure</h2>
+<ul>
+<li>Use lists for ordered data.</li>
+<li>Use dictionaries for key-value mappings.</li>
+<li>Use structs for fixed-field records.</li>
+<li>Use sets, queues, or stacks from the standard library for specialized needs.</li>
+</ul>
+<h2 id="2-keep-structures-simple">2. Keep Structures Simple</h2>
+<ul>
+<li>Avoid deeply nested structures unless necessary.</li>
+<li>Break up complex data into smaller, manageable pieces.</li>
+</ul>
+<h2 id="3-document-your-structures">3. Document Your Structures</h2>
+<ul>
+<li>Comment on the purpose and fields of complex data structures.</li>
+<li>Use clear, descriptive names for variables and fields.</li>
+</ul>
+<h2 id="4-prefer-built-in-methods">4. Prefer Built-in Methods</h2>
+<ul>
+<li>Use built-in methods (like <code>append</code>, <code>remove</code>, <code>keys</code>, <code>sort</code>) for clarity and performance.</li>
+</ul>
+<h2 id="5-avoid-magic-numbers-and-keys">5. Avoid Magic Numbers and Keys</h2>
+<ul>
+<li>Use named constants or variables for important keys or indices.</li>
+</ul>
+<h2 id="6-validate-data">6. Validate Data</h2>
+<ul>
+<li>Check data types and values before adding to structures, especially from user input.</li>
+</ul>
+<h2 id="7-immutability-when-needed">7. Immutability When Needed</h2>
+<ul>
+<li>For critical data, avoid modifying structures in place—make copies if necessary.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Pick the simplest structure that fits your needs.</li>
+<li>Keep data organized, documented, and easy to work with.</li>
+<li>Use standard library collections for advanced requirements.</li>
+</ul>

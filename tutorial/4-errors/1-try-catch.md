@@ -1,67 +1,59 @@
-# Try-Catch Blocks
-
-The `try` and `catch` statements are used to handle errors in KelpyShark. Code that might fail is placed inside a `try` block. If an error occurs, execution jumps to the `catch` block, where you can respond to the error.
-
-## Basic Example
-
-```kelpyshark
-try {
-    std.read_file("missing.txt")
-} catch (err) {
-    print("File not found!")
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="try-catch-blocks">Try-Catch Blocks</h1>
+<p>The <code>try</code> and <code>catch</code> statements are used to handle errors in KelpyShark. Code that might fail is placed inside a <code>try</code> block. If an error occurs, execution jumps to the <code>catch</code> block, where you can respond to the error.</p>
+<h2 id="basic-example">Basic Example</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">try</span> {
+    std.read_file(<span class="hljs-string">"missing.txt"</span>)
+} <span class="hljs-keyword">catch</span> (err) {
+    print(<span class="hljs-string">"File not found!"</span>)
 }
-```
-
-## How It Works
-
-- The code inside `try` is executed.
-- If no error occurs, the `catch` block is skipped.
-- If an error is thrown, the `catch` block runs with the error value assigned to `err`.
-
-## Catching Custom Error Objects
-
-You can throw and catch custom error objects:
-
-```kelpyshark
-try {
+</code></pre>
+<h2 id="how-it-works">How It Works</h2>
+<ul>
+<li>The code inside <code>try</code> is executed.</li>
+<li>If no error occurs, the <code>catch</code> block is skipped.</li>
+<li>If an error is thrown, the <code>catch</code> block runs with the error value assigned to <code>err</code>.</li>
+</ul>
+<h2 id="catching-custom-error-objects">Catching Custom Error Objects</h2>
+<p>You can throw and catch custom error objects:</p>
+<pre><code class="lang-kelpyshark">try {
     throw {
-        type: "FileNotFoundError",
-        message: "File missing!"
+        <span class="hljs-keyword">type</span>: <span class="hljs-string">"FileNotFoundError"</span>,
+        message: <span class="hljs-string">"File missing!"</span>
     }
-} catch (err) {
-    if err.type == "FileNotFoundError" {
-        print("File error: " + err.message)
-    } else {
-        print("Other error: " + err)
+} catch (<span class="hljs-keyword">err</span>) {
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">err</span>.<span class="hljs-keyword">type</span> == <span class="hljs-string">"FileNotFoundError"</span> {
+        <span class="hljs-keyword">print</span>(<span class="hljs-string">"File error: "</span> + <span class="hljs-keyword">err</span>.message)
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">print</span>(<span class="hljs-string">"Other error: "</span> + <span class="hljs-keyword">err</span>)
     }
 }
-```
-
-## Nested Try-Catch
-
-You can nest `try-catch` blocks for more granular error handling:
-
-```kelpyshark
-try {
-    try {
+</code></pre>
+<h2 id="nested-try-catch">Nested Try-Catch</h2>
+<p>You can nest <code>try-catch</code> blocks for more granular error handling:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">try</span> {
+    <span class="hljs-built_in">try</span> {
         risky_operation()
-    } catch (innerErr) {
-        print("Inner error: " + innerErr)
-        throw "Outer error triggered"
+    } <span class="hljs-built_in">catch</span> (innerErr) {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Inner error: "</span> + innerErr)
+        <span class="hljs-keyword">throw</span> <span class="hljs-string">"Outer error triggered"</span>
     }
-} catch (outerErr) {
-    print("Outer error: " + outerErr)
+} <span class="hljs-built_in">catch</span> (outerErr) {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Outer error: "</span> + outerErr)
 }
-```
-
-## Best Practices
-
-- Keep `try` blocks small—only wrap code that might fail.
-- Handle specific error types when possible.
-- Avoid empty `catch` blocks; always log or handle the error.
-
-## Summary
-
-- Place risky code in `try`.
-- Handle errors in `catch`.
-- You can inspect the error value for more details.
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Keep <code>try</code> blocks small—only wrap code that might fail.</li>
+<li>Handle specific error types when possible.</li>
+<li>Avoid empty <code>catch</code> blocks; always log or handle the error.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Place risky code in <code>try</code>.</li>
+<li>Handle errors in <code>catch</code>.</li>
+<li>You can inspect the error value for more details.</li>
+</ul>

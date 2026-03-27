@@ -1,39 +1,40 @@
-# 11. Package Manager (Quick Reference)
-
-KelpyShark includes a package manager for installing, publishing, and managing libraries.
-
-## Project Structure
-```
-my_project/
-├── kelpy.toml          # Package manifest
-├── kelpy.lock          # Pinned dependency versions
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="11-package-manager-quick-reference-">11. Package Manager (Quick Reference)</h1>
+<p>KelpyShark includes a package manager for installing, publishing, and managing libraries.</p>
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>my_project/
+├── kelpy.toml          <span class="hljs-meta"># Package manifest</span>
+├── kelpy.<span class="hljs-keyword">lock</span>          <span class="hljs-meta"># Pinned dependency versions</span>
 ├── src/
-│   └── main.ks         # Entry point
-└── libs/               # Installed dependencies
-```
-
-## kelpy.toml Example
-```toml
-[package]
-name = "my_project"
-version = "0.1.0"
-description = "A cool project"
-
-[dependencies]
-http = "1.0.0"
-json = "0.2.1"
-```
-
-## Common Commands
-- `kelpy install` — Install all dependencies
-- `kelpy install <package>` — Install a specific package
-- `kelpy publish` — Publish your library
-- `kelpy new <name>` — Create a new project
-
-## Dependency Resolution
-- Topological sort, detects cycles
-- All dependencies installed before dependents
-
-## Registry
-- User-local: `~/.kelpyshark/registry/` (Windows: `%USERPROFILE%\.kelpyshark\registry\`)
-- Libraries are `.kslib` directories with `kelpy.toml` and `src/`
+│   └── main.ks         <span class="hljs-meta"># Entry point</span>
+└── libs/               <span class="hljs-meta"># Installed dependencies</span>
+</code></pre><h2 id="kelpy-toml-example">kelpy.toml Example</h2>
+<pre><code class="lang-toml"><span class="hljs-section">[package]</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">"my_project"</span>
+<span class="hljs-attr">version</span> = <span class="hljs-string">"0.1.0"</span>
+<span class="hljs-attr">description</span> = <span class="hljs-string">"A cool project"</span>
+<span class="hljs-section">
+[dependencies]</span>
+<span class="hljs-attr">http</span> = <span class="hljs-string">"1.0.0"</span>
+<span class="hljs-attr">json</span> = <span class="hljs-string">"0.2.1"</span>
+</code></pre>
+<h2 id="common-commands">Common Commands</h2>
+<ul>
+<li><code>kelpy install</code> — Install all dependencies</li>
+<li><code>kelpy install &lt;package&gt;</code> — Install a specific package</li>
+<li><code>kelpy publish</code> — Publish your library</li>
+<li><code>kelpy new &lt;name&gt;</code> — Create a new project</li>
+</ul>
+<h2 id="dependency-resolution">Dependency Resolution</h2>
+<ul>
+<li>Topological sort, detects cycles</li>
+<li>All dependencies installed before dependents</li>
+</ul>
+<h2 id="registry">Registry</h2>
+<ul>
+<li>User-local: <code>~/.kelpyshark/registry/</code> (Windows: <code>%USERPROFILE%\.kelpyshark\registry\</code>)</li>
+<li>Libraries are <code>.kslib</code> directories with <code>kelpy.toml</code> and <code>src/</code></li>
+</ul>

@@ -1,42 +1,35 @@
-# Introduction to IO Streams
-
-IO (Input/Output) streams are how your KelpyShark programs communicate with the outside world. They let you read data from the user, files, or other sources, and write data back out. Mastering IO is essential for building interactive and useful programs.
-
-KelpyShark provides standard library functions for:
-
-- Console input and output (reading from and writing to the terminal)
-- File input and output (reading from and writing to files)
-- Advanced streams (working with data in memory, over the network, etc.)
-
-## Example: Console Input
-
-```kelpyshark
-name = std.input("Enter your name: ")
-print("Hello, " + name)
-```
-
-## Example: Console Output
-
-```kelpyshark
-print("KelpyShark is fun!")
-```
-
-## Why Use IO Streams?
-
-- To interact with users (input/output)
-- To read and write files
-- To process data from other programs or the internet
-
-## More Examples
-
-Reading a number from the user:
-
-```kelpyshark
-age = std.input("Enter your age: ")
-print("You are " + age + " years old.")
-```
-
-## Summary
-
-- Use `std.input` for input and `print` for output.
-- IO streams are the foundation for all program interaction.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="introduction-to-io-streams">Introduction to IO Streams</h1>
+<p>IO (Input/Output) streams are how your KelpyShark programs communicate with the outside world. They let you read data from the user, files, or other sources, and write data back out. Mastering IO is essential for building interactive and useful programs.</p>
+<p>KelpyShark provides standard library functions for:</p>
+<ul>
+<li>Console input and output (reading from and writing to the terminal)</li>
+<li>File input and output (reading from and writing to files)</li>
+<li>Advanced streams (working with data in memory, over the network, etc.)</li>
+</ul>
+<h2 id="example-console-input">Example: Console Input</h2>
+<pre><code class="lang-kelpyshark">name = std.input(<span class="hljs-string">"Enter your name: "</span>)
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Hello, "</span> + name)</span></span>
+</code></pre>
+<h2 id="example-console-output">Example: Console Output</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"KelpyShark is fun!"</span>)</span></span>
+</code></pre>
+<h2 id="why-use-io-streams-">Why Use IO Streams?</h2>
+<ul>
+<li>To interact with users (input/output)</li>
+<li>To read and write files</li>
+<li>To process data from other programs or the internet</li>
+</ul>
+<h2 id="more-examples">More Examples</h2>
+<p>Reading a number from the user:</p>
+<pre><code class="lang-kelpyshark">age = std.input(<span class="hljs-string">"Enter your age: "</span>)
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"You are "</span> + age + <span class="hljs-string">" years old."</span>)</span></span>
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>std.input</code> for input and <code>print</code> for output.</li>
+<li>IO streams are the foundation for all program interaction.</li>
+</ul>

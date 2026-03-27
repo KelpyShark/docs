@@ -1,100 +1,83 @@
-# Booleans in KelpyShark
-
-Booleans represent logical values: `true` or `false`. They are used for logic, conditions, and control flow.
-
-## Declaring Booleans
-
-```kelpyshark
-x = true
-y = false
-print x, y   # true false
-```
-
-## Boolean Expressions
-
-Booleans are often the result of comparisons or logical operations:
-
-```kelpyshark
-print 5 > 3      # true
-print 2 == 3     # false
-print 7 <= 7     # true
-print "a" != "b" # true
-```
-
-## Logical Operators
-
-KelpyShark supports these logical operators:
-
-- `and`: true if both sides are true
-- `or`: true if either side is true
-- `not`: inverts the value
-
-```kelpyshark
-a = true
-b = false
-print a and b    # false
-print a or b     # true
-print not a      # false
-print not b      # true
-```
-
-### Combining Expressions
-
-```kelpyshark
-age = 20
-citizen = true
-if age >= 18 and citizen {
- print "Eligible to vote"
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="booleans-in-kelpyshark">Booleans in KelpyShark</h1>
+<p>Booleans represent logical values: <code>true</code> or <code>false</code>. They are used for logic, conditions, and control flow.</p>
+<h2 id="declaring-booleans">Declaring Booleans</h2>
+<pre><code class="lang-kelpyshark">x = <span class="hljs-keyword">true</span>
+y = <span class="hljs-keyword">false</span>
+<span class="hljs-built_in">print</span> x, y   # <span class="hljs-keyword">true</span> <span class="hljs-keyword">false</span>
+</code></pre>
+<h2 id="boolean-expressions">Boolean Expressions</h2>
+<p>Booleans are often the result of comparisons or logical operations:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">print</span> <span class="hljs-number">5</span> &gt; <span class="hljs-number">3</span>      <span class="hljs-meta"># true</span>
+<span class="hljs-built_in">print</span> <span class="hljs-number">2</span> == <span class="hljs-number">3</span>     <span class="hljs-meta"># false</span>
+<span class="hljs-built_in">print</span> <span class="hljs-number">7</span> &lt;= <span class="hljs-number">7</span>     <span class="hljs-meta"># true</span>
+<span class="hljs-built_in">print</span> <span class="hljs-string">"a"</span> != <span class="hljs-string">"b"</span> <span class="hljs-meta"># true</span>
+</code></pre>
+<h2 id="logical-operators">Logical Operators</h2>
+<p>KelpyShark supports these logical operators:</p>
+<ul>
+<li><code>and</code>: true if both sides are true</li>
+<li><code>or</code>: true if either side is true</li>
+<li><code>not</code>: inverts the value</li>
+</ul>
+<pre><code class="lang-kelpyshark">a = <span class="hljs-literal">true</span>
+b = <span class="hljs-literal">false</span>
+<span class="hljs-built_in">print</span> a <span class="hljs-keyword">and</span> b    <span class="hljs-comment"># false</span>
+<span class="hljs-built_in">print</span> a <span class="hljs-keyword">or</span> b     <span class="hljs-comment"># true</span>
+<span class="hljs-built_in">print</span> <span class="hljs-keyword">not</span> a      <span class="hljs-comment"># false</span>
+<span class="hljs-built_in">print</span> <span class="hljs-keyword">not</span> b      <span class="hljs-comment"># true</span>
+</code></pre>
+<h3 id="combining-expressions">Combining Expressions</h3>
+<pre><code class="lang-kelpyshark"><span class="hljs-attr">age</span> = <span class="hljs-number">20</span>
+<span class="hljs-attr">citizen</span> = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">if</span> age &gt;= <span class="hljs-number">18</span> <span class="hljs-literal">and</span> citizen {
+ print <span class="hljs-string">"Eligible to vote"</span>
 }
-```
-
-## Truthiness
-
-Some values are considered "falsey" (evaluate to false in a boolean context):
-
-- `false`
-- `0` (zero)
-- `""` (empty string)
-- `[]` (empty list)
-- `{}` (empty dictionary)
-
-Everything else is "truthy" (evaluates to true):
-
-- Nonzero numbers (e.g., `-1`, `3.14`)
-- Non-empty strings (e.g., `"hi"`)
-- Non-empty lists or dictionaries
-
-### Example: Truthiness in Conditionals
-
-```kelpyshark
-if [] {
- print "This will NOT print."
+</code></pre>
+<h2 id="truthiness">Truthiness</h2>
+<p>Some values are considered &quot;falsey&quot; (evaluate to false in a boolean context):</p>
+<ul>
+<li><code>false</code></li>
+<li><code>0</code> (zero)</li>
+<li><code>&quot;&quot;</code> (empty string)</li>
+<li><code>[]</code> (empty list)</li>
+<li><code>{}</code> (empty dictionary)</li>
+</ul>
+<p>Everything else is &quot;truthy&quot; (evaluates to true):</p>
+<ul>
+<li>Nonzero numbers (e.g., <code>-1</code>, <code>3.14</code>)</li>
+<li>Non-empty strings (e.g., <code>&quot;hi&quot;</code>)</li>
+<li>Non-empty lists or dictionaries</li>
+</ul>
+<h3 id="example-truthiness-in-conditionals">Example: Truthiness in Conditionals</h3>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">if</span> [] {
+ <span class="hljs-built_in">print</span> <span class="hljs-string">"This will NOT print."</span>
 }
-if [1,2,3] {
- print "This WILL print."
+<span class="hljs-built_in">if</span> [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>] {
+ <span class="hljs-built_in">print</span> <span class="hljs-string">"This WILL print."</span>
 }
-if "" {
- print "No output."
+<span class="hljs-built_in">if</span> <span class="hljs-string">""</span> {
+ <span class="hljs-built_in">print</span> <span class="hljs-string">"No output."</span>
 }
-if "hello" {
- print "This prints!"
+<span class="hljs-built_in">if</span> <span class="hljs-string">"hello"</span> {
+ <span class="hljs-built_in">print</span> <span class="hljs-string">"This prints!"</span>
 }
-```
-
-## Common Pitfalls
-
-- Assignment (`=`) is not comparison (`==`).
-- `not` has higher precedence than `and`/`or`.
-
-### Example: Parentheses for Clarity
-
-```kelpyshark
-print not true or false    # false (not true) or false => false or false => false
-print not (true or false)  # false (true or false is true, not true is false)
-```
-
-## Summary
-
-- Use booleans for logic and control flow.
-- Understand truthy/falsey values.
-- Use logical operators to combine conditions.
+</code></pre>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+<ul>
+<li>Assignment (<code>=</code>) is not comparison (<code>==</code>).</li>
+<li><code>not</code> has higher precedence than <code>and</code>/<code>or</code>.</li>
+</ul>
+<h3 id="example-parentheses-for-clarity">Example: Parentheses for Clarity</h3>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">print</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">false</span>    # <span class="hljs-literal">false</span> (<span class="hljs-keyword">not</span> <span class="hljs-literal">true</span>) <span class="hljs-keyword">or</span> <span class="hljs-literal">false</span> =&gt; <span class="hljs-literal">false</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">false</span> =&gt; <span class="hljs-literal">false</span>
+<span class="hljs-built_in">print</span> <span class="hljs-keyword">not</span> (<span class="hljs-literal">true</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">false</span>)  # <span class="hljs-literal">false</span> (<span class="hljs-literal">true</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">false</span> <span class="hljs-built_in">is</span> <span class="hljs-literal">true</span>, <span class="hljs-keyword">not</span> <span class="hljs-literal">true</span> <span class="hljs-built_in">is</span> <span class="hljs-literal">false</span>)
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use booleans for logic and control flow.</li>
+<li>Understand truthy/falsey values.</li>
+<li>Use logical operators to combine conditions.</li>
+</ul>

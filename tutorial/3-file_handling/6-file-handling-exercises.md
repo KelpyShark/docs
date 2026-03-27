@@ -1,27 +1,28 @@
-# File Handling Exercises
-
-Try these exercises to practice file operations in KelpyShark:
-
-## 1. Read and Print
-
-- Read the contents of "story.txt" and print them.
-
-## 2. Write a Log
-
-- Write the string "Session started." to a file called "log.txt".
-
-## 3. Append a Line
-
-- Add the line "Another entry." to the end of "log.txt".
-
-## 4. Check Existence
-
-- Check if "data.csv" exists and print a message.
-
-## 5. Delete a File
-
-- Delete the file "temp.txt" if it exists.
-
-## Solutions
-
-Try to solve these on your own before looking up the answers!
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="file-handling-exercises">File Handling Exercises</h1>
+<p>Try these exercises to practice file operations in KelpyShark:</p>
+<h2 id="1-read-and-print">1. Read and Print</h2>
+<ul>
+<li>Read the contents of &quot;story.txt&quot; and print them.</li>
+</ul>
+<h2 id="2-write-a-log">2. Write a Log</h2>
+<ul>
+<li>Write the string &quot;Session started.&quot; to a file called &quot;log.txt&quot;.</li>
+</ul>
+<h2 id="3-append-a-line">3. Append a Line</h2>
+<ul>
+<li>Add the line &quot;Another entry.&quot; to the end of &quot;log.txt&quot;.</li>
+</ul>
+<h2 id="4-check-existence">4. Check Existence</h2>
+<ul>
+<li>Check if &quot;data.csv&quot; exists and print a message.</li>
+</ul>
+<h2 id="5-delete-a-file">5. Delete a File</h2>
+<ul>
+<li>Delete the file &quot;temp.txt&quot; if it exists.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<p>Try to solve these on your own before looking up the answers!</p>

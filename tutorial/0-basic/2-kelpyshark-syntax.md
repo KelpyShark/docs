@@ -1,55 +1,47 @@
-# KelpyShark Syntax Basics
-
-KelpyShark uses a clean, readable syntax designed for clarity and ease of use.
-
-- **Statements** end at line breaks or block close (`}`)
-- **Curly braces** `{ ... }` define code blocks (functions, loops, conditionals)
-- **Indentation** is for readability only (not required for syntax)
-- **Comments** start with `#` or use `### ... ###` for multi-line
-
-## Example: Function Definition
-
-```kelpyshark
-# This is a comment
-def greet(name) {
-    print "Hello, {$name}!"
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="kelpyshark-syntax-basics">KelpyShark Syntax Basics</h1>
+<p>KelpyShark uses a clean, readable syntax designed for clarity and ease of use.</p>
+<ul>
+<li><strong>Statements</strong> end at line breaks or block close (<code>}</code>)</li>
+<li><strong>Curly braces</strong> <code>{ ... }</code> define code blocks (functions, loops, conditionals)</li>
+<li><strong>Indentation</strong> is for readability only (not required for syntax)</li>
+<li><strong>Comments</strong> start with <code>#</code> or use <code>### ... ###</code> for multi-line</li>
+</ul>
+<h2 id="example-function-definition">Example: Function Definition</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-comment"># This is a comment</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span><span class="hljs-params">(name)</span></span> {
+    print <span class="hljs-string">"Hello, {$name}!"</span>
 }
 
-greet("KelpyShark")
-```
-
-## Whitespace and Indentation
-
-- Extra spaces and blank lines are ignored.
-- Indent code inside blocks for readability:
-
-```kelpyshark
-if true {
-    print "Indented!"
+greet(<span class="hljs-string">"KelpyShark"</span>)
+</code></pre>
+<h2 id="whitespace-and-indentation">Whitespace and Indentation</h2>
+<ul>
+<li>Extra spaces and blank lines are ignored.</li>
+<li>Indent code inside blocks for readability:</li>
+</ul>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"Indented!"</span>
 }
-```
-
-## Multi-line Statements
-
-You can split long statements across lines inside parentheses, brackets, or braces:
-
-```kelpyshark
-nums = [
-    1,
-    2,
-    3
+</code></pre>
+<h2 id="multi-line-statements">Multi-line Statements</h2>
+<p>You can split long statements across lines inside parentheses, brackets, or braces:</p>
+<pre><code class="lang-kelpyshark">nums = [
+    <span class="hljs-number">1</span>,
+    <span class="hljs-number">2</span>,
+    <span class="hljs-number">3</span>
 ]
-```
-
-## Multi-line Comments
-
-```kelpyshark
-###
+</code></pre>
+<h2 id="multi-line-comments">Multi-line Comments</h2>
+<pre><code class="lang-kelpyshark">###
 This is a
 multi-line comment
 ###
-```
-
-## Summary
-
-- Use curly braces for blocks, indentation for readability, and comments for clarity.
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use curly braces for blocks, indentation for readability, and comments for clarity.</li>
+</ul>

@@ -1,66 +1,52 @@
-# For Loops in KelpyShark
-
-Use `for` to iterate over lists or other collections.
-
-## Basic For Loop
-
-```kelpyshark
-fruits = ["apple", "banana", "cherry"]
-for fruit in fruits {
-    print fruit
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="for-loops-in-kelpyshark">For Loops in KelpyShark</h1>
+<p>Use <code>for</code> to iterate over lists or other collections.</p>
+<h2 id="basic-for-loop">Basic For Loop</h2>
+<pre><code class="lang-kelpyshark">fruits = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>]
+<span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> fruits {
+    <span class="hljs-built_in">print</span> fruit
 }
-# Output: apple banana cherry
-```
-
-## Looping with Index
-
-To access both index and value:
-
-```kelpyshark
-fruits = ["apple", "banana", "cherry"]
-for i in [0, 1, 2] {
-    print i, fruits[i]
+<span class="hljs-comment"># Output: apple banana cherry</span>
+</code></pre>
+<h2 id="looping-with-index">Looping with Index</h2>
+<p>To access both index and value:</p>
+<pre><code class="lang-kelpyshark">fruits = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>]
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> [0, 1, 2] {
+    <span class="hljs-built_in">print</span> i, fruits[i]
 }
-# Output: 0 apple 1 banana 2 cherry
-```
-
-## Range Loop Idiom
-
-KelpyShark does not have a built-in `range`, but you can use a list:
-
-```kelpyshark
-for i in [1,2,3,4,5] {
-    print i
+<span class="hljs-comment"># Output: 0 apple 1 banana 2 cherry</span>
+</code></pre>
+<h2 id="range-loop-idiom">Range Loop Idiom</h2>
+<p>KelpyShark does not have a built-in <code>range</code>, but you can use a list:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] {
+    print <span class="hljs-selector-tag">i</span>
 }
-```
-
-## Nested For Loops
-
-```kelpyshark
-matrix = [[1,2],[3,4]]
-for row in matrix {
-    for val in row {
-        print val
+</code></pre>
+<h2 id="nested-for-loops">Nested For Loops</h2>
+<pre><code class="lang-kelpyshark">matrix = <span class="hljs-string">[[1,2],[3,4]]</span>
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> matrix {
+    <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> row {
+        <span class="hljs-built_in">print</span> val
     }
 }
-# Output: 1 2 3 4
-```
-
-## Iterating Dictionaries
-
-```kelpyshark
-person = {"name": "Alice", "age": 30}
-for key in ["name", "age"] {
-    print key, person[key]
+# Output: <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span>
+</code></pre>
+<h2 id="iterating-dictionaries">Iterating Dictionaries</h2>
+<pre><code class="lang-kelpyshark">person = {<span class="hljs-string">"name"</span>: <span class="hljs-string">"Alice"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">30</span>}
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">key</span> <span class="hljs-keyword">in</span> [<span class="hljs-string">"name"</span>, <span class="hljs-string">"age"</span>] {
+    <span class="hljs-built_in">print</span> <span class="hljs-built_in">key</span>, person[<span class="hljs-built_in">key</span>]
 }
-```
-
-## Common Pitfalls
-
-- Modifying a list while iterating can cause bugs.
-- Use a copy if you need to change the list during iteration.
-
-## Summary
-
-- Use `for` for known-length iteration.
-- Can iterate lists, strings, or dictionary keys.
+</code></pre>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+<ul>
+<li>Modifying a list while iterating can cause bugs.</li>
+<li>Use a copy if you need to change the list during iteration.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>for</code> for known-length iteration.</li>
+<li>Can iterate lists, strings, or dictionary keys.</li>
+</ul>

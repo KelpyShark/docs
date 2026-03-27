@@ -1,55 +1,50 @@
-# KelpyShark Grammar Reference
-
-A summary of KelpyShark's grammar and language rules.
-
-## Indentation
-
-- Indentation is significant (like Python)
-- Use spaces or tabs, but be consistent
-
-## Code Blocks
-
-- Use `{}` to group statements
-
-## Statements
-
-- End at line breaks (no semicolons needed)
-
-## Expressions
-
-- Support arithmetic, logical, and comparison operators
-- Parentheses `()` for grouping
-
-## Function Definitions
-
-```kelpyshark
-def name(args) {
-    // code
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="kelpyshark-grammar-reference">KelpyShark Grammar Reference</h1>
+<p>A summary of KelpyShark&#39;s grammar and language rules.</p>
+<h2 id="indentation">Indentation</h2>
+<ul>
+<li>Indentation is significant (like Python)</li>
+<li>Use spaces or tabs, but be consistent</li>
+</ul>
+<h2 id="code-blocks">Code Blocks</h2>
+<ul>
+<li>Use <code>{}</code> to group statements</li>
+</ul>
+<h2 id="statements">Statements</h2>
+<ul>
+<li>End at line breaks (no semicolons needed)</li>
+</ul>
+<h2 id="expressions">Expressions</h2>
+<ul>
+<li>Support arithmetic, logical, and comparison operators</li>
+<li>Parentheses <code>()</code> for grouping</li>
+</ul>
+<h2 id="function-definitions">Function Definitions</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span><span class="hljs-params">(args)</span></span> {
+    <span class="hljs-regexp">//</span> code
 }
-```
-
-## Class Definitions
-
-```kelpyshark
-class Name {
-    // methods
+</code></pre>
+<h2 id="class-definitions">Class Definitions</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Name</span> </span>{
+    <span class="hljs-comment">// methods</span>
 }
-```
-
-## Imports
-
-- `import module`
-- `from module import name`
-
-## Error Handling
-
-- `try { ... } catch (err) { ... }`
-- `throw "message"`
-
-## Comments
-
-- `# single line comment`
-
----
-
-See the full tutorial for more grammar details and examples.
+</code></pre>
+<h2 id="imports">Imports</h2>
+<ul>
+<li><code>import module</code></li>
+<li><code>from module import name</code></li>
+</ul>
+<h2 id="error-handling">Error Handling</h2>
+<ul>
+<li><code>try { ... } catch (err) { ... }</code></li>
+<li><code>throw &quot;message&quot;</code></li>
+</ul>
+<h2 id="comments">Comments</h2>
+<ul>
+<li><code># single line comment</code></li>
+</ul>
+<hr>
+<p>See the full tutorial for more grammar details and examples.</p>

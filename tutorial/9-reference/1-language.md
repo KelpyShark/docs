@@ -1,39 +1,39 @@
-# 1. KelpyShark Language Overview
-
-KelpyShark is a readable, beginner-friendly, and powerful programming language designed for everyone—from absolute beginners to advanced users. It supports scripting, compiled applications, cross-language transpilation, reusable libraries, and real software development.
-
-## Key Features
-
-- **Simple, readable syntax** (inspired by Python, C, and JSON)
-- **Dynamic typing**
-- **Curly braces for scope**
-- **First-class functions**
-- **Lists and dictionaries built-in**
-- **String interpolation**
-- **Cross-platform** (Windows, Linux, macOS)
-- **Transpiles to C, JavaScript, Java, C#**
-- **Native binary compilation**
-- **Standard library and package manager**
-
-## Example Program
-
-```kelpyshark
-# FizzBuzz Example
-for i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] {
-    if i % 15 == 0 {
-        print "FizzBuzz"
-    } else if i % 3 == 0 {
-        print "Fizz"
-    } else if i % 5 == 0 {
-        print "Buzz"
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="1-kelpyshark-language-overview">1. KelpyShark Language Overview</h1>
+<p>KelpyShark is a readable, beginner-friendly, and powerful programming language designed for everyone—from absolute beginners to advanced users. It supports scripting, compiled applications, cross-language transpilation, reusable libraries, and real software development.</p>
+<h2 id="key-features">Key Features</h2>
+<ul>
+<li><strong>Simple, readable syntax</strong> (inspired by Python, C, and JSON)</li>
+<li><strong>Dynamic typing</strong></li>
+<li><strong>Curly braces for scope</strong></li>
+<li><strong>First-class functions</strong></li>
+<li><strong>Lists and dictionaries built-in</strong></li>
+<li><strong>String interpolation</strong></li>
+<li><strong>Cross-platform</strong> (Windows, Linux, macOS)</li>
+<li><strong>Transpiles to C, JavaScript, Java, C#</strong></li>
+<li><strong>Native binary compilation</strong></li>
+<li><strong>Standard library and package manager</strong></li>
+</ul>
+<h2 id="example-program">Example Program</h2>
+<pre><code class="lang-kelpyshark"># FizzBuzz Example
+for i in [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">15</span>] {
+    if i % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> {
+        print <span class="hljs-string">"FizzBuzz"</span>
+    } else if i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> {
+        print <span class="hljs-string">"Fizz"</span>
+    } else if i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span> {
+        print <span class="hljs-string">"Buzz"</span>
     } else {
         print i
     }
 }
-```
-
-## Philosophy
-
-- **Readability first**
-- **Beginner-friendly, but powerful for experts**
-- **Safe, portable, and extensible**
+</code></pre>
+<h2 id="philosophy">Philosophy</h2>
+<ul>
+<li><strong>Readability first</strong></li>
+<li><strong>Beginner-friendly, but powerful for experts</strong></li>
+<li><strong>Safe, portable, and extensible</strong></li>
+</ul>

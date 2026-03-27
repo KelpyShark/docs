@@ -1,25 +1,25 @@
-# Method Chaining
-
-Method chaining allows you to call multiple methods in a single expression. In KelpyShark, you can chain functions by passing the result of one as the argument to the next.
-
-## Example
-
-```kelpyshark
-def set_name(person, name) {
-    person["name"] = name
-    return person
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="method-chaining">Method Chaining</h1>
+<p>Method chaining allows you to call multiple methods in a single expression. In KelpyShark, you can chain functions by passing the result of one as the argument to the next.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_name</span><span class="hljs-params">(person, name)</span></span> {
+    person[<span class="hljs-string">"name"</span>] = name
+    <span class="hljs-keyword">return</span> person
 }
-def set_age(person, age) {
-    person["age"] = age
-    return person
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_age</span><span class="hljs-params">(person, age)</span></span> {
+    person[<span class="hljs-string">"age"</span>] = age
+    <span class="hljs-keyword">return</span> person
 }
 
-bob = {"name": "", "age": 0}
-bob = set_age(set_name(bob, "Bob"), 25)
-print bob["name"], bob["age"]   # Bob 25
-```
-
-## Summary
-
-- Chain functions by nesting calls.
-- True method chaining will be available with class support in future versions.
+bob = {<span class="hljs-string">"name"</span>: <span class="hljs-string">""</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">0</span>}
+bob = set_age(set_name(bob, <span class="hljs-string">"Bob"</span>), <span class="hljs-number">25</span>)
+print bob[<span class="hljs-string">"name"</span>], bob[<span class="hljs-string">"age"</span>]   <span class="hljs-comment"># Bob 25</span>
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Chain functions by nesting calls.</li>
+<li>True method chaining will be available with class support in future versions.</li>
+</ul>

@@ -1,27 +1,28 @@
-# Project Exercises
-
-Try these project-based exercises to apply your KelpyShark skills:
-
-## 1. Build a Todo List
-
-- Create a program to add, remove, and list tasks.
-
-## 2. Calculator
-
-- Write a calculator that supports +, -, *, and / operations.
-
-## 3. File Organizer
-
-- Write a script to move files into folders by extension.
-
-## 4. Contact Book
-
-- Store contacts in a dictionary and allow searching by name.
-
-## 5. Text Adventure
-
-- Create a simple text-based adventure game.
-
-## Solutions
-
-Try to build these projects on your own before looking up the answers!
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="project-exercises">Project Exercises</h1>
+<p>Try these project-based exercises to apply your KelpyShark skills:</p>
+<h2 id="1-build-a-todo-list">1. Build a Todo List</h2>
+<ul>
+<li>Create a program to add, remove, and list tasks.</li>
+</ul>
+<h2 id="2-calculator">2. Calculator</h2>
+<ul>
+<li>Write a calculator that supports +, -, *, and / operations.</li>
+</ul>
+<h2 id="3-file-organizer">3. File Organizer</h2>
+<ul>
+<li>Write a script to move files into folders by extension.</li>
+</ul>
+<h2 id="4-contact-book">4. Contact Book</h2>
+<ul>
+<li>Store contacts in a dictionary and allow searching by name.</li>
+</ul>
+<h2 id="5-text-adventure">5. Text Adventure</h2>
+<ul>
+<li>Create a simple text-based adventure game.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<p>Try to build these projects on your own before looking up the answers!</p>

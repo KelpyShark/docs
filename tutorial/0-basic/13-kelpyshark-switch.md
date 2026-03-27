@@ -1,74 +1,62 @@
-# Switch/Match in KelpyShark
-
-KelpyShark does not have a built-in `switch` statement, but you can use chained `if`/`else if`/`else` blocks to achieve similar logic.
-
-## Basic Example
-
-```kelpyshark
-x = "banana"
-if x == "apple" {
-    print "It's an apple!"
-} else if x == "banana" {
-    print "Banana time!"
-} else {
-    print "Unknown fruit"
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="switch-match-in-kelpyshark">Switch/Match in KelpyShark</h1>
+<p>KelpyShark does not have a built-in <code>switch</code> statement, but you can use chained <code>if</code>/<code>else if</code>/<code>else</code> blocks to achieve similar logic.</p>
+<h2 id="basic-example">Basic Example</h2>
+<pre><code class="lang-kelpyshark">x = <span class="hljs-string">"banana"</span>
+<span class="hljs-built_in">if</span> x == <span class="hljs-string">"apple"</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"It's an apple!"</span>
+} <span class="hljs-built_in">else</span> <span class="hljs-built_in">if</span> x == <span class="hljs-string">"banana"</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"Banana time!"</span>
+} <span class="hljs-built_in">else</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"Unknown fruit"</span>
 }
-```
-
-## Multiple Values (Manual Matching)
-
-You can match multiple values using `or`:
-
-```kelpyshark
-color = "red"
-if color == "red" or color == "blue" {
-    print "Primary color"
-} else if color == "green" {
-    print "Secondary color"
-} else {
-    print "Other color"
+</code></pre>
+<h2 id="multiple-values-manual-matching-">Multiple Values (Manual Matching)</h2>
+<p>You can match multiple values using <code>or</code>:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">color</span> = <span class="hljs-string">"red"</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">color</span> == <span class="hljs-string">"red"</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">color</span> == <span class="hljs-string">"blue"</span> {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"Primary color"</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">color</span> == <span class="hljs-string">"green"</span> {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"Secondary color"</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"Other color"</span>
 }
-```
-
-## Nested Matching
-
-For more complex logic, nest conditionals:
-
-```kelpyshark
-shape = "circle"
-size = "large"
-if shape == "circle" {
-    if size == "large" {
-        print "Large circle"
-    } else {
-        print "Small circle"
+</code></pre>
+<h2 id="nested-matching">Nested Matching</h2>
+<p>For more complex logic, nest conditionals:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">shape</span> = <span class="hljs-string">"circle"</span>
+<span class="hljs-built_in">size</span> = <span class="hljs-string">"large"</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">shape</span> == <span class="hljs-string">"circle"</span> {
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">size</span> == <span class="hljs-string">"large"</span> {
+        <span class="hljs-built_in">print</span> <span class="hljs-string">"Large circle"</span>
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">print</span> <span class="hljs-string">"Small circle"</span>
     }
-} else if shape == "square" {
-    print "Square"
-} else {
-    print "Unknown shape"
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-built_in">shape</span> == <span class="hljs-string">"square"</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"Square"</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"Unknown shape"</span>
 }
-```
-
-## Using Dictionaries for Lookup
-
-For many cases, a dictionary can replace a switch:
-
-```kelpyshark
-actions = {
-    "run": "You run fast!",
-    "jump": "You jump high!",
-    "swim": "You swim well!"
+</code></pre>
+<h2 id="using-dictionaries-for-lookup">Using Dictionaries for Lookup</h2>
+<p>For many cases, a dictionary can replace a switch:</p>
+<pre><code class="lang-kelpyshark">actions = {
+    <span class="hljs-string">"run"</span>: <span class="hljs-string">"You run fast!"</span>,
+    <span class="hljs-string">"jump"</span>: <span class="hljs-string">"You jump high!"</span>,
+    <span class="hljs-string">"swim"</span>: <span class="hljs-string">"You swim well!"</span>
 }
-verb = "jump"
-if verb in actions {
-    print actions[verb]
-} else {
-    print "Unknown action"
+<span class="hljs-keyword">verb</span> = <span class="hljs-string">"jump"</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">verb</span> in actions {
+    <span class="hljs-keyword">print</span> actions[<span class="hljs-keyword">verb</span>]
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"Unknown action"</span>
 }
-```
-
-## Summary
-
-- Use chained `if`/`else if`/`else` for multi-way branching.
-- Use dictionaries for value-to-action lookups.
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use chained <code>if</code>/<code>else if</code>/<code>else</code> for multi-way branching.</li>
+<li>Use dictionaries for value-to-action lookups.</li>
+</ul>

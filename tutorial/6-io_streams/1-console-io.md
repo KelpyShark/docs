@@ -1,60 +1,43 @@
-# Console IO in KelpyShark
-
-Console IO lets your program interact with the user through the terminal or command prompt. This is the most basic and common form of input and output.
-
-## Reading Input
-
-Use `std.input(prompt)` to read a line of text from the user:
-
-```kelpyshark
-name = std.input("What is your name? ")
-print("Hello, " + name)
-```
-
-## Writing Output
-
-Use `print` to display information:
-
-```kelpyshark
-print("Welcome to KelpyShark!")
-```
-
-## Reading Numbers
-
-All input is read as a string. Convert to a number if needed:
-
-```kelpyshark
-age = std.input("Enter your age: ")
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="console-io-in-kelpyshark">Console IO in KelpyShark</h1>
+<p>Console IO lets your program interact with the user through the terminal or command prompt. This is the most basic and common form of input and output.</p>
+<h2 id="reading-input">Reading Input</h2>
+<p>Use <code>std.input(prompt)</code> to read a line of text from the user:</p>
+<pre><code class="lang-kelpyshark">name = std.input(<span class="hljs-string">"What is your name? "</span>)
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Hello, "</span> + name)</span></span>
+</code></pre>
+<h2 id="writing-output">Writing Output</h2>
+<p>Use <code>print</code> to display information:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Welcome to KelpyShark!"</span>)</span></span>
+</code></pre>
+<h2 id="reading-numbers">Reading Numbers</h2>
+<p>All input is read as a string. Convert to a number if needed:</p>
+<pre><code class="lang-kelpyshark">age = std.input(<span class="hljs-string">"Enter your age: "</span>)
 age = int(age)
-print("Next year, you'll be " + (age + 1))
-```
-
-## Multi-line Output
-
-You can print multiple lines:
-
-```kelpyshark
-print("Line 1")
-print("Line 2")
-```
-
-## Formatting Output
-
-Use string concatenation or interpolation:
-
-```kelpyshark
-name = "Alice"
-print("Hello, " + name)
-```
-
-## Best Practices
-
-- Always prompt the user clearly for input.
-- Convert input to the correct type before using it in calculations.
-- Use `print` for debugging and user messages.
-
-## Summary
-
-- Use `std.input` for reading from the console.
-- Use `print` for writing to the console.
-- Handle input types carefully.
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Next year, you'll be "</span> + (age + <span class="hljs-number">1</span>)</span></span>)
+</code></pre>
+<h2 id="multi-line-output">Multi-line Output</h2>
+<p>You can print multiple lines:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Line 1"</span>)</span></span>
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Line 2"</span>)</span></span>
+</code></pre>
+<h2 id="formatting-output">Formatting Output</h2>
+<p>Use string concatenation or interpolation:</p>
+<pre><code class="lang-kelpyshark">name = <span class="hljs-string">"Alice"</span>
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">"Hello, "</span> + name)</span></span>
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Always prompt the user clearly for input.</li>
+<li>Convert input to the correct type before using it in calculations.</li>
+<li>Use <code>print</code> for debugging and user messages.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>std.input</code> for reading from the console.</li>
+<li>Use <code>print</code> for writing to the console.</li>
+<li>Handle input types carefully.</li>
+</ul>

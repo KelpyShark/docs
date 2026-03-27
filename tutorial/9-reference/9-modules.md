@@ -1,29 +1,33 @@
-# 9. Modules & Imports (Quick Reference)
-
-## Importing Modules
-```kelpyshark
-import math
-import strings
-import my_library
-```
-
-- Standard library modules are always available
-- User libraries must be installed (see package manager)
-
-## Module Search Order
-1. Standard library (math, strings, io, json, sys)
-2. Project `libs/` directory
-3. User registry
-
-## Dot Notation
-- Submodules: `import http.server` loads `http/src/server.ks`
-
-## Exporting Functions
-- All top-level functions in a module are exported
-
-## Example
-```kelpyshark
-import math
-print math.PI
-print math.pow(2, 8)
-```
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="9-modules-imports-quick-reference-">9. Modules &amp; Imports (Quick Reference)</h1>
+<h2 id="importing-modules">Importing Modules</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">import</span> math
+<span class="hljs-keyword">import</span> strings
+<span class="hljs-keyword">import</span> my_library
+</code></pre>
+<ul>
+<li>Standard library modules are always available</li>
+<li>User libraries must be installed (see package manager)</li>
+</ul>
+<h2 id="module-search-order">Module Search Order</h2>
+<ol>
+<li>Standard library (math, strings, io, json, sys)</li>
+<li>Project <code>libs/</code> directory</li>
+<li>User registry</li>
+</ol>
+<h2 id="dot-notation">Dot Notation</h2>
+<ul>
+<li>Submodules: <code>import http.server</code> loads <code>http/src/server.ks</code></li>
+</ul>
+<h2 id="exporting-functions">Exporting Functions</h2>
+<ul>
+<li>All top-level functions in a module are exported</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">import</span> <span class="hljs-built_in">math</span>
+<span class="hljs-built_in">print</span> <span class="hljs-built_in">math</span>.PI
+<span class="hljs-built_in">print</span> <span class="hljs-built_in">math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>)
+</code></pre>

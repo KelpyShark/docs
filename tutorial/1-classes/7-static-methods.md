@@ -1,30 +1,27 @@
-# Static Methods
-
-KelpyShark will support static methods in future versions. For now, use standalone functions that do not depend on object or class state.
-
-## Example: Simulating Static Methods
-
-```kelpyshark
-def add(a, b) {
-    return a + b
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="static-methods">Static Methods</h1>
+<p>KelpyShark will support static methods in future versions. For now, use standalone functions that do not depend on object or class state.</p>
+<h2 id="example-simulating-static-methods">Example: Simulating Static Methods</h2>
+<pre><code class="lang-kelpyshark">def <span class="hljs-keyword">add</span><span class="bash">(a, b) {
+</span>    return a + b
 }
 
-result = add(2, 3)
-print result   # 5
-```
-
-## Planned Syntax (Not Yet Implemented)
-
-```kelpyshark
-class Math {
+result = <span class="hljs-keyword">add</span><span class="bash">(2, 3)
+</span>print result   <span class="hljs-comment"># 5</span>
+</code></pre>
+<h2 id="planned-syntax-not-yet-implemented-">Planned Syntax (Not Yet Implemented)</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Math</span> {</span>
     @staticmethod
-    def add(a, b) {
-        return a + b
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(a, b)</span></span> {
+        <span class="hljs-keyword">return</span> a + b
     }
 }
-```
-
-## Summary
-
-- Use standalone functions for static-like behavior.
-- Static method syntax is planned for future versions.
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use standalone functions for static-like behavior.</li>
+<li>Static method syntax is planned for future versions.</li>
+</ul>

@@ -1,25 +1,61 @@
-# 12. CLI & Tooling (Quick Reference)
-
-KelpyShark provides a command-line tool `kelpy` for running, building, and managing projects.
-
-## Common Commands
-| Command                              | Description                       |
-|--------------------------------------|-----------------------------------|
-| `kelpy run file.ks`                  | Run a script                      |
-| `kelpy repl`                         | Start interactive REPL            |
-| `kelpy build file.ks --target c`     | Compile to C                      |
-| `kelpy build file.ks --target js`    | Compile to JavaScript             |
-| `kelpy build file.ks --target java`  | Compile to Java                   |
-| `kelpy build file.ks --target cs`    | Compile to C#                     |
-| `kelpy new myproject`                | Create a new project              |
-| `kelpy install`                      | Install dependencies              |
-| `kelpy publish`                      | Publish a library                 |
-
-## File Extension
-- Source files use `.ks`
-
-## Example
-```sh
-kelpy run examples/hello.ks
-kelpy build examples/hello.ks --target c
-```
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="12-cli-tooling-quick-reference-">12. CLI &amp; Tooling (Quick Reference)</h1>
+<p>KelpyShark provides a command-line tool <code>kelpy</code> for running, building, and managing projects.</p>
+<h2 id="common-commands">Common Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kelpy run file.ks</code></td>
+<td>Run a script</td>
+</tr>
+<tr>
+<td><code>kelpy repl</code></td>
+<td>Start interactive REPL</td>
+</tr>
+<tr>
+<td><code>kelpy build file.ks --target c</code></td>
+<td>Compile to C</td>
+</tr>
+<tr>
+<td><code>kelpy build file.ks --target js</code></td>
+<td>Compile to JavaScript</td>
+</tr>
+<tr>
+<td><code>kelpy build file.ks --target java</code></td>
+<td>Compile to Java</td>
+</tr>
+<tr>
+<td><code>kelpy build file.ks --target cs</code></td>
+<td>Compile to C#</td>
+</tr>
+<tr>
+<td><code>kelpy new myproject</code></td>
+<td>Create a new project</td>
+</tr>
+<tr>
+<td><code>kelpy install</code></td>
+<td>Install dependencies</td>
+</tr>
+<tr>
+<td><code>kelpy publish</code></td>
+<td>Publish a library</td>
+</tr>
+</tbody>
+</table>
+<h2 id="file-extension">File Extension</h2>
+<ul>
+<li>Source files use <code>.ks</code></li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="lang-sh">kelpy run examples/hello<span class="hljs-selector-class">.ks</span>
+kelpy build examples/hello<span class="hljs-selector-class">.ks</span> --target c
+</code></pre>

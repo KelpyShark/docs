@@ -1,13 +1,17 @@
-# Project Ideas
-
-Here are some project ideas to try in KelpyShark:
-
-1. **Todo List App**: Manage tasks with add, remove, and list features.
-2. **Simple Calculator**: Perform basic arithmetic operations.
-3. **File Organizer**: Move files into folders by type.
-4. **Contact Book**: Store and search for contacts.
-5. **Text Adventure Game**: Create an interactive story.
-
-## Summary
-
-- Start with simple projects and increase complexity as you learn.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="project-ideas">Project Ideas</h1>
+<p>Here are some project ideas to try in KelpyShark:</p>
+<ol>
+<li><strong>Todo List App</strong>: Manage tasks with add, remove, and list features.</li>
+<li><strong>Simple Calculator</strong>: Perform basic arithmetic operations.</li>
+<li><strong>File Organizer</strong>: Move files into folders by type.</li>
+<li><strong>Contact Book</strong>: Store and search for contacts.</li>
+<li><strong>Text Adventure Game</strong>: Create an interactive story.</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Start with simple projects and increase complexity as you learn.</li>
+</ul>

@@ -1,0 +1,62 @@
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="introduction-to-classes">Introduction to Classes</h1>
+<p>KelpyShark is designed to support object-oriented programming (OOP) with classes, inheritance, and methods. As of now, full class syntax is planned for future versions. You can still use OOP concepts by combining dictionaries (for data) and functions (for behavior).</p>
+<h2 id="what-is-a-class-">What is a Class?</h2>
+<p>A class is a blueprint for creating objects (instances) that share attributes (data) and methods (behavior).</p>
+<h2 id="example-simulating-a-class">Example: Simulating a Class</h2>
+<pre><code class="lang-kelpyshark">person = {<span class="hljs-string">"name"</span>: <span class="hljs-string">"Alice"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">30</span>}
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">birthday</span><span class="hljs-params">(p)</span></span> {
+    p[<span class="hljs-string">"age"</span>] = p[<span class="hljs-string">"age"</span>] + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> p
+}
+
+person = birthday(person)
+print person[<span class="hljs-string">"age"</span>]   <span class="hljs-comment"># 31</span>
+</code></pre>
+<h2 id="simulating-classes-with-dictionaries-and-functions">Simulating Classes with Dictionaries and Functions</h2>
+<p>You can represent an object as a dictionary and define functions to operate on it.</p>
+<h3 id="example-person-object">Example: Person Object</h3>
+<pre><code class="lang-kelpyshark">person = {<span class="hljs-string">"name"</span>: <span class="hljs-string">"Alice"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">30</span>}
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">birthday</span><span class="hljs-params">(p)</span></span> {
+    p[<span class="hljs-string">"age"</span>] = p[<span class="hljs-string">"age"</span>] + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> p
+}
+
+person = birthday(person)
+print person[<span class="hljs-string">"age"</span>]   <span class="hljs-comment"># 31</span>
+</code></pre>
+<h3 id="example-multiple-objects">Example: Multiple Objects</h3>
+<pre><code class="lang-kelpyshark">alice = {<span class="hljs-string">"name"</span>: <span class="hljs-string">"Alice"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">30</span>}
+<span class="hljs-keyword">bob </span>= {<span class="hljs-string">"name"</span>: <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"age"</span>: <span class="hljs-number">25</span>}
+
+def <span class="hljs-keyword">birthday(p) </span>{
+    p[<span class="hljs-string">"age"</span>] = p[<span class="hljs-string">"age"</span>] + <span class="hljs-number">1</span>
+    return p
+}
+
+alice = <span class="hljs-keyword">birthday(alice)
+</span><span class="hljs-keyword">bob </span>= <span class="hljs-keyword">birthday(bob)
+</span>print alice[<span class="hljs-string">"age"</span>], <span class="hljs-keyword">bob["age"] </span>  <span class="hljs-comment"># 31 26</span>
+</code></pre>
+<h3 id="example-adding-methods">Example: Adding Methods</h3>
+<p>You can store functions in dictionaries to simulate methods:</p>
+<pre><code class="lang-kelpyshark">def speak(p) {
+<span class="hljs-code">    print "Hi, I'm {$p[\"name\"]}!"</span>
+}
+
+p = {"name": "Eve", "age": 22, "speak": speak}
+p[<span class="hljs-string">"speak"</span>](<span class="hljs-link">p</span>)   # Hi, I'm Eve!
+</code></pre>
+<h2 id="oop-concepts-in-kelpyshark-current-state-">OOP Concepts in KelpyShark (Current State)</h2>
+<ul>
+<li><strong>Encapsulation</strong>: Group data and functions using dictionaries</li>
+<li><strong>Reusability</strong>: Write functions that work with any object structure</li>
+<li><strong>Inheritance</strong>: Simulate by copying and extending dictionaries (see later sections)</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>Full class and method support is planned for future releases. For now, use dictionaries and functions to model objects and behavior.</p>

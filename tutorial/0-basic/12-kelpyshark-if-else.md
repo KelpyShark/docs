@@ -1,72 +1,60 @@
-# If / Else in KelpyShark
-
-Control the flow of your program using `if`, `else if`, and `else` statements.
-
-## Basic If/Else
-
-```kelpyshark
-x = 10
-if x > 5 {
-    print "x is big"
-} else {
-    print "x is small"
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="if-else-in-kelpyshark">If / Else in KelpyShark</h1>
+<p>Control the flow of your program using <code>if</code>, <code>else if</code>, and <code>else</code> statements.</p>
+<h2 id="basic-if-else">Basic If/Else</h2>
+<pre><code class="lang-kelpyshark">x = <span class="hljs-number">10</span>
+<span class="hljs-built_in">if</span> x &gt; <span class="hljs-number">5</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"x is big"</span>
+} <span class="hljs-built_in">else</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"x is small"</span>
 }
-```
-
-## Chained Conditions (Else If)
-
-Use `else if` to check multiple conditions in order:
-
-```kelpyshark
-score = 72
-if score >= 90 {
-    print "A"
-} else if score >= 80 {
-    print "B"
-} else if score >= 70 {
-    print "C"
-} else {
-    print "D or F"
+</code></pre>
+<h2 id="chained-conditions-else-if-">Chained Conditions (Else If)</h2>
+<p>Use <code>else if</code> to check multiple conditions in order:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">score</span> = 72
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">score</span> &gt;= 90 {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"A"</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">score</span> &gt;= 80 {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"B"</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">score</span> &gt;= 70 {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"C"</span>
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">print</span> <span class="hljs-string">"D or F"</span>
 }
-```
-
-## Nested Conditionals
-
-You can nest `if` statements inside each other:
-
-```kelpyshark
-age = 20
-citizen = true
-if age >= 18 {
-    if citizen {
-        print "Eligible to vote"
-    } else {
-        print "Not a citizen"
+</code></pre>
+<h2 id="nested-conditionals">Nested Conditionals</h2>
+<p>You can nest <code>if</code> statements inside each other:</p>
+<pre><code class="lang-kelpyshark">age = 20
+citizen = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">if</span> age &gt;= 18 {
+    <span class="hljs-keyword">if</span> citizen {
+        <span class="hljs-built_in">print</span> <span class="hljs-string">"Eligible to vote"</span>
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">print</span> <span class="hljs-string">"Not a citizen"</span>
     }
-} else {
-    print "Too young"
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"Too young"</span>
 }
-```
-
-## Truthiness in Conditions
-
-Any truthy/falsey value can be used in an `if`:
-
-```kelpyshark
-if "" {
-    print "This will NOT print."
+</code></pre>
+<h2 id="truthiness-in-conditions">Truthiness in Conditions</h2>
+<p>Any truthy/falsey value can be used in an <code>if</code>:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">if</span> <span class="hljs-string">""</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"This will NOT print."</span>
 }
-if "hello" {
-    print "This WILL print."
+<span class="hljs-built_in">if</span> <span class="hljs-string">"hello"</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"This WILL print."</span>
 }
-```
-
-## Common Mistakes
-
-- Use `==` for comparison, not `=` (assignment).
-- Curly braces are required for code blocks.
-
-## Summary
-
-- Use `if`, `else if`, and `else` for decision making.
-- Conditions use booleans or truthy/falsey values.
+</code></pre>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<ul>
+<li>Use <code>==</code> for comparison, not <code>=</code> (assignment).</li>
+<li>Curly braces are required for code blocks.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use <code>if</code>, <code>else if</code>, and <code>else</code> for decision making.</li>
+<li>Conditions use booleans or truthy/falsey values.</li>
+</ul>

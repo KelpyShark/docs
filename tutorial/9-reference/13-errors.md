@@ -1,23 +1,29 @@
-# 13. Error Handling (Quick Reference)
-
-## Runtime Errors
-- Accessing undefined variables
-- Calling functions with wrong number of arguments
-- Type errors (e.g. adding string to number)
-- Division by zero
-- Index out of bounds
-
-## Error Messages
-- Errors include line and column numbers
-- Example:
-  ```
-  Error at line 3, column 5: Undefined variable 'foo'
-  ```
-
-## Handling Errors
-- Use `if`/`else` to check for conditions
-- No try/catch (yet)
-
-## Warnings
-- Unused variables
-- Return outside function
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="13-error-handling-quick-reference-">13. Error Handling (Quick Reference)</h1>
+<h2 id="runtime-errors">Runtime Errors</h2>
+<ul>
+<li>Accessing undefined variables</li>
+<li>Calling functions with wrong number of arguments</li>
+<li>Type errors (e.g. adding string to number)</li>
+<li>Division by zero</li>
+<li>Index out of bounds</li>
+</ul>
+<h2 id="error-messages">Error Messages</h2>
+<ul>
+<li>Errors include line and column numbers</li>
+<li>Example:<pre><code><span class="hljs-keyword">Error </span>at line 3, column 5: Undefined variable 'foo'
+</code></pre></li>
+</ul>
+<h2 id="handling-errors">Handling Errors</h2>
+<ul>
+<li>Use <code>if</code>/<code>else</code> to check for conditions</li>
+<li>No try/catch (yet)</li>
+</ul>
+<h2 id="warnings">Warnings</h2>
+<ul>
+<li>Unused variables</li>
+<li>Return outside function</li>
+</ul>

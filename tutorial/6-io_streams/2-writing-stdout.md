@@ -1,13 +1,13 @@
-# Writing to Standard Output
-
-Use the `print` statement to write output to the console.
-
-## Example
-
-```kelpyshark
-print "Hello, world!"
-```
-
-## Summary
-
-- `print` outputs text to the console.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="writing-to-standard-output">Writing to Standard Output</h1>
+<p>Use the <code>print</code> statement to write output to the console.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">print</span> <span class="hljs-string">"Hello, world!"</span>
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><code>print</code> outputs text to the console.</li>
+</ul>

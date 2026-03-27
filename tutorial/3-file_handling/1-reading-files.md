@@ -1,15 +1,15 @@
-# Reading Files
-
-Use the standard library function `std.read_file(filename)` to read the contents of a file as a string.
-
-## Example
-
-```kelpyshark
-text = std.read_file("example.txt")
-print text
-```
-
-## Summary
-
-- `std.read_file` returns the file contents as a string.
-- Handle errors if the file does not exist.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="reading-files">Reading Files</h1>
+<p>Use the standard library function <code>std.read_file(filename)</code> to read the contents of a file as a string.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">text</span> = std.read_file(<span class="hljs-string">"example.txt"</span>)
+<span class="hljs-built_in">print</span> <span class="hljs-built_in">text</span>
+</code></pre>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><code>std.read_file</code> returns the file contents as a string.</li>
+<li>Handle errors if the file does not exist.</li>
+</ul>

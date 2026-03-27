@@ -1,40 +1,36 @@
-# 6. Control Flow (Quick Reference)
-
-## If / Else
-```kelpyshark
-if x > 10 {
-    print "big"
-} else {
-    print "small"
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="6-control-flow-quick-reference-">6. Control Flow (Quick Reference)</h1>
+<h2 id="if-else">If / Else</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">if</span> x &gt; <span class="hljs-number">10</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"big"</span>
+} <span class="hljs-built_in">else</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"small"</span>
 }
-```
-
-## While Loop
-```kelpyshark
-x = 0
-while x < 5 {
+</code></pre>
+<h2 id="while-loop">While Loop</h2>
+<pre><code class="lang-kelpyshark">x = <span class="hljs-number">0</span>
+while x &lt; <span class="hljs-number">5</span> {
     print x
-    x = x + 1
+    x = x + <span class="hljs-number">1</span>
 }
-```
-
-## For Loop
-```kelpyshark
-fruits = ["apple", "banana", "cherry"]
-for fruit in fruits {
-    print fruit
+</code></pre>
+<h2 id="for-loop">For Loop</h2>
+<pre><code class="lang-kelpyshark">fruits = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>]
+<span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> fruits {
+    <span class="hljs-built_in">print</span> fruit
 }
-```
-
-## Break & Continue
-```kelpyshark
-for i in [1,2,3,4,5] {
-    if i == 3 {
+</code></pre>
+<h2 id="break-continue">Break &amp; Continue</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] {
+    <span class="hljs-keyword">if</span> <span class="hljs-selector-tag">i</span> == <span class="hljs-number">3</span> {
         continue
     }
-    if i == 5 {
+    <span class="hljs-keyword">if</span> <span class="hljs-selector-tag">i</span> == <span class="hljs-number">5</span> {
         break
     }
-    print i
+    print <span class="hljs-selector-tag">i</span>
 }
-```
+</code></pre>

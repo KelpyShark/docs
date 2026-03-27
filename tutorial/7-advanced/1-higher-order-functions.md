@@ -1,65 +1,54 @@
-# Higher-Order Functions
-
-KelpyShark supports first-class functions, which means you can treat functions like any other value. This enables higher-order functions—functions that take other functions as arguments or return them as results.
-
-## Passing Functions as Arguments
-
-You can pass a function to another function:
-
-```kelpyshark
-def apply_twice(f, x) {
-    return f(f(x))
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="higher-order-functions">Higher-Order Functions</h1>
+<p>KelpyShark supports first-class functions, which means you can treat functions like any other value. This enables higher-order functions—functions that take other functions as arguments or return them as results.</p>
+<h2 id="passing-functions-as-arguments">Passing Functions as Arguments</h2>
+<p>You can pass a function to another function:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply_twice</span><span class="hljs-params">(f, x)</span></span> {
+    <span class="hljs-keyword">return</span> f(f(x))
 }
-def increment(n) {
-    return n + 1
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">increment</span><span class="hljs-params">(n)</span></span> {
+    <span class="hljs-keyword">return</span> n + <span class="hljs-number">1</span>
 }
-print(apply_twice(increment, 3))   # 5
-```
-
-## Returning Functions
-
-Functions can return other functions:
-
-```kelpyshark
-def make_multiplier(factor) {
-    return def(x) { return x * factor }
+print(apply_twice(increment, <span class="hljs-number">3</span>))   <span class="hljs-comment"># 5</span>
+</code></pre>
+<h2 id="returning-functions">Returning Functions</h2>
+<p>Functions can return other functions:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_multiplier</span><span class="hljs-params">(factor)</span></span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">def</span><span class="hljs-params">(x)</span></span> { <span class="hljs-keyword">return</span> x * factor }
 }
-double = make_multiplier(2)
-print(double(10))  # 20
-```
-
-## Using Anonymous (Lambda) Functions
-
-You can define functions inline:
-
-```kelpyshark
-nums = [1, 2, 3]
-print(nums.map(def(x) { return x * x }))  # [1, 4, 9]
-```
-
-## Common Patterns
-
-- **Map**: Apply a function to each item in a list.
-- **Filter**: Select items matching a condition.
-- **Reduce**: Combine items into a single value.
-
-```kelpyshark
-nums = [1, 2, 3, 4]
-squares = nums.map(def(x) { return x * x })
-evens = nums.filter(def(x) { return x % 2 == 0 })
-sum = nums.reduce(def(a, b) { return a + b }, 0)
-print(squares)  # [1, 4, 9, 16]
-print(evens)    # [2, 4]
-print(sum)      # 10
-```
-
-## Best Practices
-
-- Use higher-order functions for concise, expressive code.
-- Prefer named functions for clarity in complex logic.
-- Use anonymous functions for short, simple operations.
-
-## Summary
-
-- Functions can be passed and returned like values.
-- Higher-order functions enable powerful programming patterns.
+double = make_multiplier(<span class="hljs-number">2</span>)
+print(double(<span class="hljs-number">10</span>))  <span class="hljs-comment"># 20</span>
+</code></pre>
+<h2 id="using-anonymous-lambda-functions">Using Anonymous (Lambda) Functions</h2>
+<p>You can define functions inline:</p>
+<pre><code class="lang-kelpyshark">nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+print(nums.map(def(x) { return x * x }))  # [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>]
+</code></pre>
+<h2 id="common-patterns">Common Patterns</h2>
+<ul>
+<li><strong>Map</strong>: Apply a function to each item in a list.</li>
+<li><strong>Filter</strong>: Select items matching a condition.</li>
+<li><strong>Reduce</strong>: Combine items into a single value.</li>
+</ul>
+<pre><code class="lang-kelpyshark">nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+squares = nums.map(<span class="hljs-function"><span class="hljs-keyword">def</span><span class="hljs-params">(x)</span></span> { <span class="hljs-keyword">return</span> x * x })
+evens = nums.filter(<span class="hljs-function"><span class="hljs-keyword">def</span><span class="hljs-params">(x)</span></span> { <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> })
+sum = nums.reduce(<span class="hljs-function"><span class="hljs-keyword">def</span><span class="hljs-params">(a, b)</span></span> { <span class="hljs-keyword">return</span> a + b }, <span class="hljs-number">0</span>)
+print(squares)  <span class="hljs-comment"># [1, 4, 9, 16]</span>
+print(evens)    <span class="hljs-comment"># [2, 4]</span>
+print(sum)      <span class="hljs-comment"># 10</span>
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Use higher-order functions for concise, expressive code.</li>
+<li>Prefer named functions for clarity in complex logic.</li>
+<li>Use anonymous functions for short, simple operations.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Functions can be passed and returned like values.</li>
+<li>Higher-order functions enable powerful programming patterns.</li>
+</ul>

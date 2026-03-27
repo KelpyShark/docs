@@ -1,62 +1,50 @@
-# Math in KelpyShark
-
-KelpyShark supports numbers (integers and floats) and standard math operations.
-
-## Basic Math Operators
-
-```kelpyshark
-a = 5
-b = 2
-print a + b      # 7
-print a - b      # 3
-print a * b      # 10
-print a / b      # 2.5
-print a % b      # 1
-```
-
-## Integer vs Float
-
-All numbers are floating-point by default. Integer division returns a float:
-
-```kelpyshark
-print 7 / 2    # 3.5
-print 7 % 2    # 1
-```
-
-## Operator Precedence
-
-Multiplication/division happen before addition/subtraction:
-
-```kelpyshark
-print 2 + 3 * 4    # 14
-print (2 + 3) * 4  # 20
-```
-
-## Math Standard Library
-
-Import the `math` module for advanced functions:
-
-```kelpyshark
-import math
-print math.sqrt(16)   # 4
-print math.pow(2, 8)  # 256
-print math.abs(-5)    # 5
-print math.floor(3.7) # 3
-print math.ceil(3.1)  # 4
-print math.round(2.718, 2) # 2.72
-print math.PI         # 3.14159...
-```
-
-## Common Math Functions
-
-- `abs(x)`, `floor(x)`, `ceil(x)`, `round(x, n)`, `sqrt(x)`, `pow(x, y)`, `min(a, b)`, `max(a, b)`, `sin(x)`, `cos(x)`, `tan(x)`
-
-## Math Errors
-
-- Division by zero causes a runtime error.
-- `sqrt` of a negative number may error or return `NaN`.
-
-## Summary
-
-- Use standard operators for math.
-- Import `math` for advanced functions.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="math-in-kelpyshark">Math in KelpyShark</h1>
+<p>KelpyShark supports numbers (integers and floats) and standard math operations.</p>
+<h2 id="basic-math-operators">Basic Math Operators</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">a</span> = <span class="hljs-number">5</span>
+b = <span class="hljs-number">2</span>
+print <span class="hljs-keyword">a</span> + b      <span class="hljs-comment"># 7</span>
+print <span class="hljs-keyword">a</span> - b      <span class="hljs-comment"># 3</span>
+print <span class="hljs-keyword">a</span> * b      <span class="hljs-comment"># 10</span>
+print <span class="hljs-keyword">a</span> / b      <span class="hljs-comment"># 2.5</span>
+print <span class="hljs-keyword">a</span> % b      <span class="hljs-comment"># 1</span>
+</code></pre>
+<h2 id="integer-vs-float">Integer vs Float</h2>
+<p>All numbers are floating-point by default. Integer division returns a float:</p>
+<pre><code class="lang-kelpyshark">print <span class="hljs-number">7</span> / <span class="hljs-number">2</span>    # <span class="hljs-number">3.5</span>
+print <span class="hljs-number">7</span> % <span class="hljs-number">2</span>    # <span class="hljs-number">1</span>
+</code></pre>
+<h2 id="operator-precedence">Operator Precedence</h2>
+<p>Multiplication/division happen before addition/subtraction:</p>
+<pre><code class="lang-kelpyshark">print <span class="hljs-number">2</span> + <span class="hljs-number">3</span> * <span class="hljs-number">4</span>    # <span class="hljs-number">14</span>
+print (<span class="hljs-number">2</span> + <span class="hljs-number">3</span>) * <span class="hljs-number">4</span>  # <span class="hljs-number">20</span>
+</code></pre>
+<h2 id="math-standard-library">Math Standard Library</h2>
+<p>Import the <code>math</code> module for advanced functions:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">import</span> math
+<span class="hljs-built_in">print</span> math.<span class="hljs-built_in">sqrt</span>(<span class="hljs-number">16</span>)<span class="hljs-meta">   # 4</span>
+<span class="hljs-built_in">print</span> math.<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>)<span class="hljs-meta">  # 256</span>
+<span class="hljs-built_in">print</span> math.<span class="hljs-built_in">abs</span>(-<span class="hljs-number">5</span>)<span class="hljs-meta">    # 5</span>
+<span class="hljs-built_in">print</span> math.<span class="hljs-built_in">floor</span>(<span class="hljs-number">3.7</span>)<span class="hljs-meta"> # 3</span>
+<span class="hljs-built_in">print</span> math.<span class="hljs-built_in">ceil</span>(<span class="hljs-number">3.1</span>)<span class="hljs-meta">  # 4</span>
+<span class="hljs-built_in">print</span> math.round(<span class="hljs-number">2.718</span>, <span class="hljs-number">2</span>)<span class="hljs-meta"> # 2.72</span>
+<span class="hljs-built_in">print</span> math.<span class="hljs-built_in">PI</span><span class="hljs-meta">         # 3.14159...</span>
+</code></pre>
+<h2 id="common-math-functions">Common Math Functions</h2>
+<ul>
+<li><code>abs(x)</code>, <code>floor(x)</code>, <code>ceil(x)</code>, <code>round(x, n)</code>, <code>sqrt(x)</code>, <code>pow(x, y)</code>, <code>min(a, b)</code>, <code>max(a, b)</code>, <code>sin(x)</code>, <code>cos(x)</code>, <code>tan(x)</code></li>
+</ul>
+<h2 id="math-errors">Math Errors</h2>
+<ul>
+<li>Division by zero causes a runtime error.</li>
+<li><code>sqrt</code> of a negative number may error or return <code>NaN</code>.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use standard operators for math.</li>
+<li>Import <code>math</code> for advanced functions.</li>
+</ul>

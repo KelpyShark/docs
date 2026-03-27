@@ -1,74 +1,51 @@
-# Lists
-
-Lists are ordered collections of values. They are similar to arrays in other languages and are one of the most commonly used data structures in KelpyShark.
-
-## Creating Lists
-
-Use square brackets to create a list:
-
-```kelpyshark
-fruits = ["apple", "banana", "cherry"]
-```
-
-## Accessing Elements
-
-Access elements by their index (starting at 0):
-
-```kelpyshark
-print(fruits[1])   # banana
-```
-
-## Modifying Lists
-
-You can change elements, add new ones, or remove them:
-
-```kelpyshark
-fruits[0] = "apricot"   # Change first element
-fruits.append("date")   # Add to end
-fruits.remove("banana") # Remove by value
-print(fruits)           # ["apricot", "cherry", "date"]
-```
-
-## Iterating Over Lists
-
-```kelpyshark
-for fruit in fruits {
- print(fruit)
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="lists">Lists</h1>
+<p>Lists are ordered collections of values. They are similar to arrays in other languages and are one of the most commonly used data structures in KelpyShark.</p>
+<h2 id="creating-lists">Creating Lists</h2>
+<p>Use square brackets to create a list:</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-attr">fruits</span> = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>]
+</code></pre>
+<h2 id="accessing-elements">Accessing Elements</h2>
+<p>Access elements by their index (starting at 0):</p>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">print</span>(fruits[<span class="hljs-number">1</span>])   <span class="hljs-meta"># banana</span>
+</code></pre>
+<h2 id="modifying-lists">Modifying Lists</h2>
+<p>You can change elements, add new ones, or remove them:</p>
+<pre><code class="lang-kelpyshark">fruits[<span class="hljs-number">0</span>] = <span class="hljs-string">"apricot"</span>   # Change <span class="hljs-built_in">first</span> element
+fruits.append(<span class="hljs-string">"date"</span>)   # <span class="hljs-keyword">Add</span> to <span class="hljs-keyword">end</span>
+fruits.remove(<span class="hljs-string">"banana"</span>) # <span class="hljs-keyword">Remove</span> <span class="hljs-built_in">by</span> value
+print(fruits)           # [<span class="hljs-string">"apricot"</span>, <span class="hljs-string">"cherry"</span>, <span class="hljs-string">"date"</span>]
+</code></pre>
+<h2 id="iterating-over-lists">Iterating Over Lists</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> fruits {
+ <span class="hljs-built_in">print</span>(fruit)
 }
-```
-
-## List Length
-
-```kelpyshark
-print(len(fruits))
-```
-
-## Slicing Lists
-
-Get a sublist using slicing:
-
-```kelpyshark
-nums = [1, 2, 3, 4, 5]
-print(nums[1:4])  # [2, 3, 4]
-```
-
-## Nested Lists
-
-Lists can contain other lists:
-
-```kelpyshark
-matrix = [[1, 2], [3, 4]]
-print(matrix[1][0])  # 3
-```
-
-## Best Practices
-
-- Use lists for ordered data.
-- Remember that indexing starts at 0.
-- Use list methods (`append`, `remove`, etc.) for common operations.
-
-## Summary
-
-- Use square brackets for lists.
-- Indexing starts at 0.
-- Lists are flexible and powerful for storing sequences.
+</code></pre>
+<h2 id="list-length">List Length</h2>
+<pre><code class="lang-kelpyshark">print(<span class="hljs-name">len</span>(<span class="hljs-name">fruits</span>))
+</code></pre>
+<h2 id="slicing-lists">Slicing Lists</h2>
+<p>Get a sublist using slicing:</p>
+<pre><code class="lang-kelpyshark">nums = <span class="hljs-string">[1, 2, 3, 4, 5]</span>
+print(nums<span class="hljs-string">[1:4]</span>)  # <span class="hljs-string">[2, 3, 4]</span>
+</code></pre>
+<h2 id="nested-lists">Nested Lists</h2>
+<p>Lists can contain other lists:</p>
+<pre><code class="lang-kelpyshark">matrix = [[1, 2], [3, 4]]
+print(matrix[<span class="hljs-string">1</span>][<span class="hljs-symbol">0</span>])  # 3
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Use lists for ordered data.</li>
+<li>Remember that indexing starts at 0.</li>
+<li>Use list methods (<code>append</code>, <code>remove</code>, etc.) for common operations.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Use square brackets for lists.</li>
+<li>Indexing starts at 0.</li>
+<li>Lists are flexible and powerful for storing sequences.</li>
+</ul>

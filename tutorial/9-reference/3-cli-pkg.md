@@ -1,34 +1,35 @@
-# KelpyShark CLI & Package Manager Reference
-
-A summary of command-line usage and package management in KelpyShark.
-
-## Running Scripts
-
-- Run a script: `kelpyshark myfile.ks`
-- Run with arguments: `kelpyshark myfile.ks arg1 arg2`
-
-## REPL
-
-- Start interactive shell: `kelpyshark`
-
-## Package Manager Commands
-
-- Install a package: `kelpyshark pkg install <name>`
-- Remove a package: `kelpyshark pkg remove <name>`
-- List installed packages: `kelpyshark pkg list`
-- Search for packages: `kelpyshark pkg search <query>`
-
-## Project Management
-
-- Initialize a new project: `kelpyshark init`
-- Build a project: `kelpyshark build`
-- Run tests: `kelpyshark test`
-
-## Environment
-
-- Set environment variable: `set KELPY_ENV=dev` (Windows)
-- View version: `kelpyshark --version`
-
----
-
-See the full tutorial for more on CLI and package management.
+<head><title>KelpyShark Docs</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1 id="kelpyshark-cli-package-manager-reference">KelpyShark CLI &amp; Package Manager Reference</h1>
+<p>A summary of command-line usage and package management in KelpyShark.</p>
+<h2 id="running-scripts">Running Scripts</h2>
+<ul>
+<li>Run a script: <code>kelpyshark myfile.ks</code></li>
+<li>Run with arguments: <code>kelpyshark myfile.ks arg1 arg2</code></li>
+</ul>
+<h2 id="repl">REPL</h2>
+<ul>
+<li>Start interactive shell: <code>kelpyshark</code></li>
+</ul>
+<h2 id="package-manager-commands">Package Manager Commands</h2>
+<ul>
+<li>Install a package: <code>kelpyshark pkg install &lt;name&gt;</code></li>
+<li>Remove a package: <code>kelpyshark pkg remove &lt;name&gt;</code></li>
+<li>List installed packages: <code>kelpyshark pkg list</code></li>
+<li>Search for packages: <code>kelpyshark pkg search &lt;query&gt;</code></li>
+</ul>
+<h2 id="project-management">Project Management</h2>
+<ul>
+<li>Initialize a new project: <code>kelpyshark init</code></li>
+<li>Build a project: <code>kelpyshark build</code></li>
+<li>Run tests: <code>kelpyshark test</code></li>
+</ul>
+<h2 id="environment">Environment</h2>
+<ul>
+<li>Set environment variable: <code>set KELPY_ENV=dev</code> (Windows)</li>
+<li>View version: <code>kelpyshark --version</code></li>
+</ul>
+<hr>
+<p>See the full tutorial for more on CLI and package management.</p>
