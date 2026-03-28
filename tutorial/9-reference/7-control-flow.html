@@ -1,0 +1,39 @@
+﻿<head><title>KelpyShark Docs — Control Flow</title></head>
+<style>@import "../../common.css";</style>
+<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+<body class="markdown-body">
+<h1>Control Flow</h1>
+<h2 id="if-else">If / Else</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-built_in">if</span> x &gt; <span class="hljs-number">10</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"big"</span>
+} <span class="hljs-built_in">else</span> {
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"small"</span>
+}
+</code></pre>
+<h2 id="while-loop">While Loop</h2>
+<pre><code class="lang-kelpyshark">x = <span class="hljs-number">0</span>
+while x &lt; <span class="hljs-number">5</span> {
+    print x
+    x = x + <span class="hljs-number">1</span>
+}
+</code></pre>
+<h2 id="for-loop">For Loop</h2>
+<pre><code class="lang-kelpyshark">fruits = [<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>]
+<span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> fruits {
+    <span class="hljs-built_in">print</span> fruit
+}
+</code></pre>
+<h2 id="break-continue">Break &amp; Continue</h2>
+<pre><code class="lang-kelpyshark"><span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] {
+    <span class="hljs-keyword">if</span> <span class="hljs-selector-tag">i</span> == <span class="hljs-number">3</span> {
+        continue
+    }
+    <span class="hljs-keyword">if</span> <span class="hljs-selector-tag">i</span> == <span class="hljs-number">5</span> {
+        break
+    }
+    print <span class="hljs-selector-tag">i</span>
+}
+</code></pre>
+<div><button onclick="window.location.href='../../index.html'">Site Homepage</button></div>
+</body>
+
