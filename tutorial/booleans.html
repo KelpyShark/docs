@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booleans — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Booleans</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Booleans</h1>
+          <p>True or false — the foundation of all logic in KelpyShark.</p>
+        </div>
+
+        <p>A <strong>boolean</strong> is a value that is either <code>true</code> or <code>false</code>. Booleans are the result of comparisons and logical expressions, and they drive all control flow in KelpyShark.</p>
+
+        <h2>Boolean literals</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;booleans.ks</div>
+          <pre><code class="language-ks">let is_logged_in = true
+let has_error    = false
+
+print(is_logged_in)   # true
+print(has_error)      # false</code></pre>
+        </div>
+
+        <h2>Booleans from comparisons</h2>
+        <p>Any comparison expression produces a boolean:</p>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;compare.ks</div>
+          <pre><code class="language-ks">print(10 > 5)    # true
+print(3 == 7)    # false
+print(5 != 5)    # false
+print(4 <= 4)    # true</code></pre>
+        </div>
+
+        <h2>Logical operators</h2>
+        <p>Combine booleans with <code>and</code>, <code>or</code>, and <code>not</code>:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;logical.ks</div>
+          <pre><code class="language-ks">let a = true
+let b = false
+
+print(a and b)   # false  (both must be true)
+print(a or b)    # true   (at least one is true)
+print(not a)     # false  (flips the value)</code></pre>
+        </div>
+
+        <h2>Truthiness</h2>
+        <p>
+          In conditions (like <code>if</code>), KelpyShark evaluates any value for
+          its <em>truthiness</em>. The following values are considered <strong>falsy</strong>:
+        </p>
+        <ul>
+          <li><code>false</code></li>
+          <li><code>null</code></li>
+          <li><code>0</code></li>
+          <li><code>""</code> (empty string)</li>
+          <li><code>[]</code> (empty list)</li>
+        </ul>
+        <p>Everything else is <strong>truthy</strong>.</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;truthiness.ks</div>
+          <pre><code class="language-ks">if 0 {
+    print("won't print — 0 is falsy")
+}
+
+if "" {
+    print("won't print — empty string is falsy")
+}
+
+if "hello" {
+    print("will print — non-empty string is truthy")
+}
+
+if 42 {
+    print("will print — non-zero number is truthy")
+}</code></pre>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Boolean values are <code>true</code> or <code>false</code></li>
+            <li>Comparisons produce booleans</li>
+            <li><code>and</code>, <code>or</code>, <code>not</code> combine booleans</li>
+            <li>Falsy values: <code>false</code>, <code>null</code>, <code>0</code>, <code>""</code>, <code>[]</code></li>
+            <li>Everything else is truthy</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "booleans");</script>
+</body>
+</html>

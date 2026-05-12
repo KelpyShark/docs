@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constructors — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Constructors</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Constructors</h1>
+          <p>Initialize objects when they're created.</p>
+        </div>
+
+        <p>
+          A <strong>constructor</strong> is a special method that runs automatically
+          when you create a new instance of a class. In KelpyShark, the constructor
+          is always named <code>new</code>.
+        </p>
+
+        <h2>The new method</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;constructor.ks</div>
+          <pre><code class="language-ks">class BankAccount {
+    def new(owner, initial_balance) {
+        self.owner   = owner
+        self.balance = initial_balance
+        print("Account created for {$owner} with ${$initial_balance}")
+    }
+}
+
+let acc = new BankAccount("Alice", 500)</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Account created for Alice with $500</pre>
+        </div>
+
+        <h2>Constructor with default values</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;defaults.ks</div>
+          <pre><code class="language-ks">class Player {
+    def new(name, health = 100, score = 0) {
+        self.name   = name
+        self.health = health
+        self.score  = score
+    }
+
+    def status() {
+        print("{$self.name} | HP: {$self.health} | Score: {$self.score}")
+    }
+}
+
+let p1 = new Player("Alice")
+let p2 = new Player("Bob", 80, 250)
+
+p1.status()
+p2.status()</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Alice | HP: 100 | Score: 0
+Bob | HP: 80 | Score: 250</pre>
+        </div>
+
+        <h2>Constructor validation</h2>
+        <p>Constructors are a great place to validate input:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;validate.ks</div>
+          <pre><code class="language-ks">class Temperature {
+    def new(celsius) {
+        if celsius < -273.15 {
+            throw "Temperature below absolute zero is not possible."
+        }
+        self.celsius = celsius
+    }
+
+    def to_fahrenheit() {
+        return self.celsius * 9 / 5 + 32
+    }
+}
+
+let t = new Temperature(100)
+print(t.to_fahrenheit())   # 212</code></pre>
+        </div>
+
+        <div class="callout callout-tip">
+          <strong>💡 Tip</strong>
+          <p>
+            If your class needs no initialization, you can omit the constructor entirely
+            and KelpyShark will still let you create instances with <code>new ClassName()</code>.
+          </p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>The constructor is <code>def new(...) { }</code></li>
+            <li>It runs automatically when you write <code>new ClassName(...)</code></li>
+            <li>Use it to initialize attributes and validate inputs</li>
+            <li>Constructor parameters can have default values</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "constructors");</script>
+</body>
+</html>

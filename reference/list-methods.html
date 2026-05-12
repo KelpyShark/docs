@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Methods — KelpyShark Reference</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>Reference</span> <span>›</span>
+          <span>List Methods</span>
+        </div>
+
+        <div class="page-header">
+          <h1>List Methods</h1>
+          <p>Methods and functions for working with lists.</p>
+        </div>
+
+        <p>
+          Lists are ordered, mutable collections. Many operations are available
+          as built-in functions and as dot-notation methods on the list itself.
+        </p>
+
+        <h2>Built-in list functions</h2>
+
+        <table>
+          <thead>
+            <tr><th>Function</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>push(list, item)</code></td><td>Append <code>item</code> to the end of <code>list</code></td></tr>
+            <tr><td><code>pop(list)</code></td><td>Remove and return the last item</td></tr>
+            <tr><td><code>len(list)</code></td><td>Number of items in the list</td></tr>
+          </tbody>
+        </table>
+
+        <h2>List dot-methods</h2>
+
+        <table>
+          <thead>
+            <tr><th>Method</th><th>Returns</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>.length()</code></td><td>number</td><td>Number of items (same as <code>len()</code>)</td></tr>
+            <tr><td><code>.contains(item)</code></td><td>boolean</td><td>True if <code>item</code> is in the list</td></tr>
+            <tr><td><code>.index_of(item)</code></td><td>number</td><td>Index of first occurrence, or <code>-1</code></td></tr>
+            <tr><td><code>.reverse()</code></td><td>list</td><td>A new list with items in reverse order</td></tr>
+            <tr><td><code>.slice(start, end)</code></td><td>list</td><td>Sub-list from <code>start</code> to <code>end</code> (exclusive)</td></tr>
+            <tr><td><code>.join(sep)</code></td><td>string</td><td>Join all items into a string separated by <code>sep</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Examples</h2>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;list-methods.ks</div>
+          <pre><code class="language-ks">let fruits = ["apple", "banana", "cherry"]
+
+# Length
+print(len(fruits))               # 3
+print(fruits.length())           # 3
+
+# Contains / index
+print(fruits.contains("banana")) # true
+print(fruits.index_of("cherry")) # 2
+
+# push / pop
+push(fruits, "date")
+print(fruits)                    # ["apple", "banana", "cherry", "date"]
+let removed = pop(fruits)
+print(removed)                   # date
+
+# Slice
+print(fruits.slice(1, 3))        # ["banana", "cherry"]
+
+# Reverse
+print(fruits.reverse())          # ["cherry", "banana", "apple"]
+
+# Join
+print(fruits.join(", "))         # apple, banana, cherry
+
+# Indexing
+print(fruits[0])                 # apple
+fruits[1] = "blueberry"
+print(fruits)                    # ["apple", "blueberry", "cherry"]</code></pre>
+        </div>
+
+        <h2>Iterating over a list</h2>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;iterate.ks</div>
+          <pre><code class="language-ks">let scores = [88, 95, 72, 100, 61]
+
+# Simple iteration
+for score in scores {
+    print(score)
+}
+
+# With index (using range)
+for i in range(len(scores)) {
+    print("{$i}: {$scores[i]}")
+}</code></pre>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("reference", "list-methods");</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Functions</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Functions</h1>
+          <p>Define reusable blocks of code that you can call by name.</p>
+        </div>
+
+        <p>
+          A <strong>function</strong> is a named block of code that performs a specific task.
+          You define it once and call it as many times as you need. Functions help you avoid
+          repeating code and make programs easier to understand.
+        </p>
+
+        <h2>Defining a function</h2>
+        <p>Use the <code>def</code> keyword, followed by the function name and parentheses:</p>
+
+        <div class="syntax-box">
+          <span class="kw">def</span> <span class="fn">functionName</span>(<span class="syn-placeholder">parameters</span>) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="syn-placeholder">code</span><br>
+          }
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;greet.ks</div>
+          <pre><code class="language-ks">def greet() {
+    print("Hello from the greet function!")
+}
+
+greet()    # call the function
+greet()    # call it again</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Hello from the greet function!
+Hello from the greet function!</pre>
+        </div>
+
+        <h2>Functions with parameters</h2>
+        <p>Parameters allow you to pass values into a function when calling it:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;params.ks</div>
+          <pre><code class="language-ks">def greet(name) {
+    print("Hello, {$name}!")
+}
+
+greet("Alice")
+greet("Bob")
+greet("Charlie")</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Hello, Alice!
+Hello, Bob!
+Hello, Charlie!</pre>
+        </div>
+
+        <h2>Multiple parameters</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;multi.ks</div>
+          <pre><code class="language-ks">def introduce(name, age, city) {
+    print("{$name} is {$age} years old and lives in {$city}.")
+}
+
+introduce("Alice", 30, "London")
+introduce("Bob",   25, "Tokyo")</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Alice is 30 years old and lives in London.
+Bob is 25 years old and lives in Tokyo.</pre>
+        </div>
+
+        <h2>Default parameter values</h2>
+        <p>You can give parameters a default value that is used when no argument is provided:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;defaults.ks</div>
+          <pre><code class="language-ks">def power(base, exponent = 2) {
+    let result = 1
+    for i in range(0, exponent) {
+        result *= base
+    }
+    print(result)
+}
+
+power(3)      # uses default exponent=2  → 9
+power(2, 10)  # exponent=10              → 1024</code></pre>
+        </div>
+
+        <div class="callout callout-tip">
+          <strong>💡 Tip</strong>
+          <p>Parameters with defaults must come <em>after</em> required parameters in the parameter list.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Define functions with <code>def name(params) { }</code></li>
+            <li>Call a function by writing its name followed by <code>()</code></li>
+            <li>Parameters are values passed into the function</li>
+            <li>Default parameter values are used when no argument is provided</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "functions");</script>
+</body>
+</html>

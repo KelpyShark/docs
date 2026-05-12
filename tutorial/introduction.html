@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a>
+          <span>›</span>
+          <a href="introduction.html">Tutorial</a>
+          <span>›</span>
+          <span>Introduction</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Introduction to KelpyShark</h1>
+          <p>A friendly overview of what KelpyShark is and why you might want to use it.</p>
+        </div>
+
+        <h2>What is KelpyShark?</h2>
+        <p>
+          KelpyShark is a modern, dynamically-typed programming language designed to be
+          simple to learn, pleasant to write, and powerful enough for real projects.
+          It has a clean Python-inspired syntax, first-class functions, object-oriented
+          features, a built-in standard library, and an integrated package manager.
+        </p>
+
+        <p>
+          KelpyShark programs can be <strong>interpreted</strong> directly, or
+          <strong>compiled</strong> to Python, JavaScript, Java, or C# — letting you
+          use KelpyShark as a cross-platform scripting and prototyping language.
+        </p>
+
+        <h2>What can KelpyShark do?</h2>
+        <ul>
+          <li>Automate repetitive tasks and write scripts</li>
+          <li>Build command-line tools and utilities</li>
+          <li>Work with files, JSON, and HTTP APIs</li>
+          <li>Model real-world data with classes and objects</li>
+          <li>Share reusable code as packages</li>
+        </ul>
+
+        <h2>Why KelpyShark?</h2>
+        <div class="two-col">
+          <div class="callout callout-tip">
+            <strong>🟢 Easy to learn</strong>
+            <p>The syntax is intentionally minimal. If you've never programmed before, KelpyShark is a great first language.</p>
+          </div>
+          <div class="callout callout-note">
+            <strong>🔵 Batteries included</strong>
+            <p>Math, string manipulation, file I/O, HTTP requests, and JSON parsing are all built in — no setup required.</p>
+          </div>
+        </div>
+
+        <h2>A taste of KelpyShark</h2>
+        <p>Here's a short program that shows off a few features of the language:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;example.ks</div>
+          <pre><code class="language-ks"># A simple KelpyShark program
+
+def greet(name) {
+    print("Hello, {$name}! Welcome to KelpyShark.")
+}
+
+class Animal {
+    def new(name, sound) {
+        self.name = name
+        self.sound = sound
+    }
+
+    def speak() {
+        print("{$self.name} says {$self.sound}!")
+    }
+}
+
+greet("World")
+
+let dog = new Animal("Rex", "woof")
+dog.speak()
+
+for i in range(1, 4) {
+    print("Count: {$i}")
+}</code></pre>
+        </div>
+
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Hello, World! Welcome to KelpyShark.
+Rex says woof!
+Count: 1
+Count: 2
+Count: 3</pre>
+        </div>
+
+        <p>Don't worry if you don't understand all of it yet — this tutorial will explain every part step by step.</p>
+
+        <h2>How to use this tutorial</h2>
+        <p>
+          The tutorial is ordered from the simplest concepts to the more advanced ones.
+          Work through the pages in order if you're new, or jump to a specific topic
+          using the sidebar on the left.
+        </p>
+
+        <div class="callout callout-tip">
+          <strong>💡 Tip</strong>
+          <p>You can use the <strong>arrow keys</strong> (← →) to navigate between pages once you've started the tutorial.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>In this tutorial you will learn</h3>
+          <ul>
+            <li>Variables, data types, and operators</li>
+            <li>Strings and string methods</li>
+            <li>Control flow: if/else, while, for</li>
+            <li>Functions and return values</li>
+            <li>Lists and dictionaries</li>
+            <li>Classes and object-oriented programming</li>
+            <li>Error handling with try/catch</li>
+            <li>Importing modules and using the standard library</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "introduction");</script>
+</body>
+</html>

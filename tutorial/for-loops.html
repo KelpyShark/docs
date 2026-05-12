@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Loops — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>For Loops</span>
+        </div>
+
+        <div class="page-header">
+          <h1>For Loops</h1>
+          <p>Iterate over a sequence of values.</p>
+        </div>
+
+        <p>
+          The <code>for</code> loop is the most common way to repeat code in KelpyShark.
+          It iterates over any sequence — a list, a string, or a range of numbers.
+        </p>
+
+        <h2>Looping over a range</h2>
+        <p>Use <code>range(start, end)</code> to produce a sequence of numbers. The range includes <code>start</code> but excludes <code>end</code>:</p>
+
+        <div class="syntax-box">
+          <span class="kw">for</span> <span class="syn-placeholder">variable</span> <span class="kw">in</span> <span class="bi">range</span>(<span class="syn-placeholder">start</span>, <span class="syn-placeholder">end</span>) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="syn-placeholder">code</span><br>
+          }
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;range.ks</div>
+          <pre><code class="language-ks">for i in range(1, 6) {
+    print(i)
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>1
+2
+3
+4
+5</pre>
+        </div>
+
+        <h2>Looping over a list</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;list.ks</div>
+          <pre><code class="language-ks">let fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits {
+    print("I like {$fruit}")
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>I like apple
+I like banana
+I like cherry</pre>
+        </div>
+
+        <h2>Looping over a string</h2>
+        <p>A <code>for</code> loop over a string visits each character:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;string.ks</div>
+          <pre><code class="language-ks">for ch in "hello" {
+    print(ch)
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>h
+e
+l
+l
+o</pre>
+        </div>
+
+        <h2>Practical example: sum of a list</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;sum.ks</div>
+          <pre><code class="language-ks">let numbers = [10, 20, 30, 40, 50]
+let total   = 0
+
+for n in numbers {
+    total += n
+}
+
+print("Total: {$total}")   # Total: 150</code></pre>
+        </div>
+
+        <h2>FizzBuzz example</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;fizzbuzz.ks</div>
+          <pre><code class="language-ks">for i in range(1, 21) {
+    if i % 15 == 0 {
+        print("FizzBuzz")
+    } elif i % 3 == 0 {
+        print("Fizz")
+    } elif i % 5 == 0 {
+        print("Buzz")
+    } else {
+        print(i)
+    }
+}</code></pre>
+        </div>
+
+        <div class="callout callout-tip">
+          <strong>💡 Tip</strong>
+          <p>Use <code>for</code> when you know the sequence you're iterating over. Use <code>while</code> when you need to loop until an unknown condition is met.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li><code>for x in sequence { }</code> iterates over any sequence</li>
+            <li><code>range(start, end)</code> creates a number sequence (end is exclusive)</li>
+            <li>Works with lists, strings, and ranges</li>
+            <li>The loop variable holds the current item on each iteration</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "for-loops");</script>
+</body>
+</html>

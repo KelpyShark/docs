@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — KelpyShark General</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>General</span> <span>›</span>
+          <span>Changelog</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Changelog</h1>
+          <p>What's new in each version of KelpyShark.</p>
+        </div>
+
+        <h2>v1.2.0</h2>
+        <ul>
+          <li>Added <code>http</code> standard library module (GET, POST, PUT, DELETE)</li>
+          <li>Added Java code generation backend (<code>--target java</code>)</li>
+          <li>Added C# code generation backend (<code>--target csharp</code>)</li>
+          <li>Package manager: <code>pkg publish</code> and <code>pkg update</code> commands</li>
+          <li>Compound assignment operators: <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code></li>
+          <li>String method <code>.repeat(n)</code></li>
+          <li>Improved error messages with source locations</li>
+          <li>Significant interpreter performance improvements</li>
+        </ul>
+
+        <h2>v1.1.0</h2>
+        <ul>
+          <li>Classes and object-oriented programming (<code>class</code>, <code>new</code>, <code>self</code>)</li>
+          <li>Inheritance (<code>class Child(Parent)</code>) and <code>super()</code></li>
+          <li>Static methods (<code>static def</code>)</li>
+          <li>Default parameter values in functions</li>
+          <li><code>json</code> standard library module</li>
+          <li><code>sys</code> standard library module</li>
+          <li>VS Code syntax highlighting extension</li>
+          <li>Package manager initial release</li>
+          <li><code>for item in list</code> loop syntax</li>
+          <li><code>break</code> and <code>continue</code></li>
+        </ul>
+
+        <h2>v1.0.0</h2>
+        <ul>
+          <li>Initial release</li>
+          <li>Variables, numbers, strings, booleans, null</li>
+          <li>Lists and dictionaries</li>
+          <li>Functions (<code>def</code>) and return values</li>
+          <li>If / elif / else</li>
+          <li>While loops</li>
+          <li>Try / catch / throw error handling</li>
+          <li>Imports (<code>import modulename</code>)</li>
+          <li><code>math</code>, <code>strings</code>, <code>io</code> standard library modules</li>
+          <li>Built-in functions: <code>print</code>, <code>len</code>, <code>type</code>, <code>str</code>, <code>num</code>, <code>range</code>, <code>push</code>, <code>pop</code></li>
+          <li>String interpolation with <code>{$variable}</code></li>
+          <li><code>kelpyshark run</code> and <code>kelpyshark build</code> CLI commands</li>
+          <li>Windows, Linux, and macOS support</li>
+        </ul>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("general", "changelog");</script>
+</body>
+</html>

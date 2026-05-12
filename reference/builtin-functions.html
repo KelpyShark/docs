@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Built-in Functions — KelpyShark Reference</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>Reference</span> <span>›</span>
+          <span>Built-in Functions</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Built-in Functions</h1>
+          <p>Always-available functions — no import needed.</p>
+        </div>
+
+        <!-- print -->
+        <h2 id="print"><code>print(value)</code></h2>
+        <p>Outputs <code>value</code> to the console followed by a newline.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">print("Hello")
+print(42)
+print(true)</code></pre>
+        </div>
+        <div class="output-block"><div class="output-label">Output</div>
+          <pre>Hello
+42
+true</pre>
+        </div>
+
+        <!-- len -->
+        <h2 id="len"><code>len(value)</code></h2>
+        <p>Returns the length of a string or list.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">print(len("hello"))       # 5
+print(len([1, 2, 3]))     # 3</code></pre>
+        </div>
+
+        <!-- type -->
+        <h2 id="type"><code>type(value)</code></h2>
+        <p>Returns a string describing the type of <code>value</code>.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">print(type(42))           # number
+print(type("hi"))         # string
+print(type(true))         # boolean
+print(type(null))         # null
+print(type([]))           # list
+print(type({}))           # dictionary</code></pre>
+        </div>
+
+        <!-- str -->
+        <h2 id="str"><code>str(value)</code></h2>
+        <p>Converts <code>value</code> to its string representation.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">let n = 3.14
+let s = str(n)
+print(s + " is pi")       # 3.14 is pi</code></pre>
+        </div>
+
+        <!-- num -->
+        <h2 id="num"><code>num(value)</code></h2>
+        <p>
+          Converts a string to a number. Throws an error if the string
+          is not a valid number.
+        </p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">let x = num("42")
+print(x + 1)              # 43
+
+let y = num("3.14")
+print(y * 2)              # 6.28</code></pre>
+        </div>
+
+        <!-- bool -->
+        <h2 id="bool"><code>bool(value)</code></h2>
+        <p>Converts a value to boolean. The following are falsy: <code>false</code>, <code>null</code>, <code>0</code>, <code>""</code>, <code>[]</code>.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">print(bool(0))            # false
+print(bool(1))            # true
+print(bool(""))           # false
+print(bool("hi"))         # true
+print(bool([]))           # false</code></pre>
+        </div>
+
+        <!-- range -->
+        <h2 id="range"><code>range(stop)</code> / <code>range(start, stop)</code> / <code>range(start, stop, step)</code></h2>
+        <p>Returns a list of numbers. Useful with <code>for</code> loops.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">print(range(5))           # [0, 1, 2, 3, 4]
+print(range(2, 6))        # [2, 3, 4, 5]
+print(range(0, 10, 2))    # [0, 2, 4, 6, 8]
+
+for i in range(3) {
+    print(i)
+}</code></pre>
+        </div>
+
+        <!-- push -->
+        <h2 id="push"><code>push(list, value)</code></h2>
+        <p>Appends <code>value</code> to the end of <code>list</code>. Modifies the list in place.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">let nums = [1, 2]
+push(nums, 3)
+print(nums)               # [1, 2, 3]</code></pre>
+        </div>
+
+        <!-- pop -->
+        <h2 id="pop"><code>pop(list)</code></h2>
+        <p>Removes and returns the last element of <code>list</code>.</p>
+        <div class="code-block"><div class="code-label">Example</div>
+          <pre><code class="language-ks">let items = ["a", "b", "c"]
+let last = pop(items)
+print(last)               # c
+print(items)              # ["a", "b"]</code></pre>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("reference", "builtin-functions");</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Throwing Errors — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Throwing Errors</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Throwing Errors</h1>
+          <p>Signal problems with throw.</p>
+        </div>
+
+        <p>
+          Sometimes <em>you</em> want to raise an error — when invalid data arrives,
+          a precondition isn't met, or an operation simply can't proceed.
+          Use the <code>throw</code> keyword to signal that something went wrong.
+        </p>
+
+        <h2>Basic throw</h2>
+        <p><code>throw</code> takes a string that describes the error:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;throw.ks</div>
+          <pre><code class="language-ks">def sqrt(n) {
+    if n < 0 {
+        throw "Cannot take square root of a negative number"
+    }
+    # real implementation…
+    return n ^ 0.5
+}
+
+try {
+    print(sqrt(9))
+    print(sqrt(-4))
+} catch (e) {
+    print("Error: {$e}")
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>3
+Error: Cannot take square root of a negative number</pre>
+        </div>
+
+        <h2>Throw for input validation</h2>
+        <p>Validate arguments at the start of a function to catch misuse early:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;validate.ks</div>
+          <pre><code class="language-ks">def create_user(name, age) {
+    if type(name) != "string" { throw "name must be a string" }
+    if len(name) == 0         { throw "name cannot be empty" }
+    if type(age)  != "number" { throw "age must be a number" }
+    if age < 0 or age > 150   { throw "age out of range" }
+
+    return { "name": name, "age": age }
+}
+
+try {
+    let u = create_user("Alice", 30)
+    print(u["name"])
+} catch (e) {
+    print("Validation error: {$e}")
+}
+
+try {
+    let bad = create_user("", 30)
+} catch (e) {
+    print("Validation error: {$e}")
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Alice
+Validation error: name cannot be empty</pre>
+        </div>
+
+        <h2>Throw inside a class</h2>
+        <p>Classes commonly throw errors to protect their internal state:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;class-throw.ks</div>
+          <pre><code class="language-ks">class Stack {
+    def new() {
+        self.items = []
+    }
+
+    def push(item) {
+        push(self.items, item)
+    }
+
+    def pop() {
+        if len(self.items) == 0 {
+            throw "Cannot pop from an empty stack"
+        }
+        return pop(self.items)
+    }
+}
+
+let s = new Stack()
+s.push(10)
+s.push(20)
+print(s.pop())   # 20
+
+try {
+    s.pop()
+    s.pop()   # stack is now empty
+} catch (e) {
+    print("Stack error: {$e}")
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>20
+Stack error: Cannot pop from an empty stack</pre>
+        </div>
+
+        <div class="callout warn">
+          <strong>Warning</strong> — An uncaught <code>throw</code> will terminate the
+          program. Always wrap risky calls in <code>try / catch</code> when there's a
+          chance an error might be thrown.
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li><code>throw "message"</code> raises an error with a custom message</li>
+            <li>Execution stops at the <code>throw</code> line and jumps to the nearest <code>catch</code></li>
+            <li>Use <code>throw</code> to enforce preconditions and validate input</li>
+            <li>If uncaught, a thrown error crashes the program</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "throw");</script>
+</body>
+</html>

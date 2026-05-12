@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLI Reference — KelpyShark General</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>General</span> <span>›</span>
+          <span>CLI Reference</span>
+        </div>
+
+        <div class="page-header">
+          <h1>CLI Reference</h1>
+          <p>All commands provided by the <code>kelpyshark</code> binary.</p>
+        </div>
+
+        <h2>Synopsis</h2>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark &lt;command&gt; [options] [args]
+kshark     &lt;command&gt; [options] [args]
+ks         &lt;command&gt; [options] [args]</code></pre>
+        </div>
+        <p>All three names are identical — use whichever you prefer.</p>
+
+        <h2>Commands</h2>
+
+        <h3><code>run</code></h3>
+        <p>Interpret and run a <code>.ks</code> file.</p>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark run &lt;file.ks&gt; [-- arg1 arg2 ...]</code></pre>
+        </div>
+        <p>Arguments after <code>--</code> are available in the script as <code>sys.args</code>.</p>
+        <div class="code-block">
+          <div class="code-label">Examples</div>
+          <pre><code>kelpyshark run hello.ks
+kelpyshark run script.ks -- Alice 42</code></pre>
+        </div>
+
+        <h3><code>build</code></h3>
+        <p>Compile a <code>.ks</code> file to a native executable.</p>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark build &lt;file.ks&gt; [-o output]</code></pre>
+        </div>
+        <table>
+          <thead><tr><th>Flag</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>-o &lt;name&gt;</code></td><td>Name of the output binary (default: file name without <code>.ks</code>)</td></tr>
+            <tr><td><code>--release</code></td><td>Enable optimisations</td></tr>
+          </tbody>
+        </table>
+
+        <h3><code>check</code></h3>
+        <p>Parse and type-check a file without running it.</p>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark check &lt;file.ks&gt;</code></pre>
+        </div>
+
+        <h3><code>fmt</code></h3>
+        <p>Auto-format a <code>.ks</code> file in place.</p>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark fmt &lt;file.ks&gt;
+kelpyshark fmt .          # format all .ks files in the current directory</code></pre>
+        </div>
+
+        <h3><code>new</code></h3>
+        <p>Create a new KelpyShark project with a starter layout.</p>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark new &lt;project-name&gt;</code></pre>
+        </div>
+        <p>Creates:</p>
+        <div class="code-block">
+          <div class="code-label">Generated structure</div>
+          <pre><code>project-name/
+  main.ks
+  ks.toml</code></pre>
+        </div>
+
+        <h3><code>pkg</code> — Package manager</h3>
+        <p>Sub-commands for the built-in package manager:</p>
+
+        <table>
+          <thead><tr><th>Command</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>kelpyshark pkg install &lt;name&gt;</code></td><td>Install a package</td></tr>
+            <tr><td><code>kelpyshark pkg remove &lt;name&gt;</code></td><td>Uninstall a package</td></tr>
+            <tr><td><code>kelpyshark pkg list</code></td><td>List installed packages</td></tr>
+            <tr><td><code>kelpyshark pkg update</code></td><td>Update all installed packages</td></tr>
+            <tr><td><code>kelpyshark pkg publish</code></td><td>Publish the current package to the registry</td></tr>
+            <tr><td><code>kelpyshark pkg search &lt;query&gt;</code></td><td>Search the registry</td></tr>
+          </tbody>
+        </table>
+
+        <h3><code>version</code></h3>
+        <p>Print the installed KelpyShark version.</p>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark version</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>kelpyshark 1.2.0</pre>
+        </div>
+
+        <h3><code>help</code></h3>
+        <p>Show help for any command.</p>
+        <div class="code-block">
+          <div class="code-label">Shell</div>
+          <pre><code>kelpyshark help
+kelpyshark help run</code></pre>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("general", "cli");</script>
+</body>
+</html>

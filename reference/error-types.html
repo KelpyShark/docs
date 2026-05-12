@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Types — KelpyShark Reference</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>Reference</span> <span>›</span>
+          <span>Error Types</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Error Types</h1>
+          <p>Errors that can be raised by the runtime or by user code.</p>
+        </div>
+
+        <p>
+          When an error occurs in KelpyShark, the runtime produces an error message
+          string. This string is available as the variable inside a <code>catch</code>
+          block. Common runtime error messages are described below.
+        </p>
+
+        <h2>Runtime errors</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Error message</th>
+              <th>Cause</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Division by zero</code></td>
+              <td>Any expression that divides by <code>0</code></td>
+            </tr>
+            <tr>
+              <td><code>Index out of bounds</code></td>
+              <td>Accessing a list index that doesn't exist</td>
+            </tr>
+            <tr>
+              <td><code>Undefined variable: &lt;name&gt;</code></td>
+              <td>Using a variable before it has been declared</td>
+            </tr>
+            <tr>
+              <td><code>Undefined property: &lt;name&gt;</code></td>
+              <td>Accessing an attribute that was never set on an instance</td>
+            </tr>
+            <tr>
+              <td><code>Cannot call &lt;type&gt;</code></td>
+              <td>Attempting to call something that is not a function or method</td>
+            </tr>
+            <tr>
+              <td><code>Type error: expected &lt;type&gt;</code></td>
+              <td>An operator or function received an unsupported type</td>
+            </tr>
+            <tr>
+              <td><code>Stack overflow</code></td>
+              <td>Infinite or deeply recursive function calls</td>
+            </tr>
+            <tr>
+              <td><code>Key not found: &lt;key&gt;</code></td>
+              <td>Accessing a dictionary key that doesn't exist</td>
+            </tr>
+            <tr>
+              <td><code>Cannot convert &lt;value&gt; to number</code></td>
+              <td><code>num()</code> called on a non-numeric string</td>
+            </tr>
+            <tr>
+              <td><code>File not found: &lt;path&gt;</code></td>
+              <td><code>io.read()</code> or <code>io.delete()</code> on a missing file</td>
+            </tr>
+            <tr>
+              <td><code>Invalid JSON</code></td>
+              <td><code>json.parse()</code> received malformed JSON</td>
+            </tr>
+            <tr>
+              <td><code>HTTP error: &lt;status&gt;</code></td>
+              <td>Network-level failure (connection refused, timeout, etc.)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>User-thrown errors</h2>
+        <p>
+          Any string passed to <code>throw</code> becomes the error message.
+          There is no fixed set of user error types — you define your own messages:
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;user-errors.ks</div>
+          <pre><code class="language-ks">def divide(a, b) {
+    if b == 0 { throw "divide: denominator must not be zero" }
+    return a / b
+}
+
+try {
+    print(divide(10, 0))
+} catch (e) {
+    print("Caught: {$e}")
+}</code></pre>
+        </div>
+
+        <h2>Inspecting errors</h2>
+        <p>
+          Because error messages are plain strings, you can check them with
+          <code>contains()</code> or <code>starts_with()</code>:
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;inspect.ks</div>
+          <pre><code class="language-ks">try {
+    let x = badList[99]
+} catch (e) {
+    if e.contains("out of bounds") {
+        print("List index issue — check your index!")
+    } else {
+        print("Unknown error: {$e}")
+    }
+}</code></pre>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("reference", "error-types");</script>
+</body>
+</html>

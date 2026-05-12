@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compiler Architecture — KelpyShark General</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>General</span> <span>›</span>
+          <span>Compiler</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Compiler Architecture</h1>
+          <p>How source code becomes a running program.</p>
+        </div>
+
+        <h2>Pipeline overview</h2>
+        <p>
+          KelpyShark source code passes through four major stages before it is
+          either interpreted or compiled to a target language:
+        </p>
+
+        <ol>
+          <li><a href="#lexer">Lexer</a> — text → tokens</li>
+          <li><a href="#parser">Parser</a> — tokens → AST</li>
+          <li><a href="#semantic">Semantic analysis</a> — validate the AST</li>
+          <li><a href="#codegen">Code generation / interpretation</a> — produce output</li>
+        </ol>
+
+        <h2 id="lexer">1. Lexer (<code>lexer.rs</code>)</h2>
+        <p>
+          The lexer (scanner) reads raw source text character-by-character and
+          produces a flat list of <strong>tokens</strong>. Each token has a kind
+          (e.g. <code>Ident</code>, <code>Number</code>, <code>String</code>,
+          <code>Plus</code>, <code>If</code>) and a source location (line, column).
+        </p>
+        <p>Responsibilities:</p>
+        <ul>
+          <li>Skip whitespace and comments (<code>#</code> to end-of-line)</li>
+          <li>Recognise keywords vs identifiers</li>
+          <li>Handle string interpolation markers (<code>{$</code> … <code>}</code>)</li>
+          <li>Produce meaningful errors for invalid characters</li>
+        </ul>
+
+        <h2 id="parser">2. Parser (<code>parser.rs</code>)</h2>
+        <p>
+          The recursive-descent parser consumes the token stream and builds an
+          <strong>Abstract Syntax Tree (AST)</strong>. Each node in the tree
+          corresponds to a language construct (function definition, binary expression,
+          if statement, …).
+        </p>
+        <p>Key properties:</p>
+        <ul>
+          <li>Handles operator precedence via a Pratt parser for expressions</li>
+          <li>Produces rich error messages with line and column info</li>
+          <li>Supports recovery — attempts to continue after an error to report multiple problems at once</li>
+        </ul>
+
+        <h2 id="semantic">3. Semantic analysis (<code>semantic.rs</code>)</h2>
+        <p>
+          After parsing, the semantic analyser walks the AST to catch errors that the
+          grammar alone cannot detect:
+        </p>
+        <ul>
+          <li>Use of variables before declaration</li>
+          <li><code>return</code> outside a function</li>
+          <li><code>break</code> / <code>continue</code> outside a loop</li>
+          <li>Duplicate parameter names</li>
+        </ul>
+
+        <h2 id="codegen">4. Code generation / interpretation</h2>
+        <p>After semantic analysis, the validated AST can go to one of several backends:</p>
+
+        <table>
+          <thead>
+            <tr><th>Backend</th><th>Module</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Interpreter</td>
+              <td><code>interpreter/</code></td>
+              <td>Tree-walking interpreter. Evaluates the AST directly. Used by <code>kelpyshark run</code>.</td>
+            </tr>
+            <tr>
+              <td>Java codegen</td>
+              <td><code>compiler/codegen/java.rs</code></td>
+              <td>Emits Java source code compatible with Java 11+.</td>
+            </tr>
+            <tr>
+              <td>C# codegen</td>
+              <td><code>compiler/codegen/csharp.rs</code></td>
+              <td>Emits C# source code compatible with .NET 6+.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Error handling</h2>
+        <p>
+          Errors are represented by the <code>KSError</code> type (defined in
+          <code>error.rs</code>). Each error carries a message and an optional source
+          span (start line/col, end line/col) so the CLI can underline the offending
+          code.
+        </p>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("general", "compiler");</script>
+</body>
+</html>

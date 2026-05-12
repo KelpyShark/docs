@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Type Casting — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Type Casting</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Type Casting</h1>
+          <p>Convert values from one type to another.</p>
+        </div>
+
+        <p>
+          Sometimes you need to convert a value from one type to another — for example,
+          turning a number into a string to print it alongside text, or turning a string
+          into a number to do arithmetic. This is called <strong>type casting</strong>.
+        </p>
+
+        <h2>Converting to a string: <code>str()</code></h2>
+        <p>Use <code>str()</code> to convert any value to a string:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;tostr.ks</div>
+          <pre><code class="language-ks">let age = 30
+let message = "I am " + str(age) + " years old."
+print(message)
+
+print(str(3.14))   # "3.14"
+print(str(true))   # "true"
+print(str(null))   # "null"</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>I am 30 years old.
+3.14
+true
+null</pre>
+        </div>
+
+        <h2>Converting to a number: <code>num()</code></h2>
+        <p>Use <code>num()</code> to parse a string as a number:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;tonum.ks</div>
+          <pre><code class="language-ks">let text   = "42"
+let number = num(text)
+print(number + 8)    # 50
+
+let pi = num("3.14")
+print(pi * 2)        # 6.28</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>50
+6.28</pre>
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>⚠️ Caution</strong>
+          <p>If you pass a non-numeric string to <code>num()</code>, it will throw a runtime error. Make sure the string actually contains a valid number.</p>
+        </div>
+
+        <h2>Implicit conversion</h2>
+        <p>KelpyShark does <strong>not</strong> implicitly convert types for you. You must be explicit:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;explicit.ks</div>
+          <pre><code class="language-ks">let n = 10
+
+# This will error — cannot add number + string:
+# print(n + " items")
+
+# This works — explicitly convert:
+print(str(n) + " items")   # "10 items"
+
+# Or use string interpolation (easiest!):
+print("{$n} items")        # "10 items"</code></pre>
+        </div>
+
+        <div class="callout callout-tip">
+          <strong>💡 Tip</strong>
+          <p>String interpolation (<code>"{$variable}"</code>) is usually cleaner than calling <code>str()</code> manually. Learn more on the <a href="string-formatting.html">String Formatting</a> page.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li><code>str(value)</code> converts any value to a string</li>
+            <li><code>num(value)</code> parses a string as a number</li>
+            <li>KelpyShark does not implicitly convert types — you must be explicit</li>
+            <li>String interpolation is often the easiest alternative</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "type-casting");</script>
+</body>
+</html>

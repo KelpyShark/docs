@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scope — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Scope</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Scope</h1>
+          <p>Understanding where variables live and can be accessed.</p>
+        </div>
+
+        <p>
+          <strong>Scope</strong> determines where in your code a variable is accessible.
+          KelpyShark uses <em>lexical scope</em>: variables exist only within the block or
+          function they were created in.
+        </p>
+
+        <h2>Local scope</h2>
+        <p>Variables declared inside a function are <strong>local</strong> — they only exist while the function runs, and cannot be accessed outside it:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;local.ks</div>
+          <pre><code class="language-ks">def my_function() {
+    let local_var = "I'm local"
+    print(local_var)
+}
+
+my_function()
+
+# This would error — local_var doesn't exist here:
+# print(local_var)</code></pre>
+        </div>
+
+        <h2>Global scope</h2>
+        <p>Variables declared at the top level (outside any function) are <strong>global</strong> and can be read from inside functions:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;global.ks</div>
+          <pre><code class="language-ks">let greeting = "Hello"   # global variable
+
+def say_hi(name) {
+    print("{$greeting}, {$name}!")   # can read global
+}
+
+say_hi("Alice")   # Hello, Alice!</code></pre>
+        </div>
+
+        <h2>Shadowing</h2>
+        <p>A local variable with the same name as a global variable <em>shadows</em> the global within its scope:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;shadow.ks</div>
+          <pre><code class="language-ks">let value = "global"
+
+def test() {
+    let value = "local"    # shadows the global
+    print(value)           # local
+}
+
+test()
+print(value)               # global  (unchanged)</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>local
+global</pre>
+        </div>
+
+        <div class="callout callout-tip">
+          <strong>💡 Best practice</strong>
+          <p>Minimize your use of global variables. Pass data into functions as parameters and get results back via <code>return</code>. This makes functions independent and reusable.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Local variables only exist inside the function they're declared in</li>
+            <li>Global variables are accessible everywhere</li>
+            <li>A local variable with the same name as a global shadows the global</li>
+            <li>Prefer passing data via parameters over using globals</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "scope");</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syntax Overview — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Syntax Overview</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Syntax Overview</h1>
+          <p>Learn the fundamental rules and structure of KelpyShark code.</p>
+        </div>
+
+        <h2>Statements and lines</h2>
+        <p>Each statement in KelpyShark is written on its own line. Unlike some languages, there are <strong>no semicolons</strong> required at the end of lines.</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;example.ks</div>
+          <pre><code class="language-ks">let name = "Alice"
+let age  = 30
+print(name)
+print(age)</code></pre>
+        </div>
+
+        <h2>Blocks and indentation</h2>
+        <p>
+          Code blocks (inside <code>if</code>, <code>while</code>, <code>def</code>, <code>class</code>, etc.)
+          are enclosed in <strong>curly braces <code>{ }</code></strong>.
+          Indentation is optional but strongly recommended for readability.
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;blocks.ks</div>
+          <pre><code class="language-ks">if age > 18 {
+    print("Adult")
+} else {
+    print("Minor")
+}
+
+def greet(name) {
+    print("Hello, {$name}!")
+}</code></pre>
+        </div>
+
+        <h2>Case sensitivity</h2>
+        <p>KelpyShark is <strong>case-sensitive</strong>. <code>name</code>, <code>Name</code>, and <code>NAME</code> are three different variables.</p>
+
+        <h2>Identifiers</h2>
+        <p>Variable names, function names, and class names are called <em>identifiers</em>. They must:</p>
+        <ul>
+          <li>Start with a letter (<code>a–z</code>, <code>A–Z</code>) or an underscore (<code>_</code>)</li>
+          <li>Contain only letters, digits (<code>0–9</code>), or underscores</li>
+          <li>Not be a reserved keyword</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;identifiers.ks</div>
+          <pre><code class="language-ks">let myVariable = 10      # ✓ valid
+let _private   = true    # ✓ valid
+let user2      = "Bob"   # ✓ valid
+
+# let 2user = 0          # ✗ cannot start with digit
+# let my-var = 0         # ✗ hyphens not allowed</code></pre>
+        </div>
+
+        <h2>Keywords</h2>
+        <p>The following words are reserved and cannot be used as identifiers:</p>
+        <div class="code-block">
+          <div class="code-label">Reserved keywords</div>
+          <pre><code>def  if  elif  else  while  for  in  return
+import  true  false  and  or  not  break
+continue  try  catch  throw  class  null  new  self  static  print</code></pre>
+        </div>
+
+        <h2>Whitespace</h2>
+        <p>Spaces and blank lines between statements are ignored by the interpreter. Use them freely to make your code easier to read.</p>
+
+        <div class="callout callout-tip">
+          <strong>💡 Convention</strong>
+          <p>KelpyShark code conventionally uses 4-space indentation inside blocks, and <code>snake_case</code> for variable and function names.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Statements are written one per line — no semicolons</li>
+            <li>Blocks use curly braces <code>{ }</code></li>
+            <li>KelpyShark is case-sensitive</li>
+            <li>Identifiers start with a letter or underscore</li>
+            <li>Reserved keywords cannot be used as names</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "syntax");</script>
+</body>
+</html>

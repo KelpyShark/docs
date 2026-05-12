@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Variables</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Variables</h1>
+          <p>Store and reuse values in your programs.</p>
+        </div>
+
+        <h2>Creating a variable</h2>
+        <p>
+          A variable is a named container for a value. In KelpyShark, you create a
+          variable with the <code>let</code> keyword, followed by a name, an equals sign,
+          and the value.
+        </p>
+
+        <div class="syntax-box">
+          <span class="kw">let</span> <span class="syn-placeholder">name</span> <span class="op">=</span> <span class="syn-placeholder">value</span>
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;variables.ks</div>
+          <pre><code class="language-ks">let name = "Alice"
+let age  = 25
+let height = 1.72
+let is_student = true
+
+print(name)
+print(age)
+print(height)
+print(is_student)</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Alice
+25
+1.72
+true</pre>
+        </div>
+
+        <h2>Changing a variable's value</h2>
+        <p>Variables are mutable — you can reassign them at any time (without <code>let</code>):</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;reassign.ks</div>
+          <pre><code class="language-ks">let score = 0
+print(score)   # 0
+
+score = 10
+print(score)   # 10
+
+score = score + 5
+print(score)   # 15</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>0
+10
+15</pre>
+        </div>
+
+        <h2>Multiple assignments</h2>
+        <p>You can declare multiple variables one after another:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;multi.ks</div>
+          <pre><code class="language-ks">let x = 1
+let y = 2
+let z = x + y
+print(z)   # 3</code></pre>
+        </div>
+
+        <h2>Naming conventions</h2>
+        <p>KelpyShark conventionally uses <strong><code>snake_case</code></strong> for variable names:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;naming.ks</div>
+          <pre><code class="language-ks">let first_name = "Alice"
+let last_name  = "Smith"
+let full_name  = first_name + " " + last_name
+print(full_name)   # Alice Smith</code></pre>
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>⚠️ Caution</strong>
+          <p>Using a variable before assigning it will cause a runtime error. Always assign a value before reading it.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Use <code>let name = value</code> to create a variable</li>
+            <li>Variables can be reassigned without <code>let</code></li>
+            <li>Variable names use <code>snake_case</code> by convention</li>
+            <li>Variables can hold strings, numbers, booleans, and more</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "variables");</script>
+</body>
+</html>

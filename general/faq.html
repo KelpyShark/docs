@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — KelpyShark General</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>General</span> <span>›</span>
+          <span>FAQ</span>
+        </div>
+
+        <div class="page-header">
+          <h1>FAQ</h1>
+          <p>Frequently asked questions about KelpyShark.</p>
+        </div>
+
+        <h2>Do I need to install a separate runtime?</h2>
+        <p>
+          No. KelpyShark is distributed as a single self-contained binary.
+          Download it, put it on your PATH, and you're ready to go.
+          See the <a href="../tutorial/setup.html">Setup</a> page for instructions.
+        </p>
+
+        <h2>Is KelpyShark statically or dynamically typed?</h2>
+        <p>
+          Dynamically typed. Variables hold values of any type, and the type can
+          change during the lifetime of the variable. Use <code>type()</code> to
+          inspect the type at runtime if needed.
+        </p>
+
+        <h2>Do I need semicolons?</h2>
+        <p>
+          No. KelpyShark does not use semicolons as statement terminators.
+          Just write each statement on its own line (or on consecutive lines — the
+          language is whitespace-insensitive outside of string literals).
+        </p>
+
+        <h2>How do I read input from the user?</h2>
+        <p>Use <code>io.input(prompt)</code>:</p>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+          <pre><code class="language-ks">import io
+
+let name = io.input("What is your name? ")
+print("Hello, {$name}!")</code></pre>
+        </div>
+
+        <h2>Can I use KelpyShark for web development?</h2>
+        <p>
+          You can build HTTP-based scripts (calling APIs, processing JSON, serving
+          simple responses). A full web framework is not yet part of the standard
+          library, but packages in the registry may provide one.
+        </p>
+
+        <h2>How do I share code between files?</h2>
+        <p>
+          Put shared code in a <code>.ks</code> file and use <code>import</code>:
+        </p>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+          <pre><code class="language-ks">import utils          # imports utils.ks from the same directory
+
+utils.my_function()</code></pre>
+        </div>
+
+        <h2>Why does <code>type()</code> return a string instead of a type object?</h2>
+        <p>
+          Simplicity. Returning a plain string means you can compare types with
+          <code>==</code> without learning a separate type system.
+          <code>type(x) == "number"</code> is immediately readable.
+        </p>
+
+        <h2>What happens if I divide by zero?</h2>
+        <p>
+          KelpyShark raises a runtime error: <code>Division by zero</code>.
+          Catch it with <code>try / catch</code> if you need to handle that case.
+        </p>
+
+        <h2>Can I compile KelpyShark to Java or C#?</h2>
+        <p>
+          Yes. See the <a href="codegen.html">Code Generation</a> page for details.
+        </p>
+
+        <h2>Where can I get help?</h2>
+        <p>
+          Open an issue on the GitHub repository, or check the
+          <a href="../tutorial/introduction.html">Tutorial</a> and
+          <a href="../reference/keywords.html">Reference</a> sections of these docs first.
+        </p>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("general", "faq");</script>
+</body>
+</html>

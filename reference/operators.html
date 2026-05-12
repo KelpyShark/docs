@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operators — KelpyShark Reference</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>Reference</span> <span>›</span>
+          <span>Operators</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Operators</h1>
+          <p>All operators available in KelpyShark.</p>
+        </div>
+
+        <h2>Arithmetic operators</h2>
+        <table>
+          <thead><tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td><code>+</code></td><td>Addition</td><td><code>3 + 2</code></td><td><code>5</code></td></tr>
+            <tr><td><code>-</code></td><td>Subtraction</td><td><code>3 - 2</code></td><td><code>1</code></td></tr>
+            <tr><td><code>*</code></td><td>Multiplication</td><td><code>3 * 2</code></td><td><code>6</code></td></tr>
+            <tr><td><code>/</code></td><td>Division</td><td><code>7 / 2</code></td><td><code>3.5</code></td></tr>
+            <tr><td><code>%</code></td><td>Modulo</td><td><code>7 % 3</code></td><td><code>1</code></td></tr>
+            <tr><td><code>^</code></td><td>Power</td><td><code>2 ^ 8</code></td><td><code>256</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Comparison operators</h2>
+        <table>
+          <thead><tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td><code>==</code></td><td>Equal</td><td><code>3 == 3</code></td><td><code>true</code></td></tr>
+            <tr><td><code>!=</code></td><td>Not equal</td><td><code>3 != 4</code></td><td><code>true</code></td></tr>
+            <tr><td><code>&lt;</code></td><td>Less than</td><td><code>2 &lt; 5</code></td><td><code>true</code></td></tr>
+            <tr><td><code>&gt;</code></td><td>Greater than</td><td><code>5 &gt; 2</code></td><td><code>true</code></td></tr>
+            <tr><td><code>&lt;=</code></td><td>Less than or equal</td><td><code>3 &lt;= 3</code></td><td><code>true</code></td></tr>
+            <tr><td><code>&gt;=</code></td><td>Greater than or equal</td><td><code>4 &gt;= 5</code></td><td><code>false</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Logical operators</h2>
+        <table>
+          <thead><tr><th>Operator</th><th>Description</th><th>Example</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td><code>and</code></td><td>True if both sides are true</td><td><code>true and false</code></td><td><code>false</code></td></tr>
+            <tr><td><code>or</code></td><td>True if at least one side is true</td><td><code>true or false</code></td><td><code>true</code></td></tr>
+            <tr><td><code>not</code></td><td>Inverts a boolean</td><td><code>not true</code></td><td><code>false</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Assignment operators</h2>
+        <table>
+          <thead><tr><th>Operator</th><th>Example</th><th>Equivalent to</th></tr></thead>
+          <tbody>
+            <tr><td><code>=</code></td><td><code>x = 5</code></td><td>Assign value</td></tr>
+            <tr><td><code>+=</code></td><td><code>x += 3</code></td><td><code>x = x + 3</code></td></tr>
+            <tr><td><code>-=</code></td><td><code>x -= 3</code></td><td><code>x = x - 3</code></td></tr>
+            <tr><td><code>*=</code></td><td><code>x *= 3</code></td><td><code>x = x * 3</code></td></tr>
+            <tr><td><code>/=</code></td><td><code>x /= 3</code></td><td><code>x = x / 3</code></td></tr>
+            <tr><td><code>%=</code></td><td><code>x %= 3</code></td><td><code>x = x % 3</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>String operator</h2>
+        <table>
+          <thead><tr><th>Operator</th><th>Description</th><th>Example</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td><code>+</code></td><td>String concatenation</td><td><code>"hi" + " there"</code></td><td><code>"hi there"</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Membership operator</h2>
+        <table>
+          <thead><tr><th>Operator</th><th>Description</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td><code>in</code></td><td>True if left value is found in a list</td><td><code>3 in [1, 2, 3]</code> → <code>true</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Precedence</h2>
+        <p>From highest to lowest precedence:</p>
+        <ol>
+          <li><code>^</code> (power, right-associative)</li>
+          <li>Unary <code>-</code> and <code>not</code></li>
+          <li><code>*</code>  <code>/</code>  <code>%</code></li>
+          <li><code>+</code>  <code>-</code></li>
+          <li><code>&lt;</code>  <code>&gt;</code>  <code>&lt;=</code>  <code>&gt;=</code></li>
+          <li><code>==</code>  <code>!=</code></li>
+          <li><code>and</code></li>
+          <li><code>or</code></li>
+          <li>Assignment (<code>=</code>  <code>+=</code>  …)</li>
+        </ol>
+
+        <div class="callout tip">
+          <strong>Tip</strong> — Use parentheses to make precedence explicit and improve readability.
+          <code>(a + b) * c</code> is clearer than relying on operator precedence.
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("reference", "operators");</script>
+</body>
+</html>

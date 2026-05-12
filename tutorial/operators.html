@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operators — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Operators</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Operators</h1>
+          <p>Perform calculations, comparisons, and logical operations.</p>
+        </div>
+
+        <h2>Arithmetic operators</h2>
+        <p>Used to perform math on numbers:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td>+</td><td>Addition</td><td><code>5 + 3</code></td><td><code>8</code></td></tr>
+              <tr><td>-</td><td>Subtraction</td><td><code>10 - 4</code></td><td><code>6</code></td></tr>
+              <tr><td>*</td><td>Multiplication</td><td><code>3 * 4</code></td><td><code>12</code></td></tr>
+              <tr><td>/</td><td>Division</td><td><code>15 / 4</code></td><td><code>3.75</code></td></tr>
+              <tr><td>%</td><td>Modulo (remainder)</td><td><code>17 % 5</code></td><td><code>2</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;arithmetic.ks</div>
+          <pre><code class="language-ks">print(5 + 3)    # 8
+print(10 - 4)   # 6
+print(3 * 4)    # 12
+print(15 / 4)   # 3.75
+print(17 % 5)   # 2</code></pre>
+        </div>
+
+        <h2>Comparison operators</h2>
+        <p>Compare two values and return <code>true</code> or <code>false</code>:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td>==</td><td>Equal to</td><td><code>5 == 5</code></td><td><code>true</code></td></tr>
+              <tr><td>!=</td><td>Not equal to</td><td><code>5 != 3</code></td><td><code>true</code></td></tr>
+              <tr><td>&lt;</td><td>Less than</td><td><code>3 &lt; 7</code></td><td><code>true</code></td></tr>
+              <tr><td>&gt;</td><td>Greater than</td><td><code>9 &gt; 5</code></td><td><code>true</code></td></tr>
+              <tr><td>&lt;=</td><td>Less than or equal</td><td><code>4 &lt;= 4</code></td><td><code>true</code></td></tr>
+              <tr><td>&gt;=</td><td>Greater than or equal</td><td><code>6 &gt;= 7</code></td><td><code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;comparison.ks</div>
+          <pre><code class="language-ks">let x = 10
+print(x == 10)   # true
+print(x != 5)    # true
+print(x > 20)    # false
+print(x <= 10)   # true</code></pre>
+        </div>
+
+        <h2>Logical operators</h2>
+        <p>Combine boolean expressions:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Operator</th><th>Description</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>and</td><td>True if both sides are true</td><td><code>true and false</code> → <code>false</code></td></tr>
+              <tr><td>or</td><td>True if at least one side is true</td><td><code>true or false</code> → <code>true</code></td></tr>
+              <tr><td>not</td><td>Negates a boolean</td><td><code>not true</code> → <code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;logical.ks</div>
+          <pre><code class="language-ks">let age  = 20
+let has_id = true
+
+if age >= 18 and has_id {
+    print("Access granted")
+}
+
+let is_weekend = false
+if not is_weekend {
+    print("It's a weekday.")
+}</code></pre>
+        </div>
+
+        <h2>Assignment operators</h2>
+        <p>Shorthand for updating a variable's value:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Operator</th><th>Equivalent to</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>+=</td><td><code>x = x + n</code></td><td><code>x += 5</code></td></tr>
+              <tr><td>-=</td><td><code>x = x - n</code></td><td><code>x -= 3</code></td></tr>
+              <tr><td>*=</td><td><code>x = x * n</code></td><td><code>x *= 2</code></td></tr>
+              <tr><td>/=</td><td><code>x = x / n</code></td><td><code>x /= 4</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;assign.ks</div>
+          <pre><code class="language-ks">let score = 100
+score += 50
+print(score)   # 150
+
+score -= 20
+print(score)   # 130
+
+score *= 2
+print(score)   # 260</code></pre>
+        </div>
+
+        <h2>String concatenation</h2>
+        <p>The <code>+</code> operator also joins (concatenates) two strings:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;concat.ks</div>
+          <pre><code class="language-ks">let first = "Kelpy"
+let last  = "Shark"
+print(first + last)   # KelpyShark</code></pre>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Arithmetic operators: <code>+  -  *  /  %</code></li>
+            <li>Comparison operators: <code>==  !=  &lt;  &gt;  &lt;=  &gt;=</code></li>
+            <li>Logical operators: <code>and  or  not</code></li>
+            <li>Assignment operators: <code>+=  -=  *=  /=</code></li>
+            <li><code>+</code> on strings does concatenation</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "operators");</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About KelpyShark — General</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>General</span> <span>›</span>
+          <span>About</span>
+        </div>
+
+        <div class="page-header">
+          <h1>About KelpyShark</h1>
+          <p>What it is, why it exists, and how it works.</p>
+        </div>
+
+        <h2>What is KelpyShark?</h2>
+        <p>
+          KelpyShark is a dynamically-typed, interpreted programming language
+          designed to be easy to learn and pleasant to write. Its syntax is clean and
+          expressive — there are no semicolons, no mandatory type annotations, and
+          minimal boilerplate. Whether you are writing your first program or your
+          hundredth, KelpyShark stays out of your way.
+        </p>
+
+        <h2>Design goals</h2>
+        <ul>
+          <li><strong>Beginner-friendly</strong> — clear error messages, simple syntax, no hidden complexity</li>
+          <li><strong>Readable</strong> — code should read like plain English where possible</li>
+          <li><strong>Batteries-included</strong> — a standard library covering maths, strings, files, JSON, HTTP, and system access</li>
+          <li><strong>Portable</strong> — runs on Windows, Linux, and macOS without modification</li>
+          <li><strong>Fast to start</strong> — a single binary, no runtime to install separately</li>
+        </ul>
+
+        <h2>How it works</h2>
+        <p>KelpyShark code goes through three stages before it runs:</p>
+
+        <ol>
+          <li>
+            <strong>Lexer</strong> — source text is scanned into a stream of tokens
+            (numbers, strings, keywords, identifiers, operators, …)
+          </li>
+          <li>
+            <strong>Parser</strong> — the token stream is structured into an
+            Abstract Syntax Tree (AST)
+          </li>
+          <li>
+            <strong>Interpreter</strong> — the AST is walked and each node is
+            evaluated directly, producing output
+          </li>
+        </ol>
+
+        <p>
+          Optionally, the compiler can target <strong>native code</strong> (via an LLVM
+          backend) or cross-compile to <strong>Java</strong> or <strong>C#</strong> source
+          for use in other ecosystems.
+        </p>
+
+        <h2>Project structure</h2>
+        <table>
+          <thead>
+            <tr><th>Crate / Directory</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>compiler/</code></td><td>Lexer, parser, AST, semantic analysis, code generation</td></tr>
+            <tr><td><code>interpreter/</code></td><td>Tree-walking interpreter and runtime values</td></tr>
+            <tr><td><code>stdlib/</code></td><td>Built-in modules (math, strings, io, json, sys, http)</td></tr>
+            <tr><td><code>cli/</code></td><td>Command-line interface (<code>kelpyshark</code> binary)</td></tr>
+            <tr><td><code>package_manager/</code></td><td>Package registry, installer, dependency resolver</td></tr>
+            <tr><td><code>formatter/</code></td><td>VS Code syntax-highlighting extension</td></tr>
+          </tbody>
+        </table>
+
+        <h2>License</h2>
+        <p>KelpyShark is open-source software. See the repository root for license details.</p>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("general", "about");</script>
+</body>
+</html>

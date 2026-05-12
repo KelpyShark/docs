@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>math — KelpyShark Reference</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>Reference</span> <span>›</span>
+          <span>math</span>
+        </div>
+
+        <div class="page-header">
+          <h1><code>math</code> Module</h1>
+          <p>Mathematical functions and constants.</p>
+        </div>
+
+        <div class="code-block">
+          <div class="code-label">Usage</div>
+          <pre><code class="language-ks">import math</code></pre>
+        </div>
+
+        <h2>Constants</h2>
+        <table>
+          <thead><tr><th>Name</th><th>Value</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>math.pi</code></td><td><code>3.141592653589793</code></td><td>Pi — ratio of circle circumference to diameter</td></tr>
+            <tr><td><code>math.e</code></td><td><code>2.718281828459045</code></td><td>Euler's number — base of natural logarithm</td></tr>
+            <tr><td><code>math.inf</code></td><td>∞</td><td>Positive infinity</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Functions</h2>
+        <table>
+          <thead><tr><th>Function</th><th>Returns</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>math.sqrt(n)</code></td><td>number</td><td>Square root of <code>n</code></td></tr>
+            <tr><td><code>math.pow(base, exp)</code></td><td>number</td><td><code>base</code> raised to <code>exp</code></td></tr>
+            <tr><td><code>math.abs(n)</code></td><td>number</td><td>Absolute value of <code>n</code></td></tr>
+            <tr><td><code>math.floor(n)</code></td><td>number</td><td>Largest integer ≤ <code>n</code></td></tr>
+            <tr><td><code>math.ceil(n)</code></td><td>number</td><td>Smallest integer ≥ <code>n</code></td></tr>
+            <tr><td><code>math.round(n)</code></td><td>number</td><td>Nearest integer (ties round up)</td></tr>
+            <tr><td><code>math.min(a, b)</code></td><td>number</td><td>Smaller of <code>a</code> and <code>b</code></td></tr>
+            <tr><td><code>math.max(a, b)</code></td><td>number</td><td>Larger of <code>a</code> and <code>b</code></td></tr>
+            <tr><td><code>math.log(n)</code></td><td>number</td><td>Natural logarithm of <code>n</code></td></tr>
+            <tr><td><code>math.log10(n)</code></td><td>number</td><td>Base-10 logarithm of <code>n</code></td></tr>
+            <tr><td><code>math.sin(n)</code></td><td>number</td><td>Sine of <code>n</code> (radians)</td></tr>
+            <tr><td><code>math.cos(n)</code></td><td>number</td><td>Cosine of <code>n</code> (radians)</td></tr>
+            <tr><td><code>math.tan(n)</code></td><td>number</td><td>Tangent of <code>n</code> (radians)</td></tr>
+            <tr><td><code>math.random()</code></td><td>number</td><td>Random float in [0, 1)</td></tr>
+            <tr><td><code>math.random_int(lo, hi)</code></td><td>number</td><td>Random integer in [lo, hi] inclusive</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Examples</h2>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;math-demo.ks</div>
+          <pre><code class="language-ks">import math
+
+# Circle area
+def circle_area(r) {
+    return math.pi * math.pow(r, 2)
+}
+print(circle_area(5))          # 78.53981633974483
+
+# Hypotenuse
+def hyp(a, b) {
+    return math.sqrt(math.pow(a, 2) + math.pow(b, 2))
+}
+print(hyp(3, 4))               # 5
+
+# Clamping a value
+def clamp(val, lo, hi) {
+    return math.max(lo, math.min(hi, val))
+}
+print(clamp(15, 0, 10))        # 10
+print(clamp(-3, 0, 10))        # 0
+
+# Random dice roll
+let roll = math.random_int(1, 6)
+print("Rolled: {$roll}")</code></pre>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("reference", "math");</script>
+</body>
+</html>

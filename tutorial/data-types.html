@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Types — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Data Types</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Data Types</h1>
+          <p>The fundamental kinds of values in KelpyShark.</p>
+        </div>
+
+        <p>KelpyShark is <strong>dynamically typed</strong> — you don't declare the type of a variable; KelpyShark figures it out from the value you assign. There are six built-in data types:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Type</th><th>Example</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Number</td><td><code>42</code>, <code>3.14</code>, <code>-7</code></td><td>Integer or decimal numbers</td></tr>
+              <tr><td>String</td><td><code>"hello"</code>, <code>'world'</code></td><td>Text in double or single quotes</td></tr>
+              <tr><td>Boolean</td><td><code>true</code>, <code>false</code></td><td>Logical true/false value</td></tr>
+              <tr><td>List</td><td><code>[1, 2, 3]</code></td><td>Ordered collection of values</td></tr>
+              <tr><td>Dictionary</td><td><code>{"key": "value"}</code></td><td>Key-value pairs</td></tr>
+              <tr><td>Null</td><td><code>null</code></td><td>Represents the absence of a value</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Numbers</h2>
+        <p>Numbers can be integers (whole numbers) or floats (decimal numbers). KelpyShark handles both with the same <em>Number</em> type.</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;numbers.ks</div>
+          <pre><code class="language-ks">let count    = 10       # integer
+let price    = 4.99     # float
+let negative = -3       # negative number
+let big      = 1000000  # big integer
+
+print(count + price)   # 14.99</code></pre>
+        </div>
+
+        <h2>Strings</h2>
+        <p>Strings hold text. You can use either double quotes or single quotes.</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;strings.ks</div>
+          <pre><code class="language-ks">let greeting = "Hello, World!"
+let language = 'KelpyShark'
+print(greeting)
+print(language)</code></pre>
+        </div>
+
+        <h2>Booleans</h2>
+        <p>A boolean is either <code>true</code> or <code>false</code>. Booleans are used in conditions.</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;booleans.ks</div>
+          <pre><code class="language-ks">let is_sunny = true
+let is_cold  = false
+
+print(is_sunny)   # true
+print(is_cold)    # false
+print(10 > 5)     # true
+print(3 == 7)     # false</code></pre>
+        </div>
+
+        <h2>Null</h2>
+        <p><code>null</code> represents "no value" — useful as a placeholder or to signal that something is missing.</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;null.ks</div>
+          <pre><code class="language-ks">let result = null
+print(result)   # null</code></pre>
+        </div>
+
+        <h2>Checking the type of a value</h2>
+        <p>The built-in <code>type()</code> function returns the type of any value as a string:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;typeof.ks</div>
+          <pre><code class="language-ks">print(type(42))        # number
+print(type("hello"))   # string
+print(type(true))      # bool
+print(type(null))      # null
+print(type([1,2,3]))   # list</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>number
+string
+bool
+null
+list</pre>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>KelpyShark has 6 built-in types: Number, String, Boolean, List, Dictionary, Null</li>
+            <li>You don't need to declare types — KelpyShark infers them</li>
+            <li>Use <code>type(value)</code> to inspect a value's type at runtime</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "data-types");</script>
+</body>
+</html>

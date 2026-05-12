@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comments — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Comments</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Comments</h1>
+          <p>Write notes in your code that the interpreter ignores.</p>
+        </div>
+
+        <h2>Single-line comments</h2>
+        <p>
+          A comment starts with a <code>#</code> character. Everything after it
+          on the same line is ignored by KelpyShark.
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;comments.ks</div>
+          <pre><code class="language-ks"># This is a comment — the interpreter ignores it
+print("Hello!")  # This comment is at the end of a line
+
+# Comments are useful for explaining what your code does:
+let speed = 60   # speed in km/h</code></pre>
+        </div>
+
+        <h2>Multi-line comments</h2>
+        <p>
+          KelpyShark does not have a dedicated multi-line comment syntax.
+          Simply use multiple <code>#</code> lines:
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;multiline.ks</div>
+          <pre><code class="language-ks"># This function calculates the area of a rectangle.
+# Arguments:
+#   width  - the width of the rectangle
+#   height - the height of the rectangle
+# Returns:
+#   the area as a number
+def area(width, height) {
+    return width * height
+}</code></pre>
+        </div>
+
+        <h2>Commenting out code</h2>
+        <p>You can temporarily disable code by putting a <code>#</code> in front of it. This is called "commenting out":</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;debug.ks</div>
+          <pre><code class="language-ks">let x = 10
+# print("debug: x =", x)   # disabled for now
+print("x is", x)</code></pre>
+        </div>
+
+        <div class="callout callout-tip">
+          <strong>💡 Good practice</strong>
+          <p>Write comments that explain <em>why</em> you did something, not just <em>what</em> the code does. The code already shows <em>what</em> — good comments add context.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Use <code>#</code> to write a comment</li>
+            <li>Everything after <code>#</code> on that line is ignored</li>
+            <li>Stack multiple <code>#</code> lines for multi-line comments</li>
+            <li>Commenting out is useful for debugging</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "comments");</script>
+</body>
+</html>

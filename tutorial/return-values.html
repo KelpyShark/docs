@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Return Values — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Return Values</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Return Values</h1>
+          <p>Make functions produce a result that you can use.</p>
+        </div>
+
+        <p>
+          So far, our functions have printed things directly. But often you want a
+          function to <em>compute</em> something and give that result back to the caller.
+          Use the <code>return</code> keyword to send a value back.
+        </p>
+
+        <h2>Returning a value</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;add.ks</div>
+          <pre><code class="language-ks">def add(a, b) {
+    return a + b
+}
+
+let sum = add(3, 7)
+print(sum)         # 10
+print(add(20, 5))  # 25</code></pre>
+        </div>
+
+        <h2>Using return values in expressions</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;expressions.ks</div>
+          <pre><code class="language-ks">def square(n) {
+    return n * n
+}
+
+def cube(n) {
+    return n * n * n
+}
+
+print(square(4) + cube(2))   # 16 + 8 = 24
+print(square(square(3)))     # square(9) = 81</code></pre>
+        </div>
+
+        <h2>Early return</h2>
+        <p>A function stops executing as soon as it hits a <code>return</code> statement. This is useful for early exit:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;early.ks</div>
+          <pre><code class="language-ks">def is_even(n) {
+    if n % 2 == 0 {
+        return true
+    }
+    return false
+}
+
+print(is_even(4))    # true
+print(is_even(7))    # false</code></pre>
+        </div>
+
+        <h2>Returning null</h2>
+        <p>If a function has no <code>return</code> statement (or just <code>return</code> with no value), it returns <code>null</code>:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;null-return.ks</div>
+          <pre><code class="language-ks">def say_hi() {
+    print("Hi!")
+}
+
+let result = say_hi()   # prints "Hi!"
+print(result)            # null</code></pre>
+        </div>
+
+        <h2>Practical example</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;bmi.ks</div>
+          <pre><code class="language-ks">def bmi(weight_kg, height_m) {
+    return weight_kg / (height_m * height_m)
+}
+
+def bmi_category(bmi_value) {
+    if bmi_value < 18.5 {
+        return "Underweight"
+    } elif bmi_value < 25 {
+        return "Normal"
+    } elif bmi_value < 30 {
+        return "Overweight"
+    } else {
+        return "Obese"
+    }
+}
+
+let my_bmi = bmi(70, 1.75)
+print("BMI: {$my_bmi}")
+print("Category: {$bmi_category(my_bmi)}")</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>BMI: 22.857142857142858
+Category: Normal</pre>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Use <code>return value</code> to send a result back to the caller</li>
+            <li>Functions stop executing when they hit <code>return</code></li>
+            <li>Return values can be used in expressions or stored in variables</li>
+            <li>Functions without a <code>return</code> return <code>null</code></li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "return-values");</script>
+</body>
+</html>

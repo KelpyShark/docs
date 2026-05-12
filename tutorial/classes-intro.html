@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Classes — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Introduction to Classes</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Introduction to Classes</h1>
+          <p>Model real-world things with object-oriented programming.</p>
+        </div>
+
+        <p>
+          A <strong>class</strong> is a blueprint for creating objects. Each object
+          (called an <em>instance</em>) created from a class gets its own copy of the
+          class's attributes (data) and methods (functions).
+        </p>
+
+        <p>
+          Object-oriented programming (OOP) helps you organize code around
+          real-world concepts — a <code>Car</code>, a <code>User</code>, a
+          <code>BankAccount</code> — rather than just procedures.
+        </p>
+
+        <h2>Defining a class</h2>
+        <div class="syntax-box">
+          <span class="kw">class</span> <span class="fn">ClassName</span> {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="syn-placeholder">attributes and methods</span><br>
+          }
+        </div>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;dog.ks</div>
+          <pre><code class="language-ks">class Dog {
+    def new(name, breed) {
+        self.name  = name
+        self.breed = breed
+    }
+
+    def bark() {
+        print("{$self.name} says: Woof!")
+    }
+
+    def describe() {
+        print("{$self.name} is a {$self.breed}.")
+    }
+}
+
+let rex  = new Dog("Rex", "German Shepherd")
+let luna = new Dog("Luna", "Labrador")
+
+rex.bark()
+luna.describe()
+rex.describe()</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Rex says: Woof!
+Luna is a Labrador.
+Rex is a German Shepherd.</pre>
+        </div>
+
+        <h2>Key concepts</h2>
+        <ul>
+          <li><strong><code>class</code></strong> — keyword to define a new class</li>
+          <li><strong><code>def new(...)</code></strong> — the <em>constructor</em>, called when creating an instance</li>
+          <li><strong><code>self</code></strong> — refers to the current object instance</li>
+          <li><strong><code>self.name = ...</code></strong> — stores an attribute on the object</li>
+          <li><strong><code>new ClassName(...)</code></strong> — creates a new instance of the class</li>
+          <li><strong><code>object.method()</code></strong> — calls a method on an object</li>
+        </ul>
+
+        <div class="callout callout-note">
+          <strong>📝 Note</strong>
+          <p>
+            In KelpyShark, <code>new</code> is used both as a keyword to create an instance
+            (<code>new Dog("Rex", "Lab")</code>) and as the constructor method name (<code>def new()</code>).
+          </p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>A class is a blueprint for creating objects</li>
+            <li>Define classes with <code>class Name { }</code></li>
+            <li>The constructor is <code>def new(...) { }</code></li>
+            <li><code>self</code> refers to the current instance</li>
+            <li>Create instances with <code>new ClassName(...)</code></li>
+            <li>Call methods with <code>instance.method()</code></li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "classes-intro");</script>
+</body>
+</html>

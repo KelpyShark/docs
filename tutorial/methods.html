@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methods — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Methods</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Methods</h1>
+          <p>Functions that belong to an object.</p>
+        </div>
+
+        <p>
+          A <strong>method</strong> is a function defined inside a class. Methods can
+          read and modify the object's attributes via <code>self</code>, and are called
+          on an instance using dot notation.
+        </p>
+
+        <h2>Instance methods</h2>
+        <p>Regular methods that operate on the object's data:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;methods.ks</div>
+          <pre><code class="language-ks">class BankAccount {
+    def new(owner, balance) {
+        self.owner   = owner
+        self.balance = balance
+    }
+
+    def deposit(amount) {
+        self.balance += amount
+        print("Deposited {$amount}. New balance: {$self.balance}")
+    }
+
+    def withdraw(amount) {
+        if amount > self.balance {
+            print("Insufficient funds!")
+            return
+        }
+        self.balance -= amount
+        print("Withdrew {$amount}. New balance: {$self.balance}")
+    }
+
+    def show_balance() {
+        print("{$self.owner}'s balance: {$self.balance}")
+    }
+}
+
+let acc = new BankAccount("Alice", 1000)
+acc.show_balance()
+acc.deposit(500)
+acc.withdraw(200)
+acc.withdraw(2000)</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Alice's balance: 1000
+Deposited 500. New balance: 1500
+Withdrew 200. New balance: 1300
+Insufficient funds!</pre>
+        </div>
+
+        <h2>Methods calling other methods</h2>
+        <p>Methods can call other methods on the same object using <code>self</code>:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;self-call.ks</div>
+          <pre><code class="language-ks">class Rectangle {
+    def new(width, height) {
+        self.width  = width
+        self.height = height
+    }
+
+    def area() {
+        return self.width * self.height
+    }
+
+    def perimeter() {
+        return 2 * (self.width + self.height)
+    }
+
+    def is_square() {
+        return self.width == self.height
+    }
+
+    def describe() {
+        print("{$self.width}x{$self.height} | Area: {$self.area()} | Square: {$self.is_square()}")
+    }
+}
+
+let r = new Rectangle(4, 6)
+r.describe()
+
+let s = new Rectangle(5, 5)
+s.describe()</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>4x6 | Area: 24 | Square: false
+5x5 | Area: 25 | Square: true</pre>
+        </div>
+
+        <h2>Static methods</h2>
+        <p>
+          A <code>static</code> method belongs to the class itself, not to any instance.
+          It doesn't receive <code>self</code> and is called on the class name:
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;static.ks</div>
+          <pre><code class="language-ks">class MathUtils {
+    static def max(a, b) {
+        if a > b { return a }
+        return b
+    }
+
+    static def clamp(value, min, max) {
+        if value < min { return min }
+        if value > max { return max }
+        return value
+    }
+}
+
+print(MathUtils.max(10, 20))         # 20
+print(MathUtils.clamp(15, 0, 10))    # 10</code></pre>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Methods are functions defined inside a class</li>
+            <li>They receive <code>self</code> automatically (the current instance)</li>
+            <li>Call them with <code>instance.method()</code></li>
+            <li>Methods can call other methods via <code>self.method()</code></li>
+            <li><code>static def</code> creates a class-level method — no instance needed</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "methods");</script>
+</body>
+</html>

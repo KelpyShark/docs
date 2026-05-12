@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictionaries — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Dictionaries</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Dictionaries</h1>
+          <p>Store data as key-value pairs.</p>
+        </div>
+
+        <p>
+          A <strong>dictionary</strong> (also called a <em>map</em> or <em>hash map</em> in other languages)
+          stores data as <strong>key-value pairs</strong>. Unlike lists which use numeric indices,
+          dictionaries let you use descriptive string keys to look up values.
+        </p>
+
+        <h2>Creating a dictionary</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;dict.ks</div>
+          <pre><code class="language-ks">let person = {
+    "name": "Alice",
+    "age":  30,
+    "city": "London"
+}
+
+print(person)</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>{"name": "Alice", "age": 30, "city": "London"}</pre>
+        </div>
+
+        <h2>Accessing values</h2>
+        <p>Use square bracket notation with the key name:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;access.ks</div>
+          <pre><code class="language-ks">let person = {"name": "Alice", "age": 30}
+
+print(person["name"])   # Alice
+print(person["age"])    # 30</code></pre>
+        </div>
+
+        <h2>Adding and updating entries</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;update.ks</div>
+          <pre><code class="language-ks">let config = {"debug": false, "version": 1}
+
+# Update an existing key
+config["version"] = 2
+
+# Add a new key
+config["author"] = "Alice"
+
+print(config)</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>{"debug": false, "version": 2, "author": "Alice"}</pre>
+        </div>
+
+        <h2>Checking for a key</h2>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;contains.ks</div>
+          <pre><code class="language-ks">let settings = {"theme": "dark", "lang": "en"}
+
+if "theme" in settings {
+    print("Theme is set to: {$settings["theme"]}")
+}</code></pre>
+        </div>
+
+        <h2>Iterating over a dictionary</h2>
+        <p>Use <code>for key in dict</code> to loop over keys:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;iterate.ks</div>
+          <pre><code class="language-ks">let scores = {"Alice": 95, "Bob": 87, "Charlie": 72}
+
+for name in scores {
+    print("{$name}: {$scores[name]}")
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Alice: 95
+Bob: 87
+Charlie: 72</pre>
+        </div>
+
+        <h2>Nested dictionaries</h2>
+        <p>Dictionary values can themselves be dictionaries:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;nested.ks</div>
+          <pre><code class="language-ks">let user = {
+    "name": "Alice",
+    "address": {
+        "city":    "London",
+        "country": "UK"
+    }
+}
+
+print(user["address"]["city"])   # London</code></pre>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Dictionaries store key-value pairs: <code>{"key": value}</code></li>
+            <li>Access values with <code>dict["key"]</code></li>
+            <li>Add or update with <code>dict["key"] = value</code></li>
+            <li>Check membership with <code>"key" in dict</code></li>
+            <li>Iterate over keys with <code>for key in dict</code></li>
+            <li>Values can be any type, including other dictionaries</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "dictionaries");</script>
+</body>
+</html>

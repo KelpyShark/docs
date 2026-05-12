@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Handling — KelpyShark Tutorial</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="../reference/keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <a href="introduction.html">Tutorial</a> <span>›</span>
+          <span>Error Handling</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Error Handling</h1>
+          <p>Handle mistakes gracefully with try and catch.</p>
+        </div>
+
+        <p>
+          Errors happen — files don't exist, numbers get divided by zero, invalid input
+          arrives. KelpyShark lets you <em>catch</em> these errors so your program can
+          respond sensibly instead of crashing.
+        </p>
+
+        <h2>try / catch</h2>
+        <p>
+          Wrap risky code in a <code>try</code> block. If an error occurs, execution
+          jumps to the <code>catch</code> block:
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;errors.ks</div>
+          <pre><code class="language-ks">try {
+    let x = 10 / 0
+    print("Result: {$x}")
+} catch (e) {
+    print("Caught an error: {$e}")
+}</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Caught an error: Division by zero</pre>
+        </div>
+
+        <h2>Catching specific errors</h2>
+        <p>
+          The variable after <code>catch</code> holds the error message. You can inspect
+          it to decide how to respond:
+        </p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;inspect-error.ks</div>
+          <pre><code class="language-ks">def safe_divide(a, b) {
+    try {
+        return a / b
+    } catch (e) {
+        print("Error: {$e}")
+        return null
+    }
+}
+
+let result = safe_divide(10, 2)
+print(result)       # 5
+
+let bad = safe_divide(10, 0)
+print(bad)          # null</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>5
+Error: Division by zero
+null</pre>
+        </div>
+
+        <h2>Recovering from errors</h2>
+        <p>Use <code>try / catch</code> to keep your program running even when something goes wrong:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;recovery.ks</div>
+          <pre><code class="language-ks">let items = ["10", "abc", "30", "xyz", "50"]
+let total = 0
+
+for item in items {
+    try {
+        total += num(item)
+    } catch (e) {
+        print("Skipping '{$item}' — not a number")
+    }
+}
+
+print("Total: {$total}")</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>Skipping 'abc' — not a number
+Skipping 'xyz' — not a number
+Total: 90</pre>
+        </div>
+
+        <div class="callout note">
+          <strong>Note</strong> — Code after the error inside a <code>try</code> block is
+          skipped. Execution resumes from the start of the <code>catch</code> block.
+        </div>
+
+        <h2>Nested try / catch</h2>
+        <p>You can nest error handlers for different levels of risk:</p>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;nested.ks</div>
+          <pre><code class="language-ks">def load_config(path) {
+    try {
+        let data = io.read(path)
+        try {
+            return json.parse(data)
+        } catch (e) {
+            print("Config is not valid JSON: {$e}")
+            return null
+        }
+    } catch (e) {
+        print("Could not open file: {$e}")
+        return null
+    }
+}</code></pre>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li><code>try { }</code> wraps code that might fail</li>
+            <li><code>catch (e) { }</code> runs when an error occurs — <code>e</code> holds the message</li>
+            <li>After the catch block, the program continues normally</li>
+            <li>You can nest <code>try / catch</code> blocks for fine-grained control</li>
+          </ul>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("tutorial", "errors");</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keywords — KelpyShark Reference</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+  <header class="site-header">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+    <a class="site-logo" href="../index.html"><span class="shark"></span> KelpyShark</a>
+    <nav class="site-nav">
+      <a href="../tutorial/introduction.html" data-section="tutorial">Tutorial</a>
+      <a href="keywords.html" data-section="reference">Reference</a>
+      <a href="../general/about.html" data-section="general">General</a>
+    </nav>
+  </header>
+  <div class="site-body">
+    <aside class="sidebar"></aside>
+    <div class="sidebar-backdrop"></div>
+    <main class="content">
+      <div class="content-inner">
+
+        <div class="breadcrumb">
+          <a href="../index.html">Docs</a> <span>›</span>
+          <span>Reference</span> <span>›</span>
+          <span>Keywords</span>
+        </div>
+
+        <div class="page-header">
+          <h1>Keywords</h1>
+          <p>Reserved words with special meaning in KelpyShark.</p>
+        </div>
+
+        <p>
+          The following words are reserved by the language. You cannot use them as
+          variable names, function names, or identifiers.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Category</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>def</code></td><td>Functions / Methods</td><td>Defines a function or method</td></tr>
+            <tr><td><code>return</code></td><td>Functions / Methods</td><td>Returns a value from a function</td></tr>
+            <tr><td><code>static</code></td><td>Functions / Methods</td><td>Marks a method as class-level (no <code>self</code>)</td></tr>
+            <tr><td><code>class</code></td><td>Classes</td><td>Defines a new class</td></tr>
+            <tr><td><code>new</code></td><td>Classes</td><td>Creates an instance of a class</td></tr>
+            <tr><td><code>self</code></td><td>Classes</td><td>Refers to the current instance inside a method</td></tr>
+            <tr><td><code>super</code></td><td>Classes</td><td>Calls the parent class constructor</td></tr>
+            <tr><td><code>if</code></td><td>Control Flow</td><td>Conditional branch</td></tr>
+            <tr><td><code>elif</code></td><td>Control Flow</td><td>Additional conditional branch</td></tr>
+            <tr><td><code>else</code></td><td>Control Flow</td><td>Fallback branch when no condition matches</td></tr>
+            <tr><td><code>while</code></td><td>Control Flow</td><td>Loop while condition is true</td></tr>
+            <tr><td><code>for</code></td><td>Control Flow</td><td>Iterate over a list or range</td></tr>
+            <tr><td><code>in</code></td><td>Control Flow</td><td>Used with <code>for</code> and membership tests</td></tr>
+            <tr><td><code>break</code></td><td>Control Flow</td><td>Exit the current loop immediately</td></tr>
+            <tr><td><code>continue</code></td><td>Control Flow</td><td>Skip to the next loop iteration</td></tr>
+            <tr><td><code>try</code></td><td>Error Handling</td><td>Start a guarded block</td></tr>
+            <tr><td><code>catch</code></td><td>Error Handling</td><td>Handle an error from a try block</td></tr>
+            <tr><td><code>throw</code></td><td>Error Handling</td><td>Raise an error</td></tr>
+            <tr><td><code>import</code></td><td>Modules</td><td>Load a module or file</td></tr>
+            <tr><td><code>let</code></td><td>Variables</td><td>Declare a variable</td></tr>
+            <tr><td><code>true</code></td><td>Literals</td><td>Boolean true value</td></tr>
+            <tr><td><code>false</code></td><td>Literals</td><td>Boolean false value</td></tr>
+            <tr><td><code>null</code></td><td>Literals</td><td>Absence of a value</td></tr>
+            <tr><td><code>and</code></td><td>Logic</td><td>Logical AND</td></tr>
+            <tr><td><code>or</code></td><td>Logic</td><td>Logical OR</td></tr>
+            <tr><td><code>not</code></td><td>Logic</td><td>Logical NOT</td></tr>
+            <tr><td><code>print</code></td><td>Built-in</td><td>Print a value to the console</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Usage examples</h2>
+
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;keywords.ks</div>
+          <pre><code class="language-ks"># let — variable declaration
+let x = 42
+
+# def — function definition
+def greet(name) {
+    return "Hello, {$name}!"
+}
+
+# class / new / self
+class Point {
+    def new(x, y) {
+        self.x = x
+        self.y = y
+    }
+}
+let p = new Point(3, 4)
+
+# if / elif / else
+if x > 50 {
+    print("big")
+} elif x > 20 {
+    print("medium")
+} else {
+    print("small")
+}
+
+# for / in
+for i in range(3) {
+    print(i)
+}
+
+# try / catch / throw
+try {
+    throw "oops"
+} catch (e) {
+    print(e)
+}
+
+# import
+import math
+print(math.pi)
+
+# and / or / not / true / false / null
+let flag = true and not false
+print(flag)</code></pre>
+        </div>
+
+        <div class="page-nav"></div>
+      </div>
+    </main>
+  </div>
+  <script src="../site.js"></script>
+  <script>KSDoc.init("reference", "keywords");</script>
+</body>
+</html>
