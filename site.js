@@ -201,16 +201,16 @@
   }
 
   function getPathDepth() {
-    // Count directory segments below /docs/
+    // Count directory segments below /docs/, excluding the filename itself.
+    // e.g. docs/tutorial/foo.html  → depth 1  → "../" once to reach docs root
+    //      docs/index.html         → depth 0  → no prefix needed
     const parts = window.location.pathname
       .split("/")
       .filter(Boolean);
-    // We want depth relative to the docs root.
-    // The html files sit one level deep in section dirs (tutorial/foo.html)
-    // so depth = 1 means "../" once to reach docs root.
     const docsIdx = parts.findIndex(p => p === "docs");
     if (docsIdx === -1) return 1;
-    return parts.length - docsIdx - 1;
+    // subtract 1 for "docs" itself and 1 for the filename (last segment)
+    return parts.length - docsIdx - 2;
   }
 
   /* ══════════════════════════════════════════════════════
