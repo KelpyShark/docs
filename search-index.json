@@ -1,0 +1,1982 @@
+[
+  {
+    "title": "About KelpyShark",
+    "section": "",
+    "snippet": "What it is, why it exists, and how it works.",
+    "href": "general/about.html"
+  },
+  {
+    "title": "What is KelpyShark?",
+    "section": "About KelpyShark",
+    "snippet": "KelpyShark is a dynamically-typed, interpreted programming language designed to be easy to learn and pleasant to write. Its syntax is clean and expressive — there are no semicolons, no mandatory type ",
+    "href": "general/about.html#what-is-kelpyshark"
+  },
+  {
+    "title": "Design goals",
+    "section": "About KelpyShark",
+    "snippet": "Beginner-friendly — clear error messages, simple syntax, no hidden complexity Readable — code should read like plain English where possible Batteries-included — a standard library covering maths, stri",
+    "href": "general/about.html#design-goals"
+  },
+  {
+    "title": "How it works",
+    "section": "About KelpyShark",
+    "snippet": "KelpyShark code goes through three stages before it runs: Lexer — source text is scanned into a stream of tokens (numbers, strings, keywords, identifiers, operators, …) Parser — the token stream is st",
+    "href": "general/about.html#how-it-works"
+  },
+  {
+    "title": "Project structure",
+    "section": "About KelpyShark",
+    "snippet": "Crate / Directory Purpose compiler/ Lexer, parser, AST, semantic analysis, code generation interpreter/ Tree-walking interpreter and runtime values stdlib/ Built-in modules (math, strings, io, json, s",
+    "href": "general/about.html#project-structure"
+  },
+  {
+    "title": "License",
+    "section": "About KelpyShark",
+    "snippet": "KelpyShark is open-source software. See the repository root for license details.",
+    "href": "general/about.html#license"
+  },
+  {
+    "title": "Changelog",
+    "section": "",
+    "snippet": "What's new in each version of KelpyShark.",
+    "href": "general/changelog.html"
+  },
+  {
+    "title": "v1.2.0",
+    "section": "Changelog",
+    "snippet": "Added http standard library module (GET, POST, PUT, DELETE) Added Java code generation backend ( --target java ) Added C# code generation backend ( --target csharp ) Package manager: pkg publish and p",
+    "href": "general/changelog.html#v1-2-0"
+  },
+  {
+    "title": "v1.1.0",
+    "section": "Changelog",
+    "snippet": "Classes and object-oriented programming ( class , new , self ) Inheritance ( class Child(Parent) ) and super() Static methods ( static def ) Default parameter values in functions json standard library",
+    "href": "general/changelog.html#v1-1-0"
+  },
+  {
+    "title": "v1.0.0",
+    "section": "Changelog",
+    "snippet": "Initial release Variables, numbers, strings, booleans, null Lists and dictionaries Functions ( def ) and return values If / elif / else While loops Try / catch / throw error handling Imports ( import ",
+    "href": "general/changelog.html#v1-0-0"
+  },
+  {
+    "title": "CLI Reference",
+    "section": "",
+    "snippet": "All commands provided by the kelpyshark binary.",
+    "href": "general/cli.html"
+  },
+  {
+    "title": "Synopsis",
+    "section": "CLI Reference",
+    "snippet": "Shell kelpyshark <command> [options] [args] kshark <command> [options] [args] ks <command> [options] [args] All three names are identical — use whichever you prefer.",
+    "href": "general/cli.html#synopsis"
+  },
+  {
+    "title": "Commands",
+    "section": "CLI Reference",
+    "snippet": "",
+    "href": "general/cli.html#commands"
+  },
+  {
+    "title": "run",
+    "section": "CLI Reference",
+    "snippet": "Interpret and run a .ks file. Shell kelpyshark run <file.ks> [-- arg1 arg2 ...] Arguments after -- are available in the script as sys.args . Examples kelpyshark run hello.ks kelpyshark run script.ks -",
+    "href": "general/cli.html#run"
+  },
+  {
+    "title": "build",
+    "section": "CLI Reference",
+    "snippet": "Compile a .ks file to a native executable. Shell kelpyshark build <file.ks> [-o output] Flag Description -o <name> Name of the output binary (default: file name without .ks ) --release Enable optimisa",
+    "href": "general/cli.html#build"
+  },
+  {
+    "title": "check",
+    "section": "CLI Reference",
+    "snippet": "Parse and type-check a file without running it. Shell kelpyshark check <file.ks>",
+    "href": "general/cli.html#check"
+  },
+  {
+    "title": "fmt",
+    "section": "CLI Reference",
+    "snippet": "Auto-format a .ks file in place. Shell kelpyshark fmt <file.ks> kelpyshark fmt . # format all .ks files in the current directory",
+    "href": "general/cli.html#fmt"
+  },
+  {
+    "title": "new",
+    "section": "CLI Reference",
+    "snippet": "Create a new KelpyShark project with a starter layout. Shell kelpyshark new <project-name> Creates: Generated structure project-name/ main.ks ks.toml",
+    "href": "general/cli.html#new"
+  },
+  {
+    "title": "pkg — Package manager",
+    "section": "CLI Reference",
+    "snippet": "Sub-commands for the built-in package manager: Command Description kelpyshark pkg install <name> Install a package kelpyshark pkg remove <name> Uninstall a package kelpyshark pkg list List installed p",
+    "href": "general/cli.html#pkg-package-manager"
+  },
+  {
+    "title": "version",
+    "section": "CLI Reference",
+    "snippet": "Print the installed KelpyShark version. Shell kelpyshark version Output kelpyshark 1.2.0",
+    "href": "general/cli.html#version"
+  },
+  {
+    "title": "help",
+    "section": "CLI Reference",
+    "snippet": "Show help for any command. Shell kelpyshark help kelpyshark help run",
+    "href": "general/cli.html#help"
+  },
+  {
+    "title": "Code Generation",
+    "section": "",
+    "snippet": "Cross-compile KelpyShark to Java and C#. In addition to running KelpyShark files directly with the interpreter, the compiler can transpile your code to other languages. This lets you deploy KelpyShark",
+    "href": "general/codegen.html"
+  },
+  {
+    "title": "Java codegen",
+    "section": "Code Generation",
+    "snippet": "The Java backend emits Java 11-compatible source code. Each KelpyShark file becomes a Java class. The output can be compiled with any standard Java compiler ( javac ). Shell kelpyshark build --target ",
+    "href": "general/codegen.html#java-codegen"
+  },
+  {
+    "title": "Mapping",
+    "section": "Code Generation",
+    "snippet": "KelpyShark Java number double string String boolean boolean null null list ArrayList<Object> dictionary HashMap<String, Object> class Java class def Java method print(x) System.out.println(x)",
+    "href": "general/codegen.html#mapping"
+  },
+  {
+    "title": "C# codegen",
+    "section": "Code Generation",
+    "snippet": "The C# backend emits .NET 6-compatible source code. Classes, methods, and control flow all map cleanly to C# equivalents. Shell kelpyshark build --target csharp hello.ks -o Hello.cs dotnet script Hell",
+    "href": "general/codegen.html#c-codegen"
+  },
+  {
+    "title": "Mapping",
+    "section": "Code Generation",
+    "snippet": "KelpyShark C# number double string string boolean bool null null list List<object> dictionary Dictionary<string, object> class C# class def C# method print(x) Console.WriteLine(x)",
+    "href": "general/codegen.html#mapping"
+  },
+  {
+    "title": "Limitations",
+    "section": "Code Generation",
+    "snippet": "Dynamic features (e.g. adding attributes to instances at runtime) may produce verbose generated code Standard library modules are not automatically translated — stdlib calls are emitted as comments if",
+    "href": "general/codegen.html#limitations"
+  },
+  {
+    "title": "Compiler Architecture",
+    "section": "",
+    "snippet": "How source code becomes a running program.",
+    "href": "general/compiler.html"
+  },
+  {
+    "title": "Pipeline overview",
+    "section": "Compiler Architecture",
+    "snippet": "KelpyShark source code passes through four major stages before it is either interpreted or compiled to a target language: Lexer — text → tokens Parser — tokens → AST Semantic analysis — validate the A",
+    "href": "general/compiler.html#pipeline-overview"
+  },
+  {
+    "title": "1. Lexer ( lexer.rs )",
+    "section": "Compiler Architecture",
+    "snippet": "The lexer (scanner) reads raw source text character-by-character and produces a flat list of tokens . Each token has a kind (e.g. Ident , Number , String , Plus , If ) and a source location (line, col",
+    "href": "general/compiler.html#1-lexer-lexer-rs"
+  },
+  {
+    "title": "2. Parser ( parser.rs )",
+    "section": "Compiler Architecture",
+    "snippet": "The recursive-descent parser consumes the token stream and builds an Abstract Syntax Tree (AST) . Each node in the tree corresponds to a language construct (function definition, binary expression, if ",
+    "href": "general/compiler.html#2-parser-parser-rs"
+  },
+  {
+    "title": "3. Semantic analysis ( semantic.rs )",
+    "section": "Compiler Architecture",
+    "snippet": "After parsing, the semantic analyser walks the AST to catch errors that the grammar alone cannot detect: Use of variables before declaration return outside a function break / continue outside a loop D",
+    "href": "general/compiler.html#3-semantic-analysis-semantic-rs"
+  },
+  {
+    "title": "4. Code generation / interpretation",
+    "section": "Compiler Architecture",
+    "snippet": "After semantic analysis, the validated AST can go to one of several backends: Backend Module Description Interpreter interpreter/ Tree-walking interpreter. Evaluates the AST directly. Used by kelpysha",
+    "href": "general/compiler.html#4-code-generation-interpretation"
+  },
+  {
+    "title": "Error handling",
+    "section": "Compiler Architecture",
+    "snippet": "Errors are represented by the KSError type (defined in error.rs ). Each error carries a message and an optional source span (start line/col, end line/col) so the CLI can underline the offending code.",
+    "href": "general/compiler.html#error-handling"
+  },
+  {
+    "title": "FAQ",
+    "section": "",
+    "snippet": "Frequently asked questions about KelpyShark.",
+    "href": "general/faq.html"
+  },
+  {
+    "title": "Do I need to install a separate runtime?",
+    "section": "FAQ",
+    "snippet": "No. KelpyShark is distributed as a single self-contained binary. Download it, put it on your PATH, and you're ready to go. See the Setup page for instructions.",
+    "href": "general/faq.html#do-i-need-to-install-a-separate-runtime"
+  },
+  {
+    "title": "Is KelpyShark statically or dynamically typed?",
+    "section": "FAQ",
+    "snippet": "Dynamically typed. Variables hold values of any type, and the type can change during the lifetime of the variable. Use type() to inspect the type at runtime if needed.",
+    "href": "general/faq.html#is-kelpyshark-statically-or-dynamically-typed"
+  },
+  {
+    "title": "Do I need semicolons?",
+    "section": "FAQ",
+    "snippet": "No. KelpyShark does not use semicolons as statement terminators. Just write each statement on its own line (or on consecutive lines — the language is whitespace-insensitive outside of string literals)",
+    "href": "general/faq.html#do-i-need-semicolons"
+  },
+  {
+    "title": "How do I read input from the user?",
+    "section": "FAQ",
+    "snippet": "Use io.input(prompt) : import io let name = io.input(\"What is your name? \") print(\"Hello, {$name}!\")",
+    "href": "general/faq.html#how-do-i-read-input-from-the-user"
+  },
+  {
+    "title": "Can I use KelpyShark for web development?",
+    "section": "FAQ",
+    "snippet": "You can build HTTP-based scripts (calling APIs, processing JSON, serving simple responses). A full web framework is not yet part of the standard library, but packages in the registry may provide one.",
+    "href": "general/faq.html#can-i-use-kelpyshark-for-web-development"
+  },
+  {
+    "title": "How do I share code between files?",
+    "section": "FAQ",
+    "snippet": "Put shared code in a .ks file and use import : import utils # imports utils.ks from the same directory utils.my_function()",
+    "href": "general/faq.html#how-do-i-share-code-between-files"
+  },
+  {
+    "title": "Why does type() return a string instead of a type object?",
+    "section": "FAQ",
+    "snippet": "Simplicity. Returning a plain string means you can compare types with == without learning a separate type system. type(x) == \"number\" is immediately readable.",
+    "href": "general/faq.html#why-does-type-return-a-string-instead-of-a-type-object"
+  },
+  {
+    "title": "What happens if I divide by zero?",
+    "section": "FAQ",
+    "snippet": "KelpyShark raises a runtime error: Division by zero . Catch it with try / catch if you need to handle that case.",
+    "href": "general/faq.html#what-happens-if-i-divide-by-zero"
+  },
+  {
+    "title": "Can I compile KelpyShark to Java or C#?",
+    "section": "FAQ",
+    "snippet": "Yes. See the Code Generation page for details.",
+    "href": "general/faq.html#can-i-compile-kelpyshark-to-java-or-c"
+  },
+  {
+    "title": "Where can I get help?",
+    "section": "FAQ",
+    "snippet": "Open an issue on the GitHub repository, or check the Tutorial and Reference sections of these docs first.",
+    "href": "general/faq.html#where-can-i-get-help"
+  },
+  {
+    "title": "Package Manager",
+    "section": "",
+    "snippet": "Install, publish, and manage KelpyShark packages.",
+    "href": "general/package-manager.html"
+  },
+  {
+    "title": "What is a package?",
+    "section": "Package Manager",
+    "snippet": "A KelpyShark package is a directory of .ks files with a ks.toml manifest. Packages can be shared on the official registry and installed with a single command.",
+    "href": "general/package-manager.html#what-is-a-package"
+  },
+  {
+    "title": "The manifest — ks.toml",
+    "section": "Package Manager",
+    "snippet": "ks.toml [package] name = \"my-package\" version = \"1.0.0\" author = \"Your Name\" description = \"A short description\" [dependencies] some-lib = \"^2.1\" Field Required Description name Yes Package name (lowe",
+    "href": "general/package-manager.html#the-manifest-ks-toml"
+  },
+  {
+    "title": "Installing a package",
+    "section": "Package Manager",
+    "snippet": "Shell kelpyshark pkg install colors The package is downloaded and placed in .ks_modules/ in the current directory. Import it by name: main.ks import colors print(colors.red(\"Error!\")) print(colors.gre",
+    "href": "general/package-manager.html#installing-a-package"
+  },
+  {
+    "title": "Version constraints",
+    "section": "Package Manager",
+    "snippet": "Syntax Meaning \"1.2.3\" Exact version \"^1.2.3\" Compatible with 1.2.3 (same major) \"~1.2.3\" Compatible with 1.2.x (same major+minor) \">=1.0\" At least version 1.0",
+    "href": "general/package-manager.html#version-constraints"
+  },
+  {
+    "title": "Publishing a package",
+    "section": "Package Manager",
+    "snippet": "Make sure your ks.toml is complete. Run kelpyshark pkg publish . You'll be prompted for your registry credentials. The package is uploaded and immediately available for others to install. Shell kelpys",
+    "href": "general/package-manager.html#publishing-a-package"
+  },
+  {
+    "title": "Updating packages",
+    "section": "Package Manager",
+    "snippet": "Shell kelpyshark pkg update # update all packages kelpyshark pkg update colors # update one specific package",
+    "href": "general/package-manager.html#updating-packages"
+  },
+  {
+    "title": "Removing a package",
+    "section": "Package Manager",
+    "snippet": "Shell kelpyshark pkg remove colors",
+    "href": "general/package-manager.html#removing-a-package"
+  },
+  {
+    "title": "Searching the registry",
+    "section": "Package Manager",
+    "snippet": "Shell kelpyshark pkg search http",
+    "href": "general/package-manager.html#searching-the-registry"
+  },
+  {
+    "title": "Built",
+    "section": "",
+    "snippet": "Always-available functions — no import needed.",
+    "href": "reference/builtin-functions.html"
+  },
+  {
+    "title": "Built-in Functions",
+    "section": "Built",
+    "snippet": "Always-available functions — no import needed.",
+    "href": "reference/builtin-functions.html#built-in-functions"
+  },
+  {
+    "title": "print(value)",
+    "section": "Built",
+    "snippet": "Outputs value to the console followed by a newline. Example print(\"Hello\") print(42) print(true) Output Hello 42 true",
+    "href": "reference/builtin-functions.html#print-value"
+  },
+  {
+    "title": "len(value)",
+    "section": "Built",
+    "snippet": "Returns the length of a string or list. Example print(len(\"hello\")) # 5 print(len([1, 2, 3])) # 3",
+    "href": "reference/builtin-functions.html#len-value"
+  },
+  {
+    "title": "type(value)",
+    "section": "Built",
+    "snippet": "Returns a string describing the type of value . Example print(type(42)) # number print(type(\"hi\")) # string print(type(true)) # boolean print(type(null)) # null print(type([])) # list print(type({})) ",
+    "href": "reference/builtin-functions.html#type-value"
+  },
+  {
+    "title": "str(value)",
+    "section": "Built",
+    "snippet": "Converts value to its string representation. Example let n = 3.14 let s = str(n) print(s + \" is pi\") # 3.14 is pi",
+    "href": "reference/builtin-functions.html#str-value"
+  },
+  {
+    "title": "num(value)",
+    "section": "Built",
+    "snippet": "Converts a string to a number. Throws an error if the string is not a valid number. Example let x = num(\"42\") print(x + 1) # 43 let y = num(\"3.14\") print(y * 2) # 6.28",
+    "href": "reference/builtin-functions.html#num-value"
+  },
+  {
+    "title": "bool(value)",
+    "section": "Built",
+    "snippet": "Converts a value to boolean. The following are falsy: false , null , 0 , \"\" , [] . Example print(bool(0)) # false print(bool(1)) # true print(bool(\"\")) # false print(bool(\"hi\")) # true print(bool([]))",
+    "href": "reference/builtin-functions.html#bool-value"
+  },
+  {
+    "title": "range(stop) / range(start, stop) / range(start, stop, step)",
+    "section": "Built",
+    "snippet": "Returns a list of numbers. Useful with for loops. Example print(range(5)) # [0, 1, 2, 3, 4] print(range(2, 6)) # [2, 3, 4, 5] print(range(0, 10, 2)) # [0, 2, 4, 6, 8] for i in range(3) { print(i) }",
+    "href": "reference/builtin-functions.html#range-stop-range-start-stop-range-start-stop-step"
+  },
+  {
+    "title": "push(list, value)",
+    "section": "Built",
+    "snippet": "Appends value to the end of list . Modifies the list in place. Example let nums = [1, 2] push(nums, 3) print(nums) # [1, 2, 3]",
+    "href": "reference/builtin-functions.html#push-list-value"
+  },
+  {
+    "title": "pop(list)",
+    "section": "Built",
+    "snippet": "Removes and returns the last element of list . Example let items = [\"a\", \"b\", \"c\"] let last = pop(items) print(last) # c print(items) # [\"a\", \"b\"]",
+    "href": "reference/builtin-functions.html#pop-list"
+  },
+  {
+    "title": "Error Types",
+    "section": "",
+    "snippet": "Errors that can be raised by the runtime or by user code. When an error occurs in KelpyShark, the runtime produces an error message string. This string is available as the variable inside a catch bloc",
+    "href": "reference/error-types.html"
+  },
+  {
+    "title": "Runtime errors",
+    "section": "Error Types",
+    "snippet": "Error message Cause Division by zero Any expression that divides by 0 Index out of bounds Accessing a list index that doesn't exist Undefined variable: <name> Using a variable before it has been decla",
+    "href": "reference/error-types.html#runtime-errors"
+  },
+  {
+    "title": "User-thrown errors",
+    "section": "Error Types",
+    "snippet": "Any string passed to throw becomes the error message. There is no fixed set of user error types — you define your own messages: user-errors.ks def divide(a, b) { if b == 0 { throw \"divide: denominator",
+    "href": "reference/error-types.html#user-thrown-errors"
+  },
+  {
+    "title": "Inspecting errors",
+    "section": "Error Types",
+    "snippet": "Because error messages are plain strings, you can check them with contains() or starts_with() : inspect.ks try { let x = badList[99] } catch (e) { if e.contains(\"out of bounds\") { print(\"List index is",
+    "href": "reference/error-types.html#inspecting-errors"
+  },
+  {
+    "title": "Grammar",
+    "section": "",
+    "snippet": "Formal syntax rules for the KelpyShark language. This page describes the formal grammar of KelpyShark in an extended BNF notation. Terminals are shown in \"quotes\" , non-terminals in italic , and optio",
+    "href": "reference/grammar.html"
+  },
+  {
+    "title": "Program structure",
+    "section": "Grammar",
+    "snippet": "Grammar program = statement* statement = let_stmt | assign_stmt | expr_stmt | print_stmt | if_stmt | while_stmt | for_stmt | def_stmt | class_stmt | return_stmt | import_stmt | try_stmt | throw_stmt |",
+    "href": "reference/grammar.html#program-structure"
+  },
+  {
+    "title": "Statements",
+    "section": "Grammar",
+    "snippet": "Grammar let_stmt = \"let\" IDENT \"=\" expr assign_stmt = lvalue (\"=\" | \"+=\" | \"-=\" | \"*=\" | \"/=\" | \"%=\") expr lvalue = IDENT | expr \"[\" expr \"]\" | expr \".\" IDENT print_stmt = \"print\" \"(\" expr \")\" if_stmt",
+    "href": "reference/grammar.html#statements"
+  },
+  {
+    "title": "Expressions",
+    "section": "Grammar",
+    "snippet": "Grammar expr = or_expr or_expr = and_expr (\"or\" and_expr)* and_expr = not_expr (\"and\" not_expr)* not_expr = \"not\" not_expr | cmp_expr cmp_expr = add_expr ((\"==\" | \"!=\" | \"<\" | \">\" | \"<=\" | \">=\") add_e",
+    "href": "reference/grammar.html#expressions"
+  },
+  {
+    "title": "Tokens",
+    "section": "Grammar",
+    "snippet": "Grammar IDENT = [a-zA-Z_][a-zA-Z0-9_]* NUMBER = [0-9]+ (\".\" [0-9]+)? STRING = '\"' char* '\"' (char may be any UTF-8 character; \"{$\" IDENT \"}\" is interpolation) COMMENT = \"#\" ... end-of-line (ignored by",
+    "href": "reference/grammar.html#tokens"
+  },
+  {
+    "title": "http",
+    "section": "",
+    "snippet": "Make HTTP requests to web APIs and servers. Usage import http",
+    "href": "reference/http.html"
+  },
+  {
+    "title": "http Module",
+    "section": "http",
+    "snippet": "Make HTTP requests to web APIs and servers. Usage import http",
+    "href": "reference/http.html#http-module"
+  },
+  {
+    "title": "Functions",
+    "section": "http",
+    "snippet": "Function Returns Description http.get(url) dictionary Perform an HTTP GET request http.get(url, headers) dictionary GET with custom headers dictionary http.post(url, body) dictionary POST with a strin",
+    "href": "reference/http.html#functions"
+  },
+  {
+    "title": "Response dictionary",
+    "section": "http",
+    "snippet": "All functions return a dictionary with these keys: Key Type Description \"status\" number HTTP status code (e.g. 200, 404) \"body\" string Response body as a string \"headers\" dictionary Response headers",
+    "href": "reference/http.html#response-dictionary"
+  },
+  {
+    "title": "GET request",
+    "section": "http",
+    "snippet": "get.ks import http import json let res = http.get(\"https://jsonplaceholder.typicode.com/todos/1\") if res[\"status\"] == 200 { let data = json.parse(res[\"body\"]) print(data[\"title\"]) } else { print(\"Requ",
+    "href": "reference/http.html#get-request"
+  },
+  {
+    "title": "POST request",
+    "section": "http",
+    "snippet": "post.ks import http import json let payload = json.stringify({ \"title\": \"My new post\", \"body\": \"Hello from KelpyShark\", \"userId\": 1 }) let headers = {\"Content-Type\": \"application/json\"} let res = http",
+    "href": "reference/http.html#post-request"
+  },
+  {
+    "title": "Authenticated request",
+    "section": "http",
+    "snippet": "auth.ks import http import json import sys let token = sys.env[\"API_TOKEN\"] let headers = {\"Authorization\": \"Bearer {$token}\"} let res = http.get(\"https://api.example.com/me\", headers) let me = json.p",
+    "href": "reference/http.html#authenticated-request"
+  },
+  {
+    "title": "io",
+    "section": "",
+    "snippet": "File reading, writing, and filesystem queries. Usage import io Function Returns Description io.read(path) string Read entire file contents as a string. Throws if file not found. io.write(path, content",
+    "href": "reference/io.html"
+  },
+  {
+    "title": "io Module",
+    "section": "io",
+    "snippet": "File reading, writing, and filesystem queries. Usage import io Function Returns Description io.read(path) string Read entire file contents as a string. Throws if file not found. io.write(path, content",
+    "href": "reference/io.html#io-module"
+  },
+  {
+    "title": "Examples",
+    "section": "io",
+    "snippet": "io-demo.ks import io # Write a file io.write(\"hello.txt\", \"Hello, KelpyShark!\\n\") # Append to it io.append(\"hello.txt\", \"Second line\\n\") # Read it back let content = io.read(\"hello.txt\") print(content",
+    "href": "reference/io.html#examples"
+  },
+  {
+    "title": "Reading a CSV file",
+    "section": "io",
+    "snippet": "csv.ks import io import strings let rows = io.lines(\"data.csv\") for row in rows { let cols = strings.split(row, \",\") print(\"Name: {$cols[0]} Score: {$cols[1]}\") }",
+    "href": "reference/io.html#reading-a-csv-file"
+  },
+  {
+    "title": "Error handling with io",
+    "section": "io",
+    "snippet": "import io try { let data = io.read(\"missing.txt\") print(data) } catch (e) { print(\"File error: {$e}\") }",
+    "href": "reference/io.html#error-handling-with-io"
+  },
+  {
+    "title": "json",
+    "section": "",
+    "snippet": "Parse and serialise JSON data. Usage import json Function Returns Description json.parse(str) any Parse a JSON string into KelpyShark values. Throws on invalid JSON. json.stringify(value) string Conve",
+    "href": "reference/json.html"
+  },
+  {
+    "title": "json Module",
+    "section": "json",
+    "snippet": "Parse and serialise JSON data. Usage import json Function Returns Description json.parse(str) any Parse a JSON string into KelpyShark values. Throws on invalid JSON. json.stringify(value) string Conve",
+    "href": "reference/json.html#json-module"
+  },
+  {
+    "title": "Type mapping",
+    "section": "json",
+    "snippet": "JSON KelpyShark object {} dictionary array [] list string string number number true / false boolean null null",
+    "href": "reference/json.html#type-mapping"
+  },
+  {
+    "title": "Parsing JSON",
+    "section": "json",
+    "snippet": "parse.ks import json let raw = '{\"name\":\"Alice\",\"scores\":[95,88,72],\"active\":true}' let data = json.parse(raw) print(data[\"name\"]) # Alice print(data[\"scores\"][0]) # 95 print(data[\"active\"]) # true",
+    "href": "reference/json.html#parsing-json"
+  },
+  {
+    "title": "Serialising to JSON",
+    "section": "json",
+    "snippet": "stringify.ks import json let user = { \"name\": \"Bob\", \"age\": 25, \"hobbies\": [\"chess\", \"cycling\"] } let compact = json.stringify(user) print(compact) # {\"name\":\"Bob\",\"age\":25,\"hobbies\":[\"chess\",\"cycling",
+    "href": "reference/json.html#serialising-to-json"
+  },
+  {
+    "title": "Read / modify / write a JSON file",
+    "section": "json",
+    "snippet": "config.ks import io import json # Load config let raw = io.read(\"config.json\") let cfg = json.parse(raw) # Modify cfg[\"version\"] = \"2.0\" # Save back io.write(\"config.json\", json.stringify_pretty(cfg))",
+    "href": "reference/json.html#read-modify-write-a-json-file"
+  },
+  {
+    "title": "Keywords",
+    "section": "",
+    "snippet": "Reserved words with special meaning in KelpyShark. The following words are reserved by the language. You cannot use them as variable names, function names, or identifiers. Keyword Category Description",
+    "href": "reference/keywords.html"
+  },
+  {
+    "title": "Usage examples",
+    "section": "Keywords",
+    "snippet": "keywords.ks # let — variable declaration let x = 42 # def — function definition def greet(name) { return \"Hello, {$name}!\" } # class / new / self class Point { def new(x, y) { self.x = x self.y = y } ",
+    "href": "reference/keywords.html#usage-examples"
+  },
+  {
+    "title": "List Methods",
+    "section": "",
+    "snippet": "Methods and functions for working with lists. Lists are ordered, mutable collections. Many operations are available as built-in functions and as dot-notation methods on the list itself.",
+    "href": "reference/list-methods.html"
+  },
+  {
+    "title": "Built-in list functions",
+    "section": "List Methods",
+    "snippet": "Function Description push(list, item) Append item to the end of list pop(list) Remove and return the last item len(list) Number of items in the list",
+    "href": "reference/list-methods.html#built-in-list-functions"
+  },
+  {
+    "title": "List dot-methods",
+    "section": "List Methods",
+    "snippet": "Method Returns Description .length() number Number of items (same as len() ) .contains(item) boolean True if item is in the list .index_of(item) number Index of first occurrence, or -1 .reverse() list",
+    "href": "reference/list-methods.html#list-dot-methods"
+  },
+  {
+    "title": "Examples",
+    "section": "List Methods",
+    "snippet": "list-methods.ks let fruits = [\"apple\", \"banana\", \"cherry\"] # Length print(len(fruits)) # 3 print(fruits.length()) # 3 # Contains / index print(fruits.contains(\"banana\")) # true print(fruits.index_of(\"",
+    "href": "reference/list-methods.html#examples"
+  },
+  {
+    "title": "Iterating over a list",
+    "section": "List Methods",
+    "snippet": "iterate.ks let scores = [88, 95, 72, 100, 61] # Simple iteration for score in scores { print(score) } # With index (using range) for i in range(len(scores)) { print(\"{$i}: {$scores[i]}\") }",
+    "href": "reference/list-methods.html#iterating-over-a-list"
+  },
+  {
+    "title": "math",
+    "section": "",
+    "snippet": "Mathematical functions and constants. Usage import math",
+    "href": "reference/math.html"
+  },
+  {
+    "title": "math Module",
+    "section": "math",
+    "snippet": "Mathematical functions and constants. Usage import math",
+    "href": "reference/math.html#math-module"
+  },
+  {
+    "title": "Constants",
+    "section": "math",
+    "snippet": "Name Value Description math.pi 3.141592653589793 Pi — ratio of circle circumference to diameter math.e 2.718281828459045 Euler's number — base of natural logarithm math.inf ∞ Positive infinity",
+    "href": "reference/math.html#constants"
+  },
+  {
+    "title": "Functions",
+    "section": "math",
+    "snippet": "Function Returns Description math.sqrt(n) number Square root of n math.pow(base, exp) number base raised to exp math.abs(n) number Absolute value of n math.floor(n) number Largest integer ≤ n math.cei",
+    "href": "reference/math.html#functions"
+  },
+  {
+    "title": "Examples",
+    "section": "math",
+    "snippet": "math-demo.ks import math # Circle area def circle_area(r) { return math.pi * math.pow(r, 2) } print(circle_area(5)) # 78.53981633974483 # Hypotenuse def hyp(a, b) { return math.sqrt(math.pow(a, 2) + m",
+    "href": "reference/math.html#examples"
+  },
+  {
+    "title": "Operators",
+    "section": "",
+    "snippet": "All operators available in KelpyShark.",
+    "href": "reference/operators.html"
+  },
+  {
+    "title": "Arithmetic operators",
+    "section": "Operators",
+    "snippet": "Operator Name Example Result + Addition 3 + 2 5 - Subtraction 3 - 2 1 * Multiplication 3 * 2 6 / Division 7 / 2 3.5 % Modulo 7 % 3 1 ^ Power 2 ^ 8 256",
+    "href": "reference/operators.html#arithmetic-operators"
+  },
+  {
+    "title": "Comparison operators",
+    "section": "Operators",
+    "snippet": "Operator Name Example Result == Equal 3 == 3 true != Not equal 3 != 4 true < Less than 2 < 5 true > Greater than 5 > 2 true <= Less than or equal 3 <= 3 true >= Greater than or equal 4 >= 5 false",
+    "href": "reference/operators.html#comparison-operators"
+  },
+  {
+    "title": "Logical operators",
+    "section": "Operators",
+    "snippet": "Operator Description Example Result and True if both sides are true true and false false or True if at least one side is true true or false true not Inverts a boolean not true false",
+    "href": "reference/operators.html#logical-operators"
+  },
+  {
+    "title": "Assignment operators",
+    "section": "Operators",
+    "snippet": "Operator Example Equivalent to = x = 5 Assign value += x += 3 x = x + 3 -= x -= 3 x = x - 3 *= x *= 3 x = x * 3 /= x /= 3 x = x / 3 %= x %= 3 x = x % 3",
+    "href": "reference/operators.html#assignment-operators"
+  },
+  {
+    "title": "String operator",
+    "section": "Operators",
+    "snippet": "Operator Description Example Result + String concatenation \"hi\" + \" there\" \"hi there\"",
+    "href": "reference/operators.html#string-operator"
+  },
+  {
+    "title": "Membership operator",
+    "section": "Operators",
+    "snippet": "Operator Description Example in True if left value is found in a list 3 in [1, 2, 3] → true",
+    "href": "reference/operators.html#membership-operator"
+  },
+  {
+    "title": "Precedence",
+    "section": "Operators",
+    "snippet": "From highest to lowest precedence: ^ (power, right-associative) Unary - and not * / % + - < > <= >= == != and or Assignment ( = += …) Tip — Use parentheses to make precedence explicit and improve read",
+    "href": "reference/operators.html#precedence"
+  },
+  {
+    "title": "String Methods",
+    "section": "",
+    "snippet": "Methods available on every string value. These methods are called directly on a string variable using dot notation: myString.method() . They never modify the original string; they return a new one. Me",
+    "href": "reference/string-methods.html"
+  },
+  {
+    "title": "Examples",
+    "section": "String Methods",
+    "snippet": "string-methods.ks let s = \" Hello, World! \" print(s.trim()) # Hello, World! print(s.trim().upper()) # HELLO, WORLD! print(s.trim().lower()) # hello, world! print(s.trim().length()) # 13 print(s.trim()",
+    "href": "reference/string-methods.html#examples"
+  },
+  {
+    "title": "strings",
+    "section": "",
+    "snippet": "String manipulation as free functions. Usage import strings The strings module mirrors the string dot-methods but as standalone functions. Useful when passing string operations as callbacks or buildin",
+    "href": "reference/strings.html"
+  },
+  {
+    "title": "strings Module",
+    "section": "strings",
+    "snippet": "String manipulation as free functions. Usage import strings The strings module mirrors the string dot-methods but as standalone functions. Useful when passing string operations as callbacks or buildin",
+    "href": "reference/strings.html#strings-module"
+  },
+  {
+    "title": "Examples",
+    "section": "strings",
+    "snippet": "strings-demo.ks import strings let words = [\"the\", \"quick\", \"brown\", \"fox\"] # Capitalise each word let capitalised = [] for w in words { let first = strings.upper(strings.slice(w, 0, 1)) let rest = st",
+    "href": "reference/strings.html#examples"
+  },
+  {
+    "title": "sys",
+    "section": "",
+    "snippet": "System information and runtime control. Usage import sys",
+    "href": "reference/sys.html"
+  },
+  {
+    "title": "sys Module",
+    "section": "sys",
+    "snippet": "System information and runtime control. Usage import sys",
+    "href": "reference/sys.html#sys-module"
+  },
+  {
+    "title": "Properties",
+    "section": "sys",
+    "snippet": "Property Type Description sys.platform string \"windows\" , \"linux\" , or \"macos\" sys.version string KelpyShark version, e.g. \"1.2.0\" sys.args list Command-line arguments passed to the script sys.env dic",
+    "href": "reference/sys.html#properties"
+  },
+  {
+    "title": "Functions",
+    "section": "sys",
+    "snippet": "Function Returns Description sys.exit(code) — Terminate the program with exit code code (0 = success) sys.sleep(ms) null Pause execution for ms milliseconds sys.time() number Current Unix timestamp in",
+    "href": "reference/sys.html#functions"
+  },
+  {
+    "title": "Examples",
+    "section": "sys",
+    "snippet": "sys-demo.ks import sys # Platform detection if sys.platform == \"windows\" { print(\"Running on Windows\") } else { print(\"Running on {$sys.platform}\") } # Version info print(\"KelpyShark {$sys.version}\") ",
+    "href": "reference/sys.html#examples"
+  },
+  {
+    "title": "Argument handling pattern",
+    "section": "sys",
+    "snippet": "cli-args.ks import sys if len(sys.args)",
+    "href": "reference/sys.html#argument-handling-pattern"
+  },
+  {
+    "title": "Types",
+    "section": "",
+    "snippet": "All data types in KelpyShark. KelpyShark is dynamically typed — variables don't have a fixed type; they hold whatever value is assigned to them. Use type(value) to inspect the type at runtime. Type na",
+    "href": "reference/types.html"
+  },
+  {
+    "title": "Number",
+    "section": "Types",
+    "snippet": "types.ks let i = 100 let f = 3.14 print(type(i)) # number print(type(f)) # number",
+    "href": "reference/types.html#number"
+  },
+  {
+    "title": "String",
+    "section": "Types",
+    "snippet": "let s = \"hello\" print(type(s)) # string print(len(s)) # 5",
+    "href": "reference/types.html#string"
+  },
+  {
+    "title": "Boolean",
+    "section": "Types",
+    "snippet": "let b = 5 > 3 print(type(b)) # boolean print(b) # true",
+    "href": "reference/types.html#boolean"
+  },
+  {
+    "title": "Null",
+    "section": "Types",
+    "snippet": "let n = null print(type(n)) # null print(n == null) # true",
+    "href": "reference/types.html#null"
+  },
+  {
+    "title": "List",
+    "section": "Types",
+    "snippet": "let lst = [1, \"two\", true] print(type(lst)) # list print(lst[1]) # two",
+    "href": "reference/types.html#list"
+  },
+  {
+    "title": "Dictionary",
+    "section": "Types",
+    "snippet": "let d = {\"name\": \"Alice\", \"age\": 30} print(type(d)) # dictionary print(d[\"name\"]) # Alice",
+    "href": "reference/types.html#dictionary"
+  },
+  {
+    "title": "Instance",
+    "section": "Types",
+    "snippet": "class Cat {} let c = new Cat() print(type(c)) # Cat",
+    "href": "reference/types.html#instance"
+  },
+  {
+    "title": "Type conversion",
+    "section": "Types",
+    "snippet": "Function Converts to Example str(x) String str(42) → \"42\" num(x) Number num(\"3.14\") → 3.14 bool(x) Boolean bool(0) → false",
+    "href": "reference/types.html#type-conversion"
+  },
+  {
+    "title": "Attributes",
+    "section": "",
+    "snippet": "Store data on objects using instance attributes. Attributes are variables that belong to an object. They store the data (state) that describes that object. In KelpyShark, you set attributes on an obje",
+    "href": "tutorial/attributes.html"
+  },
+  {
+    "title": "Setting attributes in the constructor",
+    "section": "Attributes",
+    "snippet": "The most common place to set attributes is in the constructor ( def new ): attributes.ks class Circle { def new(radius) { self.radius = radius self.pi = 3.14159 } def area() { return self.pi * self.ra",
+    "href": "tutorial/attributes.html#setting-attributes-in-the-constructor"
+  },
+  {
+    "title": "Accessing attributes from outside",
+    "section": "Attributes",
+    "snippet": "Attributes are accessible from outside the class using dot notation: access.ks class Person { def new(name, age) { self.name = name self.age = age } } let alice = new Person(\"Alice\", 30) print(alice.n",
+    "href": "tutorial/attributes.html#accessing-attributes-from-outside"
+  },
+  {
+    "title": "Attributes set dynamically",
+    "section": "Attributes",
+    "snippet": "You can set new attributes on an object at any time, even outside the constructor: dynamic.ks class Box {} let b = new Box() b.width = 10 b.height = 5 print(\"{$b.width} x {$b.height}\")",
+    "href": "tutorial/attributes.html#attributes-set-dynamically"
+  },
+  {
+    "title": "Each instance has its own attributes",
+    "section": "Attributes",
+    "snippet": "Changing one object's attributes does not affect another: independent.ks class Counter { def new() { self.count = 0 } def increment() { self.count += 1 } } let a = new Counter() let b = new Counter() ",
+    "href": "tutorial/attributes.html#each-instance-has-its-own-attributes"
+  },
+  {
+    "title": "What you learned",
+    "section": "Attributes",
+    "snippet": "Attributes store data on an object instance Set them with self.attrName = value Access them from outside with obj.attrName Each instance has its own independent copy of attributes",
+    "href": "tutorial/attributes.html#what-you-learned"
+  },
+  {
+    "title": "Booleans",
+    "section": "",
+    "snippet": "True or false — the foundation of all logic in KelpyShark. A boolean is a value that is either true or false . Booleans are the result of comparisons and logical expressions, and they drive all contro",
+    "href": "tutorial/booleans.html"
+  },
+  {
+    "title": "Boolean literals",
+    "section": "Booleans",
+    "snippet": "booleans.ks let is_logged_in = true let has_error = false print(is_logged_in) # true print(has_error) # false",
+    "href": "tutorial/booleans.html#boolean-literals"
+  },
+  {
+    "title": "Booleans from comparisons",
+    "section": "Booleans",
+    "snippet": "Any comparison expression produces a boolean: compare.ks print(10 > 5) # true print(3 == 7) # false print(5 != 5) # false print(4",
+    "href": "tutorial/booleans.html#booleans-from-comparisons"
+  },
+  {
+    "title": "Logical operators",
+    "section": "Booleans",
+    "snippet": "Combine booleans with and , or , and not : logical.ks let a = true let b = false print(a and b) # false (both must be true) print(a or b) # true (at least one is true) print(not a) # false (flips the ",
+    "href": "tutorial/booleans.html#logical-operators"
+  },
+  {
+    "title": "Truthiness",
+    "section": "Booleans",
+    "snippet": "In conditions (like if ), KelpyShark evaluates any value for its truthiness . The following values are considered falsy : false null 0 \"\" (empty string) [] (empty list) Everything else is truthy . tru",
+    "href": "tutorial/booleans.html#truthiness"
+  },
+  {
+    "title": "What you learned",
+    "section": "Booleans",
+    "snippet": "Boolean values are true or false Comparisons produce booleans and , or , not combine booleans Falsy values: false , null , 0 , \"\" , [] Everything else is truthy",
+    "href": "tutorial/booleans.html#what-you-learned"
+  },
+  {
+    "title": "Break & Continue",
+    "section": "",
+    "snippet": "Control the flow inside loops.",
+    "href": "tutorial/break-continue.html"
+  },
+  {
+    "title": "break — exit the loop",
+    "section": "Break & Continue",
+    "snippet": "break immediately exits the innermost loop, regardless of whether the condition is still true. break.ks # Find the first number divisible by 7 for i in range(1, 100) { if i % 7 == 0 { print(\"First mul",
+    "href": "tutorial/break-continue.html#break-exit-the-loop"
+  },
+  {
+    "title": "continue — skip to next iteration",
+    "section": "Break & Continue",
+    "snippet": "continue skips the rest of the current loop iteration and moves straight to the next one. continue.ks # Print only odd numbers from 1 to 10 for i in range(1, 11) { if i % 2 == 0 { continue # skip even",
+    "href": "tutorial/break-continue.html#continue-skip-to-next-iteration"
+  },
+  {
+    "title": "Using break and continue together",
+    "section": "Break & Continue",
+    "snippet": "combined.ks let items = [3, 7, -1, 12, 5, -8, 9] for item in items { if item Output 3 12 Found negative — stopping! 📝 Note break and continue only affect the innermost loop. In nested loops, they do ",
+    "href": "tutorial/break-continue.html#using-break-and-continue-together"
+  },
+  {
+    "title": "What you learned",
+    "section": "Break & Continue",
+    "snippet": "break immediately exits the loop continue skips the rest of the current iteration Both work in for and while loops They only affect the innermost loop in nested structures",
+    "href": "tutorial/break-continue.html#what-you-learned"
+  },
+  {
+    "title": "Introduction to Classes",
+    "section": "",
+    "snippet": "Model real-world things with object-oriented programming. A class is a blueprint for creating objects. Each object (called an instance ) created from a class gets its own copy of the class's attribute",
+    "href": "tutorial/classes-intro.html"
+  },
+  {
+    "title": "Defining a class",
+    "section": "Introduction to Classes",
+    "snippet": "class ClassName { attributes and methods } dog.ks class Dog { def new(name, breed) { self.name = name self.breed = breed } def bark() { print(\"{$self.name} says: Woof!\") } def describe() { print(\"{$se",
+    "href": "tutorial/classes-intro.html#defining-a-class"
+  },
+  {
+    "title": "Key concepts",
+    "section": "Introduction to Classes",
+    "snippet": "class — keyword to define a new class def new(...) — the constructor , called when creating an instance self — refers to the current object instance self.name = ... — stores an attribute on the object",
+    "href": "tutorial/classes-intro.html#key-concepts"
+  },
+  {
+    "title": "What you learned",
+    "section": "Introduction to Classes",
+    "snippet": "A class is a blueprint for creating objects Define classes with class Name { } The constructor is def new(...) { } self refers to the current instance Create instances with new ClassName(...) Call met",
+    "href": "tutorial/classes-intro.html#what-you-learned"
+  },
+  {
+    "title": "Comments",
+    "section": "",
+    "snippet": "Write notes in your code that the interpreter ignores.",
+    "href": "tutorial/comments.html"
+  },
+  {
+    "title": "Single-line comments",
+    "section": "Comments",
+    "snippet": "A comment starts with a # character. Everything after it on the same line is ignored by KelpyShark. comments.ks # This is a comment — the interpreter ignores it print(\"Hello!\") # This comment is at th",
+    "href": "tutorial/comments.html#single-line-comments"
+  },
+  {
+    "title": "Multi-line comments",
+    "section": "Comments",
+    "snippet": "KelpyShark does not have a dedicated multi-line comment syntax. Simply use multiple # lines: multiline.ks # This function calculates the area of a rectangle. # Arguments: # width - the width of the re",
+    "href": "tutorial/comments.html#multi-line-comments"
+  },
+  {
+    "title": "Commenting out code",
+    "section": "Comments",
+    "snippet": "You can temporarily disable code by putting a # in front of it. This is called \"commenting out\": debug.ks let x = 10 # print(\"debug: x =\", x) # disabled for now print(\"x is\", x) 💡 Good practice Write",
+    "href": "tutorial/comments.html#commenting-out-code"
+  },
+  {
+    "title": "What you learned",
+    "section": "Comments",
+    "snippet": "Use # to write a comment Everything after # on that line is ignored Stack multiple # lines for multi-line comments Commenting out is useful for debugging",
+    "href": "tutorial/comments.html#what-you-learned"
+  },
+  {
+    "title": "Constructors",
+    "section": "",
+    "snippet": "Initialize objects when they're created. A constructor is a special method that runs automatically when you create a new instance of a class. In KelpyShark, the constructor is always named new .",
+    "href": "tutorial/constructors.html"
+  },
+  {
+    "title": "The new method",
+    "section": "Constructors",
+    "snippet": "constructor.ks class BankAccount { def new(owner, initial_balance) { self.owner = owner self.balance = initial_balance print(\"Account created for {$owner} with ${$initial_balance}\") } } let acc = new ",
+    "href": "tutorial/constructors.html#the-new-method"
+  },
+  {
+    "title": "Constructor with default values",
+    "section": "Constructors",
+    "snippet": "defaults.ks class Player { def new(name, health = 100, score = 0) { self.name = name self.health = health self.score = score } def status() { print(\"{$self.name} | HP: {$self.health} | Score: {$self.s",
+    "href": "tutorial/constructors.html#constructor-with-default-values"
+  },
+  {
+    "title": "Constructor validation",
+    "section": "Constructors",
+    "snippet": "Constructors are a great place to validate input: validate.ks class Temperature { def new(celsius) { if celsius 💡 Tip If your class needs no initialization, you can omit the constructor entirely and ",
+    "href": "tutorial/constructors.html#constructor-validation"
+  },
+  {
+    "title": "What you learned",
+    "section": "Constructors",
+    "snippet": "The constructor is def new(...) { } It runs automatically when you write new ClassName(...) Use it to initialize attributes and validate inputs Constructor parameters can have default values",
+    "href": "tutorial/constructors.html#what-you-learned"
+  },
+  {
+    "title": "Data Types",
+    "section": "",
+    "snippet": "The fundamental kinds of values in KelpyShark. KelpyShark is dynamically typed — you don't declare the type of a variable; KelpyShark figures it out from the value you assign. There are six built-in d",
+    "href": "tutorial/data-types.html"
+  },
+  {
+    "title": "Numbers",
+    "section": "Data Types",
+    "snippet": "Numbers can be integers (whole numbers) or floats (decimal numbers). KelpyShark handles both with the same Number type. numbers.ks let count = 10 # integer let price = 4.99 # float let negative = -3 #",
+    "href": "tutorial/data-types.html#numbers"
+  },
+  {
+    "title": "Strings",
+    "section": "Data Types",
+    "snippet": "Strings hold text. You can use either double quotes or single quotes. strings.ks let greeting = \"Hello, World!\" let language = 'KelpyShark' print(greeting) print(language)",
+    "href": "tutorial/data-types.html#strings"
+  },
+  {
+    "title": "Booleans",
+    "section": "Data Types",
+    "snippet": "A boolean is either true or false . Booleans are used in conditions. booleans.ks let is_sunny = true let is_cold = false print(is_sunny) # true print(is_cold) # false print(10 > 5) # true print(3 == 7",
+    "href": "tutorial/data-types.html#booleans"
+  },
+  {
+    "title": "Null",
+    "section": "Data Types",
+    "snippet": "null represents \"no value\" — useful as a placeholder or to signal that something is missing. null.ks let result = null print(result) # null",
+    "href": "tutorial/data-types.html#null"
+  },
+  {
+    "title": "Checking the type of a value",
+    "section": "Data Types",
+    "snippet": "The built-in type() function returns the type of any value as a string: typeof.ks print(type(42)) # number print(type(\"hello\")) # string print(type(true)) # bool print(type(null)) # null print(type([1",
+    "href": "tutorial/data-types.html#checking-the-type-of-a-value"
+  },
+  {
+    "title": "What you learned",
+    "section": "Data Types",
+    "snippet": "KelpyShark has 6 built-in types: Number, String, Boolean, List, Dictionary, Null You don't need to declare types — KelpyShark infers them Use type(value) to inspect a value's type at runtime",
+    "href": "tutorial/data-types.html#what-you-learned"
+  },
+  {
+    "title": "Dictionaries",
+    "section": "",
+    "snippet": "Store data as key-value pairs. A dictionary (also called a map or hash map in other languages) stores data as key-value pairs . Unlike lists which use numeric indices, dictionaries let you use descrip",
+    "href": "tutorial/dictionaries.html"
+  },
+  {
+    "title": "Creating a dictionary",
+    "section": "Dictionaries",
+    "snippet": "dict.ks let person = { \"name\": \"Alice\", \"age\": 30, \"city\": \"London\" } print(person) Output {\"name\": \"Alice\", \"age\": 30, \"city\": \"London\"}",
+    "href": "tutorial/dictionaries.html#creating-a-dictionary"
+  },
+  {
+    "title": "Accessing values",
+    "section": "Dictionaries",
+    "snippet": "Use square bracket notation with the key name: access.ks let person = {\"name\": \"Alice\", \"age\": 30} print(person[\"name\"]) # Alice print(person[\"age\"]) # 30",
+    "href": "tutorial/dictionaries.html#accessing-values"
+  },
+  {
+    "title": "Adding and updating entries",
+    "section": "Dictionaries",
+    "snippet": "update.ks let config = {\"debug\": false, \"version\": 1} # Update an existing key config[\"version\"] = 2 # Add a new key config[\"author\"] = \"Alice\" print(config) Output {\"debug\": false, \"version\": 2, \"aut",
+    "href": "tutorial/dictionaries.html#adding-and-updating-entries"
+  },
+  {
+    "title": "Checking for a key",
+    "section": "Dictionaries",
+    "snippet": "contains.ks let settings = {\"theme\": \"dark\", \"lang\": \"en\"} if \"theme\" in settings { print(\"Theme is set to: {$settings[\"theme\"]}\") }",
+    "href": "tutorial/dictionaries.html#checking-for-a-key"
+  },
+  {
+    "title": "Iterating over a dictionary",
+    "section": "Dictionaries",
+    "snippet": "Use for key in dict to loop over keys: iterate.ks let scores = {\"Alice\": 95, \"Bob\": 87, \"Charlie\": 72} for name in scores { print(\"{$name}: {$scores[name]}\") } Output Alice: 95 Bob: 87 Charlie: 72",
+    "href": "tutorial/dictionaries.html#iterating-over-a-dictionary"
+  },
+  {
+    "title": "Nested dictionaries",
+    "section": "Dictionaries",
+    "snippet": "Dictionary values can themselves be dictionaries: nested.ks let user = { \"name\": \"Alice\", \"address\": { \"city\": \"London\", \"country\": \"UK\" } } print(user[\"address\"][\"city\"]) # London",
+    "href": "tutorial/dictionaries.html#nested-dictionaries"
+  },
+  {
+    "title": "What you learned",
+    "section": "Dictionaries",
+    "snippet": "Dictionaries store key-value pairs: {\"key\": value} Access values with dict[\"key\"] Add or update with dict[\"key\"] = value Check membership with \"key\" in dict Iterate over keys with for key in dict Valu",
+    "href": "tutorial/dictionaries.html#what-you-learned"
+  },
+  {
+    "title": "Error Handling",
+    "section": "",
+    "snippet": "Handle mistakes gracefully with try and catch. Errors happen — files don't exist, numbers get divided by zero, invalid input arrives. KelpyShark lets you catch these errors so your program can respond",
+    "href": "tutorial/errors.html"
+  },
+  {
+    "title": "try / catch",
+    "section": "Error Handling",
+    "snippet": "Wrap risky code in a try block. If an error occurs, execution jumps to the catch block: errors.ks try { let x = 10 / 0 print(\"Result: {$x}\") } catch (e) { print(\"Caught an error: {$e}\") } Output Caugh",
+    "href": "tutorial/errors.html#try-catch"
+  },
+  {
+    "title": "Catching specific errors",
+    "section": "Error Handling",
+    "snippet": "The variable after catch holds the error message. You can inspect it to decide how to respond: inspect-error.ks def safe_divide(a, b) { try { return a / b } catch (e) { print(\"Error: {$e}\") return nul",
+    "href": "tutorial/errors.html#catching-specific-errors"
+  },
+  {
+    "title": "Recovering from errors",
+    "section": "Error Handling",
+    "snippet": "Use try / catch to keep your program running even when something goes wrong: recovery.ks let items = [\"10\", \"abc\", \"30\", \"xyz\", \"50\"] let total = 0 for item in items { try { total += num(item) } catch",
+    "href": "tutorial/errors.html#recovering-from-errors"
+  },
+  {
+    "title": "Nested try / catch",
+    "section": "Error Handling",
+    "snippet": "You can nest error handlers for different levels of risk: nested.ks def load_config(path) { try { let data = io.read(path) try { return json.parse(data) } catch (e) { print(\"Config is not valid JSON: ",
+    "href": "tutorial/errors.html#nested-try-catch"
+  },
+  {
+    "title": "What you learned",
+    "section": "Error Handling",
+    "snippet": "try { } wraps code that might fail catch (e) { } runs when an error occurs — e holds the message After the catch block, the program continues normally You can nest try / catch blocks for fine-grained ",
+    "href": "tutorial/errors.html#what-you-learned"
+  },
+  {
+    "title": "For Loops",
+    "section": "",
+    "snippet": "Iterate over a sequence of values. The for loop is the most common way to repeat code in KelpyShark. It iterates over any sequence — a list, a string, or a range of numbers.",
+    "href": "tutorial/for-loops.html"
+  },
+  {
+    "title": "Looping over a range",
+    "section": "For Loops",
+    "snippet": "Use range(start, end) to produce a sequence of numbers. The range includes start but excludes end : for variable in range ( start , end ) { code } range.ks for i in range(1, 6) { print(i) } Output 1 2",
+    "href": "tutorial/for-loops.html#looping-over-a-range"
+  },
+  {
+    "title": "Looping over a list",
+    "section": "For Loops",
+    "snippet": "list.ks let fruits = [\"apple\", \"banana\", \"cherry\"] for fruit in fruits { print(\"I like {$fruit}\") } Output I like apple I like banana I like cherry",
+    "href": "tutorial/for-loops.html#looping-over-a-list"
+  },
+  {
+    "title": "Looping over a string",
+    "section": "For Loops",
+    "snippet": "A for loop over a string visits each character: string.ks for ch in \"hello\" { print(ch) } Output h e l l o",
+    "href": "tutorial/for-loops.html#looping-over-a-string"
+  },
+  {
+    "title": "Practical example: sum of a list",
+    "section": "For Loops",
+    "snippet": "sum.ks let numbers = [10, 20, 30, 40, 50] let total = 0 for n in numbers { total += n } print(\"Total: {$total}\") # Total: 150",
+    "href": "tutorial/for-loops.html#practical-example-sum-of-a-list"
+  },
+  {
+    "title": "FizzBuzz example",
+    "section": "For Loops",
+    "snippet": "fizzbuzz.ks for i in range(1, 21) { if i % 15 == 0 { print(\"FizzBuzz\") } elif i % 3 == 0 { print(\"Fizz\") } elif i % 5 == 0 { print(\"Buzz\") } else { print(i) } } 💡 Tip Use for when you know the sequen",
+    "href": "tutorial/for-loops.html#fizzbuzz-example"
+  },
+  {
+    "title": "What you learned",
+    "section": "For Loops",
+    "snippet": "for x in sequence { } iterates over any sequence range(start, end) creates a number sequence (end is exclusive) Works with lists, strings, and ranges The loop variable holds the current item on each i",
+    "href": "tutorial/for-loops.html#what-you-learned"
+  },
+  {
+    "title": "Functions",
+    "section": "",
+    "snippet": "Define reusable blocks of code that you can call by name. A function is a named block of code that performs a specific task. You define it once and call it as many times as you need. Functions help yo",
+    "href": "tutorial/functions.html"
+  },
+  {
+    "title": "Defining a function",
+    "section": "Functions",
+    "snippet": "Use the def keyword, followed by the function name and parentheses: def functionName ( parameters ) { code } greet.ks def greet() { print(\"Hello from the greet function!\") } greet() # call the functio",
+    "href": "tutorial/functions.html#defining-a-function"
+  },
+  {
+    "title": "Functions with parameters",
+    "section": "Functions",
+    "snippet": "Parameters allow you to pass values into a function when calling it: params.ks def greet(name) { print(\"Hello, {$name}!\") } greet(\"Alice\") greet(\"Bob\") greet(\"Charlie\") Output Hello, Alice! Hello, Bob",
+    "href": "tutorial/functions.html#functions-with-parameters"
+  },
+  {
+    "title": "Multiple parameters",
+    "section": "Functions",
+    "snippet": "multi.ks def introduce(name, age, city) { print(\"{$name} is {$age} years old and lives in {$city}.\") } introduce(\"Alice\", 30, \"London\") introduce(\"Bob\", 25, \"Tokyo\") Output Alice is 30 years old and l",
+    "href": "tutorial/functions.html#multiple-parameters"
+  },
+  {
+    "title": "Default parameter values",
+    "section": "Functions",
+    "snippet": "You can give parameters a default value that is used when no argument is provided: defaults.ks def power(base, exponent = 2) { let result = 1 for i in range(0, exponent) { result *= base } print(resul",
+    "href": "tutorial/functions.html#default-parameter-values"
+  },
+  {
+    "title": "What you learned",
+    "section": "Functions",
+    "snippet": "Define functions with def name(params) { } Call a function by writing its name followed by () Parameters are values passed into the function Default parameter values are used when no argument is provi",
+    "href": "tutorial/functions.html#what-you-learned"
+  },
+  {
+    "title": "Hello, World!",
+    "section": "",
+    "snippet": "Write and run your very first KelpyShark program.",
+    "href": "tutorial/hello-world.html"
+  },
+  {
+    "title": "The simplest program",
+    "section": "Hello, World!",
+    "snippet": "In KelpyShark, printing text to the screen is done with the print function: hello.ks print(\"Hello, World!\") Output Hello, World! That's it! One line — no imports, no boilerplate, no main function requ",
+    "href": "tutorial/hello-world.html#the-simplest-program"
+  },
+  {
+    "title": "Printing multiple values",
+    "section": "Hello, World!",
+    "snippet": "You can print several items by calling print multiple times: greet.ks print(\"Hello!\") print(\"Welcome to KelpyShark.\") print(\"Let's get started.\") Output Hello! Welcome to KelpyShark. Let's get started",
+    "href": "tutorial/hello-world.html#printing-multiple-values"
+  },
+  {
+    "title": "Printing numbers and expressions",
+    "section": "Hello, World!",
+    "snippet": "print can output any value — not just strings: numbers.ks print(42) print(3.14) print(10 + 5) print(100 / 4) Output 42 3.14 15 25",
+    "href": "tutorial/hello-world.html#printing-numbers-and-expressions"
+  },
+  {
+    "title": "How to run a KelpyShark file",
+    "section": "Hello, World!",
+    "snippet": "Save your code in a file with the .ks extension, then run it with: Terminal kelpyshark run hello.ks 📝 Note KelpyShark executes your file from top to bottom, line by line. There is no special entry po",
+    "href": "tutorial/hello-world.html#how-to-run-a-kelpyshark-file"
+  },
+  {
+    "title": "What you learned",
+    "section": "Hello, World!",
+    "snippet": "print() outputs values to the console KelpyShark programs are just .ks text files Run files with kelpyshark run filename.ks No boilerplate is needed — code starts at the top of the file",
+    "href": "tutorial/hello-world.html#what-you-learned"
+  },
+  {
+    "title": "If / Elif / Else",
+    "section": "",
+    "snippet": "Run different code depending on conditions.",
+    "href": "tutorial/if-else.html"
+  },
+  {
+    "title": "Basic if statement",
+    "section": "If / Elif / Else",
+    "snippet": "The if statement runs a block of code only if a condition is true: if condition { code to run } if.ks let temperature = 30 if temperature > 25 { print(\"It's hot outside!\") } Output It's hot outside!",
+    "href": "tutorial/if-else.html#basic-if-statement"
+  },
+  {
+    "title": "If / else",
+    "section": "If / Elif / Else",
+    "snippet": "The else block runs when the condition is false: if-else.ks let age = 16 if age >= 18 { print(\"You can vote.\") } else { print(\"You are too young to vote.\") } Output You are too young to vote.",
+    "href": "tutorial/if-else.html#if-else"
+  },
+  {
+    "title": "Elif — multiple conditions",
+    "section": "If / Elif / Else",
+    "snippet": "Use elif (short for \"else if\") to check multiple conditions in sequence: elif.ks let score = 75 if score >= 90 { print(\"Grade: A\") } elif score >= 80 { print(\"Grade: B\") } elif score >= 70 { print(\"Gr",
+    "href": "tutorial/if-else.html#elif-multiple-conditions"
+  },
+  {
+    "title": "Nested if statements",
+    "section": "If / Elif / Else",
+    "snippet": "You can place if statements inside other if statements: nested.ks let is_member = true let age = 20 if is_member { if age >= 18 { print(\"Welcome, adult member!\") } else { print(\"Welcome, junior member",
+    "href": "tutorial/if-else.html#nested-if-statements"
+  },
+  {
+    "title": "Conditions with logical operators",
+    "section": "If / Elif / Else",
+    "snippet": "logical.ks let x = 15 if x > 10 and x",
+    "href": "tutorial/if-else.html#conditions-with-logical-operators"
+  },
+  {
+    "title": "What you learned",
+    "section": "If / Elif / Else",
+    "snippet": "if condition { } — runs if condition is true else { } — runs if the condition is false elif condition { } — checks an additional condition Only the first matching branch executes Conditions can use an",
+    "href": "tutorial/if-else.html#what-you-learned"
+  },
+  {
+    "title": "Imports",
+    "section": "",
+    "snippet": "Bring in standard library modules and other files. A single file can only do so much. KelpyShark lets you import built-in modules and your own files so you can organise code across multiple files and ",
+    "href": "tutorial/imports.html"
+  },
+  {
+    "title": "Importing a standard library module",
+    "section": "Imports",
+    "snippet": "Use import modulename at the top of your file. After that, call functions through the module name: use-math.ks import math print(math.sqrt(16)) # 4 print(math.floor(3.9)) # 3 print(math.ceil(3.1)) # 4",
+    "href": "tutorial/imports.html#importing-a-standard-library-module"
+  },
+  {
+    "title": "Importing multiple modules",
+    "section": "Imports",
+    "snippet": "List each import on its own line: multi-import.ks import math import strings import io let name = strings.upper(\"kelpyshark\") print(name) # KELPYSHARK let root = math.sqrt(49) print(root) # 7",
+    "href": "tutorial/imports.html#importing-multiple-modules"
+  },
+  {
+    "title": "Importing your own files",
+    "section": "Imports",
+    "snippet": "Split your project into multiple .ks files and import them by relative path (without the .ks extension): utils.ks # utils.ks — shared helpers def greet(name) { return \"Hello, {$name}!\" } def double(n)",
+    "href": "tutorial/imports.html#importing-your-own-files"
+  },
+  {
+    "title": "Available standard library modules",
+    "section": "Imports",
+    "snippet": "Module Purpose math Maths functions and constants strings String manipulation utilities io File reading and writing json JSON parse and serialise sys System info and exit http HTTP GET / POST requests",
+    "href": "tutorial/imports.html#available-standard-library-modules"
+  },
+  {
+    "title": "What you learned",
+    "section": "Imports",
+    "snippet": "import modulename loads a built-in or local module Access its items with module.function() or module.constant Import your own .ks files the same way KelpyShark ships with stdlib modules for maths, str",
+    "href": "tutorial/imports.html#what-you-learned"
+  },
+  {
+    "title": "Inheritance",
+    "section": "",
+    "snippet": "Build new classes on top of existing ones. Inheritance lets a class extend another class, inheriting all its attributes and methods while adding or overriding behaviour.",
+    "href": "tutorial/inheritance.html"
+  },
+  {
+    "title": "Extending a class",
+    "section": "Inheritance",
+    "snippet": "Use class Child(Parent) syntax: inherit.ks class Animal { def new(name) { self.name = name } def speak() { print(\"{$self.name} makes a sound.\") } } class Dog(Animal) { def fetch(item) { print(\"{$self.",
+    "href": "tutorial/inheritance.html#extending-a-class"
+  },
+  {
+    "title": "Calling the parent constructor",
+    "section": "Inheritance",
+    "snippet": "When the child has its own constructor, call the parent's constructor with super(args) to initialise inherited attributes: super.ks class Vehicle { def new(make, model) { self.make = make self.model =",
+    "href": "tutorial/inheritance.html#calling-the-parent-constructor"
+  },
+  {
+    "title": "Overriding methods",
+    "section": "Inheritance",
+    "snippet": "A child class can replace a parent method by defining one with the same name: override.ks class Shape { def area() { return 0 } def describe() { print(\"Area = {$self.area()}\") } } class Circle(Shape) ",
+    "href": "tutorial/inheritance.html#overriding-methods"
+  },
+  {
+    "title": "What you learned",
+    "section": "Inheritance",
+    "snippet": "class Child(Parent) makes Child inherit everything from Parent Use super(args) to call the parent constructor Override a parent method by defining one with the same name in the child Inherited methods",
+    "href": "tutorial/inheritance.html#what-you-learned"
+  },
+  {
+    "title": "Introduction",
+    "section": "",
+    "snippet": "A friendly overview of what KelpyShark is and why you might want to use it.",
+    "href": "tutorial/introduction.html"
+  },
+  {
+    "title": "Introduction to KelpyShark",
+    "section": "Introduction",
+    "snippet": "A friendly overview of what KelpyShark is and why you might want to use it.",
+    "href": "tutorial/introduction.html#introduction-to-kelpyshark"
+  },
+  {
+    "title": "What is KelpyShark?",
+    "section": "Introduction",
+    "snippet": "KelpyShark is a modern, dynamically-typed programming language designed to be simple to learn, pleasant to write, and powerful enough for real projects. It has a clean Python-inspired syntax, first-cl",
+    "href": "tutorial/introduction.html#what-is-kelpyshark"
+  },
+  {
+    "title": "What can KelpyShark do?",
+    "section": "Introduction",
+    "snippet": "Automate repetitive tasks and write scripts Build command-line tools and utilities Work with files, JSON, and HTTP APIs Model real-world data with classes and objects Share reusable code as packages",
+    "href": "tutorial/introduction.html#what-can-kelpyshark-do"
+  },
+  {
+    "title": "Why KelpyShark?",
+    "section": "Introduction",
+    "snippet": "🟢 Easy to learn The syntax is intentionally minimal. If you've never programmed before, KelpyShark is a great first language. 🔵 Batteries included Math, string manipulation, file I/O, HTTP requests,",
+    "href": "tutorial/introduction.html#why-kelpyshark"
+  },
+  {
+    "title": "A taste of KelpyShark",
+    "section": "Introduction",
+    "snippet": "Here's a short program that shows off a few features of the language: example.ks # A simple KelpyShark program def greet(name) { print(\"Hello, {$name}! Welcome to KelpyShark.\") } class Animal { def ne",
+    "href": "tutorial/introduction.html#a-taste-of-kelpyshark"
+  },
+  {
+    "title": "How to use this tutorial",
+    "section": "Introduction",
+    "snippet": "The tutorial is ordered from the simplest concepts to the more advanced ones. Work through the pages in order if you're new, or jump to a specific topic using the sidebar on the left. 💡 Tip You can u",
+    "href": "tutorial/introduction.html#how-to-use-this-tutorial"
+  },
+  {
+    "title": "In this tutorial you will learn",
+    "section": "Introduction",
+    "snippet": "Variables, data types, and operators Strings and string methods Control flow: if/else, while, for Functions and return values Lists and dictionaries Classes and object-oriented programming Error handl",
+    "href": "tutorial/introduction.html#in-this-tutorial-you-will-learn"
+  },
+  {
+    "title": "Lists",
+    "section": "",
+    "snippet": "Store multiple values in a single ordered collection. A list is an ordered collection of values. Lists can hold any type of value — numbers, strings, booleans, other lists, or a mix of types.",
+    "href": "tutorial/lists.html"
+  },
+  {
+    "title": "Creating a list",
+    "section": "Lists",
+    "snippet": "lists.ks let numbers = [1, 2, 3, 4, 5] let fruits = [\"apple\", \"banana\", \"cherry\"] let mixed = [1, \"two\", true, null] let empty = [] print(numbers) print(fruits) Output [1, 2, 3, 4, 5] [\"apple\", \"banan",
+    "href": "tutorial/lists.html#creating-a-list"
+  },
+  {
+    "title": "Accessing elements",
+    "section": "Lists",
+    "snippet": "Use square brackets with an index (starting at 0 ): index.ks let fruits = [\"apple\", \"banana\", \"cherry\"] print(fruits[0]) # apple print(fruits[1]) # banana print(fruits[2]) # cherry # Negative indices ",
+    "href": "tutorial/lists.html#accessing-elements"
+  },
+  {
+    "title": "Modifying elements",
+    "section": "Lists",
+    "snippet": "modify.ks let scores = [10, 20, 30] scores[1] = 99 print(scores) # [10, 99, 30]",
+    "href": "tutorial/lists.html#modifying-elements"
+  },
+  {
+    "title": "Adding elements: push()",
+    "section": "Lists",
+    "snippet": "push.ks let items = [\"a\", \"b\"] push(items, \"c\") push(items, \"d\") print(items) # [\"a\", \"b\", \"c\", \"d\"]",
+    "href": "tutorial/lists.html#adding-elements-push"
+  },
+  {
+    "title": "Removing the last element: pop()",
+    "section": "Lists",
+    "snippet": "pop.ks let items = [\"a\", \"b\", \"c\"] let last = pop(items) print(last) # c print(items) # [\"a\", \"b\"]",
+    "href": "tutorial/lists.html#removing-the-last-element-pop"
+  },
+  {
+    "title": "List length",
+    "section": "Lists",
+    "snippet": "len.ks let fruits = [\"apple\", \"banana\", \"cherry\"] print(len(fruits)) # 3",
+    "href": "tutorial/lists.html#list-length"
+  },
+  {
+    "title": "Iterating over a list",
+    "section": "Lists",
+    "snippet": "iterate.ks let numbers = [10, 20, 30, 40, 50] for n in numbers { print(n * 2) } Output 20 40 60 80 100",
+    "href": "tutorial/lists.html#iterating-over-a-list"
+  },
+  {
+    "title": "Slicing",
+    "section": "Lists",
+    "snippet": "Extract a portion of a list with [start:end] : slice.ks let nums = [0, 1, 2, 3, 4, 5] print(nums[1:4]) # [1, 2, 3] print(nums[3:]) # [3, 4, 5] print(nums[:3]) # [0, 1, 2]",
+    "href": "tutorial/lists.html#slicing"
+  },
+  {
+    "title": "Checking membership",
+    "section": "Lists",
+    "snippet": "in.ks let fruits = [\"apple\", \"banana\", \"cherry\"] if \"banana\" in fruits { print(\"banana is in the list!\") }",
+    "href": "tutorial/lists.html#checking-membership"
+  },
+  {
+    "title": "What you learned",
+    "section": "Lists",
+    "snippet": "Create lists with [item1, item2, ...] Access elements with list[index] (0-based) Negative indices count from the end: list[-1] push(list, item) adds to the end; pop(list) removes from the end len(list",
+    "href": "tutorial/lists.html#what-you-learned"
+  },
+  {
+    "title": "Methods",
+    "section": "",
+    "snippet": "Functions that belong to an object. A method is a function defined inside a class. Methods can read and modify the object's attributes via self , and are called on an instance using dot notation.",
+    "href": "tutorial/methods.html"
+  },
+  {
+    "title": "Instance methods",
+    "section": "Methods",
+    "snippet": "Regular methods that operate on the object's data: methods.ks class BankAccount { def new(owner, balance) { self.owner = owner self.balance = balance } def deposit(amount) { self.balance += amount pri",
+    "href": "tutorial/methods.html#instance-methods"
+  },
+  {
+    "title": "Methods calling other methods",
+    "section": "Methods",
+    "snippet": "Methods can call other methods on the same object using self : self-call.ks class Rectangle { def new(width, height) { self.width = width self.height = height } def area() { return self.width * self.h",
+    "href": "tutorial/methods.html#methods-calling-other-methods"
+  },
+  {
+    "title": "Static methods",
+    "section": "Methods",
+    "snippet": "A static method belongs to the class itself, not to any instance. It doesn't receive self and is called on the class name: static.ks class MathUtils { static def max(a, b) { if a > b { return a } retu",
+    "href": "tutorial/methods.html#static-methods"
+  },
+  {
+    "title": "What you learned",
+    "section": "Methods",
+    "snippet": "Methods are functions defined inside a class They receive self automatically (the current instance) Call them with instance.method() Methods can call other methods via self.method() static def creates",
+    "href": "tutorial/methods.html#what-you-learned"
+  },
+  {
+    "title": "Operators",
+    "section": "",
+    "snippet": "Perform calculations, comparisons, and logical operations.",
+    "href": "tutorial/operators.html"
+  },
+  {
+    "title": "Arithmetic operators",
+    "section": "Operators",
+    "snippet": "Used to perform math on numbers: Operator Name Example Result + Addition 5 + 3 8 - Subtraction 10 - 4 6 * Multiplication 3 * 4 12 / Division 15 / 4 3.75 % Modulo (remainder) 17 % 5 2 arithmetic.ks pri",
+    "href": "tutorial/operators.html#arithmetic-operators"
+  },
+  {
+    "title": "Comparison operators",
+    "section": "Operators",
+    "snippet": "Compare two values and return true or false : Operator Name Example Result == Equal to 5 == 5 true != Not equal to 5 != 3 true < Less than 3 < 7 true > Greater than 9 > 5 true <= Less than or equal 4 ",
+    "href": "tutorial/operators.html#comparison-operators"
+  },
+  {
+    "title": "Logical operators",
+    "section": "Operators",
+    "snippet": "Combine boolean expressions: Operator Description Example and True if both sides are true true and false → false or True if at least one side is true true or false → true not Negates a boolean not tru",
+    "href": "tutorial/operators.html#logical-operators"
+  },
+  {
+    "title": "Assignment operators",
+    "section": "Operators",
+    "snippet": "Shorthand for updating a variable's value: Operator Equivalent to Example += x = x + n x += 5 -= x = x - n x -= 3 *= x = x * n x *= 2 /= x = x / n x /= 4 assign.ks let score = 100 score += 50 print(sc",
+    "href": "tutorial/operators.html#assignment-operators"
+  },
+  {
+    "title": "String concatenation",
+    "section": "Operators",
+    "snippet": "The + operator also joins (concatenates) two strings: concat.ks let first = \"Kelpy\" let last = \"Shark\" print(first + last) # KelpyShark",
+    "href": "tutorial/operators.html#string-concatenation"
+  },
+  {
+    "title": "What you learned",
+    "section": "Operators",
+    "snippet": "Arithmetic operators: + - * / % Comparison operators: == != < > <= >= Logical operators: and or not Assignment operators: += -= *= /= + on strings does concatenation",
+    "href": "tutorial/operators.html#what-you-learned"
+  },
+  {
+    "title": "Return Values",
+    "section": "",
+    "snippet": "Make functions produce a result that you can use. So far, our functions have printed things directly. But often you want a function to compute something and give that result back to the caller. Use th",
+    "href": "tutorial/return-values.html"
+  },
+  {
+    "title": "Returning a value",
+    "section": "Return Values",
+    "snippet": "add.ks def add(a, b) { return a + b } let sum = add(3, 7) print(sum) # 10 print(add(20, 5)) # 25",
+    "href": "tutorial/return-values.html#returning-a-value"
+  },
+  {
+    "title": "Using return values in expressions",
+    "section": "Return Values",
+    "snippet": "expressions.ks def square(n) { return n * n } def cube(n) { return n * n * n } print(square(4) + cube(2)) # 16 + 8 = 24 print(square(square(3))) # square(9) = 81",
+    "href": "tutorial/return-values.html#using-return-values-in-expressions"
+  },
+  {
+    "title": "Early return",
+    "section": "Return Values",
+    "snippet": "A function stops executing as soon as it hits a return statement. This is useful for early exit: early.ks def is_even(n) { if n % 2 == 0 { return true } return false } print(is_even(4)) # true print(i",
+    "href": "tutorial/return-values.html#early-return"
+  },
+  {
+    "title": "Returning null",
+    "section": "Return Values",
+    "snippet": "If a function has no return statement (or just return with no value), it returns null : null-return.ks def say_hi() { print(\"Hi!\") } let result = say_hi() # prints \"Hi!\" print(result) # null",
+    "href": "tutorial/return-values.html#returning-null"
+  },
+  {
+    "title": "Practical example",
+    "section": "Return Values",
+    "snippet": "bmi.ks def bmi(weight_kg, height_m) { return weight_kg / (height_m * height_m) } def bmi_category(bmi_value) { if bmi_value Output BMI: 22.857142857142858 Category: Normal",
+    "href": "tutorial/return-values.html#practical-example"
+  },
+  {
+    "title": "What you learned",
+    "section": "Return Values",
+    "snippet": "Use return value to send a result back to the caller Functions stop executing when they hit return Return values can be used in expressions or stored in variables Functions without a return return nul",
+    "href": "tutorial/return-values.html#what-you-learned"
+  },
+  {
+    "title": "Scope",
+    "section": "",
+    "snippet": "Understanding where variables live and can be accessed. Scope determines where in your code a variable is accessible. KelpyShark uses lexical scope : variables exist only within the block or function ",
+    "href": "tutorial/scope.html"
+  },
+  {
+    "title": "Local scope",
+    "section": "Scope",
+    "snippet": "Variables declared inside a function are local — they only exist while the function runs, and cannot be accessed outside it: local.ks def my_function() { let local_var = \"I'm local\" print(local_var) }",
+    "href": "tutorial/scope.html#local-scope"
+  },
+  {
+    "title": "Global scope",
+    "section": "Scope",
+    "snippet": "Variables declared at the top level (outside any function) are global and can be read from inside functions: global.ks let greeting = \"Hello\" # global variable def say_hi(name) { print(\"{$greeting}, {",
+    "href": "tutorial/scope.html#global-scope"
+  },
+  {
+    "title": "Shadowing",
+    "section": "Scope",
+    "snippet": "A local variable with the same name as a global variable shadows the global within its scope: shadow.ks let value = \"global\" def test() { let value = \"local\" # shadows the global print(value) # local ",
+    "href": "tutorial/scope.html#shadowing"
+  },
+  {
+    "title": "What you learned",
+    "section": "Scope",
+    "snippet": "Local variables only exist inside the function they're declared in Global variables are accessible everywhere A local variable with the same name as a global shadows the global Prefer passing data via",
+    "href": "tutorial/scope.html#what-you-learned"
+  },
+  {
+    "title": "Installation & Setup",
+    "section": "",
+    "snippet": "Get KelpyShark running on your machine in minutes.",
+    "href": "tutorial/setup.html"
+  },
+  {
+    "title": "Requirements",
+    "section": "Installation & Setup",
+    "snippet": "KelpyShark runs on Windows , macOS , and Linux . No external runtime is required — the installer bundles everything you need.",
+    "href": "tutorial/setup.html#requirements"
+  },
+  {
+    "title": "Installing on Windows",
+    "section": "Installation & Setup",
+    "snippet": "Open PowerShell and run the one-line installer: PowerShell irm https://github.com/KelpyShark/main/raw/main/installer/install.ps1 | iex This downloads the kelpyshark executable and adds it to your PATH",
+    "href": "tutorial/setup.html#installing-on-windows"
+  },
+  {
+    "title": "Installing on macOS & Linux",
+    "section": "Installation & Setup",
+    "snippet": "Shell curl -fsSL https://github.com/KelpyShark/main/raw/main/installer/install.sh | bash",
+    "href": "tutorial/setup.html#installing-on-macos-linux"
+  },
+  {
+    "title": "Verifying the installation",
+    "section": "Installation & Setup",
+    "snippet": "After installation, open a new terminal and run: Terminal kelpyshark --version Output KelpyShark 1.0.0",
+    "href": "tutorial/setup.html#verifying-the-installation"
+  },
+  {
+    "title": "Running your first program",
+    "section": "Installation & Setup",
+    "snippet": "Create a file called hello.ks and write: hello.ks print(\"Hello, World!\") Then run it: Terminal kelpyshark run hello.ks Output Hello, World!",
+    "href": "tutorial/setup.html#running-your-first-program"
+  },
+  {
+    "title": "Editor support",
+    "section": "Installation & Setup",
+    "snippet": "A VS Code extension is available that provides syntax highlighting and snippet support for .ks files. Search for \"KelpyShark\" in the VS Code Extensions panel to install it. 💡 Tip KelpyShark files use",
+    "href": "tutorial/setup.html#editor-support"
+  },
+  {
+    "title": "Standard Library",
+    "section": "",
+    "snippet": "A tour of KelpyShark's built-in modules. KelpyShark ships with a standard library (stdlib) — a collection of useful modules that are ready to import. You don't need to install anything extra; they're ",
+    "href": "tutorial/stdlib.html"
+  },
+  {
+    "title": "math",
+    "section": "Standard Library",
+    "snippet": "Mathematical functions and constants: stdlib-math.ks import math print(math.sqrt(25)) # 5 print(math.pow(2, 10)) # 1024 print(math.abs(-9)) # 9 print(math.floor(4.7)) # 4 print(math.ceil(4.1)) # 5 pri",
+    "href": "tutorial/stdlib.html#math"
+  },
+  {
+    "title": "strings",
+    "section": "Standard Library",
+    "snippet": "String manipulation beyond the built-in methods: stdlib-strings.ks import strings print(strings.upper(\"hello\")) # HELLO print(strings.lower(\"WORLD\")) # world print(strings.trim(\" hi \")) # hi print(str",
+    "href": "tutorial/stdlib.html#strings"
+  },
+  {
+    "title": "json",
+    "section": "Standard Library",
+    "snippet": "Parse JSON strings and convert values back to JSON: stdlib-json.ks import json let raw = '{\"name\":\"Alice\",\"age\":30}' let data = json.parse(raw) print(data[\"name\"]) # Alice print(data[\"age\"]) # 30 let ",
+    "href": "tutorial/stdlib.html#json"
+  },
+  {
+    "title": "sys",
+    "section": "Standard Library",
+    "snippet": "Information about the running environment: stdlib-sys.ks import sys print(sys.platform) # e.g. \"windows\" or \"linux\" print(sys.version) # KelpyShark version string let args = sys.args # command-line ar",
+    "href": "tutorial/stdlib.html#sys"
+  },
+  {
+    "title": "http",
+    "section": "Standard Library",
+    "snippet": "Make HTTP requests to APIs and websites: stdlib-http.ks import http import json # GET request let res = http.get(\"https://api.example.com/users/1\") if res[\"status\"] == 200 { let user = json.parse(res[",
+    "href": "tutorial/stdlib.html#http"
+  },
+  {
+    "title": "What you learned",
+    "section": "Standard Library",
+    "snippet": "math — sqrt, pow, floor, ceil, round, min, max, pi strings — upper, lower, trim, replace, split, join, contains… io — read, write, append, exists json — parse, stringify sys — platform, version, args,",
+    "href": "tutorial/stdlib.html#what-you-learned"
+  },
+  {
+    "title": "String Formatting",
+    "section": "",
+    "snippet": "Embed variables and expressions inside strings with interpolation.",
+    "href": "tutorial/string-formatting.html"
+  },
+  {
+    "title": "String interpolation",
+    "section": "String Formatting",
+    "snippet": "KelpyShark supports string interpolation — embedding variable values directly inside a string using the {$variable} syntax. This is much cleaner than manual string concatenation with + . \"text {$varia",
+    "href": "tutorial/string-formatting.html#string-interpolation"
+  },
+  {
+    "title": "Interpolating expressions",
+    "section": "String Formatting",
+    "snippet": "You can place any expression inside {$ } — not just variable names: expr.ks let price = 9.99 let quantity = 3 print(\"Total: {$price * quantity}\") # Total: 29.97 print(\"Double the price: {$price * 2}\")",
+    "href": "tutorial/string-formatting.html#interpolating-expressions"
+  },
+  {
+    "title": "Interpolation in function calls",
+    "section": "String Formatting",
+    "snippet": "greet.ks def welcome(user, score) { print(\"Welcome, {$user}! Your score is {$score}/100.\") } welcome(\"Bob\", 87) Output Welcome, Bob! Your score is 87/100. 💡 Best practice Prefer \"{$variable}\" interpo",
+    "href": "tutorial/string-formatting.html#interpolation-in-function-calls"
+  },
+  {
+    "title": "What you learned",
+    "section": "String Formatting",
+    "snippet": "Use {$varName} inside a string to embed a variable's value Any expression works inside {$ } Interpolation automatically converts values to strings It's cleaner than string concatenation with +",
+    "href": "tutorial/string-formatting.html#what-you-learned"
+  },
+  {
+    "title": "String Methods",
+    "section": "",
+    "snippet": "Built-in operations you can perform on strings. Strings in KelpyShark come with a set of built-in methods. You call them with dot notation: myString.methodName() . Because strings are immutable, metho",
+    "href": "tutorial/string-methods.html"
+  },
+  {
+    "title": "Case conversion",
+    "section": "String Methods",
+    "snippet": "case.ks let s = \"Hello, World!\" print(s.upper()) # HELLO, WORLD! print(s.lower()) # hello, world!",
+    "href": "tutorial/string-methods.html#case-conversion"
+  },
+  {
+    "title": "Trimming whitespace",
+    "section": "String Methods",
+    "snippet": "trim.ks let s = \" hello \" print(s.trim()) # \"hello\"",
+    "href": "tutorial/string-methods.html#trimming-whitespace"
+  },
+  {
+    "title": "Checking content",
+    "section": "String Methods",
+    "snippet": "check.ks let s = \"KelpyShark\" print(s.starts_with(\"Kelpy\")) # true print(s.ends_with(\"Shark\")) # true print(s.contains(\"py\")) # true print(s.contains(\"xyz\")) # false",
+    "href": "tutorial/string-methods.html#checking-content"
+  },
+  {
+    "title": "Splitting and joining",
+    "section": "String Methods",
+    "snippet": "split.ks let csv = \"one,two,three\" let parts = csv.split(\",\") print(parts) # [\"one\", \"two\", \"three\"] print(parts[1]) # two let joined = parts.join(\" | \") print(joined) # one | two | three",
+    "href": "tutorial/string-methods.html#splitting-and-joining"
+  },
+  {
+    "title": "Replacing substrings",
+    "section": "String Methods",
+    "snippet": "replace.ks let s = \"I like cats and cats like me\" print(s.replace(\"cats\", \"dogs\")) # I like dogs and dogs like me",
+    "href": "tutorial/string-methods.html#replacing-substrings"
+  },
+  {
+    "title": "Finding substrings",
+    "section": "String Methods",
+    "snippet": "find.ks let s = \"hello world\" print(s.index_of(\"world\")) # 6 print(s.index_of(\"xyz\")) # -1 (not found)",
+    "href": "tutorial/string-methods.html#finding-substrings"
+  },
+  {
+    "title": "Quick reference",
+    "section": "String Methods",
+    "snippet": "Method Returns Description .upper() String All uppercase .lower() String All lowercase .trim() String Remove leading/trailing whitespace .starts_with(s) Boolean Does the string start with s ? .ends_wi",
+    "href": "tutorial/string-methods.html#quick-reference"
+  },
+  {
+    "title": "Strings",
+    "section": "",
+    "snippet": "Work with text in KelpyShark.",
+    "href": "tutorial/strings.html"
+  },
+  {
+    "title": "Creating strings",
+    "section": "Strings",
+    "snippet": "Strings can be written with double quotes or single quotes. Both behave identically: strings.ks let a = \"Hello, World!\" let b = 'Hello, World!' print(a == b) # true",
+    "href": "tutorial/strings.html#creating-strings"
+  },
+  {
+    "title": "Escape sequences",
+    "section": "Strings",
+    "snippet": "Use backslash sequences to embed special characters inside strings: Sequence Meaning \\n Newline \\t Tab \\\\ Literal backslash \\\" Double quote inside a double-quoted string \\' Single quote inside a singl",
+    "href": "tutorial/strings.html#escape-sequences"
+  },
+  {
+    "title": "String concatenation",
+    "section": "Strings",
+    "snippet": "Use + to join strings together: concat.ks let first = \"Kelpy\" let last = \"Shark\" let full = first + last print(full) # KelpyShark",
+    "href": "tutorial/strings.html#string-concatenation"
+  },
+  {
+    "title": "String length",
+    "section": "Strings",
+    "snippet": "Use the built-in len() function to get the number of characters in a string: length.ks let word = \"shark\" print(len(word)) # 5",
+    "href": "tutorial/strings.html#string-length"
+  },
+  {
+    "title": "Accessing individual characters",
+    "section": "Strings",
+    "snippet": "Index into a string with square brackets. Indices start at 0 : indexing.ks let s = \"hello\" print(s[0]) # h print(s[1]) # e print(s[4]) # o",
+    "href": "tutorial/strings.html#accessing-individual-characters"
+  },
+  {
+    "title": "Slicing",
+    "section": "Strings",
+    "snippet": "Extract a substring with [start:end] (end is exclusive): slice.ks let s = \"KelpyShark\" print(s[0:5]) # Kelpy print(s[5:10]) # Shark",
+    "href": "tutorial/strings.html#slicing"
+  },
+  {
+    "title": "Looping over a string",
+    "section": "Strings",
+    "snippet": "A for loop visits each character one at a time: loop.ks for ch in \"hi!\" { print(ch) } Output h i ! 📝 Note KelpyShark strings are immutable — once created, individual characters cannot be changed. To ",
+    "href": "tutorial/strings.html#looping-over-a-string"
+  },
+  {
+    "title": "What you learned",
+    "section": "Strings",
+    "snippet": "Strings use double or single quotes Escape sequences: \\n , \\t , \\\\ , \\\" + concatenates strings len(s) returns the string length s[i] accesses a character; s[a:b] slices",
+    "href": "tutorial/strings.html#what-you-learned"
+  },
+  {
+    "title": "Syntax Overview",
+    "section": "",
+    "snippet": "Learn the fundamental rules and structure of KelpyShark code.",
+    "href": "tutorial/syntax.html"
+  },
+  {
+    "title": "Statements and lines",
+    "section": "Syntax Overview",
+    "snippet": "Each statement in KelpyShark is written on its own line. Unlike some languages, there are no semicolons required at the end of lines. example.ks let name = \"Alice\" let age = 30 print(name) print(age)",
+    "href": "tutorial/syntax.html#statements-and-lines"
+  },
+  {
+    "title": "Blocks and indentation",
+    "section": "Syntax Overview",
+    "snippet": "Code blocks (inside if , while , def , class , etc.) are enclosed in curly braces { } . Indentation is optional but strongly recommended for readability. blocks.ks if age > 18 { print(\"Adult\") } else ",
+    "href": "tutorial/syntax.html#blocks-and-indentation"
+  },
+  {
+    "title": "Case sensitivity",
+    "section": "Syntax Overview",
+    "snippet": "KelpyShark is case-sensitive . name , Name , and NAME are three different variables.",
+    "href": "tutorial/syntax.html#case-sensitivity"
+  },
+  {
+    "title": "Identifiers",
+    "section": "Syntax Overview",
+    "snippet": "Variable names, function names, and class names are called identifiers . They must: Start with a letter ( a–z , A–Z ) or an underscore ( _ ) Contain only letters, digits ( 0–9 ), or underscores Not be",
+    "href": "tutorial/syntax.html#identifiers"
+  },
+  {
+    "title": "Keywords",
+    "section": "Syntax Overview",
+    "snippet": "The following words are reserved and cannot be used as identifiers: Reserved keywords def if elif else while for in return import true false and or not break continue try catch throw class null new se",
+    "href": "tutorial/syntax.html#keywords"
+  },
+  {
+    "title": "Whitespace",
+    "section": "Syntax Overview",
+    "snippet": "Spaces and blank lines between statements are ignored by the interpreter. Use them freely to make your code easier to read. 💡 Convention KelpyShark code conventionally uses 4-space indentation inside",
+    "href": "tutorial/syntax.html#whitespace"
+  },
+  {
+    "title": "What you learned",
+    "section": "Syntax Overview",
+    "snippet": "Statements are written one per line — no semicolons Blocks use curly braces { } KelpyShark is case-sensitive Identifiers start with a letter or underscore Reserved keywords cannot be used as names",
+    "href": "tutorial/syntax.html#what-you-learned"
+  },
+  {
+    "title": "Throwing Errors",
+    "section": "",
+    "snippet": "Signal problems with throw. Sometimes you want to raise an error — when invalid data arrives, a precondition isn't met, or an operation simply can't proceed. Use the throw keyword to signal that somet",
+    "href": "tutorial/throw.html"
+  },
+  {
+    "title": "Basic throw",
+    "section": "Throwing Errors",
+    "snippet": "throw takes a string that describes the error: throw.ks def sqrt(n) { if n Output 3 Error: Cannot take square root of a negative number",
+    "href": "tutorial/throw.html#basic-throw"
+  },
+  {
+    "title": "Throw for input validation",
+    "section": "Throwing Errors",
+    "snippet": "Validate arguments at the start of a function to catch misuse early: validate.ks def create_user(name, age) { if type(name) != \"string\" { throw \"name must be a string\" } if len(name) == 0 { throw \"nam",
+    "href": "tutorial/throw.html#throw-for-input-validation"
+  },
+  {
+    "title": "Throw inside a class",
+    "section": "Throwing Errors",
+    "snippet": "Classes commonly throw errors to protect their internal state: class-throw.ks class Stack { def new() { self.items = [] } def push(item) { push(self.items, item) } def pop() { if len(self.items) == 0 ",
+    "href": "tutorial/throw.html#throw-inside-a-class"
+  },
+  {
+    "title": "What you learned",
+    "section": "Throwing Errors",
+    "snippet": "throw \"message\" raises an error with a custom message Execution stops at the throw line and jumps to the nearest catch Use throw to enforce preconditions and validate input If uncaught, a thrown error",
+    "href": "tutorial/throw.html#what-you-learned"
+  },
+  {
+    "title": "Type Casting",
+    "section": "",
+    "snippet": "Convert values from one type to another. Sometimes you need to convert a value from one type to another — for example, turning a number into a string to print it alongside text, or turning a string in",
+    "href": "tutorial/type-casting.html"
+  },
+  {
+    "title": "Converting to a string: str()",
+    "section": "Type Casting",
+    "snippet": "Use str() to convert any value to a string: tostr.ks let age = 30 let message = \"I am \" + str(age) + \" years old.\" print(message) print(str(3.14)) # \"3.14\" print(str(true)) # \"true\" print(str(null)) #",
+    "href": "tutorial/type-casting.html#converting-to-a-string-str"
+  },
+  {
+    "title": "Converting to a number: num()",
+    "section": "Type Casting",
+    "snippet": "Use num() to parse a string as a number: tonum.ks let text = \"42\" let number = num(text) print(number + 8) # 50 let pi = num(\"3.14\") print(pi * 2) # 6.28 Output 50 6.28 ⚠️ Caution If you pass a non-nu",
+    "href": "tutorial/type-casting.html#converting-to-a-number-num"
+  },
+  {
+    "title": "Implicit conversion",
+    "section": "Type Casting",
+    "snippet": "KelpyShark does not implicitly convert types for you. You must be explicit: explicit.ks let n = 10 # This will error — cannot add number + string: # print(n + \" items\") # This works — explicitly conve",
+    "href": "tutorial/type-casting.html#implicit-conversion"
+  },
+  {
+    "title": "What you learned",
+    "section": "Type Casting",
+    "snippet": "str(value) converts any value to a string num(value) parses a string as a number KelpyShark does not implicitly convert types — you must be explicit String interpolation is often the easiest alternati",
+    "href": "tutorial/type-casting.html#what-you-learned"
+  },
+  {
+    "title": "Variables",
+    "section": "",
+    "snippet": "Store and reuse values in your programs.",
+    "href": "tutorial/variables.html"
+  },
+  {
+    "title": "Creating a variable",
+    "section": "Variables",
+    "snippet": "A variable is a named container for a value. In KelpyShark, you create a variable with the let keyword, followed by a name, an equals sign, and the value. let name = value variables.ks let name = \"Ali",
+    "href": "tutorial/variables.html#creating-a-variable"
+  },
+  {
+    "title": "Changing a variable's value",
+    "section": "Variables",
+    "snippet": "Variables are mutable — you can reassign them at any time (without let ): reassign.ks let score = 0 print(score) # 0 score = 10 print(score) # 10 score = score + 5 print(score) # 15 Output 0 10 15",
+    "href": "tutorial/variables.html#changing-a-variable-s-value"
+  },
+  {
+    "title": "Multiple assignments",
+    "section": "Variables",
+    "snippet": "You can declare multiple variables one after another: multi.ks let x = 1 let y = 2 let z = x + y print(z) # 3",
+    "href": "tutorial/variables.html#multiple-assignments"
+  },
+  {
+    "title": "Naming conventions",
+    "section": "Variables",
+    "snippet": "KelpyShark conventionally uses snake_case for variable names: naming.ks let first_name = \"Alice\" let last_name = \"Smith\" let full_name = first_name + \" \" + last_name print(full_name) # Alice Smith ⚠️ ",
+    "href": "tutorial/variables.html#naming-conventions"
+  },
+  {
+    "title": "What you learned",
+    "section": "Variables",
+    "snippet": "Use let name = value to create a variable Variables can be reassigned without let Variable names use snake_case by convention Variables can hold strings, numbers, booleans, and more",
+    "href": "tutorial/variables.html#what-you-learned"
+  },
+  {
+    "title": "While Loops",
+    "section": "",
+    "snippet": "Repeat a block of code as long as a condition is true.",
+    "href": "tutorial/while-loops.html"
+  },
+  {
+    "title": "Basic while loop",
+    "section": "While Loops",
+    "snippet": "A while loop keeps running its body as long as the condition evaluates to true: while condition { code to repeat } while.ks let count = 1 while count Output 1 2 3 4 5",
+    "href": "tutorial/while-loops.html#basic-while-loop"
+  },
+  {
+    "title": "Counting down",
+    "section": "While Loops",
+    "snippet": "countdown.ks let n = 5 while n > 0 { print(\"{$n}...\") n -= 1 } print(\"Liftoff!\") Output 5... 4... 3... 2... 1... Liftoff!",
+    "href": "tutorial/while-loops.html#counting-down"
+  },
+  {
+    "title": "Loops with break",
+    "section": "While Loops",
+    "snippet": "Use break to exit a loop early: break.ks let i = 0 while true { if i == 5 { break } print(i) i += 1 } Output 0 1 2 3 4 ⚠️ Infinite loops If the condition never becomes false and you don't use break , ",
+    "href": "tutorial/while-loops.html#loops-with-break"
+  },
+  {
+    "title": "Practical example: input validation",
+    "section": "While Loops",
+    "snippet": "validate.ks # Sum numbers from 1 to 10 using a while loop let sum = 0 let i = 1 while i",
+    "href": "tutorial/while-loops.html#practical-example-input-validation"
+  },
+  {
+    "title": "What you learned",
+    "section": "While Loops",
+    "snippet": "while condition { } repeats while the condition is true Update the loop variable inside the body to avoid infinite loops break exits the loop immediately while true { } with a break is a common patter",
+    "href": "tutorial/while-loops.html#what-you-learned"
+  }
+]

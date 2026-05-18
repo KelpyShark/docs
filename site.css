@@ -6,49 +6,49 @@
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
   /* Brand */
-  --brand-primary:   #0ea5e9;
-  --brand-dark:      #0284c7;
-  --brand-light:     #e0f2fe;
+  --brand-primary:   #76ff8d;
+  --brand-dark:      #56d87a;
+  --brand-light:     rgba(118,255,141,.15);
 
   /* Section accent colors */
-  --tutorial-color:  #0ea5e9;
-  --reference-color: #10b981;
-  --general-color:   #8b5cf6;
+  --tutorial-color:  #76ff8d;
+  --reference-color: #56d87a;
+  --general-color:   #d2ed4f;
 
-  /* Light-mode surfaces */
-  --bg-page:    #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-sidebar: #f1f5f9;
-  --bg-code:    #1e293b;
-  --bg-output:  #0f172a;
-  --bg-inline:  #e2e8f0;
-  --bg-tip:     #ecfdf5;
-  --bg-note:    #eff6ff;
-  --bg-warn:    #fffbeb;
-  --bg-danger:  #fff1f2;
+  /* Surfaces */
+  --bg-page:    #3d4c37;
+  --bg-surface: #4a5a44;
+  --bg-sidebar: #38473200;
+  --bg-code:    #2a3626;
+  --bg-output:  #222e1e;
+  --bg-inline:  #556050;
+  --bg-tip:     #3a5a3a;
+  --bg-note:    #3a4a5a;
+  --bg-warn:    #5a4a2a;
+  --bg-danger:  #5a3a3a;
 
-  /* Light-mode text */
-  --text-primary:  #0f172a;
-  --text-secondary:#475569;
-  --text-muted:    #94a3b8;
-  --text-code:     #e2e8f0;
-  --text-inline:   #be185d;
-  --text-link:     #0ea5e9;
+  /* Text */
+  --text-primary:  #f0f6fc;
+  --text-secondary:#c8dfc0;
+  --text-muted:    #8aaa80;
+  --text-code:     #c8dfc0;
+  --text-inline:   #76ff8d;
+  --text-link:     #76ff8d;
 
-  /* Light-mode borders */
-  --border:        #e2e8f0;
-  --border-accent: #0ea5e9;
+  /* Borders */
+  --border:        #556050;
+  --border-accent: #76ff8d;
 
-  /* Syntax highlighting (always dark bg) */
+  /* Syntax highlighting */
   --syn-keyword:  #f472b6;
   --syn-string:   #86efac;
   --syn-number:   #fbbf24;
-  --syn-comment:  #64748b;
-  --syn-function: #60a5fa;
+  --syn-comment:  #6a8a60;
+  --syn-function: #76ff8d;
   --syn-variable: #c084fc;
   --syn-operator: #fb923c;
   --syn-builtin:  #34d399;
-  --syn-type:     #67e8f9;
+  --syn-type:     #d2ed4f;
 
   /* Layout */
   --sidebar-w:    260px;
@@ -56,32 +56,9 @@
   --content-max:  860px;
   --radius:       8px;
   --radius-sm:    4px;
-  --shadow:       0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
-  --shadow-md:    0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-page:    #0f172a;
-    --bg-surface: #1e293b;
-    --bg-sidebar: #0f172a;
-    --bg-code:    #0d1b2e;
-    --bg-output:  #060d18;
-    --bg-inline:  #1e293b;
-    --bg-tip:     #052e16;
-    --bg-note:    #0c1a2e;
-    --bg-warn:    #2d1900;
-    --bg-danger:  #2d0a0a;
-
-    --text-primary:  #f1f5f9;
-    --text-secondary:#94a3b8;
-    --text-muted:    #64748b;
-    --text-inline:   #f9a8d4;
-
-    --border:        #334155;
-    --bg-sidebar:    #1e293b;
-  }
+  --shadow:       0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+  --shadow-md:    0 4px 6px rgba(0,0,0,.25), 0 2px 4px rgba(0,0,0,.2);
+  color-scheme: dark;
 }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
@@ -126,6 +103,9 @@ body {
   color: var(--brand-primary);
   white-space: nowrap;
 }
+
+.site-logo:hover { color: var(--brand-dark); text-decoration: none; }
+
 .site-logo .shark { font-size: 1.4rem; }
 
 .site-nav {
@@ -143,7 +123,7 @@ body {
   border-radius: var(--radius-sm);
   transition: color .15s, background .15s;
 }
-.site-nav a:hover { color: var(--text-primary); background: var(--bg-inline); }
+.site-nav a:hover { color: var(--text-primary); background: var(--bg-inline); text-decoration: none;}
 .site-nav a.active { color: var(--brand-primary); font-weight: 600; }
 
 .site-nav a[data-section="tutorial"].active  { color: var(--tutorial-color); }
@@ -417,7 +397,7 @@ code {
   border-left: 4px solid;
   font-size: 0.925rem;
 }
-.callout p { margin: 0; color: inherit; }
+.callout p { margin: 0; color: white; }
 .callout p + p { margin-top: 0.5rem; }
 .callout strong { display: block; margin-bottom: 0.3rem; font-size: 0.8rem; letter-spacing: .05em; text-transform: uppercase; }
 
@@ -650,3 +630,57 @@ tbody tr:hover { background: var(--bg-inline); }
   margin-bottom: 1rem;
 }
 .try-it a { color: var(--text-link); }
+
+/* ── Search ─────────────────────────────────────────────────── */
+.site-search { position: relative; margin-left: auto; }
+.site-search-input {
+  background: var(--bg-inline);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  padding: 0.35rem 0.75rem;
+  width: 200px;
+  outline: none;
+  transition: border-color .15s, width .2s;
+  font-family: inherit;
+}
+.site-search-input::placeholder { color: var(--text-muted); }
+.site-search-input:focus { border-color: var(--brand-primary); width: 260px; }
+.site-search-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 320px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+  overflow: hidden;
+  display: none;
+  animation: fadeIn .15s ease;
+}
+.site-search-dropdown.open { display: block; }
+.search-result {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+  transition: background .1s;
+  cursor: pointer;
+}
+.search-result:last-child { border-bottom: none; }
+.search-result:hover, .search-result.focused { background: var(--bg-inline); text-decoration: none; color: var(--text-primary); }
+.search-result-title { font-weight: 600; color: var(--brand-primary); }
+.search-result-section { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; }
+.search-result-snippet { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search-empty { padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--text-muted); text-align: center; }
+@media (max-width: 600px) {
+  .site-search-input { width: 130px; }
+  .site-search-input:focus { width: 160px; }
+  .site-search-dropdown { width: 260px; }
+}
