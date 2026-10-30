@@ -1,0 +1,10 @@
+# Local notes and editor workspace state
+/.notes/
+/.vscode/
+
+# Operating system and editor temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
