@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KelpyShark Documentation</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="site.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/site.css">
 </head>
 <body>
 
   <!-- Header -->
   <header class="site-header">
     <a class="site-logo" href="/">
-      <span class="shark"></span> KelpyShark
+      <svg class="brand-mark" aria-hidden="true" focusable="false"><use href="/site-icons.svg#shark"></use></svg> KelpyShark
     </a>
     <nav class="site-nav">
       <a href="tutorial/introduction" data-section="tutorial">Tutorial</a>
@@ -22,20 +22,21 @@
     <div class="site-header-spacer"></div>
   </header>
 
-  <div style="margin-top: var(--header-h);">
-
-    <!-- Hero -->
+  <main class="home-main">
     <section class="hero">
-      <span class="shark-big"></span>
-      <h1>Learn KelpyShark</h1>
-      <p>Start with one small program. Then work through short lessons, examples, and practice prompts.</p>
+      <div class="hero-inner">
+        <svg class="hero-mark" aria-hidden="true" focusable="false"><use href="/site-icons.svg#shark"></use></svg>
+        <p class="hero-eyebrow">A practical guide to programming</p>
+        <h1>Learn KelpyShark</h1>
+        <p>Start with one small program. Then work through clear lessons, runnable examples, and practice prompts.</p>
+        <a class="primary-cta" href="tutorial/introduction">Start learning <svg class="icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#arrow-right"></use></svg></a>
+      </div>
     </section>
 
-    <!-- Section Cards -->
-    <div class="section-cards">
+    <section class="section-cards" aria-label="Documentation sections">
 
       <a class="section-card tutorial" href="tutorial/introduction">
-        <span class="card-icon"></span>
+        <span class="card-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#book"></use></svg></span>
         <div class="card-title">Tutorial</div>
         <p class="card-desc">
           New to programming? Begin here. Learn to write and run a program, then
@@ -45,7 +46,7 @@
       </a>
 
       <a class="section-card reference" href="reference/keywords">
-        <span class="card-icon"></span>
+        <span class="card-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#terminal"></use></svg></span>
         <div class="card-title">Reference</div>
         <p class="card-desc">
           Look up keywords, operators, built-in functions, data types, and
@@ -55,7 +56,7 @@
       </a>
 
       <a class="section-card general" href="general/about">
-        <span class="card-icon"></span>
+        <span class="card-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#layers"></use></svg></span>
         <div class="card-title">General</div>
         <p class="card-desc">
           Find command-line instructions, generated-code limits, package-manager
@@ -64,41 +65,39 @@
         <span class="card-tag general">Project docs</span>
       </a>
 
-    </div>
+    </section>
 
-    <!-- Feature strip -->
-    <div style="border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;">
-      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:3rem;max-width:800px;margin:0 auto;">
-        <div style="flex:1;min-width:180px;">
-          <div style="font-size:2rem;margin-bottom:.5rem;">⚡</div>
-          <div style="font-weight:700;margin-bottom:.25rem;color:var(--text-primary);">Start with a script</div>
-          <div style="font-size:.9rem;color:var(--text-muted);">Run a .ks file directly with the KelpyShark interpreter.</div>
-        </div>
-        <div style="flex:1;min-width:180px;">
-          <div style="font-size:2rem;margin-bottom:.5rem;">📦</div>
-          <div style="font-weight:700;margin-bottom:.25rem;color:var(--text-primary);">Learn one idea at a time</div>
-          <div style="font-size:.9rem;color:var(--text-muted);">Lessons pair short explanations with examples and output.</div>
-        </div>
-        <div style="flex:1;min-width:180px;">
-          <div style="font-size:2rem;margin-bottom:.5rem;">🌐</div>
-          <div style="font-weight:700;margin-bottom:.25rem;color:var(--text-primary);">Generated source</div>
-          <div style="font-size:.9rem;color:var(--text-muted);">Build supported programs to C, JavaScript, Java, or C# source.</div>
-        </div>
-        <div style="flex:1;min-width:180px;">
-          <div style="font-size:2rem;margin-bottom:.5rem;">🔋</div>
-          <div style="font-weight:700;margin-bottom:.25rem;color:var(--text-primary);">Built-in modules</div>
-          <div style="font-size:.9rem;color:var(--text-muted);">Use registered modules for math, files, JSON, system access, and HTTP.</div>
-        </div>
+    <section class="feature-strip" aria-label="What you can learn">
+      <div class="feature-grid">
+        <article class="feature">
+          <svg class="feature-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#terminal"></use></svg>
+          <div class="feature-title">Start with a script</div>
+          <p>Run a .ks file directly with the KelpyShark interpreter.</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#book"></use></svg>
+          <div class="feature-title">Learn one idea at a time</div>
+          <p>Lessons pair short explanations with examples and output.</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#code"></use></svg>
+          <div class="feature-title">Generated source</div>
+          <p>Build supported programs to C, JavaScript, Java, or C# source.</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#package"></use></svg>
+          <div class="feature-title">Built-in modules</div>
+          <p>Use registered modules for math, files, JSON, system access, and HTTP.</p>
+        </article>
       </div>
-    </div>
+    </section>
+  </main>
 
-  </div>
-
-  <footer style="border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-size:.82rem;color:var(--text-muted);">
+  <footer class="site-footer">
     KelpyShark Documentation
   </footer>
 
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function() { KSDoc.initSearch(); });</script>
 </body>
 </html>

@@ -8,7 +8,7 @@ const OUTPUT_FILE = './sitemap.xml';
 const XMLNS = 'http://www.sitemaps.org/schemas/sitemap/0.9';
 
 // Files, extensions, and directory names to ignore
-const IGNORE_FILES = ['README.md', 'generate_sitemap.py','favicon.ico','sitemap.xml', '404.html', 'site.css', 'browse.css', 'icon.png', '_redirects', '.gitignore', 'signature_supertiny.png'];
+const IGNORE_FILES = ['README.md', 'generate_sitemap.py', 'favicon.ico', 'favicon.svg', 'site-icons.svg', 'sitemap.xml', '404.html', 'site.css', 'browse.css', 'icon.png', '_redirects', '.gitignore', 'signature_supertiny.png'];
 const IGNORE_EXTENSIONS = ['.db-wal','.db-shm','.js', '.css', '.json','.yml','.db','.sql',''];
 const IGNORE_DIRECTORY = ['./admin','./server', './.test', './.vscode', './.git', './icons', './pfp', './pattern', './scripts'];
 const INCLUDE_ASSETS = true;
@@ -69,7 +69,7 @@ function convertFilesToRoutes(files, baseDir) {
 
     // Format final URL path string
     const urlPath = relativePath ? `/${relativePath}` : '/';
-    
+
     // Assign higher priorities to home/root routes
     const priority = urlPath === '/' ? '1.0' : '0.7';
 
@@ -84,11 +84,11 @@ function convertFilesToRoutes(files, baseDir) {
 // 4. GENERATE AND WRITE XML
 function main() {
   if (!fs.existsSync(TARGET_DIR)) {
-    console.error(`❌ Target directory does not exist: ${TARGET_DIR}`);
+    console.error(`Error: target directory does not exist: ${TARGET_DIR}`);
     return;
   }
 
-  console.log(`🔍 Scanning ${TARGET_DIR} for pages...`);
+  console.log(`Scanning ${TARGET_DIR} for pages...`);
   const allFiles = getFilesRecursively(TARGET_DIR);
   const routes = convertFilesToRoutes(allFiles, TARGET_DIR);
 
@@ -109,7 +109,7 @@ ${xmlUrls}
 </urlset>`;
 
   fs.writeFileSync(OUTPUT_FILE, sitemapXml, 'utf8');
-  console.log(`\n✅ sitemap.xml successfully generated with ${routes.length} discovered pages!`);
+  console.log(`\nsitemap.xml generated with ${routes.length} pages.`);
 }
 
 main();

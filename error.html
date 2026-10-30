@@ -4,22 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Error — KelpyShark</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/site.css">
-  <style>
-    .error-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 2rem; gap: 1rem; }
-    .error-code { font-size: 6rem; font-weight: 900; color: var(--brand-primary); line-height: 1; letter-spacing: -4px; }
-    .error-title { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin: 0; }
-    .error-desc { color: var(--text-muted); font-size: 1rem; max-width: 420px; margin: 0; line-height: 1.6; }
-    .error-btn { display: inline-block; margin-top: 0.5rem; padding: 10px 24px; background: var(--brand-primary); color: #000; border-radius: var(--radius); font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: opacity .15s; }
-    .error-btn:hover { opacity: 0.85; text-decoration: none; }
-  </style>
 </head>
 <body>
 
   <header class="site-header">
-    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
-    <a class="site-logo" href="/"><span class="shark"></span> KelpyShark</a>
+    <a class="site-logo" href="/"><svg class="brand-mark" aria-hidden="true" focusable="false"><use href="/site-icons.svg#shark"></use></svg> KelpyShark</a>
     <nav class="site-nav">
       <a href="/tutorial/introduction" data-section="tutorial">Tutorial</a>
       <a href="/reference/keywords"    data-section="reference">Reference</a>
@@ -27,9 +18,7 @@
     </nav>
   </header>
 
-  <div class="site-body">
-    <aside class="sidebar"></aside>
-    <div class="sidebar-backdrop"></div>
+  <div class="site-body error-page">
     <main class="content">
       <div class="error-wrap">
         <div class="error-code" id="err-code"></div>

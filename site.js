@@ -186,31 +186,26 @@
 
     sidebar.innerHTML = html;
 
-    // Scroll active link into view
-    const active = sidebar.querySelector(".active");
-    if (active) {
-      active.scrollIntoView({ block: "nearest" });
-    }
+    // Start the navigation at its first group on every page load.
+    sidebar.scrollTop = 0;
   }
 
   function resolveHref(sectionKey, slug) {
-    // Determine depth from current page so links are relative
-    const depth = getPathDepth();
-    const root  = "../".repeat(depth);
+    const root = "../".repeat(getPathDepth());
     return `${root}${sectionKey}/${slug}`;
   }
 
   function getPathDepth() {
-    // Count directory segments below /docs/, excluding the filename itself.
-    // e.g. docs/tutorial/foo.html  → depth 1  → "../" once to reach docs root
-    //      docs/index.html         → depth 0  → no prefix needed
-    const parts = window.location.pathname
-      .split("/")
-      .filter(Boolean);
-    const docsIdx = parts.findIndex(p => p === "docs");
-    if (docsIdx === -1) return 1;
-    // subtract 1 for "docs" itself and 1 for the filename (last segment)
-    return parts.length - docsIdx - 2;
+    const pathname = window.location.pathname;
+    const parts = pathname.split("/").filter(Boolean);
+    const docsIdx = parts.indexOf("docs");
+    if (docsIdx !== -1) {
+      const belowDocs = parts.length - docsIdx - 1;
+      return Math.max(0, pathname.endsWith("/") ? belowDocs : belowDocs - 1);
+    }
+
+    // At the deployed site root, / is depth 0 and /tutorial/page is depth 1.
+    return Math.max(0, pathname.endsWith("/") ? parts.length : parts.length - 1);
   }
 
   /* ══════════════════════════════════════════════════════
@@ -234,13 +229,13 @@
     let html = "";
     if (prev) {
       const href = resolveHref(sectionKey, prev.slug);
-      html += `<a class="btn-nav prev" href="${href}">&#8592; ${prev.title}</a>`;
+      html += `<a class="btn-nav prev" href="${href}"><svg class="icon" aria-hidden="true" focusable="false"><use href="${"../".repeat(getPathDepth())}site-icons.svg#arrow-left"></use></svg><span>${prev.title}</span></a>`;
     } else {
       html += `<span></span>`;
     }
     if (next) {
       const href = resolveHref(sectionKey, next.slug);
-      html += `<a class="btn-nav next" href="${href}">${next.title} &#8594;</a>`;
+      html += `<a class="btn-nav next" href="${href}"><span>${next.title}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="${"../".repeat(getPathDepth())}site-icons.svg#arrow-right"></use></svg></a>`;
     }
 
     container.innerHTML = html;
@@ -289,16 +284,27 @@
     const sidebar  = document.querySelector(".sidebar");
     const backdrop = document.querySelector(".sidebar-backdrop");
     if (!toggle || !sidebar) return;
+    if (!sidebar.id) sidebar.id = "site-sidebar";
+    toggle.setAttribute("aria-controls", sidebar.id);
+    toggle.setAttribute("aria-expanded", "false");
 
     function close() {
       sidebar.classList.remove("open");
       if (backdrop) backdrop.classList.remove("open");
+      document.body.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
     }
     toggle.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-      if (backdrop) backdrop.classList.toggle("open");
+      const isOpen = sidebar.classList.toggle("open");
+      if (backdrop) backdrop.classList.toggle("open", isOpen);
+      document.body.classList.toggle("nav-open", isOpen);
+      if (isOpen) sidebar.scrollTop = 0;
+      toggle.setAttribute("aria-expanded", String(isOpen));
     });
     if (backdrop) backdrop.addEventListener("click", close);
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") close();
+    });
 
     // Close on nav link click (mobile)
     sidebar.querySelectorAll("a").forEach(a => a.addEventListener("click", close));
@@ -426,10 +432,19 @@
     var wrapper = document.createElement("div");
     wrapper.className = "site-search";
 
+    var searchIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    searchIcon.classList.add("site-search-icon");
+    searchIcon.setAttribute("aria-hidden", "true");
+    searchIcon.setAttribute("focusable", "false");
+    var searchUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    searchUse.setAttribute("href", "/site-icons.svg#search");
+    searchIcon.appendChild(searchUse);
+    wrapper.appendChild(searchIcon);
+
     var input = document.createElement("input");
     input.type = "search";
     input.className = "site-search-input";
-    input.placeholder = "Search docs…";
+    input.placeholder = "Search documentation";
     input.setAttribute("aria-label", "Search documentation");
     input.setAttribute("autocomplete", "off");
 
@@ -484,7 +499,7 @@
       terms.forEach(function(t) {
         if (!t) return;
         out = out.replace(new RegExp("(" + t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")", "gi"),
-          '<mark style="background:var(--brand-primary);color:#000;border-radius:2px;padding:0 2px">$1</mark>');
+          '<mark class="search-highlight">$1</mark>');
       });
       return out;
     }

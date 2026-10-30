@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Break & Continue — KelpyShark Tutorial</title>
-  <link rel="icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../site.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/site.css">
 </head>
 <body>
   <header class="site-header">
-    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
-    <a class="site-logo" href="/"><span class="shark"></span> KelpyShark</a>
+    <button class="sidebar-toggle" aria-label="Toggle sidebar"><svg class="icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#menu"></use></svg></button>
+    <a class="site-logo" href="/"><svg class="brand-mark" aria-hidden="true" focusable="false"><use href="/site-icons.svg#shark"></use></svg> KelpyShark</a>
     <nav class="site-nav">
       <a href="introduction" data-section="tutorial">Tutorial</a>
       <a href="../reference/keywords" data-section="reference">Reference</a>
@@ -104,7 +104,7 @@ Found negative — stopping!</pre>
         </div>
 
         <div class="callout callout-note">
-          <strong>📝 Note</strong>
+          <strong><svg class="callout-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#note"></use></svg><span>Note</span></strong>
           <p><code>break</code> and <code>continue</code> only affect the <em>innermost</em> loop. In nested loops, they do not affect outer loops.</p>
         </div>
 
@@ -131,7 +131,7 @@ Found negative — stopping!</pre>
       </div>
     </main>
   </div>
-  <script src="../site.js"></script>
+  <script src="/site.js"></script>
   <script>KSDoc.init("tutorial", "break-continue");</script>
 </body>
 </html>

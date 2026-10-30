@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Introduction — KelpyShark Tutorial</title>
-  <link rel="icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../site.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/site.css">
 </head>
 <body>
 
   <header class="site-header">
-    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
-    <a class="site-logo" href="/"><span class="shark"></span> KelpyShark</a>
+    <button class="sidebar-toggle" aria-label="Toggle sidebar"><svg class="icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#menu"></use></svg></button>
+    <a class="site-logo" href="/"><svg class="brand-mark" aria-hidden="true" focusable="false"><use href="/site-icons.svg#shark"></use></svg> KelpyShark</a>
     <nav class="site-nav">
       <a href="introduction" data-section="tutorial">Tutorial</a>
       <a href="../reference/keywords" data-section="reference">Reference</a>
@@ -65,12 +65,12 @@
 
         <h2>Why KelpyShark?</h2>
         <div class="two-col">
-          <div class="callout callout-tip">
-            <strong>🟢 Easy to learn</strong>
+          <div class="callout callout-good">
+            <strong><svg class="callout-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#check"></use></svg><span>Easy to learn</span></strong>
             <p>The syntax is intentionally minimal. If you've never programmed before, KelpyShark is a great first language.</p>
           </div>
           <div class="callout callout-note">
-            <strong>🔵 Batteries included</strong>
+            <strong><svg class="callout-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#layers"></use></svg><span>Batteries included</span></strong>
             <p>Import the registered <code>math</code>, <code>strings</code>, <code>io</code>, <code>json</code>, <code>sys</code>, and <code>http</code> modules.</p>
           </div>
         </div>
@@ -126,7 +126,7 @@ Count: 3</pre>
         </p>
 
         <div class="callout callout-tip">
-          <strong>💡 Tip</strong>
+          <strong><svg class="callout-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#lightbulb"></use></svg><span>Tip</span></strong>
           <p>Follow the sidebar from top to bottom if this is your first programming language. If you already know the basics, choose a topic and use the reference pages for exact syntax.</p>
         </div>
 
@@ -159,7 +159,7 @@ Count: 3</pre>
     </main>
   </div>
 
-  <script src="../site.js"></script>
+  <script src="/site.js"></script>
   <script>KSDoc.init("tutorial", "introduction");</script>
 </body>
 </html>

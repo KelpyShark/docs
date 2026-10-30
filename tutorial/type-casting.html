@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Type Casting — KelpyShark Tutorial</title>
-  <link rel="icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../site.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/site.css">
 </head>
 <body>
   <header class="site-header">
-    <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
-    <a class="site-logo" href="/"><span class="shark"></span> KelpyShark</a>
+    <button class="sidebar-toggle" aria-label="Toggle sidebar"><svg class="icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#menu"></use></svg></button>
+    <a class="site-logo" href="/"><svg class="brand-mark" aria-hidden="true" focusable="false"><use href="/site-icons.svg#shark"></use></svg> KelpyShark</a>
     <nav class="site-nav">
       <a href="introduction" data-section="tutorial">Tutorial</a>
       <a href="../reference/keywords" data-section="reference">Reference</a>
@@ -80,7 +80,7 @@ print(pi * 2)        # 6.28</code></pre>
         </div>
 
         <div class="callout callout-warn">
-          <strong>⚠️ Caution</strong>
+          <strong><svg class="callout-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#warning"></use></svg><span>Caution</span></strong>
           <p>If you pass a non-numeric string to <code>num()</code>, it will throw a runtime error. Make sure the string actually contains a valid number.</p>
         </div>
 
@@ -102,7 +102,7 @@ print("{$n} items")        # "10 items"</code></pre>
         </div>
 
         <div class="callout callout-tip">
-          <strong>💡 Tip</strong>
+          <strong><svg class="callout-icon" aria-hidden="true" focusable="false"><use href="/site-icons.svg#lightbulb"></use></svg><span>Tip</span></strong>
           <p>String interpolation (<code>"{$variable}"</code>) is usually cleaner than calling <code>str()</code> manually. Learn more on the <a href="string-formatting">String Formatting</a> page.</p>
         </div>
 
@@ -129,7 +129,7 @@ print("{$n} items")        # "10 items"</code></pre>
       </div>
     </main>
   </div>
-  <script src="../site.js"></script>
+  <script src="/site.js"></script>
   <script>KSDoc.init("tutorial", "type-casting");</script>
 </body>
 </html>

@@ -806,7 +806,7 @@
   {
     "title": "Using break and continue together",
     "section": "Break & Continue",
-    "snippet": "combined.ks items = [3, 7, -1, 12, 5, -8, 9] for item in items { if item Output 3 12 Found negative — stopping! 📝 Note break and continue only affect the innermost loop. In nested loops, they do not affect outer loops. What you learned break immediately exits the loop continue skips the rest of the current iteration Both work in for and while loops They only affect the innermost loop in nested structures",
+    "snippet": "combined.ks items = [3, 7, -1, 12, 5, -8, 9] for item in items { if item Output 3 12 Found negative — stopping! Note break and continue only affect the innermost loop. In nested loops, they do not affect outer loops. What you learned break immediately exits the loop continue skips the rest of the current iteration Both work in for and while loops They only affect the innermost loop in nested structures",
     "href": "tutorial/break-continue.html#using-break-and-continue-together"
   },
   {
@@ -836,7 +836,7 @@
   {
     "title": "Key concepts",
     "section": "Introduction to Classes",
-    "snippet": "class — keyword to define a new class def __init__(self, ...) — the constructor , called when creating an instance self — refers to the current object instance self.name = ... — stores an attribute on the object new ClassName(...) — creates a new instance of the class object.method() — calls a method on an object 📝 Note In KelpyShark, new creates an instance ( new Dog(\"Rex\", \"Lab\") ); the constructor method is named",
+    "snippet": "class — keyword to define a new class def __init__(self, ...) — the constructor , called when creating an instance self — refers to the current object instance self.name = ... — stores an attribute on the object new ClassName(...) — creates a new instance of the class object.method() — calls a method on an object Note In KelpyShark, new creates an instance ( new Dog(\"Rex\", \"Lab\") ); the constructor method is named __",
     "href": "tutorial/classes-intro.html#key-concepts"
   },
   {
@@ -872,7 +872,7 @@
   {
     "title": "Commenting out code",
     "section": "Comments",
-    "snippet": "You can temporarily disable code by putting a # in front of it. This is called \"commenting out\": debug.ks x = 10 # print(\"debug: x =\", x) # disabled for now print(\"x is\", x) 💡 Good practice Write comments that explain why you did something, not just what the code does. The code already shows what — good comments add context. What you learned Use # to write a comment Everything after # on that line is ignored Stack m",
+    "snippet": "You can temporarily disable code by putting a # in front of it. This is called \"commenting out\": debug.ks x = 10 # print(\"debug: x =\", x) # disabled for now print(\"x is\", x) Good practice Write comments that explain why you did something, not just what the code does. The code already shows what — good comments add context. What you learned Use # to write a comment Everything after # on that line is ignored Stack mult",
     "href": "tutorial/comments.html#commenting-out-code"
   },
   {
@@ -908,7 +908,7 @@
   {
     "title": "Constructor validation",
     "section": "Constructors",
-    "snippet": "Constructors are a great place to validate input: validate.ks class Temperature { def __init__(self, celsius) { if celsius 💡 Tip If your class needs no initialization, you can omit the constructor entirely and KelpyShark will still let you create instances with new ClassName() . What you learned The constructor is def __init__(self, ...) { } It runs automatically when you write new ClassName(...) Use it to initializ",
+    "snippet": "Constructors are a great place to validate input: validate.ks class Temperature { def __init__(self, celsius) { if celsius Tip If your class needs no initialization, you can omit the constructor entirely and KelpyShark will still let you create instances with new ClassName() . What you learned The constructor is def __init__(self, ...) { } It runs automatically when you write new ClassName(...) Use it to initialize a",
     "href": "tutorial/constructors.html#constructor-validation"
   },
   {
@@ -1100,7 +1100,7 @@
   {
     "title": "FizzBuzz example",
     "section": "For Loops",
-    "snippet": "fizzbuzz.ks for i in range(1, 21) { if i % 15 == 0 { print(\"FizzBuzz\") } elif i % 3 == 0 { print(\"Fizz\") } elif i % 5 == 0 { print(\"Buzz\") } else { print(i) } } 💡 Tip Use for when you know the sequence you're iterating over. Use while when you need to loop until an unknown condition is met. What you learned for x in sequence { } iterates over any sequence range(start, end) creates a number sequence (end is exclusive",
+    "snippet": "fizzbuzz.ks for i in range(1, 21) { if i % 15 == 0 { print(\"FizzBuzz\") } elif i % 3 == 0 { print(\"Fizz\") } elif i % 5 == 0 { print(\"Buzz\") } else { print(i) } } Tip Use for when you know the sequence you're iterating over. Use while when you need to loop until an unknown condition is met. What you learned for x in sequence { } iterates over any sequence range(start, end) creates a number sequence (end is exclusive); ",
     "href": "tutorial/for-loops.html#fizzbuzz-example"
   },
   {
@@ -1184,7 +1184,7 @@
   {
     "title": "How to run a KelpyShark file",
     "section": "Hello, World!",
-    "snippet": "Save your code in a file with the .ks extension, then run it with: Terminal kelpyshark run hello.ks 📝 Note KelpyShark executes your file from top to bottom, line by line. There is no special entry point like main() needed for scripts. What you learned print() outputs values to the console KelpyShark programs are just .ks text files Run files with kelpyshark run filename.ks No boilerplate is needed — code starts at t",
+    "snippet": "Save your code in a file with the .ks extension, then run it with: Terminal kelpyshark run hello.ks Note KelpyShark executes your file from top to bottom, line by line. There is no special entry point like main() needed for scripts. What you learned print() outputs values to the console KelpyShark programs are just .ks text files Run files with kelpyshark run filename.ks No boilerplate is needed — code starts at the ",
     "href": "tutorial/hello-world.html#how-to-run-a-kelpyshark-file"
   },
   {
@@ -1220,7 +1220,7 @@
   {
     "title": "Elif — multiple conditions",
     "section": "If / Elif / Else",
-    "snippet": "Use elif (short for \"else if\") to check multiple conditions in sequence: elif.ks score = 75 if score >= 90 { print(\"Grade: A\") } elif score >= 80 { print(\"Grade: B\") } elif score >= 70 { print(\"Grade: C\") } elif score >= 60 { print(\"Grade: D\") } else { print(\"Grade: F\") } Output Grade: C 📝 Note Only the first matching branch runs. Once KelpyShark finds a true condition, it skips all remaining elif and else branches.",
+    "snippet": "Use elif (short for \"else if\") to check multiple conditions in sequence: elif.ks score = 75 if score >= 90 { print(\"Grade: A\") } elif score >= 80 { print(\"Grade: B\") } elif score >= 70 { print(\"Grade: C\") } elif score >= 60 { print(\"Grade: D\") } else { print(\"Grade: F\") } Output Grade: C Note Only the first matching branch runs. Once KelpyShark finds a true condition, it skips all remaining elif and else branches.",
     "href": "tutorial/if-else.html#elif-multiple-conditions"
   },
   {
@@ -1328,7 +1328,7 @@
   {
     "title": "Why KelpyShark?",
     "section": "Introduction to KelpyShark",
-    "snippet": "🟢 Easy to learn The syntax is intentionally minimal. If you've never programmed before, KelpyShark is a great first language. 🔵 Batteries included Import the registered math , strings , io , json , sys , and http modules.",
+    "snippet": "Easy to learn The syntax is intentionally minimal. If you've never programmed before, KelpyShark is a great first language. Batteries included Import the registered math , strings , io , json , sys , and http modules.",
     "href": "tutorial/introduction.html#why-kelpyshark"
   },
   {
@@ -1340,7 +1340,7 @@
   {
     "title": "How to use this tutorial",
     "section": "Introduction to KelpyShark",
-    "snippet": "Each lesson introduces one idea, shows a KelpyShark example, and explains what the program prints. At the end, try the practice prompts in your own .ks file. Run your file with kelpyshark run filename.ks . 💡 Tip Follow the sidebar from top to bottom if this is your first programming language. If you already know the basics, choose a topic and use the reference pages for exact syntax. In this tutorial you will learn ",
+    "snippet": "Each lesson introduces one idea, shows a KelpyShark example, and explains what the program prints. At the end, try the practice prompts in your own .ks file. Run your file with kelpyshark run filename.ks . Tip Follow the sidebar from top to bottom if this is your first programming language. If you already know the basics, choose a topic and use the reference pages for exact syntax. In this tutorial you will learn Var",
     "href": "tutorial/introduction.html#how-to-use-this-tutorial"
   },
   {
@@ -1574,7 +1574,7 @@
   {
     "title": "Updating an outer variable",
     "section": "Scope",
-    "snippet": "When an outer variable already exists, assignment inside a function updates it. Use a distinct name for a local value: shadow.ks value = \"global\" def test() { value = value + \" updated\" local_value = \"local\" print(local_value) } test() print(value) # global updated Output local global updated 💡 Best practice Minimize your use of global variables. Pass data into functions as parameters and get results back via return",
+    "snippet": "When an outer variable already exists, assignment inside a function updates it. Use a distinct name for a local value: shadow.ks value = \"global\" def test() { value = value + \" updated\" local_value = \"local\" print(local_value) } test() print(value) # global updated Output local global updated Best practice Minimize your use of global variables. Pass data into functions as parameters and get results back via return . ",
     "href": "tutorial/scope.html#updating-an-outer-variable"
   },
   {
@@ -1628,7 +1628,7 @@
   {
     "title": "Choose an editor",
     "section": "Installation & Setup",
-    "snippet": "Any text editor can create a KelpyShark program. Save the file with a .ks extension. Editor support is optional; the CLI runs the file directly. 💡 Tip KelpyShark files use the .ks extension. What you learned Install the standalone KelpyShark CLI for your operating system Check the installed command with kelpyshark --version Run a source file with kelpyshark run hello.ks",
+    "snippet": "Any text editor can create a KelpyShark program. Save the file with a .ks extension. Editor support is optional; the CLI runs the file directly. Tip KelpyShark files use the .ks extension. What you learned Install the standalone KelpyShark CLI for your operating system Check the installed command with kelpyshark --version Run a source file with kelpyshark run hello.ks",
     "href": "tutorial/setup.html#choose-an-editor"
   },
   {
@@ -1718,7 +1718,7 @@
   {
     "title": "Interpolation in function calls",
     "section": "String Formatting",
-    "snippet": "greet.ks def welcome(user, score) { print(\"Welcome, {$user}! Your score is {$score}/100.\") } welcome(\"Bob\", 87) Output Welcome, Bob! Your score is 87/100. 💡 Best practice Prefer \"{$variable}\" interpolation over string concatenation with + . It's shorter, more readable, and handles automatic type conversion. What you learned Use {$varName} inside a string to embed a variable's value Any expression works inside {$ } I",
+    "snippet": "greet.ks def welcome(user, score) { print(\"Welcome, {$user}! Your score is {$score}/100.\") } welcome(\"Bob\", 87) Output Welcome, Bob! Your score is 87/100. Best practice Prefer \"{$variable}\" interpolation over string concatenation with + . It's shorter, more readable, and handles automatic type conversion. What you learned Use {$varName} inside a string to embed a variable's value Any expression works inside {$ } Inte",
     "href": "tutorial/string-formatting.html#interpolation-in-function-calls"
   },
   {
@@ -1838,7 +1838,7 @@
   {
     "title": "Looping over a string",
     "section": "Strings",
-    "snippet": "A for loop visits each character one at a time: loop.ks for ch in \"hi!\" { print(ch) } Output h i ! 📝 Note KelpyShark strings are immutable — once created, individual characters cannot be changed. To modify a string, create a new one. What you learned Strings use double quotes Escape sequences: \\n , \\t , \\\\ , \\\" + concatenates strings len(s) returns the string length s[i] accesses a character and supports negative in",
+    "snippet": "A for loop visits each character one at a time: loop.ks for ch in \"hi!\" { print(ch) } Output h i ! Note KelpyShark strings are immutable — once created, individual characters cannot be changed. To modify a string, create a new one. What you learned Strings use double quotes Escape sequences: \\n , \\t , \\\\ , \\\" + concatenates strings len(s) returns the string length s[i] accesses a character and supports negative indic",
     "href": "tutorial/strings.html#looping-over-a-string"
   },
   {
@@ -1880,7 +1880,7 @@
   {
     "title": "Identifiers",
     "section": "Syntax Overview",
-    "snippet": "Variable names, function names, and class names are called identifiers . They must: Start with a letter ( a–z , A–Z ) or an underscore ( _ ) Contain only letters, digits ( 0–9 ), or underscores Not be a reserved keyword identifiers.ks myVariable = 10 # ✓ valid _private = true # ✓ valid user2 = \"Bob\" # ✓ valid # 2user = 0 # ✗ cannot start with digit # my-var = 0 # ✗ hyphens not allowed",
+    "snippet": "Variable names, function names, and class names are called identifiers . They must: Start with a letter ( a–z , A–Z ) or an underscore ( _ ) Contain only letters, digits ( 0–9 ), or underscores Not be a reserved keyword identifiers.ks myVariable = 10 # valid identifier _private = true # valid identifier user2 = \"Bob\" # valid identifier # 2user = 0 # invalid: cannot start with a digit # my-var = 0 # invalid: hyphens a",
     "href": "tutorial/syntax.html#identifiers"
   },
   {
@@ -1892,7 +1892,7 @@
   {
     "title": "Whitespace",
     "section": "Syntax Overview",
-    "snippet": "Spaces between tokens and blank lines are ignored. Newlines separate statements; indentation does not determine block boundaries. 💡 Convention KelpyShark code conventionally uses 4-space indentation inside blocks, and snake_case for variable and function names. What you learned Statements are written one per line — no semicolons Blocks use braces or a colon followed by end KelpyShark is case-sensitive Identifiers st",
+    "snippet": "Spaces between tokens and blank lines are ignored. Newlines separate statements; indentation does not determine block boundaries. Convention KelpyShark code conventionally uses 4-space indentation inside blocks, and snake_case for variable and function names. What you learned Statements are written one per line — no semicolons Blocks use braces or a colon followed by end KelpyShark is case-sensitive Identifiers start",
     "href": "tutorial/syntax.html#whitespace"
   },
   {
@@ -1958,13 +1958,13 @@
   {
     "title": "Converting to a number: num()",
     "section": "Type Casting",
-    "snippet": "Use num() to parse a string as a number: tonum.ks text = \"42\" number = num(text) print(number + 8) # 50 pi = num(\"3.14\") print(pi * 2) # 6.28 Output 50 6.28 ⚠️ Caution If you pass a non-numeric string to num() , it will throw a runtime error. Make sure the string actually contains a valid number.",
+    "snippet": "Use num() to parse a string as a number: tonum.ks text = \"42\" number = num(text) print(number + 8) # 50 pi = num(\"3.14\") print(pi * 2) # 6.28 Output 50 6.28 Caution If you pass a non-numeric string to num() , it will throw a runtime error. Make sure the string actually contains a valid number.",
     "href": "tutorial/type-casting.html#converting-to-a-number-num"
   },
   {
     "title": "Implicit conversion",
     "section": "Type Casting",
-    "snippet": "KelpyShark does not implicitly convert types for you. You must be explicit: explicit.ks n = 10 # This will error — cannot add number + string: # print(n + \" items\") # This works — explicitly convert: print(str(n) + \" items\") # \"10 items\" # Or use string interpolation (easiest!): print(\"{$n} items\") # \"10 items\" 💡 Tip String interpolation ( \"{$variable}\" ) is usually cleaner than calling str() manually. Learn more on",
+    "snippet": "KelpyShark does not implicitly convert types for you. You must be explicit: explicit.ks n = 10 # This will error — cannot add number + string: # print(n + \" items\") # This works — explicitly convert: print(str(n) + \" items\") # \"10 items\" # Or use string interpolation (easiest!): print(\"{$n} items\") # \"10 items\" Tip String interpolation ( \"{$variable}\" ) is usually cleaner than calling str() manually. Learn more on th",
     "href": "tutorial/type-casting.html#implicit-conversion"
   },
   {
@@ -2006,7 +2006,7 @@
   {
     "title": "Naming conventions",
     "section": "Variables",
-    "snippet": "KelpyShark conventionally uses snake_case for variable names: naming.ks first_name = \"Alice\" last_name = \"Smith\" full_name = first_name + \" \" + last_name print(full_name) # Alice Smith ⚠️ Caution Using a variable before assigning it will cause a runtime error. Always assign a value before reading it. What you learned Use name = value to create or update a variable Variable names use snake_case by convention Variables",
+    "snippet": "KelpyShark conventionally uses snake_case for variable names: naming.ks first_name = \"Alice\" last_name = \"Smith\" full_name = first_name + \" \" + last_name print(full_name) # Alice Smith Caution Using a variable before assigning it will cause a runtime error. Always assign a value before reading it. What you learned Use name = value to create or update a variable Variable names use snake_case by convention Variables ca",
     "href": "tutorial/variables.html#naming-conventions"
   },
   {
@@ -2042,7 +2042,7 @@
   {
     "title": "Loops with break",
     "section": "While Loops",
-    "snippet": "Use break to exit a loop early: break.ks i = 0 while true { if i == 5 { break } print(i) i += 1 } Output 0 1 2 3 4 ⚠️ Infinite loops If the condition never becomes false and you don't use break , the loop will run forever. Always make sure your loop has a way to end.",
+    "snippet": "Use break to exit a loop early: break.ks i = 0 while true { if i == 5 { break } print(i) i += 1 } Output 0 1 2 3 4 Infinite loops If the condition never becomes false and you don't use break , the loop will run forever. Always make sure your loop has a way to end.",
     "href": "tutorial/while-loops.html#loops-with-break"
   },
   {
