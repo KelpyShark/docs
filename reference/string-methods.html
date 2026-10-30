@@ -49,15 +49,15 @@
             <tr><td><code>.lower()</code></td><td>string</td><td>Lowercase version</td></tr>
             <tr><td><code>.trim()</code></td><td>string</td><td>Removes leading and trailing whitespace</td></tr>
             <tr><td><code>.length()</code></td><td>number</td><td>Number of characters (same as <code>len()</code>)</td></tr>
+            <tr><td><code>.reverse()</code></td><td>string</td><td>Characters in reverse order</td></tr>
             <tr><td><code>.contains(sub)</code></td><td>boolean</td><td>True if <code>sub</code> appears in the string</td></tr>
             <tr><td><code>.starts_with(prefix)</code></td><td>boolean</td><td>True if string begins with <code>prefix</code></td></tr>
             <tr><td><code>.ends_with(suffix)</code></td><td>boolean</td><td>True if string ends with <code>suffix</code></td></tr>
             <tr><td><code>.replace(old, new)</code></td><td>string</td><td>Replaces all occurrences of <code>old</code> with <code>new</code></td></tr>
             <tr><td><code>.split(sep)</code></td><td>list</td><td>Splits on <code>sep</code>; returns list of substrings</td></tr>
-            <tr><td><code>.index_of(sub)</code></td><td>number</td><td>Index of first occurrence, or <code>-1</code> if not found</td></tr>
-            <tr><td><code>.slice(start, end)</code></td><td>string</td><td>Substring from <code>start</code> (inclusive) to <code>end</code> (exclusive)</td></tr>
-            <tr><td><code>.repeat(n)</code></td><td>string</td><td>String repeated <code>n</code> times</td></tr>
-            <tr><td><code>.reverse()</code></td><td>string</td><td>Characters in reverse order</td></tr>
+            <tr><td><code>.char_at(index)</code></td><td>string</td><td>Character at a zero-based index</td></tr>
+            <tr><td><code>.substring(start, end)</code></td><td>string</td><td>Characters from <code>start</code> to exclusive <code>end</code></td></tr>
+            <tr><td><code>.to_num()</code> / <code>.to_number()</code></td><td>number</td><td>Parse the string as a number</td></tr>
           </tbody>
         </table>
 
@@ -65,7 +65,7 @@
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;string-methods.ks</div>
-          <pre><code class="language-ks">let s = "  Hello, World!  "
+          <pre><code class="language-ks"> s = "  Hello, World!  "
 
 print(s.trim())                    # Hello, World!
 print(s.trim().upper())            # HELLO, WORLD!
@@ -76,14 +76,13 @@ print(s.trim().starts_with("He")) # true
 print(s.trim().ends_with("!"))    # true
 print(s.trim().replace("World", "KelpyShark"))  # Hello, KelpyShark!
 
-let csv = "apple,banana,cherry"
+ csv = "apple,banana,cherry"
 print(csv.split(","))              # ["apple", "banana", "cherry"]
 
-let word = "abcdef"
-print(word.slice(2, 5))           # cde
-print(word.index_of("cd"))        # 2
+ word = "abcdef"
+print(word.substring(2, 5))       # cde
 print(word.reverse())             # fedcba
-print("ha".repeat(3))             # hahaha</code></pre>
+print("42".to_num())              # 42</code></pre>
         </div>
 
         <div class="callout note">

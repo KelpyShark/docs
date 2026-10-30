@@ -36,30 +36,31 @@
 
         <div class="page-header">
           <h1>Introduction to KelpyShark</h1>
-          <p>A friendly overview of what KelpyShark is and why you might want to use it.</p>
+          <p>Learn how the tutorial works and what you will build as you go.</p>
         </div>
 
         <h2>What is KelpyShark?</h2>
         <p>
-          KelpyShark is a modern, dynamically-typed programming language designed to be
-          simple to learn, pleasant to write, and powerful enough for real projects.
-          It has a clean Python-inspired syntax, first-class functions, object-oriented
-          features, a built-in standard library, and an integrated package manager.
+          KelpyShark is a dynamically typed programming language with a small set of
+          readable building blocks: values, functions, conditions, loops, lists,
+          dictionaries, and classes. You can run a <code>.ks</code> program directly
+          with its interpreter.
         </p>
 
         <p>
-          KelpyShark programs can be <strong>interpreted</strong> directly, or
-          <strong>compiled</strong> to Python, JavaScript, Java, or C# — letting you
-          use KelpyShark as a cross-platform scripting and prototyping language.
+          The <code>build</code> command can also generate C, JavaScript, Java, or C#
+          source for supported parts of the language. Generated source is not an
+          executable, and each target supports a different subset. The interpreter
+          is the recommended way to run the examples in this tutorial.
         </p>
 
         <h2>What can KelpyShark do?</h2>
         <ul>
           <li>Automate repetitive tasks and write scripts</li>
           <li>Build command-line tools and utilities</li>
-          <li>Work with files, JSON, and HTTP APIs</li>
+          <li>Work with files, JSON, and HTTP APIs through standard-library modules</li>
           <li>Model real-world data with classes and objects</li>
-          <li>Share reusable code as packages</li>
+          <li>Use the command-line tool to create projects and manage packages</li>
         </ul>
 
         <h2>Why KelpyShark?</h2>
@@ -70,7 +71,7 @@
           </div>
           <div class="callout callout-note">
             <strong>🔵 Batteries included</strong>
-            <p>Math, string manipulation, file I/O, HTTP requests, and JSON parsing are all built in — no setup required.</p>
+            <p>Import the registered <code>math</code>, <code>strings</code>, <code>io</code>, <code>json</code>, <code>sys</code>, and <code>http</code> modules.</p>
           </div>
         </div>
 
@@ -86,19 +87,19 @@ def greet(name) {
 }
 
 class Animal {
-    def new(name, sound) {
+    def __init__(self, name, sound) {
         self.name = name
         self.sound = sound
     }
 
-    def speak() {
+    def speak(self) {
         print("{$self.name} says {$self.sound}!")
     }
 }
 
 greet("World")
 
-let dog = new Animal("Rex", "woof")
+ dog = new Animal("Rex", "woof")
 dog.speak()
 
 for i in range(1, 4) {
@@ -119,14 +120,14 @@ Count: 3</pre>
 
         <h2>How to use this tutorial</h2>
         <p>
-          The tutorial is ordered from the simplest concepts to the more advanced ones.
-          Work through the pages in order if you're new, or jump to a specific topic
-          using the sidebar on the left.
+          Each lesson introduces one idea, shows a KelpyShark example, and explains
+          what the program prints. At the end, try the practice prompts in your own
+          <code>.ks</code> file. Run your file with <code>kelpyshark run filename.ks</code>.
         </p>
 
         <div class="callout callout-tip">
           <strong>💡 Tip</strong>
-          <p>You can use the <strong>arrow keys</strong> (← →) to navigate between pages once you've started the tutorial.</p>
+          <p>Follow the sidebar from top to bottom if this is your first programming language. If you already know the basics, choose a topic and use the reference pages for exact syntax.</p>
         </div>
 
         <div class="summary-box">
@@ -141,6 +142,15 @@ Count: 3</pre>
             <li>Error handling with try/catch</li>
             <li>Importing modules and using the standard library</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Create a file named <code>practice.ks</code>.</li>
+            <li>Print your name, then add a second line that prints one thing you want to learn.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

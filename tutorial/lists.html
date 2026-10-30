@@ -42,10 +42,10 @@
         <h2>Creating a list</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;lists.ks</div>
-          <pre><code class="language-ks">let numbers  = [1, 2, 3, 4, 5]
-let fruits   = ["apple", "banana", "cherry"]
-let mixed    = [1, "two", true, null]
-let empty    = []
+          <pre><code class="language-ks"> numbers  = [1, 2, 3, 4, 5]
+ fruits   = ["apple", "banana", "cherry"]
+ mixed    = [1, "two", true, null]
+ empty    = []
 
 print(numbers)
 print(fruits)</code></pre>
@@ -61,7 +61,7 @@ print(fruits)</code></pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;index.ks</div>
-          <pre><code class="language-ks">let fruits = ["apple", "banana", "cherry"]
+          <pre><code class="language-ks"> fruits = ["apple", "banana", "cherry"]
 
 print(fruits[0])   # apple
 print(fruits[1])   # banana
@@ -75,7 +75,7 @@ print(fruits[-2])  # banana</code></pre>
         <h2>Modifying elements</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;modify.ks</div>
-          <pre><code class="language-ks">let scores = [10, 20, 30]
+          <pre><code class="language-ks"> scores = [10, 20, 30]
 scores[1] = 99
 print(scores)   # [10, 99, 30]</code></pre>
         </div>
@@ -83,7 +83,7 @@ print(scores)   # [10, 99, 30]</code></pre>
         <h2>Adding elements: push()</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;push.ks</div>
-          <pre><code class="language-ks">let items = ["a", "b"]
+          <pre><code class="language-ks"> items = ["a", "b"]
 push(items, "c")
 push(items, "d")
 print(items)   # ["a", "b", "c", "d"]</code></pre>
@@ -92,8 +92,8 @@ print(items)   # ["a", "b", "c", "d"]</code></pre>
         <h2>Removing the last element: pop()</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;pop.ks</div>
-          <pre><code class="language-ks">let items = ["a", "b", "c"]
-let last  = pop(items)
+          <pre><code class="language-ks"> items = ["a", "b", "c"]
+ last  = items.pop()
 print(last)    # c
 print(items)   # ["a", "b"]</code></pre>
         </div>
@@ -101,14 +101,14 @@ print(items)   # ["a", "b"]</code></pre>
         <h2>List length</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;len.ks</div>
-          <pre><code class="language-ks">let fruits = ["apple", "banana", "cherry"]
+          <pre><code class="language-ks"> fruits = ["apple", "banana", "cherry"]
 print(len(fruits))   # 3</code></pre>
         </div>
 
         <h2>Iterating over a list</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;iterate.ks</div>
-          <pre><code class="language-ks">let numbers = [10, 20, 30, 40, 50]
+          <pre><code class="language-ks"> numbers = [10, 20, 30, 40, 50]
 
 for n in numbers {
     print(n * 2)
@@ -123,25 +123,15 @@ for n in numbers {
 100</pre>
         </div>
 
-        <h2>Slicing</h2>
-        <p>Extract a portion of a list with <code>[start:end]</code>:</p>
+        <h2>List methods</h2>
+        <p>Lists provide methods for searching and changing their contents:</p>
 
         <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;slice.ks</div>
-          <pre><code class="language-ks">let nums = [0, 1, 2, 3, 4, 5]
-print(nums[1:4])   # [1, 2, 3]
-print(nums[3:])    # [3, 4, 5]
-print(nums[:3])    # [0, 1, 2]</code></pre>
-        </div>
-
-        <h2>Checking membership</h2>
-        <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;in.ks</div>
-          <pre><code class="language-ks">let fruits = ["apple", "banana", "cherry"]
-
-if "banana" in fruits {
-    print("banana is in the list!")
-}</code></pre>
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;methods.ks</div>
+          <pre><code class="language-ks">items = ["a", "b", "c"]
+print(items.contains("b"))  # true
+items.reverse()              # changes items in place
+print(items)                  # ["c", "b", "a"]</code></pre>
         </div>
 
         <div class="summary-box">
@@ -150,11 +140,20 @@ if "banana" in fruits {
             <li>Create lists with <code>[item1, item2, ...]</code></li>
             <li>Access elements with <code>list[index]</code> (0-based)</li>
             <li>Negative indices count from the end: <code>list[-1]</code></li>
-            <li><code>push(list, item)</code> adds to the end; <code>pop(list)</code> removes from the end</li>
+            <li><code>push(list, item)</code> or <code>list.append(item)</code> adds to the end; <code>list.pop()</code> removes and returns the last item</li>
             <li><code>len(list)</code> returns the number of elements</li>
             <li>Use <code>for x in list</code> to iterate</li>
-            <li>Use <code>item in list</code> to check membership</li>
+            <li>Use <code>list.contains(item)</code> to check membership</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Create a list of three foods and print the item at index 1.</li>
+            <li>Add one item with <code>push</code>, then print the list length.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

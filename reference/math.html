@@ -45,7 +45,6 @@
           <tbody>
             <tr><td><code>math.pi</code></td><td><code>3.141592653589793</code></td><td>Pi — ratio of circle circumference to diameter</td></tr>
             <tr><td><code>math.e</code></td><td><code>2.718281828459045</code></td><td>Euler's number — base of natural logarithm</td></tr>
-            <tr><td><code>math.inf</code></td><td>∞</td><td>Positive infinity</td></tr>
           </tbody>
         </table>
 
@@ -58,16 +57,9 @@
             <tr><td><code>math.abs(n)</code></td><td>number</td><td>Absolute value of <code>n</code></td></tr>
             <tr><td><code>math.floor(n)</code></td><td>number</td><td>Largest integer ≤ <code>n</code></td></tr>
             <tr><td><code>math.ceil(n)</code></td><td>number</td><td>Smallest integer ≥ <code>n</code></td></tr>
-            <tr><td><code>math.round(n)</code></td><td>number</td><td>Nearest integer (ties round up)</td></tr>
+            <tr><td><code>math.round(n)</code></td><td>number</td><td>Nearest integer; half values round away from zero.</td></tr>
             <tr><td><code>math.min(a, b)</code></td><td>number</td><td>Smaller of <code>a</code> and <code>b</code></td></tr>
             <tr><td><code>math.max(a, b)</code></td><td>number</td><td>Larger of <code>a</code> and <code>b</code></td></tr>
-            <tr><td><code>math.log(n)</code></td><td>number</td><td>Natural logarithm of <code>n</code></td></tr>
-            <tr><td><code>math.log10(n)</code></td><td>number</td><td>Base-10 logarithm of <code>n</code></td></tr>
-            <tr><td><code>math.sin(n)</code></td><td>number</td><td>Sine of <code>n</code> (radians)</td></tr>
-            <tr><td><code>math.cos(n)</code></td><td>number</td><td>Cosine of <code>n</code> (radians)</td></tr>
-            <tr><td><code>math.tan(n)</code></td><td>number</td><td>Tangent of <code>n</code> (radians)</td></tr>
-            <tr><td><code>math.random()</code></td><td>number</td><td>Random float in [0, 1)</td></tr>
-            <tr><td><code>math.random_int(lo, hi)</code></td><td>number</td><td>Random integer in [lo, hi] inclusive</td></tr>
           </tbody>
         </table>
 
@@ -96,9 +88,7 @@ def clamp(val, lo, hi) {
 print(clamp(15, 0, 10))        # 10
 print(clamp(-3, 0, 10))        # 0
 
-# Random dice roll
-let roll = math.random_int(1, 6)
-print("Rolled: {$roll}")</code></pre>
+print(math.round(-2.5))        # -3</code></pre>
         </div>
 
         <div class="page-nav"></div>

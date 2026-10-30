@@ -35,139 +35,53 @@
         </div>
 
         <p>
-          <strong>Inheritance</strong> lets a class <em>extend</em> another class, inheriting
-          all its attributes and methods while adding or overriding behaviour.
+          Inheritance and <code>super</code> are not implemented in the current
+          language. Class declarations contain methods but cannot name a parent
+          class. Use composition: store another object in a field and call its methods.
         </p>
 
-        <h2>Extending a class</h2>
-        <p>Use <code>class Child(Parent)</code> syntax:</p>
-
+        <h2>Composition example</h2>
         <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;inherit.ks</div>
-          <pre><code class="language-ks">class Animal {
-    def new(name) {
-        self.name = name
-    }
-
-    def speak() {
-        print("{$self.name} makes a sound.")
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;composition.ks</div>
+          <pre><code class="language-ks">class Engine {
+    def start(self) {
+        print("Engine started")
     }
 }
 
-class Dog(Animal) {
-    def fetch(item) {
-        print("{$self.name} fetches the {$item}!")
+class Car {
+    def __init__(self, engine) {
+        self.engine = engine
+    }
+
+    def start(self) {
+        self.engine.start()
     }
 }
 
-let d = new Dog("Rex")
-d.speak()       # inherited
-d.fetch("ball")</code></pre>
+car = new Car(new Engine())
+car.start()</code></pre>
         </div>
         <div class="output-block">
           <div class="output-label">Output</div>
-          <pre>Rex makes a sound.
-Rex fetches the ball!</pre>
-        </div>
-
-        <h2>Calling the parent constructor</h2>
-        <p>
-          When the child has its own constructor, call the parent's constructor with
-          <code>super(args)</code> to initialise inherited attributes:
-        </p>
-
-        <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;super.ks</div>
-          <pre><code class="language-ks">class Vehicle {
-    def new(make, model) {
-        self.make  = make
-        self.model = model
-    }
-
-    def describe() {
-        print("{$self.make} {$self.model}")
-    }
-}
-
-class Car(Vehicle) {
-    def new(make, model, doors) {
-        super(make, model)
-        self.doors = doors
-    }
-
-    def describe() {
-        print("{$self.make} {$self.model} ({$self.doors} doors)")
-    }
-}
-
-let c = new Car("Toyota", "Corolla", 4)
-c.describe()</code></pre>
-        </div>
-        <div class="output-block">
-          <div class="output-label">Output</div>
-          <pre>Toyota Corolla (4 doors)</pre>
-        </div>
-
-        <h2>Overriding methods</h2>
-        <p>A child class can replace a parent method by defining one with the same name:</p>
-
-        <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;override.ks</div>
-          <pre><code class="language-ks">class Shape {
-    def area() {
-        return 0
-    }
-
-    def describe() {
-        print("Area = {$self.area()}")
-    }
-}
-
-class Circle(Shape) {
-    def new(radius) {
-        self.radius = radius
-    }
-
-    def area() {
-        return 3.14159 * self.radius * self.radius
-    }
-}
-
-class Square(Shape) {
-    def new(side) {
-        self.side = side
-    }
-
-    def area() {
-        return self.side * self.side
-    }
-}
-
-let c = new Circle(5)
-c.describe()
-
-let s = new Square(4)
-s.describe()</code></pre>
-        </div>
-        <div class="output-block">
-          <div name="output-label">Output</div>
-          <pre>Area = 78.53975
-Area = 16</pre>
-        </div>
-
-        <div class="callout tip">
-          <strong>Tip</strong> — Inheritance promotes code reuse. Put shared logic in the
-          parent class so every child class benefits from it automatically.
+          <pre>Engine started</pre>
         </div>
 
         <div class="summary-box">
           <h3>What you learned</h3>
           <ul>
-            <li><code>class Child(Parent)</code> makes Child inherit everything from Parent</li>
-            <li>Use <code>super(args)</code> to call the parent constructor</li>
-            <li>Override a parent method by defining one with the same name in the child</li>
-            <li>Inherited methods still work as expected on child instances</li>
+            <li>KelpyShark does not currently support class inheritance or <code>super</code></li>
+            <li>Composition lets one object store another object and call its methods</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Create an <code>Engine</code> class with a <code>start()</code> method.</li>
+            <li>Store an engine inside a <code>Car</code> object and call the engine through the car.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

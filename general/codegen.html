@@ -31,28 +31,28 @@
 
         <div class="page-header">
           <h1>Code Generation</h1>
-          <p>Cross-compile KelpyShark to Java and C#.</p>
+          <p>Generate C, JavaScript, Java, or C# source from supported KelpyShark programs.</p>
         </div>
 
         <p>
           In addition to running KelpyShark files directly with the interpreter,
           the compiler can <em>transpile</em> your code to other languages.
-          This lets you deploy KelpyShark logic in Java or .NET environments
-          without rewriting it by hand.
+          Each backend supports a defined subset of the language. The compiler reports
+          unsupported constructs before writing a target file.
         </p>
 
         <h2>Java codegen</h2>
         <p>
-          The Java backend emits Java 11-compatible source code. Each KelpyShark
-          file becomes a Java class. The output can be compiled with any standard
-          Java compiler (<code>javac</code>).
+          The Java backend emits Java 11-compatible source for top-level functions,
+          control flow, collections, and supported built-ins. Classes, imports,
+          instance methods, and nested functions are rejected by the checked CLI path.
         </p>
 
         <div class="code-block">
           <div class="code-label">Shell</div>
-          <pre><code>kelpyshark build --target java hello.ks -o Hello.java
-javac Hello.java
-java Hello</code></pre>
+          <pre><code>kelpyshark build hello.ks --target java --output hello.java
+javac hello.java
+java Program</code></pre>
         </div>
 
         <h3>Mapping</h3>
@@ -61,26 +61,26 @@ java Hello</code></pre>
           <tbody>
             <tr><td><code>number</code></td><td><code>double</code></td></tr>
             <tr><td><code>string</code></td><td><code>String</code></td></tr>
-            <tr><td><code>boolean</code></td><td><code>boolean</code></td></tr>
+            <tr><td><code>boolean</code></td><td><code>Boolean</code> (boxed in dynamic values)</td></tr>
             <tr><td><code>null</code></td><td><code>null</code></td></tr>
             <tr><td><code>list</code></td><td><code>ArrayList&lt;Object&gt;</code></td></tr>
-            <tr><td><code>dictionary</code></td><td><code>HashMap&lt;String, Object&gt;</code></td></tr>
-            <tr><td><code>class</code></td><td>Java <code>class</code></td></tr>
-            <tr><td><code>def</code></td><td>Java method</td></tr>
-            <tr><td><code>print(x)</code></td><td><code>System.out.println(x)</code></td></tr>
+            <tr><td><code>dictionary</code></td><td><code>Map&lt;String, Object&gt;</code></td></tr>
+            <tr><td><code>def</code></td><td>Static Java method</td></tr>
+            <tr><td><code>print(x)</code></td><td>KelpyShark runtime print helper</td></tr>
           </tbody>
         </table>
 
         <h2>C# codegen</h2>
         <p>
-          The C# backend emits .NET 6-compatible source code. Classes, methods, and
-          control flow all map cleanly to C# equivalents.
+          The C# backend emits source for top-level functions, control flow,
+          collections, and supported built-ins. Classes, imports, instance methods,
+          and nested functions are rejected by the checked CLI path.
         </p>
 
         <div class="code-block">
           <div class="code-label">Shell</div>
-          <pre><code>kelpyshark build --target csharp hello.ks -o Hello.cs
-dotnet script Hello.cs</code></pre>
+          <pre><code>kelpyshark build hello.ks --target cs --output Hello.cs
+# Add Hello.cs to a .NET console project, then run dotnet run</code></pre>
         </div>
 
         <h3>Mapping</h3>
@@ -89,27 +89,22 @@ dotnet script Hello.cs</code></pre>
           <tbody>
             <tr><td><code>number</code></td><td><code>double</code></td></tr>
             <tr><td><code>string</code></td><td><code>string</code></td></tr>
-            <tr><td><code>boolean</code></td><td><code>bool</code></td></tr>
+            <tr><td><code>boolean</code></td><td><code>bool</code> (boxed in dynamic values)</td></tr>
             <tr><td><code>null</code></td><td><code>null</code></td></tr>
             <tr><td><code>list</code></td><td><code>List&lt;object&gt;</code></td></tr>
-            <tr><td><code>dictionary</code></td><td><code>Dictionary&lt;string, object&gt;</code></td></tr>
-            <tr><td><code>class</code></td><td>C# <code>class</code></td></tr>
-            <tr><td><code>def</code></td><td>C# method</td></tr>
-            <tr><td><code>print(x)</code></td><td><code>Console.WriteLine(x)</code></td></tr>
+            <tr><td><code>dictionary</code></td><td><code>Dictionary&lt;object, object&gt;</code></td></tr>
+            <tr><td><code>def</code></td><td>Static C# method</td></tr>
+            <tr><td><code>print(x)</code></td><td>KelpyShark runtime print helper</td></tr>
           </tbody>
         </table>
 
-        <h2>Limitations</h2>
-        <ul>
-          <li>Dynamic features (e.g. adding attributes to instances at runtime) may produce verbose generated code</li>
-          <li>Standard library modules are not automatically translated — stdlib calls are emitted as comments if no equivalent exists</li>
-          <li>Code generation targets stable, idiomatic output rather than trying to optimise</li>
-        </ul>
+        <h2>Other targets and limitations</h2>
+        <p>The JavaScript backend supports classes and instance methods, but rejects imports. The C backend supports a smaller subset. Standard-library module imports are not translated by any generated target. Use the interpreter when a program needs unsupported syntax or library behavior.</p>
 
         <div class="callout tip">
-          <strong>Tip</strong> — Use code generation when you need to hand off
-          KelpyShark business logic to a Java or .NET team. The generated source is
-          readable and can be refined manually after transpilation.
+          <strong>Tip</strong> — Run <code>kelpyshark build</code> first to verify that
+          the selected target accepts the program. The generated source is intended
+          for review and compilation with that target's toolchain.
         </div>
 
         <div class="page-nav"></div>

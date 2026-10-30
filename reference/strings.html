@@ -53,20 +53,15 @@
             <tr><td><code>strings.upper(s)</code></td><td>string</td><td>Uppercase version of <code>s</code></td></tr>
             <tr><td><code>strings.lower(s)</code></td><td>string</td><td>Lowercase version of <code>s</code></td></tr>
             <tr><td><code>strings.trim(s)</code></td><td>string</td><td>Remove leading/trailing whitespace</td></tr>
-            <tr><td><code>strings.trim_start(s)</code></td><td>string</td><td>Remove leading whitespace only</td></tr>
-            <tr><td><code>strings.trim_end(s)</code></td><td>string</td><td>Remove trailing whitespace only</td></tr>
             <tr><td><code>strings.replace(s, old, new)</code></td><td>string</td><td>Replace all occurrences of <code>old</code> with <code>new</code></td></tr>
             <tr><td><code>strings.split(s, sep)</code></td><td>list</td><td>Split <code>s</code> on separator <code>sep</code></td></tr>
-            <tr><td><code>strings.join(list, sep)</code></td><td>string</td><td>Join list items with <code>sep</code></td></tr>
+            <tr><td><code>strings.join(sep, list)</code></td><td>string</td><td>Join list items with <code>sep</code></td></tr>
             <tr><td><code>strings.contains(s, sub)</code></td><td>boolean</td><td>True if <code>sub</code> appears in <code>s</code></td></tr>
             <tr><td><code>strings.starts_with(s, prefix)</code></td><td>boolean</td><td>True if <code>s</code> starts with <code>prefix</code></td></tr>
             <tr><td><code>strings.ends_with(s, suffix)</code></td><td>boolean</td><td>True if <code>s</code> ends with <code>suffix</code></td></tr>
-            <tr><td><code>strings.index_of(s, sub)</code></td><td>number</td><td>Index of first <code>sub</code>, or <code>-1</code></td></tr>
-            <tr><td><code>strings.slice(s, start, end)</code></td><td>string</td><td>Substring from <code>start</code> to <code>end</code></td></tr>
-            <tr><td><code>strings.repeat(s, n)</code></td><td>string</td><td>Repeat <code>s</code> <code>n</code> times</td></tr>
             <tr><td><code>strings.reverse(s)</code></td><td>string</td><td>Reverse the characters of <code>s</code></td></tr>
-            <tr><td><code>strings.pad_left(s, n, ch)</code></td><td>string</td><td>Pad <code>s</code> to length <code>n</code> with <code>ch</code> on the left</td></tr>
-            <tr><td><code>strings.pad_right(s, n, ch)</code></td><td>string</td><td>Pad <code>s</code> to length <code>n</code> with <code>ch</code> on the right</td></tr>
+            <tr><td><code>strings.char_at(s, index)</code></td><td>string</td><td>Return one character by zero-based index</td></tr>
+            <tr><td><code>strings.substring(s, start, end)</code></td><td>string</td><td>Return characters from <code>start</code> to exclusive <code>end</code></td></tr>
           </tbody>
         </table>
 
@@ -76,29 +71,19 @@
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;strings-demo.ks</div>
           <pre><code class="language-ks">import strings
 
-let words = ["the", "quick", "brown", "fox"]
-
-# Capitalise each word
-let capitalised = []
-for w in words {
-    let first = strings.upper(strings.slice(w, 0, 1))
-    let rest  = strings.slice(w, 1, len(w))
-    push(capitalised, first + rest)
-}
-print(strings.join(capitalised, " "))
-# The Quick Brown Fox
+words = ["the", "quick", "brown", "fox"]
+print(strings.join(" ", words))
+# the quick brown fox
 
 # CSV parsing
-let csv = "Alice,30,Engineer"
-let parts = strings.split(csv, ",")
+csv = "Alice,30,Engineer"
+parts = strings.split(csv, ",")
 print(parts[0])    # Alice
 print(parts[1])    # 30
 
 # Table formatting with padding
-let headers = ["Name", "Score"]
-for h in headers {
-    print(strings.pad_right(h, 10, " ") + "|")
-}</code></pre>
+print(strings.substring("KelpyShark", 0, 5))  # Kelpy
+print(strings.char_at("Kelpy", 0))             # K</code></pre>
         </div>
 
         <div class="page-nav"></div>

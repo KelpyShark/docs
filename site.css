@@ -493,6 +493,23 @@ tbody tr:hover { background: var(--bg-inline); }
 .summary-box ul { margin: 0; }
 .summary-box li { margin-bottom: 0.4rem; }
 
+/* ── Lesson practice ────────────────────────────────────────── */
+.practice-box {
+  background: var(--bg-tip);
+  border: 1px solid #10b981;
+  border-left: 4px solid #10b981;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.practice-box h2 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+.practice-box p:last-child,
+.practice-box ol:last-child { margin-bottom: 0; }
+.practice-box li { margin-bottom: 0.5rem; }
+
 /* ── Homepage Cards ─────────────────────────────────────────── */
 .hero {
   text-align: center;

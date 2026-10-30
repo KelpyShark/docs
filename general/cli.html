@@ -46,94 +46,40 @@ ks         &lt;command&gt; [options] [args]</code></pre>
         <h2>Commands</h2>
 
         <h3><code>run</code></h3>
-        <p>Interpret and run a <code>.ks</code> file.</p>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark run &lt;file.ks&gt; [-- arg1 arg2 ...]</code></pre>
-        </div>
-        <p>Arguments after <code>--</code> are available in the script as <code>sys.args</code>.</p>
-        <div class="code-block">
-          <div class="code-label">Examples</div>
-          <pre><code>kelpyshark run hello.ks
-kelpyshark run script.ks -- Alice 42</code></pre>
-        </div>
+        <p>Interpret and run a <code>.ks</code> file. Optional script arguments follow <code>--</code> and are returned by <code>sys.args()</code>.</p>
+        <div class="code-block"><div class="code-label">Shell</div><pre><code>kelpyshark run main.ks
+kelpyshark run main.ks -- Alice 42</code></pre></div>
 
-        <h3><code>build</code></h3>
-        <p>Compile a <code>.ks</code> file to a native executable.</p>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark build &lt;file.ks&gt; [-o output]</code></pre>
-        </div>
-        <table>
-          <thead><tr><th>Flag</th><th>Description</th></tr></thead>
-          <tbody>
-            <tr><td><code>-o &lt;name&gt;</code></td><td>Name of the output binary (default: file name without <code>.ks</code>)</td></tr>
-            <tr><td><code>--release</code></td><td>Enable optimisations</td></tr>
-          </tbody>
-        </table>
+        <h3><code>repl</code></h3>
+        <p>Start the interactive interpreter.</p>
+        <div class="code-block"><div class="code-label">Shell</div><pre><code>kelpyshark repl</code></pre></div>
 
-        <h3><code>check</code></h3>
-        <p>Parse and type-check a file without running it.</p>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark check &lt;file.ks&gt;</code></pre>
-        </div>
-
-        <h3><code>fmt</code></h3>
-        <p>Auto-format a <code>.ks</code> file in place.</p>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark fmt &lt;file.ks&gt;
-kelpyshark fmt .          # format all .ks files in the current directory</code></pre>
-        </div>
+        <h3><code>build</code> / <code>compile</code></h3>
+        <p>Parse and semantically check a file, then generate source code for the selected target. This command does not compile the generated source to an executable.</p>
+        <div class="code-block"><div class="code-label">Shell</div><pre><code>kelpyshark build main.ks --target js --output main.js
+kelpyshark build main.ks --target java</code></pre></div>
+        <table><thead><tr><th>Option</th><th>Description</th></tr></thead><tbody>
+          <tr><td><code>--target</code></td><td><code>c</code>, <code>js</code>, <code>java</code>, or <code>cs</code>; defaults to <code>c</code>.</td></tr>
+          <tr><td><code>-o</code>, <code>--output</code></td><td>Output source path. By default, writes beside the input using the target extension.</td></tr>
+        </tbody></table>
 
         <h3><code>new</code></h3>
-        <p>Create a new KelpyShark project with a starter layout.</p>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark new &lt;project-name&gt;</code></pre>
-        </div>
-        <p>Creates:</p>
-        <div class="code-block">
-          <div class="code-label">Generated structure</div>
-          <pre><code>project-name/
-  main.ks
-  ks.toml</code></pre>
-        </div>
+        <p>Create a new project. The command stops if the destination already exists.</p>
+        <div class="code-block"><div class="code-label">Shell</div><pre><code>kelpyshark new my-project</code></pre></div>
+        <pre><code>my-project/
+  kelpy.toml
+  src/main.ks
+  libs/</code></pre>
 
-        <h3><code>pkg</code> — Package manager</h3>
-        <p>Sub-commands for the built-in package manager:</p>
+        <h3>Package commands</h3>
+        <table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+          <tr><td><code>kelpyshark install [name]</code></td><td>Install one named package, or install project dependencies when no name is supplied.</td></tr>
+          <tr><td><code>kelpyshark publish</code></td><td>Publish the current project.</td></tr>
+          <tr><td><code>kelpyshark update</code></td><td>Update project dependencies.</td></tr>
+        </tbody></table>
 
-        <table>
-          <thead><tr><th>Command</th><th>Description</th></tr></thead>
-          <tbody>
-            <tr><td><code>kelpyshark pkg install &lt;name&gt;</code></td><td>Install a package</td></tr>
-            <tr><td><code>kelpyshark pkg remove &lt;name&gt;</code></td><td>Uninstall a package</td></tr>
-            <tr><td><code>kelpyshark pkg list</code></td><td>List installed packages</td></tr>
-            <tr><td><code>kelpyshark pkg update</code></td><td>Update all installed packages</td></tr>
-            <tr><td><code>kelpyshark pkg publish</code></td><td>Publish the current package to the registry</td></tr>
-            <tr><td><code>kelpyshark pkg search &lt;query&gt;</code></td><td>Search the registry</td></tr>
-          </tbody>
-        </table>
-
-        <h3><code>version</code></h3>
-        <p>Print the installed KelpyShark version.</p>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark version</code></pre>
-        </div>
-        <div class="output-block">
-          <div class="output-label">Output</div>
-          <pre>kelpyshark 1.2.0</pre>
-        </div>
-
-        <h3><code>help</code></h3>
-        <p>Show help for any command.</p>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark help
-kelpyshark help run</code></pre>
-        </div>
+        <h3>Help and version</h3>
+        <p>Use <code>--help</code> for command usage and <code>--version</code> to print the installed version.</p>
 
         <div class="page-nav"></div>
       </div>

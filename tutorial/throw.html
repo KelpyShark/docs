@@ -45,17 +45,16 @@
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;throw.ks</div>
-          <pre><code class="language-ks">def sqrt(n) {
+          <pre><code class="language-ks">def safe_sqrt(n) {
     if n < 0 {
         throw "Cannot take square root of a negative number"
     }
-    # real implementation…
-    return n ^ 0.5
+    return sqrt(n)
 }
 
 try {
-    print(sqrt(9))
-    print(sqrt(-4))
+    print(safe_sqrt(9))
+    print(safe_sqrt(-4))
 } catch (e) {
     print("Error: {$e}")
 }</code></pre>
@@ -81,14 +80,14 @@ Error: Cannot take square root of a negative number</pre>
 }
 
 try {
-    let u = create_user("Alice", 30)
+     u = create_user("Alice", 30)
     print(u["name"])
 } catch (e) {
     print("Validation error: {$e}")
 }
 
 try {
-    let bad = create_user("", 30)
+     bad = create_user("", 30)
 } catch (e) {
     print("Validation error: {$e}")
 }</code></pre>
@@ -105,23 +104,23 @@ Validation error: name cannot be empty</pre>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;class-throw.ks</div>
           <pre><code class="language-ks">class Stack {
-    def new() {
+    def __init__(self) {
         self.items = []
     }
 
-    def push(item) {
+    def push(self, item) {
         push(self.items, item)
     }
 
-    def pop() {
+    def pop(self) {
         if len(self.items) == 0 {
             throw "Cannot pop from an empty stack"
         }
-        return pop(self.items)
+        return self.items.pop()
     }
 }
 
-let s = new Stack()
+ s = new Stack()
 s.push(10)
 s.push(20)
 print(s.pop())   # 20
@@ -153,6 +152,15 @@ Stack error: Cannot pop from an empty stack</pre>
             <li>Use <code>throw</code> to enforce preconditions and validate input</li>
             <li>If uncaught, a thrown error crashes the program</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Write a function that throws an error when a number is negative.</li>
+            <li>Call it inside <code>try / catch</code> and print the caught message.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

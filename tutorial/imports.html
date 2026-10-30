@@ -31,13 +31,13 @@
 
         <div class="page-header">
           <h1>Imports</h1>
-          <p>Bring in standard library modules and other files.</p>
+          <p>Load a registered standard-library module.</p>
         </div>
 
         <p>
-          A single file can only do so much. KelpyShark lets you <em>import</em>
-          built-in modules and your own files so you can organise code across
-          multiple files and reuse functionality without copying it.
+          KelpyShark's interpreter provides registered standard-library modules.
+          Import a module by name, then access its functions and values through
+          that module binding.
         </p>
 
         <h2>Importing a standard library module</h2>
@@ -74,47 +74,17 @@ print(math.pi)              # 3.141592653589793</code></pre>
 import strings
 import io
 
-let name = strings.upper("kelpyshark")
+name = strings.upper("kelpyshark")
 print(name)                 # KELPYSHARK
 
-let root = math.sqrt(49)
+root = math.sqrt(49)
 print(root)                 # 7</code></pre>
         </div>
 
-        <h2>Importing your own files</h2>
-        <p>
-          Split your project into multiple <code>.ks</code> files and import them by
-          relative path (without the <code>.ks</code> extension):
-        </p>
-
-        <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;utils.ks</div>
-          <pre><code class="language-ks"># utils.ks — shared helpers
-def greet(name) {
-    return "Hello, {$name}!"
-}
-
-def double(n) {
-    return n * 2
-}</code></pre>
-        </div>
-
-        <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;main.ks</div>
-          <pre><code class="language-ks">import utils
-
-print(utils.greet("World"))     # Hello, World!
-print(utils.double(21))         # 42</code></pre>
-        </div>
-        <div class="output-block">
-          <div class="output-label">Output</div>
-          <pre>Hello, World!
-42</pre>
-        </div>
-
-        <div class="callout tip">
-          <strong>Tip</strong> — Put shared classes and helpers in their own files.
-          Import them wherever you need them to keep each file focused and readable.
+        <div class="callout note">
+          <strong>Current limitation</strong> — The interpreter resolves registered
+          standard-library modules. Importing a local <code>.ks</code> file or a
+          package from <code>libs/</code> is not implemented yet.
         </div>
 
         <h2>Available standard library modules</h2>
@@ -135,11 +105,19 @@ print(utils.double(21))         # 42</code></pre>
         <div class="summary-box">
           <h3>What you learned</h3>
           <ul>
-            <li><code>import modulename</code> loads a built-in or local module</li>
+            <li><code>import modulename</code> loads a registered standard module</li>
             <li>Access its items with <code>module.function()</code> or <code>module.constant</code></li>
-            <li>Import your own <code>.ks</code> files the same way</li>
             <li>KelpyShark ships with stdlib modules for maths, strings, files, JSON, and HTTP</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Import <code>math</code> and print the square root of 81.</li>
+            <li>Import <code>strings</code> and print an uppercase version of a word.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

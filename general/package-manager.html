@@ -36,93 +36,75 @@
 
         <h2>What is a package?</h2>
         <p>
-          A KelpyShark <strong>package</strong> is a directory of <code>.ks</code> files
-          with a <code>ks.toml</code> manifest. Packages can be shared on the official
-          registry and installed with a single command.
+          A KelpyShark <strong>package</strong> is a project directory with a
+          <code>kelpy.toml</code> manifest and source files. Published packages are
+          stored in a local registry at <code>~/.kelpyshark/registry/</code> (or the
+          Windows user profile directory); there is no public registry connection.
         </p>
 
-        <h2>The manifest — <code>ks.toml</code></h2>
+        <h2>The manifest — <code>kelpy.toml</code></h2>
         <div class="code-block">
-          <div class="code-label">ks.toml</div>
+          <div class="code-label">kelpy.toml</div>
           <pre><code>[package]
 name    = "my-package"
 version = "1.0.0"
-author  = "Your Name"
 description = "A short description"
 
 [dependencies]
-some-lib = "^2.1"</code></pre>
+some-lib = "2.1.0"</code></pre>
         </div>
 
         <table>
           <thead><tr><th>Field</th><th>Required</th><th>Description</th></tr></thead>
           <tbody>
-            <tr><td><code>name</code></td><td>Yes</td><td>Package name (lowercase, hyphens allowed)</td></tr>
-            <tr><td><code>version</code></td><td>Yes</td><td>Semantic version string</td></tr>
-            <tr><td><code>author</code></td><td>No</td><td>Author or organisation name</td></tr>
-            <tr><td><code>description</code></td><td>No</td><td>One-line description shown in search results</td></tr>
+            <tr><td><code>name</code></td><td>Yes</td><td>Letters, digits, underscores, and hyphens; must start with a letter or digit</td></tr>
+            <tr><td><code>version</code></td><td>No</td><td>Exact semantic version; defaults to <code>0.1.0</code></td></tr>
+            <tr><td><code>description</code></td><td>No</td><td>Package description</td></tr>
+            <tr><td><code>[dependencies]</code></td><td>No</td><td>Package names mapped to exact semantic versions</td></tr>
           </tbody>
         </table>
 
         <h2>Installing a package</h2>
         <div class="code-block">
           <div class="code-label">Shell</div>
-          <pre><code>kelpyshark pkg install colors</code></pre>
+          <pre><code>kelpyshark install colors
+kelpyshark install</code></pre>
         </div>
         <p>
-          The package is downloaded and placed in <code>.ks_modules/</code> in the
-          current directory. Import it by name:
+          The named form selects the highest version in the local registry, records
+          that exact version in <code>kelpy.toml</code>, and installs its dependency
+          graph under <code>libs/</code>. The unnamed form installs the exact versions
+          in the project manifest and writes <code>kelpy.lock</code>.
         </p>
-        <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;main.ks</div>
-          <pre><code class="language-ks">import colors
+        <p>Only registered standard-library modules can currently be imported by KelpyShark code. Importing source files from <code>libs/</code> is not implemented, so installed packages are not yet usable from a script.</p>
 
-print(colors.red("Error!"))
-print(colors.green("Success!"))</code></pre>
-        </div>
-
-        <h2>Version constraints</h2>
+        <h2>Dependency versions</h2>
         <table>
           <thead><tr><th>Syntax</th><th>Meaning</th></tr></thead>
           <tbody>
-            <tr><td><code>"1.2.3"</code></td><td>Exact version</td></tr>
-            <tr><td><code>"^1.2.3"</code></td><td>Compatible with 1.2.3 (same major)</td></tr>
-            <tr><td><code>"~1.2.3"</code></td><td>Compatible with 1.2.x (same major+minor)</td></tr>
-            <tr><td><code>">=1.0"</code></td><td>At least version 1.0</td></tr>
+            <tr><td><code>"1.2.3"</code></td><td>Exact semantic version (the only supported form)</td></tr>
+            <tr><td><code>"^1.2.3"</code>, <code>"~1.2.3"</code>, <code>">=1.2.3"</code></td><td>Rejected; version ranges are not implemented</td></tr>
           </tbody>
         </table>
 
         <h2>Publishing a package</h2>
         <ol>
-          <li>Make sure your <code>ks.toml</code> is complete.</li>
-          <li>Run <code>kelpyshark pkg publish</code>.</li>
-          <li>You'll be prompted for your registry credentials.</li>
-          <li>The package is uploaded and immediately available for others to install.</li>
+          <li>Make sure the project contains a valid <code>kelpy.toml</code>.</li>
+          <li>Run <code>kelpyshark publish</code> from the project directory.</li>
+          <li>The package is copied into your local registry and can be installed by projects on this machine.</li>
         </ol>
 
         <div class="code-block">
           <div class="code-label">Shell</div>
-          <pre><code>kelpyshark pkg publish</code></pre>
+          <pre><code>kelpyshark publish</code></pre>
         </div>
 
         <h2>Updating packages</h2>
         <div class="code-block">
           <div class="code-label">Shell</div>
-          <pre><code>kelpyshark pkg update            # update all packages
-kelpyshark pkg update colors     # update one specific package</code></pre>
+          <pre><code>kelpyshark update</code></pre>
         </div>
-
-        <h2>Removing a package</h2>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark pkg remove colors</code></pre>
-        </div>
-
-        <h2>Searching the registry</h2>
-        <div class="code-block">
-          <div class="code-label">Shell</div>
-          <pre><code>kelpyshark pkg search http</code></pre>
-        </div>
+        <p>Updates select the latest local-registry version for each direct dependency, resolve the complete dependency graph, and replace installed package copies when needed.</p>
 
         <div class="page-nav"></div>
       </div>

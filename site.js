@@ -255,6 +255,32 @@
     });
   }
 
+  function headingSlug(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  function initHeadingAnchors() {
+    const content = document.querySelector(".content-inner");
+    if (!content) return;
+    const used = new Set(Array.from(content.querySelectorAll("[id]"), el => el.id));
+    content.querySelectorAll("h2, h3").forEach(heading => {
+      if (heading.id) return;
+      const base = headingSlug(heading.textContent || "section") || "section";
+      let id = base;
+      let suffix = 2;
+      while (used.has(id)) id = `${base}-${suffix++}`;
+      heading.id = id;
+      used.add(id);
+    });
+
+    if (window.location.hash) {
+      let fragment = window.location.hash.slice(1);
+      try { fragment = decodeURIComponent(fragment); } catch (_) {}
+      const target = document.getElementById(fragment);
+      if (target) target.scrollIntoView();
+    }
+  }
+
   /* ══════════════════════════════════════════════════════
      MOBILE SIDEBAR TOGGLE
   ══════════════════════════════════════════════════════ */
@@ -287,9 +313,9 @@
     "def","if","elif","else","while","for","in","return",
     "import","true","false","and","or","not","break",
     "continue","try","catch","throw","class","null","new",
-    "self","static","from","as","pub","print",
+    "self","end","print",
   ]);
-  const BUILTINS = new Set(["len","type","str","num","push","pop","range"]);
+  const BUILTINS = new Set(["len","type","str","num","push","range","int","float","input"]);
 
   function highlight(codeEl) {
     const raw = codeEl.textContent;
@@ -329,18 +355,6 @@
         }
         if (i < raw.length) s += adv(); // closing "
         out += inner + `<span class="str">${esc(s)}</span>`;
-        continue;
-      }
-
-      // Single-quoted string
-      if (peek(1) === "'") {
-        let s = adv();
-        while (i < raw.length && raw[i] !== "'") {
-          if (raw[i] === "\\") { s += adv(); }
-          s += adv();
-        }
-        if (i < raw.length) s += adv();
-        out += `<span class="str">${esc(s)}</span>`;
         continue;
       }
 
@@ -565,6 +579,7 @@
         buildSidebar(sectionKey, activeSlug);
         buildPageNav(sectionKey, activeSlug);
         setHeaderActive(sectionKey);
+        initHeadingAnchors();
         initMobileToggle();
         highlightAll();
         initKeyNav();

@@ -45,8 +45,8 @@
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;tostr.ks</div>
-          <pre><code class="language-ks">let age = 30
-let message = "I am " + str(age) + " years old."
+          <pre><code class="language-ks"> age = 30
+ message = "I am " + str(age) + " years old."
 print(message)
 
 print(str(3.14))   # "3.14"
@@ -66,11 +66,11 @@ null</pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;tonum.ks</div>
-          <pre><code class="language-ks">let text   = "42"
-let number = num(text)
+          <pre><code class="language-ks"> text   = "42"
+ number = num(text)
 print(number + 8)    # 50
 
-let pi = num("3.14")
+ pi = num("3.14")
 print(pi * 2)        # 6.28</code></pre>
         </div>
         <div class="output-block">
@@ -89,7 +89,7 @@ print(pi * 2)        # 6.28</code></pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;explicit.ks</div>
-          <pre><code class="language-ks">let n = 10
+          <pre><code class="language-ks"> n = 10
 
 # This will error — cannot add number + string:
 # print(n + " items")
@@ -114,6 +114,15 @@ print("{$n} items")        # "10 items"</code></pre>
             <li>KelpyShark does not implicitly convert types — you must be explicit</li>
             <li>String interpolation is often the easiest alternative</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Convert the string <code>"42"</code> to a number and add 8.</li>
+            <li>Use <code>int</code> to convert a decimal value to a whole number.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

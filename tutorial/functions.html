@@ -100,26 +100,21 @@ introduce("Bob",   25, "Tokyo")</code></pre>
 Bob is 25 years old and lives in Tokyo.</pre>
         </div>
 
-        <h2>Default parameter values</h2>
-        <p>You can give parameters a default value that is used when no argument is provided:</p>
+        <h2>Argument counts</h2>
+        <p>Each function call supplies exactly the number of arguments in its definition. Use a wrapper when you want a default value:</p>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;defaults.ks</div>
-          <pre><code class="language-ks">def power(base, exponent = 2) {
-    let result = 1
-    for i in range(0, exponent) {
-        result *= base
-    }
-    print(result)
+          <pre><code class="language-ks">def power(base, exponent) {
+    return pow(base, exponent)
 }
 
-power(3)      # uses default exponent=2  → 9
-power(2, 10)  # exponent=10              → 1024</code></pre>
-        </div>
+def square(base) {
+    return power(base, 2)
+}
 
-        <div class="callout callout-tip">
-          <strong>💡 Tip</strong>
-          <p>Parameters with defaults must come <em>after</em> required parameters in the parameter list.</p>
+print(square(3))
+print(power(2, 10))</code></pre>
         </div>
 
         <div class="summary-box">
@@ -128,8 +123,17 @@ power(2, 10)  # exponent=10              → 1024</code></pre>
             <li>Define functions with <code>def name(params) { }</code></li>
             <li>Call a function by writing its name followed by <code>()</code></li>
             <li>Parameters are values passed into the function</li>
-            <li>Default parameter values are used when no argument is provided</li>
+            <li>Calls must provide exactly the declared number of arguments</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Write a function that greets one person by name.</li>
+            <li>Write an <code>add(a, b)</code> function and print the result of calling it.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

@@ -46,8 +46,7 @@
           <div class="code-label">Grammar</div>
           <pre><code>program     = statement*
 
-statement   = let_stmt
-            | assign_stmt
+statement   = assign_stmt
             | expr_stmt
             | print_stmt
             | if_stmt
@@ -66,17 +65,18 @@ statement   = let_stmt
         <h2>Statements</h2>
         <div class="code-block">
           <div class="code-label">Grammar</div>
-          <pre><code>let_stmt    = "let" IDENT "=" expr
+          <pre><code>assign_stmt = IDENT ("=" | "+=" | "-=" | "*=" | "/=") expr
+            | member_or_index "=" expr
 
-assign_stmt = lvalue ("=" | "+=" | "-=" | "*=" | "/=" | "%=") expr
+member_or_index = expr "[" expr "]"
+                | expr "." IDENT
 
-lvalue      = IDENT
-            | expr "[" expr "]"
-            | expr "." IDENT
+expr_stmt   = expr
 
-print_stmt  = "print" "(" expr ")"
+print_stmt  = "print" expr
 
-if_stmt     = "if" expr block
+if_stmt     = if_braced | if_colon
+if_braced   = "if" expr block
               ("elif" expr block)*
               ["else" block]
 
@@ -84,24 +84,34 @@ while_stmt  = "while" expr block
 
 for_stmt    = "for" IDENT "in" expr block
 
-def_stmt    = ["static"] "def" IDENT "(" param_list ")" block
+def_stmt    = "def" IDENT "(" param_list ")" block
 
-param_list  = (IDENT ["=" expr] ("," IDENT ["=" expr])*)?
+param_list  = (IDENT ("," IDENT)*)?
 
-class_stmt  = "class" IDENT ["(" IDENT ")"] "{" def_stmt* "}"
+class_stmt  = "class" IDENT block
 
 return_stmt = "return" [expr]
 
-import_stmt = "import" IDENT
+import_stmt = "import" (IDENT ("." IDENT)*)
 
-try_stmt    = "try" block "catch" "(" IDENT ")" block
+try_stmt    = try_braced | try_colon
+
+try_braced  = "try" block "catch" "(" IDENT ")" block
 
 throw_stmt  = "throw" expr
 
 break_stmt  = "break"
 continue_stmt = "continue"
 
-block       = "{" statement* "}"</code></pre>
+block       = "{" statement* "}"
+            | ":" statement* "end"
+
+if_colon    = "if" expr ":" statement*
+              ("elif" expr ":" statement*)*
+              ["else" ":" statement*] "end"
+
+try_colon   = "try" ":" statement*
+              "catch" "(" IDENT ")" ":" statement* "end"</code></pre>
         </div>
 
         <h2>Expressions</h2>
@@ -120,9 +130,7 @@ cmp_expr    = add_expr (("==" | "!=" | "&lt;" | "&gt;" | "&lt;=" | "&gt;=") add_
 
 add_expr    = mul_expr (("+" | "-") mul_expr)*
 
-mul_expr    = pow_expr (("*" | "/" | "%") pow_expr)*
-
-pow_expr    = unary_expr ("^" pow_expr)?
+mul_expr    = unary_expr (("*" | "/" | "%") unary_expr)*
 
 unary_expr  = "-" unary_expr
             | postfix_expr
@@ -139,7 +147,7 @@ primary     = NUMBER
             | IDENT
             | "new" IDENT "(" arg_list ")"
             | "[" (expr ("," expr)*)? "]"
-            | "{" (STRING ":" expr ("," STRING ":" expr)*)? "}"
+            | "{" (expr ":" expr ("," expr ":" expr)*)? "}"
             | "(" expr ")"
 
 arg_list    = (expr ("," expr)*)?</code></pre>
@@ -151,14 +159,13 @@ arg_list    = (expr ("," expr)*)?</code></pre>
           <pre><code>IDENT   = [a-zA-Z_][a-zA-Z0-9_]*
 NUMBER  = [0-9]+ ("." [0-9]+)?
 STRING  = '"' char* '"'
-          (char may be any UTF-8 character; "{$" IDENT "}" is interpolation)
-COMMENT = "#" ... end-of-line  (ignored by the parser)</code></pre>
+          ("{$" IDENT "}" is variable interpolation)
+COMMENT = "#" ... end-of-line
+BLOCK_COMMENT = "###" ... "###"</code></pre>
         </div>
 
         <div class="callout note">
-          <strong>Note</strong> — KelpyShark is <strong>whitespace-insensitive</strong>
-          except for string literals. Newlines are <strong>not</strong> statement
-          terminators; semicolons are not required or used.
+          <strong>Note</strong> — Indentation is optional and has no effect on program meaning. Newlines separate statements. Blocks use braces or a colon followed by <code>end</code>; semicolons are not used. This grammar has no declaration keyword, default parameters, static methods, or class inheritance. Compound assignment applies only to variable names.
         </div>
 
         <div class="page-nav"></div>

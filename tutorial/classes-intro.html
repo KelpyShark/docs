@@ -56,22 +56,22 @@
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;dog.ks</div>
           <pre><code class="language-ks">class Dog {
-    def new(name, breed) {
+    def __init__(self, name, breed) {
         self.name  = name
         self.breed = breed
     }
 
-    def bark() {
+    def bark(self) {
         print("{$self.name} says: Woof!")
     }
 
-    def describe() {
+    def describe(self) {
         print("{$self.name} is a {$self.breed}.")
     }
 }
 
-let rex  = new Dog("Rex", "German Shepherd")
-let luna = new Dog("Luna", "Labrador")
+ rex  = new Dog("Rex", "German Shepherd")
+ luna = new Dog("Luna", "Labrador")
 
 rex.bark()
 luna.describe()
@@ -87,7 +87,7 @@ Rex is a German Shepherd.</pre>
         <h2>Key concepts</h2>
         <ul>
           <li><strong><code>class</code></strong> — keyword to define a new class</li>
-          <li><strong><code>def new(...)</code></strong> — the <em>constructor</em>, called when creating an instance</li>
+          <li><strong><code>def __init__(self, ...)</code></strong> — the <em>constructor</em>, called when creating an instance</li>
           <li><strong><code>self</code></strong> — refers to the current object instance</li>
           <li><strong><code>self.name = ...</code></strong> — stores an attribute on the object</li>
           <li><strong><code>new ClassName(...)</code></strong> — creates a new instance of the class</li>
@@ -97,8 +97,9 @@ Rex is a German Shepherd.</pre>
         <div class="callout callout-note">
           <strong>📝 Note</strong>
           <p>
-            In KelpyShark, <code>new</code> is used both as a keyword to create an instance
-            (<code>new Dog("Rex", "Lab")</code>) and as the constructor method name (<code>def new()</code>).
+            In KelpyShark, <code>new</code> creates an instance
+            (<code>new Dog("Rex", "Lab")</code>); the constructor method is named
+            <code>__init__</code>.
           </p>
         </div>
 
@@ -107,11 +108,20 @@ Rex is a German Shepherd.</pre>
           <ul>
             <li>A class is a blueprint for creating objects</li>
             <li>Define classes with <code>class Name { }</code></li>
-            <li>The constructor is <code>def new(...) { }</code></li>
+            <li>The constructor is <code>def __init__(self, ...) { }</code></li>
             <li><code>self</code> refers to the current instance</li>
             <li>Create instances with <code>new ClassName(...)</code></li>
             <li>Call methods with <code>instance.method()</code></li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Create a <code>Dog</code> class with a name and a <code>bark()</code> method.</li>
+            <li>Create two dogs and call <code>bark()</code> on each one.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

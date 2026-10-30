@@ -39,20 +39,6 @@
           <pre><code class="language-ks">import sys</code></pre>
         </div>
 
-        <h2>Properties</h2>
-
-        <table>
-          <thead>
-            <tr><th>Property</th><th>Type</th><th>Description</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>sys.platform</code></td><td>string</td><td><code>"windows"</code>, <code>"linux"</code>, or <code>"macos"</code></td></tr>
-            <tr><td><code>sys.version</code></td><td>string</td><td>KelpyShark version, e.g. <code>"1.2.0"</code></td></tr>
-            <tr><td><code>sys.args</code></td><td>list</td><td>Command-line arguments passed to the script</td></tr>
-            <tr><td><code>sys.env</code></td><td>dictionary</td><td>Environment variables as a dictionary</td></tr>
-          </tbody>
-        </table>
-
         <h2>Functions</h2>
 
         <table>
@@ -60,9 +46,13 @@
             <tr><th>Function</th><th>Returns</th><th>Description</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>sys.exit(code)</code></td><td>—</td><td>Terminate the program with exit code <code>code</code> (0 = success)</td></tr>
-            <tr><td><code>sys.sleep(ms)</code></td><td>null</td><td>Pause execution for <code>ms</code> milliseconds</td></tr>
-            <tr><td><code>sys.time()</code></td><td>number</td><td>Current Unix timestamp in seconds</td></tr>
+            <tr><td><code>sys.platform()</code></td><td>string</td><td>Operating system name.</td></tr>
+            <tr><td><code>sys.cwd()</code></td><td>string</td><td>Current working directory.</td></tr>
+            <tr><td><code>sys.args()</code></td><td>list</td><td>Arguments passed after <code>--</code> to <code>kelpyshark run</code>.</td></tr>
+            <tr><td><code>sys.env(name)</code></td><td>string or null</td><td>Read one environment variable; returns null if it is unset.</td></tr>
+            <tr><td><code>sys.clock()</code></td><td>number</td><td>Current Unix timestamp in seconds.</td></tr>
+            <tr><td><code>sys.sleep(seconds)</code></td><td>null</td><td>Pause execution for the given number of seconds.</td></tr>
+            <tr><td><code>sys.exit(code)</code></td><td>—</td><td>Terminate the process with the given exit code.</td></tr>
           </tbody>
         </table>
 
@@ -72,29 +62,19 @@
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;sys-demo.ks</div>
           <pre><code class="language-ks">import sys
 
-# Platform detection
-if sys.platform == "windows" {
-    print("Running on Windows")
-} else {
-    print("Running on {$sys.platform}")
-}
+# Platform and working directory
+print(sys.platform())
+print(sys.cwd())
 
-# Version info
-print("KelpyShark {$sys.version}")
-
-# Command-line args
-# $ kelpyshark run script.ks hello world
-print(sys.args)       # ["hello", "world"]
-
-# Environment variables
-let home = sys.env["HOME"]
-print("Home: {$home}")
+# Script arguments and environment
+print(sys.args())
+home = sys.env("HOME")
+print(home)
 
 # Timing
-let start = sys.time()
-sys.sleep(500)
-let elapsed = sys.time() - start
-print("Elapsed: ~{$elapsed}s")</code></pre>
+ timestamp = sys.clock()
+sys.sleep(0.1)
+print(timestamp)</code></pre>
         </div>
 
         <h2>Argument handling pattern</h2>
@@ -103,13 +83,8 @@ print("Elapsed: ~{$elapsed}s")</code></pre>
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;cli-args.ks</div>
           <pre><code class="language-ks">import sys
 
-if len(sys.args) < 1 {
-    print("Usage: kelpyshark run script.ks &lt;name&gt;")
-    sys.exit(1)
-}
-
-let name = sys.args[0]
-print("Hello, {$name}!")</code></pre>
+args = sys.args()
+print(args)  # values after `--` in the run command</code></pre>
         </div>
 
         <div class="page-nav"></div>

@@ -34,10 +34,7 @@
           <p>Methods and functions for working with lists.</p>
         </div>
 
-        <p>
-          Lists are ordered, mutable collections. Many operations are available
-          as built-in functions and as dot-notation methods on the list itself.
-        </p>
+        <p>Lists are ordered, mutable collections. Use the built-in functions below or call supported methods on the list.</p>
 
         <h2>Built-in list functions</h2>
 
@@ -47,7 +44,6 @@
           </thead>
           <tbody>
             <tr><td><code>push(list, item)</code></td><td>Append <code>item</code> to the end of <code>list</code></td></tr>
-            <tr><td><code>pop(list)</code></td><td>Remove and return the last item</td></tr>
             <tr><td><code>len(list)</code></td><td>Number of items in the list</td></tr>
           </tbody>
         </table>
@@ -60,11 +56,13 @@
           </thead>
           <tbody>
             <tr><td><code>.length()</code></td><td>number</td><td>Number of items (same as <code>len()</code>)</td></tr>
+            <tr><td><code>.append(item)</code> / <code>.push(item)</code></td><td>list</td><td>Append an item in place</td></tr>
+            <tr><td><code>.pop()</code></td><td>value</td><td>Remove and return the last item; errors on an empty list</td></tr>
             <tr><td><code>.contains(item)</code></td><td>boolean</td><td>True if <code>item</code> is in the list</td></tr>
-            <tr><td><code>.index_of(item)</code></td><td>number</td><td>Index of first occurrence, or <code>-1</code></td></tr>
-            <tr><td><code>.reverse()</code></td><td>list</td><td>A new list with items in reverse order</td></tr>
-            <tr><td><code>.slice(start, end)</code></td><td>list</td><td>Sub-list from <code>start</code> to <code>end</code> (exclusive)</td></tr>
+            <tr><td><code>.reverse()</code></td><td>list</td><td>Reverse the list in place</td></tr>
+            <tr><td><code>.sort()</code></td><td>list</td><td>Sort numbers or strings in place</td></tr>
             <tr><td><code>.join(sep)</code></td><td>string</td><td>Join all items into a string separated by <code>sep</code></td></tr>
+            <tr><td><code>.first()</code> / <code>.last()</code></td><td>value</td><td>Return the first or last item</td></tr>
           </tbody>
         </table>
 
@@ -72,42 +70,39 @@
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;list-methods.ks</div>
-          <pre><code class="language-ks">let fruits = ["apple", "banana", "cherry"]
+          <pre><code class="language-ks"> fruits = ["apple", "banana", "cherry"]
 
 # Length
 print(len(fruits))               # 3
 print(fruits.length())           # 3
 
-# Contains / index
+# Contains
 print(fruits.contains("banana")) # true
-print(fruits.index_of("cherry")) # 2
 
 # push / pop
 push(fruits, "date")
 print(fruits)                    # ["apple", "banana", "cherry", "date"]
-let removed = pop(fruits)
+ removed = fruits.pop()
 print(removed)                   # date
 
-# Slice
-print(fruits.slice(1, 3))        # ["banana", "cherry"]
-
 # Reverse
-print(fruits.reverse())          # ["cherry", "banana", "apple"]
+fruits.reverse()
+print(fruits)                    # ["cherry", "banana", "apple"]
 
 # Join
-print(fruits.join(", "))         # apple, banana, cherry
+print(fruits.join(", "))         # cherry, banana, apple
 
 # Indexing
-print(fruits[0])                 # apple
+print(fruits[0])                 # cherry
 fruits[1] = "blueberry"
-print(fruits)                    # ["apple", "blueberry", "cherry"]</code></pre>
+print(fruits)                    # ["cherry", "blueberry", "apple"]</code></pre>
         </div>
 
         <h2>Iterating over a list</h2>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;iterate.ks</div>
-          <pre><code class="language-ks">let scores = [88, 95, 72, 100, 61]
+          <pre><code class="language-ks"> scores = [88, 95, 72, 100, 61]
 
 # Simple iteration
 for score in scores {

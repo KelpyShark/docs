@@ -31,11 +31,11 @@
 
         <div class="page-header">
           <h1>Installation &amp; Setup</h1>
-          <p>Get KelpyShark running on your machine in minutes.</p>
+          <p>Install KelpyShark, check that it works, and run your first file.</p>
         </div>
 
         <h2>Requirements</h2>
-        <p>KelpyShark runs on <strong>Windows</strong>, <strong>macOS</strong>, and <strong>Linux</strong>. No external runtime is required — the installer bundles everything you need.</p>
+        <p>KelpyShark provides installers for <strong>Windows</strong>, <strong>macOS</strong>, and <strong>Linux</strong>. The interpreter is a standalone executable.</p>
 
         <h2>Installing on Windows</h2>
         <p>Open PowerShell and run the one-line installer:</p>
@@ -43,7 +43,7 @@
           <div class="code-label">PowerShell</div>
           <pre><code>irm https://github.com/KelpyShark/main/raw/main/installer/install.ps1 | iex</code></pre>
         </div>
-        <p>This downloads the <code>kelpyshark</code> executable and adds it to your <code>PATH</code> automatically.</p>
+        <p>This downloads the <code>kelpyshark</code> executable and adds its install folder to your <code>PATH</code>. Open a new PowerShell window after installation.</p>
 
         <h2>Installing on macOS &amp; Linux</h2>
         <div class="code-block">
@@ -57,10 +57,7 @@
           <div class="code-label">Terminal</div>
           <pre><code>kelpyshark --version</code></pre>
         </div>
-        <div class="output-block">
-          <div class="output-label">Output</div>
-          <pre>KelpyShark 1.0.0</pre>
-        </div>
+        <p>The command prints the version of the installed CLI. If PowerShell or your shell cannot find <code>kelpyshark</code>, open a new terminal and check that the install folder is on your <code>PATH</code>.</p>
 
         <h2>Running your first program</h2>
         <p>Create a file called <code>hello.ks</code> and write:</p>
@@ -78,16 +75,30 @@
           <pre>Hello, World!</pre>
         </div>
 
-        <h2>Editor support</h2>
-        <p>
-          A <strong>VS Code extension</strong> is available that provides syntax highlighting
-          and snippet support for <code>.ks</code> files. Search for <em>"KelpyShark"</em>
-          in the VS Code Extensions panel to install it.
-        </p>
+        <h2>Choose an editor</h2>
+        <p>Any text editor can create a KelpyShark program. Save the file with a <code>.ks</code> extension. Editor support is optional; the CLI runs the file directly.</p>
 
         <div class="callout callout-tip">
           <strong>💡 Tip</strong>
           <p>KelpyShark files use the <code>.ks</code> extension.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>Install the standalone KelpyShark CLI for your operating system</li>
+            <li>Check the installed command with <code>kelpyshark --version</code></li>
+            <li>Run a source file with <code>kelpyshark run hello.ks</code></li>
+          </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Use your editor and terminal to complete these steps:</p>
+          <ol>
+            <li>Create a file named <code>hello.ks</code> with one print statement.</li>
+            <li>Run it with <code>kelpyshark run hello.ks</code> and change the printed text.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

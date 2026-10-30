@@ -88,11 +88,11 @@
             </tr>
             <tr>
               <td><code>File not found: &lt;path&gt;</code></td>
-              <td><code>io.read()</code> or <code>io.delete()</code> on a missing file</td>
+              <td><code>io.read_file()</code> on a missing or unreadable file</td>
             </tr>
             <tr>
               <td><code>Invalid JSON</code></td>
-              <td><code>json.parse()</code> received malformed JSON</td>
+              <td><code>json.decode()</code> received malformed JSON</td>
             </tr>
             <tr>
               <td><code>HTTP error: &lt;status&gt;</code></td>
@@ -130,7 +130,7 @@ try {
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;inspect.ks</div>
           <pre><code class="language-ks">try {
-    let x = badList[99]
+     x = badList[99]
 } catch (e) {
     if e.contains("out of bounds") {
         print("List index issue — check your index!")

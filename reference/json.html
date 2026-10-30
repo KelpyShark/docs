@@ -45,19 +45,14 @@
           </thead>
           <tbody>
             <tr>
-              <td><code>json.parse(str)</code></td>
+              <td><code>json.decode(str)</code></td>
               <td>any</td>
               <td>Parse a JSON string into KelpyShark values. Throws on invalid JSON.</td>
             </tr>
             <tr>
-              <td><code>json.stringify(value)</code></td>
+              <td><code>json.encode(value)</code></td>
               <td>string</td>
-              <td>Convert a KelpyShark value to a JSON string.</td>
-            </tr>
-            <tr>
-              <td><code>json.stringify_pretty(value)</code></td>
-              <td>string</td>
-              <td>Like <code>stringify</code> but with indentation for readability.</td>
+              <td>Convert JSON-compatible values to compact JSON. Rejects non-finite numbers and cyclic collections.</td>
             </tr>
           </tbody>
         </table>
@@ -84,8 +79,8 @@
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;parse.ks</div>
           <pre><code class="language-ks">import json
 
-let raw = '{"name":"Alice","scores":[95,88,72],"active":true}'
-let data = json.parse(raw)
+raw = "{\"name\":\"Alice\",\"scores\":[95,88,72],\"active\":true}"
+data = json.decode(raw)
 
 print(data["name"])         # Alice
 print(data["scores"][0])    # 95
@@ -98,26 +93,17 @@ print(data["active"])       # true</code></pre>
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;stringify.ks</div>
           <pre><code class="language-ks">import json
 
-let user = {
+ user = {
     "name": "Bob",
     "age": 25,
     "hobbies": ["chess", "cycling"]
 }
 
-let compact = json.stringify(user)
+ compact = json.encode(user)
 print(compact)
 # {"name":"Bob","age":25,"hobbies":["chess","cycling"]}
 
-let pretty = json.stringify_pretty(user)
-print(pretty)
-# {
-#   "name": "Bob",
-#   "age": 25,
-#   "hobbies": [
-#     "chess",
-#     "cycling"
-#   ]
-# }</code></pre>
+</code></pre>
         </div>
 
         <h2>Read / modify / write a JSON file</h2>
@@ -128,14 +114,14 @@ print(pretty)
 import json
 
 # Load config
-let raw  = io.read("config.json")
-let cfg  = json.parse(raw)
+raw  = io.read_file("config.json")
+cfg  = json.decode(raw)
 
 # Modify
 cfg["version"] = "2.0"
 
 # Save back
-io.write("config.json", json.stringify_pretty(cfg))</code></pre>
+io.write_file("config.json", json.encode(cfg))</code></pre>
         </div>
 
         <div class="page-nav"></div>

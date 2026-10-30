@@ -82,7 +82,7 @@
             </tr>
             <tr>
               <td>Dictionary</td>
-              <td><code>"dictionary"</code></td>
+              <td><code>"dict"</code></td>
               <td><code>{"a": 1}</code>, <code>{}</code></td>
               <td>String keys, any values</td>
             </tr>
@@ -96,7 +96,7 @@
               <td>Function</td>
               <td><code>"function"</code></td>
               <td><code>def f() { }</code></td>
-              <td>Functions are first-class values</td>
+              <td><code>type()</code> returns <code>"function"</code> for user functions and <code>"native_function"</code> for built-ins</td>
             </tr>
           </tbody>
         </table>
@@ -105,8 +105,8 @@
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;types.ks</div>
-          <pre><code class="language-ks">let i = 100
-let f = 3.14
+          <pre><code class="language-ks"> i = 100
+ f = 3.14
 print(type(i))    # number
 print(type(f))    # number</code></pre>
         </div>
@@ -114,7 +114,7 @@ print(type(f))    # number</code></pre>
         <h2>String</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
-          <pre><code class="language-ks">let s = "hello"
+          <pre><code class="language-ks"> s = "hello"
 print(type(s))    # string
 print(len(s))     # 5</code></pre>
         </div>
@@ -122,7 +122,7 @@ print(len(s))     # 5</code></pre>
         <h2>Boolean</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
-          <pre><code class="language-ks">let b = 5 > 3
+          <pre><code class="language-ks"> b = 5 > 3
 print(type(b))    # boolean
 print(b)          # true</code></pre>
         </div>
@@ -130,7 +130,7 @@ print(b)          # true</code></pre>
         <h2>Null</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
-          <pre><code class="language-ks">let n = null
+          <pre><code class="language-ks"> n = null
 print(type(n))    # null
 print(n == null)  # true</code></pre>
         </div>
@@ -138,7 +138,7 @@ print(n == null)  # true</code></pre>
         <h2>List</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
-          <pre><code class="language-ks">let lst = [1, "two", true]
+          <pre><code class="language-ks"> lst = [1, "two", true]
 print(type(lst))    # list
 print(lst[1])       # two</code></pre>
         </div>
@@ -146,26 +146,28 @@ print(lst[1])       # two</code></pre>
         <h2>Dictionary</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
-          <pre><code class="language-ks">let d = {"name": "Alice", "age": 30}
-print(type(d))         # dictionary
+          <pre><code class="language-ks"> d = {"name": "Alice", "age": 30}
+print(type(d))         # dict
 print(d["name"])       # Alice</code></pre>
         </div>
 
         <h2>Instance</h2>
+        <p>Classes are values too: <code>type(MyClass)</code> returns <code>"class"</code>. An instance reports its class name.</p>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
           <pre><code class="language-ks">class Cat {}
-let c = new Cat()
+ c = new Cat()
 print(type(c))    # Cat</code></pre>
         </div>
 
-        <h2>Type conversion</h2>
+        <h2>Convert a value</h2>
         <table>
           <thead><tr><th>Function</th><th>Converts to</th><th>Example</th></tr></thead>
           <tbody>
             <tr><td><code>str(x)</code></td><td>String</td><td><code>str(42)</code> → <code>"42"</code></td></tr>
             <tr><td><code>num(x)</code></td><td>Number</td><td><code>num("3.14")</code> → <code>3.14</code></td></tr>
-            <tr><td><code>bool(x)</code></td><td>Boolean</td><td><code>bool(0)</code> → <code>false</code></td></tr>
+            <tr><td><code>int(x)</code></td><td>Whole number</td><td><code>int(3.8)</code> → <code>3</code></td></tr>
+            <tr><td><code>float(x)</code></td><td>Number</td><td><code>float("3.8")</code> → <code>3.8</code></td></tr>
           </tbody>
         </table>
 

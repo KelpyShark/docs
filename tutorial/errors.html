@@ -49,7 +49,7 @@
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;errors.ks</div>
           <pre><code class="language-ks">try {
-    let x = 10 / 0
+     x = 10 / 0
     print("Result: {$x}")
 } catch (e) {
     print("Caught an error: {$e}")
@@ -77,10 +77,10 @@
     }
 }
 
-let result = safe_divide(10, 2)
+ result = safe_divide(10, 2)
 print(result)       # 5
 
-let bad = safe_divide(10, 0)
+ bad = safe_divide(10, 0)
 print(bad)          # null</code></pre>
         </div>
         <div class="output-block">
@@ -95,8 +95,8 @@ null</pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;recovery.ks</div>
-          <pre><code class="language-ks">let items = ["10", "abc", "30", "xyz", "50"]
-let total = 0
+          <pre><code class="language-ks"> items = ["10", "abc", "30", "xyz", "50"]
+ total = 0
 
 for item in items {
     try {
@@ -127,9 +127,9 @@ Total: 90</pre>
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;nested.ks</div>
           <pre><code class="language-ks">def load_config(path) {
     try {
-        let data = io.read(path)
+        data = io.read_file(path)
         try {
-            return json.parse(data)
+            return json.decode(data)
         } catch (e) {
             print("Config is not valid JSON: {$e}")
             return null
@@ -149,6 +149,15 @@ Total: 90</pre>
             <li>After the catch block, the program continues normally</li>
             <li>You can nest <code>try / catch</code> blocks for fine-grained control</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Put a conversion of an invalid number string inside <code>try / catch</code>.</li>
+            <li>Print a helpful message in <code>catch</code> and a second message after the handler.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

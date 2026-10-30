@@ -35,13 +35,12 @@
         </div>
 
         <h2>Creating strings</h2>
-        <p>Strings can be written with double quotes or single quotes. Both behave identically:</p>
+        <p>Write strings with double quotes:</p>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;strings.ks</div>
-          <pre><code class="language-ks">let a = "Hello, World!"
-let b = 'Hello, World!'
-print(a == b)   # true</code></pre>
+          <pre><code class="language-ks">greeting = "Hello, World!"
+print(greeting)</code></pre>
         </div>
 
         <h2>Escape sequences</h2>
@@ -55,7 +54,6 @@ print(a == b)   # true</code></pre>
               <tr><td>\t</td><td>Tab</td></tr>
               <tr><td>\\</td><td>Literal backslash</td></tr>
               <tr><td>\"</td><td>Double quote inside a double-quoted string</td></tr>
-              <tr><td>\'</td><td>Single quote inside a single-quoted string</td></tr>
             </tbody>
           </table>
         </div>
@@ -79,9 +77,9 @@ She said "hello"</pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;concat.ks</div>
-          <pre><code class="language-ks">let first = "Kelpy"
-let last  = "Shark"
-let full  = first + last
+          <pre><code class="language-ks"> first = "Kelpy"
+ last  = "Shark"
+ full  = first + last
 print(full)   # KelpyShark</code></pre>
         </div>
 
@@ -90,7 +88,7 @@ print(full)   # KelpyShark</code></pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;length.ks</div>
-          <pre><code class="language-ks">let word = "shark"
+          <pre><code class="language-ks"> word = "shark"
 print(len(word))   # 5</code></pre>
         </div>
 
@@ -99,20 +97,20 @@ print(len(word))   # 5</code></pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;indexing.ks</div>
-          <pre><code class="language-ks">let s = "hello"
+          <pre><code class="language-ks"> s = "hello"
 print(s[0])   # h
 print(s[1])   # e
 print(s[4])   # o</code></pre>
         </div>
 
-        <h2>Slicing</h2>
-        <p>Extract a substring with <code>[start:end]</code> (end is exclusive):</p>
+        <h2>Extracting a substring</h2>
+        <p>Use <code>substring(start, end)</code> to copy a range of characters (end is exclusive):</p>
 
         <div class="code-block">
-          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;slice.ks</div>
-          <pre><code class="language-ks">let s = "KelpyShark"
-print(s[0:5])    # Kelpy
-print(s[5:10])   # Shark</code></pre>
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;substring.ks</div>
+          <pre><code class="language-ks">s = "KelpyShark"
+print(s.substring(0, 5))    # Kelpy
+print(s.substring(5, 10))   # Shark</code></pre>
         </div>
 
         <h2>Looping over a string</h2>
@@ -139,12 +137,21 @@ i
         <div class="summary-box">
           <h3>What you learned</h3>
           <ul>
-            <li>Strings use double or single quotes</li>
+            <li>Strings use double quotes</li>
             <li>Escape sequences: <code>\n</code>, <code>\t</code>, <code>\\</code>, <code>\"</code></li>
             <li><code>+</code> concatenates strings</li>
             <li><code>len(s)</code> returns the string length</li>
-            <li><code>s[i]</code> accesses a character; <code>s[a:b]</code> slices</li>
+            <li><code>s[i]</code> accesses a character and supports negative indices; <code>s.substring(a, b)</code> extracts a range</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Join a first name and last name with a space.</li>
+            <li>Print a sentence that includes a variable using interpolation.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

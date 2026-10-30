@@ -37,44 +37,45 @@
         <p>
           A <strong>constructor</strong> is a special method that runs automatically
           when you create a new instance of a class. In KelpyShark, the constructor
-          is always named <code>new</code>.
+          is named <code>__init__</code>.
         </p>
 
-        <h2>The new method</h2>
+        <h2>The <code>__init__</code> method</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;constructor.ks</div>
           <pre><code class="language-ks">class BankAccount {
-    def new(owner, initial_balance) {
+    def __init__(self, owner, initial_balance) {
         self.owner   = owner
         self.balance = initial_balance
         print("Account created for {$owner} with ${$initial_balance}")
     }
 }
 
-let acc = new BankAccount("Alice", 500)</code></pre>
+ acc = new BankAccount("Alice", 500)</code></pre>
         </div>
         <div class="output-block">
           <div class="output-label">Output</div>
           <pre>Account created for Alice with $500</pre>
         </div>
 
-        <h2>Constructor with default values</h2>
+        <h2>Constructor parameters</h2>
+        <p>Constructors use ordinary function parameters, so each argument must be supplied:</p>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;defaults.ks</div>
           <pre><code class="language-ks">class Player {
-    def new(name, health = 100, score = 0) {
+    def __init__(self, name, health, score) {
         self.name   = name
         self.health = health
         self.score  = score
     }
 
-    def status() {
+    def status(self) {
         print("{$self.name} | HP: {$self.health} | Score: {$self.score}")
     }
 }
 
-let p1 = new Player("Alice")
-let p2 = new Player("Bob", 80, 250)
+ p1 = new Player("Alice", 100, 0)
+ p2 = new Player("Bob", 80, 250)
 
 p1.status()
 p2.status()</code></pre>
@@ -91,19 +92,19 @@ Bob | HP: 80 | Score: 250</pre>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;validate.ks</div>
           <pre><code class="language-ks">class Temperature {
-    def new(celsius) {
+    def __init__(self, celsius) {
         if celsius < -273.15 {
             throw "Temperature below absolute zero is not possible."
         }
         self.celsius = celsius
     }
 
-    def to_fahrenheit() {
+    def to_fahrenheit(self) {
         return self.celsius * 9 / 5 + 32
     }
 }
 
-let t = new Temperature(100)
+ t = new Temperature(100)
 print(t.to_fahrenheit())   # 212</code></pre>
         </div>
 
@@ -118,11 +119,20 @@ print(t.to_fahrenheit())   # 212</code></pre>
         <div class="summary-box">
           <h3>What you learned</h3>
           <ul>
-            <li>The constructor is <code>def new(...) { }</code></li>
+            <li>The constructor is <code>def __init__(self, ...) { }</code></li>
             <li>It runs automatically when you write <code>new ClassName(...)</code></li>
             <li>Use it to initialize attributes and validate inputs</li>
-            <li>Constructor parameters can have default values</li>
+            <li>Constructor calls provide every declared parameter</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Create a <code>Player</code> class whose constructor stores a name and a score.</li>
+            <li>Create two players and print each player’s name and score.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

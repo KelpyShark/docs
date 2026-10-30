@@ -43,7 +43,7 @@
         <h2>Creating a dictionary</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;dict.ks</div>
-          <pre><code class="language-ks">let person = {
+          <pre><code class="language-ks"> person = {
     "name": "Alice",
     "age":  30,
     "city": "London"
@@ -61,7 +61,7 @@ print(person)</code></pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;access.ks</div>
-          <pre><code class="language-ks">let person = {"name": "Alice", "age": 30}
+          <pre><code class="language-ks"> person = {"name": "Alice", "age": 30}
 
 print(person["name"])   # Alice
 print(person["age"])    # 30</code></pre>
@@ -70,7 +70,7 @@ print(person["age"])    # 30</code></pre>
         <h2>Adding and updating entries</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;update.ks</div>
-          <pre><code class="language-ks">let config = {"debug": false, "version": 1}
+          <pre><code class="language-ks"> config = {"debug": false, "version": 1}
 
 # Update an existing key
 config["version"] = 2
@@ -88,9 +88,9 @@ print(config)</code></pre>
         <h2>Checking for a key</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;contains.ks</div>
-          <pre><code class="language-ks">let settings = {"theme": "dark", "lang": "en"}
+          <pre><code class="language-ks"> settings = {"theme": "dark", "lang": "en"}
 
-if "theme" in settings {
+if settings.contains("theme") {
     print("Theme is set to: {$settings["theme"]}")
 }</code></pre>
         </div>
@@ -100,7 +100,7 @@ if "theme" in settings {
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;iterate.ks</div>
-          <pre><code class="language-ks">let scores = {"Alice": 95, "Bob": 87, "Charlie": 72}
+          <pre><code class="language-ks"> scores = {"Alice": 95, "Bob": 87, "Charlie": 72}
 
 for name in scores {
     print("{$name}: {$scores[name]}")
@@ -118,7 +118,7 @@ Charlie: 72</pre>
 
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;nested.ks</div>
-          <pre><code class="language-ks">let user = {
+          <pre><code class="language-ks"> user = {
     "name": "Alice",
     "address": {
         "city":    "London",
@@ -135,10 +135,19 @@ print(user["address"]["city"])   # London</code></pre>
             <li>Dictionaries store key-value pairs: <code>{"key": value}</code></li>
             <li>Access values with <code>dict["key"]</code></li>
             <li>Add or update with <code>dict["key"] = value</code></li>
-            <li>Check membership with <code>"key" in dict</code></li>
+            <li>Check for a key with <code>dict.contains("key")</code></li>
             <li>Iterate over keys with <code>for key in dict</code></li>
             <li>Values can be any type, including other dictionaries</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Create a dictionary for a game character with a name and health.</li>
+            <li>Change the health value and print the updated dictionary.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

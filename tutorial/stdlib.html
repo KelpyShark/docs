@@ -84,17 +84,17 @@ print(strings.contains("hello", "ell"))  # true</code></pre>
           <pre><code class="language-ks">import io
 
 # Write a file
-io.write("notes.txt", "Hello from KelpyShark!")
+io.write_file("notes.txt", "Hello from KelpyShark!")
 
 # Read it back
-let content = io.read("notes.txt")
+content = io.read_file("notes.txt")
 print(content)            # Hello from KelpyShark!
 
 # Append to a file
-io.append("notes.txt", "\nSecond line")
+io.append_file("notes.txt", "\nSecond line")
 
 # Check if a file exists
-print(io.exists("notes.txt"))    # true</code></pre>
+print(io.file_exists("notes.txt"))    # true</code></pre>
         </div>
 
         <h2>json</h2>
@@ -104,13 +104,13 @@ print(io.exists("notes.txt"))    # true</code></pre>
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;stdlib-json.ks</div>
           <pre><code class="language-ks">import json
 
-let raw = '{"name":"Alice","age":30}'
-let data = json.parse(raw)
+raw = "{\"name\":\"Alice\",\"age\":30}"
+data = json.decode(raw)
 print(data["name"])         # Alice
 print(data["age"])          # 30
 
-let obj = {"x": 1, "y": 2}
-let text = json.stringify(obj)
+ obj = {"x": 1, "y": 2}
+ text = json.encode(obj)
 print(text)                 # {"x":1,"y":2}</code></pre>
         </div>
 
@@ -121,10 +121,10 @@ print(text)                 # {"x":1,"y":2}</code></pre>
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;stdlib-sys.ks</div>
           <pre><code class="language-ks">import sys
 
-print(sys.platform)         # e.g. "windows" or "linux"
-print(sys.version)          # KelpyShark version string
+print(sys.platform())       # operating system name
+print(sys.cwd())            # current working directory
 
-let args = sys.args         # command-line arguments list
+ args = sys.args()         # arguments passed after `--` to `run`
 sys.exit(0)                 # exit with a status code</code></pre>
         </div>
 
@@ -137,15 +137,13 @@ sys.exit(0)                 # exit with a status code</code></pre>
 import json
 
 # GET request
-let res = http.get("https://api.example.com/users/1")
-if res["status"] == 200 {
-    let user = json.parse(res["body"])
-    print(user["name"])
-}
+ body = http.get("https://api.example.com/users/1")
+user = json.decode(body)
+print(user["name"])
 
 # POST request
-let payload = json.stringify({"title": "New post", "body": "Hello!"})
-let post_res = http.post("https://api.example.com/posts", payload)</code></pre>
+ payload = json.encode({"title": "New post", "body": "Hello!"})
+post_res = http.post_json("https://api.example.com/posts", payload)</code></pre>
         </div>
 
         <div class="callout tip">
@@ -161,9 +159,18 @@ let post_res = http.post("https://api.example.com/posts", payload)</code></pre>
             <li><strong>strings</strong> — upper, lower, trim, replace, split, join, contains…</li>
             <li><strong>io</strong> — read, write, append, exists</li>
             <li><strong>json</strong> — parse, stringify</li>
-            <li><strong>sys</strong> — platform, version, args, exit</li>
-            <li><strong>http</strong> — get, post</li>
+            <li><strong>sys</strong> — environment variables, arguments, clock, sleep, working directory, platform, and exit</li>
+            <li><strong>http</strong> — GET, POST, JSON POST, and GET status requests</li>
           </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Import <code>math</code> and use one math function.</li>
+            <li>Import <code>strings</code> and transform a sentence before printing it.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>

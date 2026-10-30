@@ -43,7 +43,7 @@
         <h2>Case conversion</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;case.ks</div>
-          <pre><code class="language-ks">let s = "Hello, World!"
+          <pre><code class="language-ks"> s = "Hello, World!"
 
 print(s.upper())   # HELLO, WORLD!
 print(s.lower())   # hello, world!</code></pre>
@@ -52,14 +52,14 @@ print(s.lower())   # hello, world!</code></pre>
         <h2>Trimming whitespace</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;trim.ks</div>
-          <pre><code class="language-ks">let s = "   hello   "
+          <pre><code class="language-ks"> s = "   hello   "
 print(s.trim())   # "hello"</code></pre>
         </div>
 
         <h2>Checking content</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;check.ks</div>
-          <pre><code class="language-ks">let s = "KelpyShark"
+          <pre><code class="language-ks"> s = "KelpyShark"
 
 print(s.starts_with("Kelpy"))   # true
 print(s.ends_with("Shark"))     # true
@@ -70,29 +70,29 @@ print(s.contains("xyz"))        # false</code></pre>
         <h2>Splitting and joining</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;split.ks</div>
-          <pre><code class="language-ks">let csv = "one,two,three"
-let parts = csv.split(",")
+          <pre><code class="language-ks"> csv = "one,two,three"
+ parts = csv.split(",")
 print(parts)       # ["one", "two", "three"]
 print(parts[1])    # two
 
-let joined = parts.join(" | ")
+ joined = parts.join(" | ")
 print(joined)      # one | two | three</code></pre>
         </div>
 
         <h2>Replacing substrings</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;replace.ks</div>
-          <pre><code class="language-ks">let s = "I like cats and cats like me"
+          <pre><code class="language-ks"> s = "I like cats and cats like me"
 print(s.replace("cats", "dogs"))
 # I like dogs and dogs like me</code></pre>
         </div>
 
-        <h2>Finding substrings</h2>
+        <h2>Character access and substrings</h2>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;find.ks</div>
-          <pre><code class="language-ks">let s = "hello world"
-print(s.index_of("world"))   # 6
-print(s.index_of("xyz"))     # -1  (not found)</code></pre>
+          <pre><code class="language-ks"> s = "hello world"
+print(s.char_at(6))          # w
+print(s.substring(0, 5))     # hello</code></pre>
         </div>
 
         <h2>Quick reference</h2>
@@ -108,7 +108,10 @@ print(s.index_of("xyz"))     # -1  (not found)</code></pre>
               <tr><td>.contains(s)</td><td>Boolean</td><td>Does the string contain <code>s</code>?</td></tr>
               <tr><td>.replace(old, new)</td><td>String</td><td>Replace all occurrences</td></tr>
               <tr><td>.split(delim)</td><td>List</td><td>Split into a list of substrings</td></tr>
-              <tr><td>.index_of(s)</td><td>Number</td><td>First index of <code>s</code>, or -1</td></tr>
+              <tr><td>.char_at(i)</td><td>String</td><td>Character at the zero-based index <code>i</code></td></tr>
+              <tr><td>.substring(start, end)</td><td>String</td><td>Characters from <code>start</code> up to, but not including, <code>end</code></td></tr>
+              <tr><td>.reverse()</td><td>String</td><td>Characters in reverse order</td></tr>
+              <tr><td>.to_num()</td><td>Number</td><td>Parse the string as a number</td></tr>
             </tbody>
           </table>
         </div>
@@ -116,6 +119,24 @@ print(s.index_of("xyz"))     # -1  (not found)</code></pre>
         <div class="callout callout-tip">
           <strong>💡 Tip</strong>
           <p>For the full reference including all method signatures, see the <a href="../reference/string-methods">String Methods Reference</a>.</p>
+        </div>
+
+        <div class="summary-box">
+          <h3>What you learned</h3>
+          <ul>
+            <li>String methods return useful values such as trimmed or uppercase text</li>
+            <li><code>split</code> turns a string into a list; <code>join</code> combines a list into a string</li>
+            <li>See the reference for the full list of supported string methods</li>
+          </ul>
+        </div>
+
+        <div class="practice-box">
+          <h2>Try it yourself</h2>
+          <p>Write these steps in <code>practice.ks</code>, then run the file with <code>kelpyshark run practice.ks</code>.</p>
+          <ol>
+            <li>Trim spaces from a string and print the result.</li>
+            <li>Split a comma-separated string and print the resulting list.</li>
+          </ol>
         </div>
 
         <div class="page-nav"></div>
