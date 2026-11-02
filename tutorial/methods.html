@@ -125,7 +125,28 @@ s.describe()</code></pre>
         </div>
 
         <h2>Class-level helpers</h2>
-        <p>Static methods are not supported yet. Define a top-level function when a helper does not need an instance:</p>
+        <p>For advanced code, KelpyShark accepts Java-style static methods, annotations, typed signatures, and semicolon separators:</p>
+        <div class="code-block">
+          <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;static-method.ks</div>
+          <pre><code class="language-ks">@Deprecated
+public class MathUtils {
+    public static int square(int value) {
+        return value * value;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(MathUtils.square(4));
+    }
+}
+
+print MathUtils.square(5)</code></pre>
+        </div>
+        <div class="output-block">
+          <div class="output-label">Output</div>
+          <pre>16
+25</pre>
+        </div>
+        <p>Declared types are metadata and are not enforced by the interpreter. Annotations such as <code>@Override</code> are accepted as metadata, but KelpyShark does not validate their Java semantics because it does not yet support inheritance. Class fields, constructors, inheritance, interfaces, and overloaded methods are not supported in Java-style classes. Use top-level functions when a helper does not need a class:</p>
         <div class="code-block">
           <div class="code-label"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span> &nbsp;helper.ks</div>
           <pre><code class="language-ks">def clamp(value, lower, upper) {

@@ -44,8 +44,36 @@
         <h2>Java codegen</h2>
         <p>
           The Java backend emits Java 11-compatible source for top-level functions,
-          control flow, collections, and supported built-ins. Classes, imports,
-          instance methods, and nested functions are rejected by the checked CLI path.
+          control flow, collections, and supported built-ins. It also accepts
+          Java-style classes containing static methods. These are emitted as
+          nested helper classes; methods use dynamic <code>Object</code> signatures
+          even when the KelpyShark source includes declared types. Imports,
+          instance methods in Java-style classes, and nested functions are rejected
+          by the checked CLI path.
+        </p>
+
+        <div class="code-block">
+          <div class="code-label">KelpyShark</div>
+          <pre><code>@Deprecated
+public class Main {
+    public static int addNumbers(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("The sum is: " + addNumbers(5, 10));
+    }
+}
+
+print Main.addNumbers(2, 3)</code></pre>
+        </div>
+        <p>
+          The Java generator emits the <code>@Deprecated</code> marker, but drops
+          other annotations and annotation arguments. In the interpreter, annotations
+          are stored as metadata and do not perform Java annotation checks. Class
+          fields, constructors, inheritance, interfaces, and method overloading are
+          not supported. To run the generated source, compile it with <code>javac</code>
+          and launch the generated <code>Program</code> class.
         </p>
 
         <div class="code-block">

@@ -116,7 +116,7 @@
   {
     "title": "Java codegen",
     "section": "Code Generation",
-    "snippet": "The Java backend emits Java 11-compatible source for top-level functions, control flow, collections, and supported built-ins. Classes, imports, instance methods, and nested functions are rejected by the checked CLI path. Shell kelpyshark build hello.ks --target java --output hello.java javac hello.java java Program Mapping KelpyShark Java number double string String boolean Boolean (boxed in dynamic values) null null",
+    "snippet": "The Java backend emits Java 11-compatible source for top-level functions, control flow, collections, and supported built-ins. It also accepts Java-style classes containing static methods. These are emitted as nested helper classes; methods use dynamic Object signatures even when the KelpyShark source includes declared types. Imports, instance methods in Java-style classes, and nested functions are rejected by the che",
     "href": "general/codegen.html#java-codegen"
   },
   {
@@ -1442,7 +1442,7 @@
   {
     "title": "Class-level helpers",
     "section": "Methods",
-    "snippet": "Static methods are not supported yet. Define a top-level function when a helper does not need an instance: helper.ks def clamp(value, lower, upper) { if value upper { return upper } return value } print(clamp(15, 0, 10)) What you learned Methods are functions defined inside a class They receive self automatically (the current instance) Call them with instance.method() Methods can call other methods via self.method() ",
+    "snippet": "For advanced code, KelpyShark accepts Java-style static methods, annotations, typed signatures, and semicolon separators: static-method.ks @Deprecated public class MathUtils { public static int square(int value) { return value * value; } public static void main(String[] args) { System.out.println(MathUtils.square(4)); } } print MathUtils.square(5) Output 16 25 Declared types are metadata and are not enforced by the i",
     "href": "tutorial/methods.html#class-level-helpers"
   },
   {
